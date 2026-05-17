@@ -16,7 +16,13 @@ def read_json(path):
 
 def render_html(quiz):
     data_json = json.dumps(quiz, ensure_ascii=False)
-    escaped_data = html.escape(data_json, quote=False)
+    safe_data = (
+        data_json
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+        .replace("</script", "\\u003c/script")
+    )
     title = html.escape(quiz["title"])
     subject = html.escape(quiz["subject"])
     date = html.escape(quiz["date"])
@@ -573,7 +579,7 @@ def render_html(quiz):
     </main>
   </div>
 
-  <script id="quiz-data" type="application/json">{escaped_data}</script>
+  <script id="quiz-data" type="application/json">{safe_data}</script>
   <script>
     const quiz = JSON.parse(document.getElementById('quiz-data').textContent);
     const circled = ['①', '②', '③', '④', '⑤'];
