@@ -192,8 +192,8 @@ def render_html(quiz):
 
     .question {{
       margin: 0 0 20px;
-      font-size: 21px;
-      line-height: 1.45;
+      font-size: 20px;
+      line-height: 1.48;
       font-weight: 760;
     }}
 
@@ -570,7 +570,7 @@ def render_html(quiz):
 
     @media (max-width: 420px) {{
       .question {{
-        font-size: 19px;
+        font-size: 18px;
       }}
 
       .actions {{
@@ -710,12 +710,43 @@ def render_html(quiz):
     }}
 
     function normalizeQuestionText(text) {{
-      return String(text)
+      const normalized = String(text)
         .replaceAll('&lt;', '<')
         .replaceAll('&gt;', '>')
         .replace(/<보기>\\s*\\./g, '<보기>')
         .replace(/<그림>\\s*\\./g, '<그림>')
         .replace(/<표>\\s*\\./g, '<표>');
+      return mergeWrappedLines(normalized);
+    }}
+
+    function mergeWrappedLines(text) {{
+      const lines = text.split('\\n').map(line => line.trim());
+      const merged = [];
+      lines.forEach(line => {{
+        if (!line) return;
+        if (isSectionLabel(line) || isListStart(line) || !merged.length || isSectionLabel(merged[merged.length - 1])) {{
+          merged.push(line);
+          return;
+        }}
+        if (isContinuationLine(line)) {{
+          merged[merged.length - 1] = `${{merged[merged.length - 1]}} ${{line}}`;
+          return;
+        }}
+        merged.push(line);
+      }});
+      return merged.join('\\n');
+    }}
+
+    function isSectionLabel(line) {{
+      return line === '<보기>' || line === '<그림>' || line === '<표>';
+    }}
+
+    function isListStart(line) {{
+      return /^[㉠㉡㉢㉣㉤∙•·▪□]/.test(line);
+    }}
+
+    function isContinuationLine(line) {{
+      return !isListStart(line) && !isSectionLabel(line);
     }}
 
     function questionMarkup(text) {{
