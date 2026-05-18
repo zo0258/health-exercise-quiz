@@ -1,0 +1,303 @@
+{
+  "quizId": "2026-05-19-daily-all-subjects",
+  "date": "2026-05-19",
+  "title": "건강운동관리사 데일리 퀴즈",
+  "subject": "전과목",
+  "round": "시험 임박 전과목 10문항",
+  "timeLimitMinutes": 10,
+  "sourceSummary": "2023년 검증 문제은행 기반",
+  "generationNote": "정책 기반 자동 생성",
+  "missingSubjects": [],
+  "questions": [
+    {
+      "id": "2023-2A-75-02",
+      "year": 2023,
+      "subject": "기능해부학",
+      "topic": "안정성 설명",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "안정성 설명 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "안정성에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        "체중이 가벼운 씨름 선수가 무거운 씨름 선수보다 안정성이 높다.",
+        "유도 선수는 안정성을 높이기 위해 기저면(base of support)을 넓힌다.",
+        "등산 시 스틱 사용으로 기저면을 넓게 하여 안정성을 높일 수 있다.",
+        "야구 투수는 투구 방향으로 기저면을 넓게 하여 안정성을 높일 수 있다."
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 2,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 75
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-1A-71-02",
+      "year": 2023,
+      "subject": "건강·체력평가",
+      "topic": "체력 요소",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "체력 요소 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "체력 요소에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        "근력이란 오랜 시간 동안 중강도에서 고강도 사이의 동적 운동을 수행할 수 있는 능력을 말한다.",
+        "밸런스 능력은 선 자세유지 등의 정적 밸런스 능력과 보행 등의 동적 밸런스 능력으로 나눌 수 있다.",
+        "민첩성이란 전신 혹은 신체의 일부분을 신속하게 움직이거나 재빠르게 방향을 전환하는 능력을 말한다.",
+        "순발력은 순간적으로 힘을 발휘하는 능력을 말하며, 검사 방법에는 제자리멀리뛰기, 서전트 점프 등이 있다."
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 2,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-1A-73-20",
+      "year": 2023,
+      "subject": "운동부하검사",
+      "topic": "운동부하검사 12유도",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "운동부하검사 12유도 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<그림>에서 운동부하검사 시 12유도 심전도의 전극부착 부위로\n옳지 않은 것은?",
+      "choices": [
+        "RA",
+        "V1",
+        "V4",
+        "V6"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 20,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 73
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-1A-72-20",
+      "year": 2023,
+      "subject": "운동처방론",
+      "topic": "ACSM 권고하",
+      "type": "개념구분",
+      "difficulty": 3,
+      "trap": "ACSM 권고하 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "ACSM(11판)에서 권고하는 과체중과 비만 환자를 위한 운동처방에\n대한 설명으로 옳은 것은?",
+      "choices": [
+        "저항운동은 체중감소 효과가 없으므로 권고하지 않는다.",
+        "체중감량은 1~2개월 동안 초기체중의 3~10%를 목표로 한다.",
+        "유산소운동은 주당 150분부터 주당 300분 이상으로 점진적으로 증가시킨다.",
+        "고강도 유산소운동은 지방 대사율이 낮으므로 권고하지 않는다."
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 20,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 72
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-1A-71-09",
+      "year": 2023,
+      "subject": "건강·체력평가",
+      "topic": "국민체력100 체력",
+      "type": "개념구분",
+      "difficulty": 3,
+      "trap": "국민체력100 체력 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>는 ‘국민체력100’ 체력 측정 검사(악력검사)를 3개 반으로\n나누어 측정한 결과이다. 분포도와 자료가 바르게 묶인 것은?\n<보기>.\n평균 (mean) 중앙치 (median) 최빈치 (mode)\n㉠ 자료 20 10 20\n㉡ 자료 20 20 10\n㉢ 자료 30 20 10",
+      "choices": [
+        "A반 - ㉠ 자료",
+        "B반 - ㉠ 자료",
+        "C반 - ㉡ 자료",
+        "C반 - ㉢ 자료"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 9,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-1A-70-12",
+      "year": 2023,
+      "subject": "운동생리학",
+      "topic": "괄호 안에",
+      "type": "빈칸",
+      "difficulty": 4,
+      "trap": "괄호 안에 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 괄호 안에 들어갈 용어는?\n<보기>.\n근육 경련(muscle cramps)과 사후 강직(rigor mortis)은 파워\n스트로크(power stroke) 후 새로운 ( )가 마이오신 머리에 붙지\n않고 액틴과 마이오신의 결합상태가 유지되기 때문에 나타나는\n일시적인 불수의적 수축유지 현상이다.",
+      "choices": [
+        "Pi",
+        "AMP",
+        "ADP",
+        "ATP"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 12,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-2A-77-19",
+      "year": 2023,
+      "subject": "스포츠심리학",
+      "topic": "상황에 해당하",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "상황에 해당하 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 상황에 해당하는 엘리엇(Eliot)의 2×2 성취목표성향은?\n<보기>.\n김○○군은 피트니스센터 트레드밀에서 혼자 달리는 것을\n좋아한다. 평상시 혼자 운동할 때는 7 km/h의 속도를 유지하며\n달리기를 한다. 하지만 다른 회원이 옆에서 더 높은 속도로 달리는\n것 같으면, 자신의 속도를 10 km/h로 높이는 성향이 있다.",
+      "choices": [
+        "숙달접근목표",
+        "수행접근목표",
+        "숙달회피목표",
+        "수행회피목표"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 19,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 77
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-2A-76-18",
+      "year": 2023,
+      "subject": "병태생리학",
+      "topic": "대사증후군 진단항목",
+      "type": "부정형",
+      "difficulty": 4,
+      "trap": "대사증후군 진단항목 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 대사증후군 진단항목 중 성인치료패널 III(ATPIII, adult\ntreatment panel III)의 기준으로 옳지 않은 것으로만 고른 것은?\n<보기>.\n㉠ 허리둘레: 남성＞110 cm, 여성＞85 cm\n㉡ 공복혈당: ≥100 mg･dL-1\n또는 경구혈당강하제 복용자\n㉢ 고밀도지단백 콜레스테롤(HDL-C): 남성＜35 mg･dL-1\n, 여성\n＜40 mg･dL-1\n또는 고밀도지단백 콜레스테롤 개선제 복용자\n㉣ 중성지방(TG): ≥150 mg･dL-1\n또는 고중성지방강하제 복용자\n㉤ 안정시 수축기혈압/이완기혈압: ≥140/85 mmHg 또는 항고혈압\n약제 복용자",
+      "choices": [
+        "㉠, ㉡, ㉢",
+        "㉠, ㉢, ㉣",
+        "㉠, ㉢, ㉤",
+        "㉡, ㉢, ㉣"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 18,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 76
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-1A-70-09",
+      "year": 2023,
+      "subject": "운동생리학",
+      "topic": "크렙스 회로",
+      "type": "보기조합",
+      "difficulty": 4,
+      "trap": "크렙스 회로 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<그림>은 크렙스 회로(Krebs cycle)의 일부를 나타낸 것이다. <보기>\n에서 옳은 것만을 모두 고른 것은?\n<보기>.\n㉠ , , 모두에서 NADH가 생성된다.\n㉡ 한 분자당 탄소 수는 시트르산이 가장 많다.\n㉢ , 에서는 탈탄산(decarboxylation) 반응이 일어난다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉡, ㉢",
+        "㉠, ㉢",
+        "㉠, ㉡, ㉢"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 9,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    },
+    {
+      "id": "2023-2A-74-07",
+      "year": 2023,
+      "subject": "운동상해",
+      "topic": "후방 팔꿈치",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "후방 팔꿈치 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 후방 팔꿈치 통증의 원인으로 옳은 것으로만 모두 고른\n것은?\n<보기>.\n㉠ 온 폄근 건병증(common extensor tendinopathy)\n㉡ 팔꿈치오목 주머니염(olecranon bursitis)\n㉢ 위팔세갈래근 건병증(triceps tendinopathy)\n㉣ 흉곽 출구 증후군(thoracic outlet syndrome)",
+      "choices": [
+        "㉠, ㉢",
+        "㉠, ㉣",
+        "㉡, ㉢",
+        "㉡, ㉣"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 7,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 74
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+    }
+  ]
+}
