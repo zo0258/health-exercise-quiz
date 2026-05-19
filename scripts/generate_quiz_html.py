@@ -812,13 +812,9 @@ def render_html(quiz):
           blockLines = [line];
           return;
         }}
-        if (blockLines.length && isListStart(line)) {{
+        if (blockLines.length) {{
           blockLines.push(line);
           return;
-        }}
-        if (blockLines.length) {{
-          parts.push(renderQuestionBlock(blockLines));
-          blockLines = [];
         }}
         parts.push(renderQuestionLine(line));
       }});
