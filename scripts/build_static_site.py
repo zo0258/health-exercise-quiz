@@ -30,7 +30,8 @@ def render_index(files):
     items = []
     for path in files:
         label = date_label(path)
-        href = "quizzes/" + path.name
+        cache_buster = str(int(path.stat().st_mtime))
+        href = f"quizzes/{path.name}?v={cache_buster}"
         items.append(
             f'<li><a href="{html.escape(href, quote=True)}">'
             f'<span>{html.escape(label)}</span><small>건강운동관리사 데일리 퀴즈</small>'
