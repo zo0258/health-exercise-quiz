@@ -2,6 +2,7 @@
 import argparse
 import json
 import random
+import re
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -52,6 +53,18 @@ def normalize_stem(text):
 
 def has_extraction_artifact(question):
     artifact_patterns = ("건강운동관리사 필기시험", "A형 건강운동관리사", "B형 건강운동관리사")
+    stem = question.get("question", "")
+    figure_dependent_patterns = (
+        "<그림>",
+        "그림>",
+        "분포도",
+    )
+    if any(pattern in stem for pattern in figure_dependent_patterns):
+        return True
+    if re.search(r"[㉠-㉧]\s*,\s*,", stem):
+        return True
+    if re.search(r",\s*,\s*모두에서|,\s*에서는", stem):
+        return True
     for choice in question.get("choices", []):
         if any(pattern in choice for pattern in artifact_patterns):
             return True

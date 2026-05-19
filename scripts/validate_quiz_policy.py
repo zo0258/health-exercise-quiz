@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import re
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -27,6 +28,18 @@ def normalize_stem(text):
 
 def has_extraction_artifact(question):
     artifact_patterns = ("건강운동관리사 필기시험", "A형 건강운동관리사", "B형 건강운동관리사")
+    stem = question.get("question", "")
+    figure_dependent_patterns = (
+        "<그림>",
+        "그림>",
+        "분포도",
+    )
+    if any(pattern in stem for pattern in figure_dependent_patterns):
+        return True
+    if re.search(r"[㉠-㉧]\s*,\s*,", stem):
+        return True
+    if re.search(r",\s*,\s*모두에서|,\s*에서는", stem):
+        return True
     for choice in question.get("choices", []):
         if any(pattern in choice for pattern in artifact_patterns):
             return True
@@ -110,6 +123,14 @@ def validate(quiz, policy, attempts, history):
             errors.append(f"보기 추출 노이즈가 남아 있습니다: {question['id']}")
 
     for record in history:
+        record_date_text = record.get("date")
+        if record_date_text:
+            try:
+                record_date = parse_date(record_date_text)
+            except ValueError:
+                record_date = None
+            if record_date and record_date >= quiz_date:
+                continue
         history_ids = set(record.get("questionIds", []))
         if history_ids == current_id_set:
             continue
