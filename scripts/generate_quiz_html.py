@@ -896,11 +896,10 @@ def render_html(quiz):
       quizView.querySelectorAll('.choice').forEach(button => {{
         button.addEventListener('click', () => {{
           const questionIndex = Number(button.dataset.question);
-          if (reviewMode) return;
           if (state.answers[questionIndex] !== null) return;
           const choiceIndex = Number(button.dataset.choice);
           state.answers[questionIndex] = choiceIndex;
-          if (choiceIndex !== quiz.questions[questionIndex].answerIndex) {{
+          if (reviewMode || choiceIndex !== quiz.questions[questionIndex].answerIndex) {{
             state.explanationOpen[questionIndex] = true;
           }}
           saveState();
@@ -932,7 +931,7 @@ def render_html(quiz):
       const answered = reviewMode ? state.explanationOpen[questionIndex] : selected !== null;
       const isCorrect = choiceIndex === q.answerIndex;
       const isSelected = choiceIndex === selected;
-      const disabled = reviewMode || answered ? 'disabled' : '';
+      const disabled = answered ? 'disabled' : '';
       const classes = [
         'choice',
         answered && isCorrect ? 'correct' : '',
@@ -948,7 +947,10 @@ def render_html(quiz):
     }}
 
     function selectedForQuestion(questionIndex) {{
-      if (reviewMode) return reviewAnswers.get(quiz.questions[questionIndex].id) ?? null;
+      if (reviewMode) {{
+        if (state.answers[questionIndex] !== null) return state.answers[questionIndex];
+        return state.explanationOpen[questionIndex] ? (reviewAnswers.get(quiz.questions[questionIndex].id) ?? null) : null;
+      }}
       return state.answers[questionIndex];
     }}
 
