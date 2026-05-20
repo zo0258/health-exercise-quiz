@@ -162,7 +162,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 6px;
+      gap: 8px;
       color: var(--muted);
       font-size: 12px;
       font-weight: 800;
@@ -389,21 +389,50 @@
 
     .bookmark-toggle {
       flex: 0 0 auto;
-      min-height: 29px;
-      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-height: 36px;
+      border: 1px solid rgba(102, 115, 93, .34);
       border-radius: 999px;
-      background: #fff;
-      color: var(--muted);
-      font-size: 12px;
+      background: rgba(255,255,255,.92);
+      color: var(--accent-strong);
+      font-size: 13px;
       font-weight: 900;
-      padding: 5px 9px;
+      padding: 8px 12px;
       cursor: pointer;
+      box-shadow: 0 2px 8px rgba(42, 50, 38, .07);
+      transition: background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
+    }
+
+    .bookmark-toggle:active {
+      transform: scale(.98);
     }
 
     .bookmark-toggle.active {
-      border-color: var(--warn);
-      background: #fff7e8;
-      color: #7a4d0d;
+      border-color: var(--accent-strong);
+      background: var(--accent-strong);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(47, 61, 50, .18);
+    }
+
+    .bookmark-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .bookmark-toggle.active .bookmark-icon {
+      background: rgba(255,255,255,.22);
+      color: #fff;
     }
 
     .reason-panel {
@@ -804,8 +833,8 @@
             <div class="q-count">Q${index + 1} · ${escapeHtml(q.topic)}</div>
             <div class="topic">
               <span>${q.year} 기출</span>
-              <button class="bookmark-toggle ${state.bookmarked[index] ? 'active' : ''}" type="button" data-question="${index}" aria-label="다시 볼 문제 표시">
-                ${state.bookmarked[index] ? '✓ 다시 볼 문제' : '다시 볼 문제'}
+              <button class="bookmark-toggle ${state.bookmarked[index] ? 'active' : ''}" type="button" data-question="${index}" aria-label="다시 볼 문제 표시" aria-pressed="${state.bookmarked[index] ? 'true' : 'false'}">
+                <span class="bookmark-icon">${state.bookmarked[index] ? '✓' : '☆'}</span><span>다시 보기</span>
               </button>
             </div>
           </div>
