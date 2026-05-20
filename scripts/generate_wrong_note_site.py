@@ -164,15 +164,16 @@ def render_html(data):
     details.card summary::-webkit-details-marker {{ display:none; }}
     .open-hint {{ margin-top:8px; color:var(--accent); font-size:13px; font-weight:950; }}
     .card.mastered {{ opacity:.62; }}
-    .card-head {{ display:grid; grid-template-columns:1fr auto; gap:12px; padding:14px; border-bottom:1px solid var(--line); background:#fbfcfa; }}
+    .card-head {{ display:block; padding:14px; border-bottom:1px solid var(--line); background:#fbfcfa; }}
     .topic {{ font-size:15px; font-weight:950; }}
     .sub {{ margin-top:3px; color:var(--muted); font-size:13px; font-weight:700; }}
-    .card-tools {{ display:grid; justify-items:end; gap:8px; }}
-    .importance {{ display:inline-flex; align-items:center; gap:3px; padding:3px; border:1px solid rgba(102,115,93,.2); border-radius:999px; background:#fff; }}
+    .review-controls {{ display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; margin:0 0 12px; padding:10px; border:1px solid rgba(102,115,93,.16); border-radius:12px; background:#fbfcfa; }}
+    .importance {{ display:inline-flex; align-items:center; gap:3px; width:max-content; padding:3px; border:1px solid rgba(102,115,93,.2); border-radius:999px; background:#fff; }}
     .importance-label {{ margin-right:3px; color:var(--muted); font-size:11px; font-weight:900; }}
     .importance button {{ min-width:28px; min-height:26px; border:0; border-radius:999px; background:transparent; color:var(--muted); font:inherit; font-size:12px; font-weight:950; }}
     .importance button.active {{ background:var(--accent); color:#fff; }}
-    .master {{ display:inline-flex; align-items:center; gap:7px; color:var(--accent); font-size:12.5px; font-weight:900; white-space:nowrap; }}
+    .master-toggle {{ min-height:34px; padding:6px 10px; border:1px solid rgba(102,115,93,.22); border-radius:999px; background:#fff; color:var(--accent); font:inherit; font-size:12.5px; font-weight:950; white-space:nowrap; }}
+    .master-toggle.active {{ background:var(--sage); color:var(--accent-dark); }}
     .body {{ padding:14px; }}
     .question {{ margin:0 0 12px; font-size:16px; font-weight:850; white-space:pre-line; }}
     .choices {{ display:grid; gap:7px; margin:10px 0 12px; }}
@@ -180,7 +181,7 @@ def render_html(data):
     .choice strong {{ align-self:start; }}
     .choice.answer {{ border-color:var(--ok); background:var(--ok-soft); }}
     .choice.selected:not(.answer) {{ border-color:var(--danger); background:var(--danger-soft); }}
-    .choice-check {{ min-width:30px; min-height:30px; border:1px solid rgba(102,115,93,.28); border-radius:8px; background:#fff; color:var(--muted); font:inherit; font-size:16px; font-weight:950; }}
+    .choice-check {{ min-width:38px; min-height:38px; border:1px solid rgba(102,115,93,.28); border-radius:10px; background:#fff; color:var(--muted); font:inherit; font-size:18px; font-weight:950; }}
     .choice-check.active {{ border-color:var(--accent); background:var(--sage); color:var(--accent-dark); }}
     .explain-toggle {{ width:100%; min-height:42px; margin-top:8px; border:0; border-radius:10px; background:var(--accent); color:#fff; font:inherit; font-size:14px; font-weight:950; }}
     .explanation {{ display:grid; gap:8px; margin-top:12px; }}
@@ -190,7 +191,7 @@ def render_html(data):
     .ex-row span {{ color:#2c352f; font-size:14px; white-space:pre-line; }}
     .empty {{ padding:28px 14px; color:var(--muted); border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; text-align:center; font-weight:800; }}
     textarea {{ width:100%; min-height:130px; margin-top:10px; padding:10px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:13px; resize:vertical; }}
-    @media (max-width:520px) {{ main {{ padding:18px 12px 28px; }} h1 {{ font-size:25px; }} .back {{ font-size:12px; }} .stats {{ margin-bottom:15px; }} .stat {{ min-height:27px; padding:4px 8px; }} .priority {{ padding:13px 12px; }} .priority h2 {{ font-size:17px; }} .card-head {{ grid-template-columns:1fr; padding:13px; }} .card-tools {{ justify-items:start; }} .body {{ padding:13px; }} .question {{ font-size:15.5px; }} .choice {{ grid-template-columns:26px 1fr auto; padding:9px; }} }}
+    @media (max-width:520px) {{ main {{ padding:18px 12px 28px; }} h1 {{ font-size:25px; }} .back {{ font-size:12px; }} .stats {{ margin-bottom:15px; }} .stat {{ min-height:27px; padding:4px 8px; }} .priority {{ padding:13px 12px; }} .priority h2 {{ font-size:17px; }} .card-head {{ padding:13px; }} .review-controls {{ grid-template-columns:1fr; gap:8px; }} .body {{ padding:13px; }} .question {{ font-size:15.5px; }} .choice {{ grid-template-columns:26px 1fr 38px; padding:9px; }} }}
   </style>
 </head>
 <body>
@@ -293,7 +294,7 @@ def render_html(data):
         const importanceButtons = ['high','mid','low'].map(function(level) {{
           return '<button type="button" class="' + (currentImportance === level ? 'active' : '') + '" data-id="' + escapeHtml(record.questionId) + '" data-importance="' + level + '">' + importanceLabel[level] + '</button>';
         }}).join('');
-        return '<details class="card ' + (isMastered ? 'mastered' : '') + '" id="' + anchorId(record.questionId) + '"><summary class="card-head"><div><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 복습 ' + (record.reviewRound || 1) + '회</div><div class="open-hint">문제 보기</div></div><div class="card-tools"><div class="importance"><span class="importance-label">중요도</span>' + importanceButtons + '</div><label class="master"><input type="checkbox" class="masteredBox" data-id="' + escapeHtml(record.questionId) + '"' + (isMastered ? ' checked' : '') + '> 숙지 완료</label></div></summary><div class="body"><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><button class="explain-toggle" type="button">해설 보기</button><div class="explanation" hidden>' + ex + '</div></div></details>';
+        return '<details class="card ' + (isMastered ? 'mastered' : '') + '" id="' + anchorId(record.questionId) + '"><summary class="card-head"><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 복습 ' + (record.reviewRound || 1) + '회</div><div class="open-hint">문제 보기</div></summary><div class="body"><div class="review-controls"><div class="importance"><span class="importance-label">중요도</span>' + importanceButtons + '</div><button class="master-toggle ' + (isMastered ? 'active' : '') + '" type="button" data-id="' + escapeHtml(record.questionId) + '">' + (isMastered ? '숙지 완료됨' : '숙지 완료') + '</button></div><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><button class="explain-toggle" type="button">해설 보기</button><div class="explanation" hidden>' + ex + '</div></div></details>';
       }}).join('');
       list.querySelectorAll('.importance button').forEach(function(button) {{
         button.addEventListener('click', function(event) {{
@@ -349,17 +350,15 @@ def render_html(data):
           }}
         }});
       }});
-      list.querySelectorAll('.masteredBox').forEach(function(box) {{
-        box.addEventListener('click', function(event) {{ event.stopPropagation(); }});
-        box.addEventListener('change', function() {{
+      list.querySelectorAll('.master-toggle').forEach(function(box) {{
+        box.addEventListener('click', function(event) {{
+          event.preventDefault();
+          event.stopPropagation();
           const next = loadMastered();
-          if (box.checked) next.add(box.dataset.id); else next.delete(box.dataset.id);
+          if (next.has(box.dataset.id)) next.delete(box.dataset.id); else next.add(box.dataset.id);
           saveMastered(next);
           renderList();
         }});
-      }});
-      list.querySelectorAll('.master').forEach(function(label) {{
-        label.addEventListener('click', function(event) {{ event.stopPropagation(); }});
       }});
       priority.querySelectorAll('a[href^="#wrong-"]').forEach(function(link) {{
         link.addEventListener('click', function() {{
