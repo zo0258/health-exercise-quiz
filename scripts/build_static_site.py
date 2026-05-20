@@ -28,10 +28,15 @@ def date_label(path):
 
 def render_index(files):
     items = []
+    latest_href = "wrong-note.html"
+    latest_label = "준비 중"
     for path in files:
         label = date_label(path)
         cache_buster = str(int(path.stat().st_mtime))
         href = f"quizzes/{path.name}?v={cache_buster}"
+        if latest_label == "준비 중":
+            latest_href = href
+            latest_label = label
         items.append(
             f'<li><a href="{html.escape(href, quote=True)}">'
             f'<span>{html.escape(label)}</span><small>건강운동관리사 데일리 퀴즈</small>'
@@ -96,6 +101,30 @@ def render_index(files):
       font-weight: 900;
       background: #f8faf7;
     }}
+    .quick {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 6px 0 18px;
+    }}
+    .quick a {{
+      min-height: 96px;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      background: #fbfcfa;
+    }}
+    .quick strong {{
+      display: block;
+      font-size: 17px;
+      font-weight: 900;
+    }}
+    .quick small {{
+      display: block;
+      margin-top: 4px;
+      text-align: left;
+      line-height: 1.35;
+    }}
     ul {{
       display: grid;
       gap: 10px;
@@ -127,6 +156,9 @@ def render_index(files):
       font-weight: 700;
       text-align: right;
     }}
+    @media (max-width: 430px) {{
+      .quick {{ grid-template-columns: 1fr; }}
+    }}
   </style>
 </head>
 <body>
@@ -134,6 +166,10 @@ def render_index(files):
     <h1>건강운동관리사 데일리 퀴즈</h1>
     <p>유소영님의 합격을 기원합니다.</p>
     <div class="nav"><a href="index.html">데일리 퀴즈</a><a href="wrong-note.html">오답노트</a></div>
+    <section class="quick" aria-label="빠른 이동">
+      <a href="{html.escape(latest_href, quote=True)}"><strong>오늘 문제 풀기</strong><small>{html.escape(latest_label)} 퀴즈 바로가기</small></a>
+      <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제와 다시 볼 문제 모아보기</small></a>
+    </section>
     <ul>
       {''.join(items)}
     </ul>

@@ -56,6 +56,30 @@
       font-weight: 900;
       background: #f8faf7;
     }
+    .quick {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 6px 0 18px;
+    }
+    .quick a {
+      min-height: 96px;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      background: #fbfcfa;
+    }
+    .quick strong {
+      display: block;
+      font-size: 17px;
+      font-weight: 900;
+    }
+    .quick small {
+      display: block;
+      margin-top: 4px;
+      text-align: left;
+      line-height: 1.35;
+    }
     ul {
       display: grid;
       gap: 10px;
@@ -87,6 +111,9 @@
       font-weight: 700;
       text-align: right;
     }
+    @media (max-width: 430px) {
+      .quick { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -94,6 +121,10 @@
     <h1>건강운동관리사 데일리 퀴즈</h1>
     <p>유소영님의 합격을 기원합니다.</p>
     <div class="nav"><a href="index.html">데일리 퀴즈</a><a href="wrong-note.html">오답노트</a></div>
+    <section class="quick" aria-label="빠른 이동">
+      <a href="quizzes/quiz-2026-05-20.html?v=1779231690"><strong>오늘 문제 풀기</strong><small>2026-05-20 퀴즈 바로가기</small></a>
+      <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제와 다시 볼 문제 모아보기</small></a>
+    </section>
     <ul>
       <li><a href="quizzes/quiz-2026-05-20.html?v=1779231690"><span>2026-05-20</span><small>건강운동관리사 데일리 퀴즈</small></a></li><li><a href="quizzes/quiz-2026-05-19.html?v=1779202420"><span>2026-05-19</span><small>건강운동관리사 데일리 퀴즈</small></a></li><li><a href="quizzes/quiz-2026-05-18.html?v=1779202420"><span>2026-05-18</span><small>건강운동관리사 데일리 퀴즈</small></a></li>
     </ul>
