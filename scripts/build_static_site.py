@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+from datetime import date
 import html
 import json
 import re
@@ -11,6 +12,34 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE_DIR = Path.home() / "Desktop" / "건강운동관리사"
 DEFAULT_SITE_DIR = Path.home() / "Desktop" / "건강운동관리사_web"
+EXAM_DATE = date(2026, 6, 13)
+DAILY_SENTENCES = {
+    "2026-05-20": "새로운 문제가 나와도 괜찮다. 이미 맞혀온 기준이 너를 지켜준다.",
+    "2026-05-21": "불안은 준비가 부족해서가 아니라, 잘하고 싶어서 생기는 신호다.",
+    "2026-05-22": "모르는 문제 몇 개보다, 이미 맞힐 수 있는 문제를 지키는 것이 더 중요하다.",
+    "2026-05-23": "합격은 모든 문제를 아는 사람이 아니라, 흔들려도 기준을 잃지 않는 사람이 가져간다.",
+    "2026-05-24": "오늘도 새로 증명할 필요 없다. 이미 쌓아온 점수를 유지하면 된다.",
+    "2026-05-25": "불안한 날에도 풀 수 있는 문제가 있다. 그 문제들이 합격선을 만든다.",
+    "2026-05-26": "처음 보는 문제는 누구에게나 낯설다. 익숙한 문제를 차분히 맞히면 된다.",
+    "2026-05-27": "컨디션이 완벽하지 않아도 괜찮다. 기준대로 읽는 습관은 남아 있다.",
+    "2026-05-28": "틀릴까 봐 걱정되는 건 자연스럽다. 그래도 지금까지 맞혀온 기록은 사라지지 않는다.",
+    "2026-05-29": "새 문제를 두려워하기보다, 아는 문제를 놓치지 않는 데 마음을 둔다.",
+    "2026-05-30": "2주 남았다. 더 잘하려고 애쓰기보다, 이미 되는 것을 안정시키면 된다.",
+    "2026-05-31": "불안이 올라오면 문제를 작게 나눈다. 문장 하나, 보기 하나씩 보면 된다.",
+    "2026-06-01": "오늘의 목표는 완벽한 확신이 아니라, 흔들려도 다시 돌아오는 연습이다.",
+    "2026-06-02": "모르는 보기가 있어도 당황하지 않는다. 아는 기준부터 지우면 답은 좁혀진다.",
+    "2026-06-03": "열흘 남았다. 지금부터는 실력을 늘리는 것보다 실수를 줄이는 시간이 더 크다.",
+    "2026-06-04": "시험장에서 필요한 건 특별한 컨디션이 아니라, 평소처럼 읽는 힘이다.",
+    "2026-06-05": "불안은 지나가고, 훈련한 기준은 남는다. 오늘도 그 기준만 확인하면 된다.",
+    "2026-06-06": "일주일 남았다. 새로운 걱정보다 이미 맞힌 문제들을 믿어도 된다.",
+    "2026-06-07": "당일에 낯선 문제가 보여도 괜찮다. 합격은 낯선 문제 몇 개로 무너지지 않는다.",
+    "2026-06-08": "틀릴 수 있다는 생각보다, 맞힐 수 있는 문제를 차분히 지키는 생각이 먼저다.",
+    "2026-06-09": "오늘은 불안을 없애려 하지 않는다. 불안해도 풀 수 있다는 감각을 확인한다.",
+    "2026-06-10": "남은 3일은 더 몰아붙이는 시간이 아니다. 정리한 기준을 조용히 붙잡는 시간이다.",
+    "2026-06-11": "컨디션이 조금 흔들려도, 익숙한 문제를 읽는 힘은 쉽게 사라지지 않는다.",
+    "2026-06-12": "내일은 완벽해야 하는 날이 아니다. 준비한 만큼 차분히 꺼내면 되는 날이다.",
+    "2026-06-13": "모르는 문제에 멈추지 말고, 아는 문제를 지킨다. 이미 합격선에 닿는 힘은 있다.",
+}
 
 
 def find_quiz_files(source_dir):
@@ -77,9 +106,21 @@ def status_badges(label, attempts, review_dates):
     return '<span class="badge pending">미완료</span>'
 
 
+def today_sentence():
+    today = date.today()
+    key = today.isoformat()
+    sentence = DAILY_SENTENCES.get(key)
+    if sentence is None:
+        sentence = DAILY_SENTENCES["2026-05-20"] if today < date(2026, 5, 20) else DAILY_SENTENCES["2026-06-13"]
+    days_left = (EXAM_DATE - today).days
+    dday = "D-Day" if days_left == 0 else f"D-{days_left}" if days_left > 0 else "시험 완료"
+    return dday, sentence
+
+
 def render_index(files):
     attempts = load_attempt_status()
     review_dates = load_review_dates()
+    dday_label, daily_sentence = today_sentence()
     completed_count = sum(1 for path in files if date_label(path) in attempts)
     review_count = sum(1 for path in files if date_label(path) in review_dates)
     pending_count = max(len(files) - completed_count, 0)
@@ -322,6 +363,42 @@ def render_index(files):
       line-height: 1.35;
       font-size: 12px;
     }}
+    .daily-word {{
+      width: calc(100% - 10px);
+      margin: 14px auto 0;
+      padding: 11px 13px;
+      border: 1px solid rgba(102, 115, 93, .18);
+      border-radius: 13px;
+      background: rgba(255,255,255,.58);
+    }}
+    .daily-word-head {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+    }}
+    .daily-word-title {{
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 950;
+    }}
+    .daily-word-day {{
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }}
+    .daily-word p {{
+      margin: 0;
+      color: #4b554c;
+      font-size: 13px;
+      font-weight: 760;
+      line-height: 1.48;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }}
     .history-title {{
       margin: 0;
       color: var(--accent-dark);
@@ -401,6 +478,11 @@ def render_index(files):
       .quick a {{ min-height: 66px; padding: 10px; }}
       .quick strong {{ font-size: 16px; }}
       .quick small {{ font-size: 10.5px; line-height: 1.22; }}
+      .daily-word {{ width: calc(100% - 8px); margin-top: 12px; padding: 10px 11px; }}
+      .daily-word-head {{ margin-bottom: 4px; }}
+      .daily-word-title {{ font-size: 11.5px; }}
+      .daily-word-day {{ font-size: 10.5px; }}
+      .daily-word p {{ font-size: 12.5px; line-height: 1.45; }}
       .history-wrap {{ width: calc(100% - 8px); }}
       .history-bar {{ margin: 19px 0 10px; }}
       .history-title {{ font-size: 15px; }}
@@ -431,6 +513,13 @@ def render_index(files):
         <a href="{html.escape(latest_href, quote=True)}"><strong>오늘 문제 풀기</strong><small>{html.escape(latest_status)}</small></a>
         <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제·다시 볼 문제</small></a>
       </section>
+    </section>
+    <section class="daily-word" aria-label="오늘의 한 문장">
+      <div class="daily-word-head">
+        <div class="daily-word-title">오늘의 한 문장</div>
+        <div class="daily-word-day">{html.escape(dday_label)}</div>
+      </div>
+      <p>{html.escape(daily_sentence)}</p>
     </section>
     <div class="history-wrap">
       <div class="history-bar">

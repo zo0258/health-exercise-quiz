@@ -209,6 +209,42 @@
       line-height: 1.35;
       font-size: 12px;
     }
+    .daily-word {
+      width: calc(100% - 10px);
+      margin: 14px auto 0;
+      padding: 11px 13px;
+      border: 1px solid rgba(102, 115, 93, .18);
+      border-radius: 13px;
+      background: rgba(255,255,255,.58);
+    }
+    .daily-word-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    .daily-word-title {
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .daily-word-day {
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .daily-word p {
+      margin: 0;
+      color: #4b554c;
+      font-size: 13px;
+      font-weight: 760;
+      line-height: 1.48;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
     .history-title {
       margin: 0;
       color: var(--accent-dark);
@@ -288,6 +324,11 @@
       .quick a { min-height: 66px; padding: 10px; }
       .quick strong { font-size: 16px; }
       .quick small { font-size: 10.5px; line-height: 1.22; }
+      .daily-word { width: calc(100% - 8px); margin-top: 12px; padding: 10px 11px; }
+      .daily-word-head { margin-bottom: 4px; }
+      .daily-word-title { font-size: 11.5px; }
+      .daily-word-day { font-size: 10.5px; }
+      .daily-word p { font-size: 12.5px; line-height: 1.45; }
       .history-wrap { width: calc(100% - 8px); }
       .history-bar { margin: 19px 0 10px; }
       .history-title { font-size: 15px; }
@@ -318,6 +359,13 @@
         <a href="quizzes/quiz-2026-05-20.html?v=1779253194"><strong>오늘 문제 풀기</strong><small>미풀이 · 10문항 남음</small></a>
         <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제·다시 볼 문제</small></a>
       </section>
+    </section>
+    <section class="daily-word" aria-label="오늘의 한 문장">
+      <div class="daily-word-head">
+        <div class="daily-word-title">오늘의 한 문장</div>
+        <div class="daily-word-day">D-24</div>
+      </div>
+      <p>새로운 문제가 나와도 괜찮다. 이미 맞혀온 기준이 너를 지켜준다.</p>
     </section>
     <div class="history-wrap">
       <div class="history-bar">
