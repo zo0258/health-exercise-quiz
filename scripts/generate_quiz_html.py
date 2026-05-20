@@ -354,10 +354,24 @@ def render_html(quiz):
       padding: 12px 13px;
       border: 1px solid rgba(47, 107, 79, .18);
       border-radius: var(--radius);
-      background: var(--accent-wash);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       color: var(--accent-strong);
       font-size: 14px;
       font-weight: 800;
+    }}
+
+    .review-mode-note strong {{
+      display: block;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 950;
+    }}
+
+    .review-mode-note span {{
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
     }}
 
     .review-summary {{
@@ -708,6 +722,27 @@ def render_html(quiz):
       resize: vertical;
     }}
 
+    .backup-panel {{
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfa;
+      overflow: hidden;
+    }}
+
+    .backup-panel summary {{
+      min-height: 44px;
+      padding: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+    }}
+
+    .backup-body {{
+      padding: 0 12px 12px;
+    }}
+
     .section-title {{
       margin: 24px 0 8px;
       font-size: 17px;
@@ -916,7 +951,7 @@ def render_html(quiz):
     function renderQuiz() {{
       quizView.innerHTML = quiz.questions.map((q, index) => `
         <article class="question-card ${{index === state.current ? 'active' : ''}}" data-index="${{index}}">
-          ${{reviewMode ? '<div class="review-mode-note">이미 풀이한 회차입니다. 보기를 누르지 않아도 정답과 해설을 확인할 수 있습니다.</div>' : ''}}
+          ${{reviewMode ? '<div class="review-mode-note"><strong>복습 모드</strong><span>풀이완료 회차입니다. 정답과 해설을 바로 확인하세요.</span></div>' : ''}}
           ${{reviewMode && index === 0 ? reviewSummaryMarkup() : ''}}
           <div class="q-head">
             <div class="q-count">Q${{index + 1}}</div>
@@ -1172,9 +1207,13 @@ def render_html(quiz):
           <a href="../wrong-note.html">오답노트로 이동</a>
           <a class="secondary" id="retryLink" href="${{location.pathname}}">오늘 다시 풀기</a>
         </div>
-        <h2 class="section-title">${{syncConfig.enabled ? '수동 백업용 결과' : 'Telegram 반영용 결과'}}</h2>
-        <button class="btn primary" id="copyBtn" type="button">결과 복사</button>
-        <textarea class="copy-box" id="copyBox" readonly>${{escapeHtml(resultText)}}</textarea>
+        <details class="backup-panel">
+          <summary>${{syncConfig.enabled ? '제출 오류 시 수동 백업' : 'Telegram 반영용 결과'}}</summary>
+          <div class="backup-body">
+            <button class="btn primary" id="copyBtn" type="button">결과 복사</button>
+            <textarea class="copy-box" id="copyBox" readonly>${{escapeHtml(resultText)}}</textarea>
+          </div>
+        </details>
       `;
 
       const copyBtn = document.getElementById('copyBtn');
@@ -1222,7 +1261,7 @@ def render_html(quiz):
         }});
         submitBtn.textContent = '제출 완료';
         syncStatus.className = 'sync-status ok';
-        syncStatus.textContent = '저장 요청을 보냈습니다. 메인/오답노트 반영은 OpenClaw 동기화 후 갱신됩니다.';
+        syncStatus.textContent = '제출 요청 완료. 잠시 후 대시보드와 오답노트에 반영됩니다.';
       }} catch (error) {{
         submitBtn.disabled = false;
         submitBtn.textContent = '다시 제출';
@@ -1351,6 +1390,7 @@ def render_html(quiz):
       if (!reviewMode && state.current === quiz.questions.length - 1 && unansweredCount() > 0) {{
         nextBtn.textContent = `미응답 ${{unansweredCount()}}개`;
       }}
+      nextBtn.disabled = !reviewMode && selected === null;
       explainBtn.disabled = !reviewMode && selected === null;
       explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : '해설 보기';
     }}

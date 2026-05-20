@@ -155,15 +155,18 @@ def render_html(data):
     .stat strong {{ display:block; margin-top:5px; font-size:22px; line-height:1; font-weight:900; }}
     .toolbar {{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin:12px 0 18px; padding:12px; border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; }}
     .toggle {{ display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:14px; font-weight:850; }}
-    .export {{ min-height:38px; border:1px solid var(--accent); border-radius:var(--radius); background:var(--accent); color:#fff; padding:8px 11px; font:inherit; font-size:13px; font-weight:900; }}
+    .export {{ min-height:38px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; color:var(--muted); padding:8px 11px; font:inherit; font-size:13px; font-weight:900; }}
     .priority {{ margin:18px 0 14px; padding:14px; border:1px solid rgba(47,107,79,.18); border-radius:var(--radius); background:#f5faf6; }}
     .priority h2 {{ margin:0 0 10px; font-size:17px; font-weight:900; }}
     .priority-list {{ display:grid; gap:8px; }}
-    .priority-item {{ padding:11px 12px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; }}
+    .priority-item {{ display:block; padding:11px 12px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; color:var(--ink); text-decoration:none; }}
     .priority-item strong {{ display:block; font-size:14px; }}
     .priority-item span {{ display:block; margin-top:3px; color:var(--muted); font-size:13px; font-weight:750; }}
     .list {{ display:grid; gap:12px; }}
-    .card {{ border:1px solid var(--line); border-radius:var(--radius); background:#fff; overflow:hidden; }}
+    .card {{ border:1px solid var(--line); border-radius:var(--radius); background:#fff; overflow:hidden; scroll-margin-top:14px; }}
+    details.card summary {{ list-style:none; cursor:pointer; }}
+    details.card summary::-webkit-details-marker {{ display:none; }}
+    .open-hint {{ margin-top:8px; color:var(--accent); font-size:13px; font-weight:900; }}
     .card.mastered {{ opacity:.62; }}
     .card-head {{ display:grid; grid-template-columns:1fr auto; gap:12px; padding:14px; border-bottom:1px solid var(--line); background:#fbfcfa; }}
     .topic {{ font-size:15px; font-weight:900; }}
@@ -193,7 +196,7 @@ def render_html(data):
     <section class="priority" id="priority"></section>
     <section class="toolbar">
       <label class="toggle"><input type="checkbox" id="hideMastered"> 숙지 완료 숨기기</label>
-      <button class="export" id="exportBtn" type="button">숙지 목록 복사</button>
+      <button class="export" id="exportBtn" type="button">관리자용 동기화</button>
     </section>
     <section class="list" id="list"></section>
     <textarea id="exportBox" readonly hidden></textarea>
@@ -219,6 +222,7 @@ def render_html(data):
     }}
     function saveMastered(mastered) {{ localStorage.setItem(masteredKey, JSON.stringify(Array.from(mastered).sort())); }}
     function escapeHtml(value) {{ return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#039;"); }}
+    function anchorId(value) {{ return 'wrong-' + String(value ?? '').replace(/[^a-zA-Z0-9_-]/g, '-'); }}
     function groupedWrong() {{
       const byId = new Map();
       data.wrong.forEach(function(record) {{
@@ -248,7 +252,7 @@ def render_html(data):
       }}).slice(0, 3);
       if (!candidates.length) {{ priority.innerHTML = '<h2>오늘 복습 우선순위</h2><div class="priority-list"><div class="priority-item"><strong>누적 오답이 없습니다</strong><span>오늘 문제 풀이 후 자동으로 우선순위가 잡힙니다.</span></div></div>'; return; }}
       priority.innerHTML = '<h2>오늘 복습 우선순위</h2><div class="priority-list">' + candidates.map(function(item, index) {{
-        return '<div class="priority-item"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject) + ' · 회독 ' + (item.reviewRound || 1) + '회 · 최근 ' + escapeHtml(item.dates[item.dates.length - 1] || '') + '</span></div>';
+        return '<a class="priority-item" href="#' + anchorId(item.questionId) + '"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject) + ' · 회독 ' + (item.reviewRound || 1) + '회 · 최근 ' + escapeHtml(item.dates[item.dates.length - 1] || '') + '</span></a>';
       }}).join('') + '</div>';
     }}
     function renderList() {{
@@ -269,14 +273,27 @@ def render_html(data):
         const ex = (record.choices || []).map(function(choice, index) {{
           return '<div class="ex-row"><strong>' + (circled[index] || index + 1) + ' ' + (index === answer ? '정답' : '오답') + '</strong><span>' + escapeHtml(choiceExplanation(record, index)) + '</span></div>';
         }}).join('');
-        return '<article class="card ' + (isMastered ? 'mastered' : '') + '"><div class="card-head"><div><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 틀린 날짜 ' + record.dates.map(escapeHtml).join(', ') + ' · 회독 ' + (record.reviewRound || 1) + '회 · 이유 ' + escapeHtml(record.reasons.join(', ')) + '</div></div><label class="master"><input type="checkbox" class="masteredBox" data-id="' + escapeHtml(record.questionId) + '"' + (isMastered ? ' checked' : '') + '> 숙지 완료</label></div><div class="body"><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><div class="explanation">' + ex + '</div></div></article>';
+        return '<details class="card ' + (isMastered ? 'mastered' : '') + '" id="' + anchorId(record.questionId) + '"><summary class="card-head"><div><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 틀린 날짜 ' + record.dates.map(escapeHtml).join(', ') + ' · 회독 ' + (record.reviewRound || 1) + '회 · 이유 ' + escapeHtml(record.reasons.join(', ')) + '</div><div class="open-hint">문제·해설 보기</div></div><label class="master"><input type="checkbox" class="masteredBox" data-id="' + escapeHtml(record.questionId) + '"' + (isMastered ? ' checked' : '') + '> 숙지 완료</label></summary><div class="body"><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><div class="explanation">' + ex + '</div></div></details>';
       }}).join('');
       list.querySelectorAll('.masteredBox').forEach(function(box) {{
+        box.addEventListener('click', function(event) {{ event.stopPropagation(); }});
         box.addEventListener('change', function() {{
           const next = loadMastered();
           if (box.checked) next.add(box.dataset.id); else next.delete(box.dataset.id);
           saveMastered(next);
           renderList();
+        }});
+      }});
+      list.querySelectorAll('.master').forEach(function(label) {{
+        label.addEventListener('click', function(event) {{ event.stopPropagation(); }});
+      }});
+      priority.querySelectorAll('a[href^="#wrong-"]').forEach(function(link) {{
+        link.addEventListener('click', function() {{
+          const card = document.querySelector(link.getAttribute('href'));
+          if (card) {{
+            card.open = true;
+            setTimeout(function() {{ card.scrollIntoView({{ behavior: 'smooth', block: 'start' }}); }}, 0);
+          }}
         }});
       }});
     }}
