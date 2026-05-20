@@ -117,10 +117,16 @@ def today_sentence():
     return dday, sentence
 
 
+def sentence_lines(sentence):
+    lines = re.split(r"(?<=\.)\s+", sentence.strip())
+    return [line.strip() for line in lines if line.strip()]
+
+
 def render_index(files):
     attempts = load_attempt_status()
     review_dates = load_review_dates()
     dday_label, daily_sentence = today_sentence()
+    daily_sentence_html = "".join(f"<span>{html.escape(line)}</span>" for line in sentence_lines(daily_sentence))
     completed_count = sum(1 for path in files if date_label(path) in attempts)
     review_count = sum(1 for path in files if date_label(path) in review_dates)
     pending_count = max(len(files) - completed_count, 0)
@@ -365,11 +371,13 @@ def render_index(files):
     }}
     .daily-word {{
       width: calc(100% - 10px);
-      margin: 14px auto 0;
-      padding: 11px 13px;
-      border: 1px solid rgba(102, 115, 93, .18);
+      margin: 16px auto 0;
+      padding: 13px 14px 13px 15px;
+      border: 1px solid rgba(102, 115, 93, .24);
+      border-left: 3px solid var(--accent);
       border-radius: 13px;
-      background: rgba(255,255,255,.58);
+      background: linear-gradient(135deg, rgba(233,238,228,.72), rgba(255,255,255,.70));
+      box-shadow: 0 8px 20px rgba(36,37,34,.04);
     }}
     .daily-word-head {{
       display: flex;
@@ -380,12 +388,19 @@ def render_index(files):
     }}
     .daily-word-title {{
       color: var(--accent-dark);
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 950;
     }}
     .daily-word-day {{
       flex: 0 0 auto;
-      color: var(--accent);
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--accent-dark);
       font-size: 11px;
       font-weight: 950;
       white-space: nowrap;
@@ -393,11 +408,17 @@ def render_index(files):
     .daily-word p {{
       margin: 0;
       color: #4b554c;
-      font-size: 13px;
-      font-weight: 760;
-      line-height: 1.48;
+      font-size: 13.5px;
+      font-weight: 820;
+      line-height: 1.52;
       word-break: keep-all;
       overflow-wrap: anywhere;
+    }}
+    .daily-word p span {{
+      display: block;
+    }}
+    .daily-word p span + span {{
+      margin-top: 2px;
     }}
     .history-title {{
       margin: 0;
@@ -478,11 +499,11 @@ def render_index(files):
       .quick a {{ min-height: 66px; padding: 10px; }}
       .quick strong {{ font-size: 16px; }}
       .quick small {{ font-size: 10.5px; line-height: 1.22; }}
-      .daily-word {{ width: calc(100% - 8px); margin-top: 12px; padding: 10px 11px; }}
+      .daily-word {{ width: calc(100% - 8px); margin-top: 13px; padding: 12px 12px 12px 13px; }}
       .daily-word-head {{ margin-bottom: 4px; }}
-      .daily-word-title {{ font-size: 11.5px; }}
+      .daily-word-title {{ font-size: 12px; }}
       .daily-word-day {{ font-size: 10.5px; }}
-      .daily-word p {{ font-size: 12.5px; line-height: 1.45; }}
+      .daily-word p {{ font-size: 12.8px; line-height: 1.48; }}
       .history-wrap {{ width: calc(100% - 8px); }}
       .history-bar {{ margin: 19px 0 10px; }}
       .history-title {{ font-size: 15px; }}
@@ -519,7 +540,7 @@ def render_index(files):
         <div class="daily-word-title">오늘의 한 문장</div>
         <div class="daily-word-day">{html.escape(dday_label)}</div>
       </div>
-      <p>{html.escape(daily_sentence)}</p>
+      <p>{daily_sentence_html}</p>
     </section>
     <div class="history-wrap">
       <div class="history-bar">
