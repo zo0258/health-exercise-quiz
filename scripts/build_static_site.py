@@ -109,15 +109,15 @@ def render_index(files):
   <title>건강운동관리사 데일리 퀴즈</title>
   <style>
     :root {{
-      --bg: #f5f2eb;
+      --bg: #f6f3ed;
       --surface: #fff;
       --ink: #242522;
       --muted: #6e746d;
-      --line: #ded9cd;
+      --line: #ddd7ca;
       --accent: #66735d;
       --accent-dark: #2f3d32;
       --sage: #e9eee4;
-      --cream: #f7f4ec;
+      --cream: #f8f6f1;
       --gold: #b89b62;
     }}
     * {{ box-sizing: border-box; }}
@@ -125,7 +125,7 @@ def render_index(files):
       margin: 0;
       background:
         radial-gradient(circle at 10% 0, rgba(102, 115, 93, .18), transparent 24rem),
-        linear-gradient(180deg, #fbfaf5 0%, var(--bg) 100%);
+        linear-gradient(180deg, #fbfaf6 0%, var(--bg) 100%);
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
       line-height: 1.5;
@@ -138,20 +138,21 @@ def render_index(files):
     }}
     .brand {{
       display: grid;
-      grid-template-columns: minmax(130px, 190px) 1fr;
+      grid-template-columns: minmax(132px, 168px) 1fr;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       margin-bottom: 20px;
     }}
     .brand img {{
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 14px 24px rgba(36, 37, 34, .10));
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 10px 18px rgba(36, 37, 34, .06));
     }}
     .brand strong {{
       display: block;
-      font-size: 34px;
+      font-size: 36px;
       line-height: 1.05;
       font-weight: 900;
       letter-spacing: 0;
@@ -162,7 +163,7 @@ def render_index(files):
       border: 1px solid rgba(102, 115, 93, .20);
       border-radius: 16px;
       background:
-        linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(247,244,236,.94) 100%);
+        linear-gradient(135deg, rgba(255,255,255,.88) 0%, rgba(248,246,241,.94) 100%);
       box-shadow: 0 18px 48px rgba(36, 37, 34, .075);
     }}
     h1 {{
@@ -310,8 +311,8 @@ def render_index(files):
     @media (max-width: 430px) {{
       .quick {{ grid-template-columns: 1fr; }}
       main {{ padding: 22px 14px 28px; }}
-      .brand {{ grid-template-columns: 118px 1fr; gap: 12px; align-items: center; }}
-      .brand strong {{ font-size: 24px; }}
+      .brand {{ grid-template-columns: 108px 1fr; gap: 12px; align-items: center; }}
+      .brand strong {{ font-size: 25px; }}
       .stats {{ grid-template-columns: 1fr 1fr 1fr; gap: 7px; }}
       .stat {{ padding: 10px; }}
       .stat strong {{ font-size: 20px; }}
@@ -326,7 +327,7 @@ def render_index(files):
 <body>
   <main>
     <header class="brand">
-      <img src="assets/soo2-logo.svg" alt="So02 House">
+      <img src="assets/soo2-logo.png" alt="So02 House">
       <div><strong>So02 House DashBoard</strong></div>
     </header>
     <section class="hero">
