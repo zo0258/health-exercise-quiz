@@ -149,8 +149,8 @@ def render_index(files):
     .dashboard-hero {{
       display: flex;
       align-items: center;
-      gap: 11px;
-      min-height: 58px;
+      gap: 9px;
+      min-height: 52px;
       margin-bottom: 15px;
       text-align: left;
     }}
@@ -162,7 +162,7 @@ def render_index(files):
     }}
     .logo-plate img {{
       width: auto;
-      height: 54px;
+      height: 48px;
       display: block;
       mix-blend-mode: multiply;
     }}
@@ -170,7 +170,7 @@ def render_index(files):
       margin: 0;
       display: flex;
       align-items: center;
-      min-height: 54px;
+      min-height: 48px;
       line-height: 1;
       font-weight: 950;
       letter-spacing: 0;
@@ -179,10 +179,10 @@ def render_index(files):
     .title-label {{
       display: block;
       color: var(--accent);
-      font-size: 30px;
+      font-size: 36px;
       font-weight: 950;
       letter-spacing: .01em;
-      transform: translateY(1px);
+      transform: translateY(2px);
     }}
     .module {{
       padding: 19px;
@@ -374,10 +374,10 @@ def render_index(files):
     .pending {{ color: #5f6661; background: #ecefed; }}
     @media (max-width: 430px) {{
       main {{ padding: 18px 12px 24px; }}
-      .dashboard-hero {{ gap: 9px; min-height: 48px; margin-bottom: 12px; }}
-      .logo-plate img {{ height: 46px; }}
-      .dashboard-title {{ min-height: 46px; }}
-      .title-label {{ font-size: 26px; letter-spacing: 0; transform: translateY(1px); }}
+      .dashboard-hero {{ gap: 8px; min-height: 44px; margin-bottom: 12px; }}
+      .logo-plate img {{ height: 40px; }}
+      .dashboard-title {{ min-height: 40px; }}
+      .title-label {{ font-size: 32px; letter-spacing: 0; transform: translateY(2px); }}
       .module {{ padding: 14px 12px 12px; }}
       .section-head {{ gap: 6px; margin-bottom: 10px; }}
       .section-head h2 {{ font-size: 17px; line-height: 1.1; }}
