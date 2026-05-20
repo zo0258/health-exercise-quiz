@@ -138,9 +138,9 @@ def render_index(files):
     }}
     .dashboard-hero {{
       display: grid;
-      grid-template-columns: minmax(112px, 150px) 1fr;
+      grid-template-columns: minmax(118px, 150px) 1fr;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
       margin-bottom: 14px;
       text-align: left;
     }}
@@ -158,7 +158,10 @@ def render_index(files):
     }}
     .dashboard-title {{
       margin: 0;
-      line-height: 1.04;
+      display: grid;
+      align-content: center;
+      min-height: 78px;
+      line-height: 1.02;
       font-weight: 700;
       letter-spacing: 0;
       color: var(--ink);
@@ -166,18 +169,17 @@ def render_index(files):
     .title-brand {{
       display: block;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 600;
       letter-spacing: 0;
     }}
     .title-label {{
       display: block;
-      margin-top: 3px;
+      margin-top: 5px;
       color: var(--accent);
-      font-size: 14px;
+      font-size: 20px;
       font-weight: 900;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+      letter-spacing: .04em;
     }}
     .module {{
       padding: 19px;
@@ -339,8 +341,9 @@ def render_index(files):
     @media (max-width: 430px) {{
       main {{ padding: 18px 12px 24px; }}
       .dashboard-hero {{ grid-template-columns: 96px 1fr; gap: 10px; margin-bottom: 12px; }}
-      .title-brand {{ font-size: 27px; line-height: 1.02; }}
-      .title-label {{ margin-top: 2px; font-size: 12px; letter-spacing: .13em; }}
+      .dashboard-title {{ min-height: 62px; }}
+      .title-brand {{ font-size: 25px; line-height: 1.02; }}
+      .title-label {{ margin-top: 3px; font-size: 16px; letter-spacing: .03em; }}
       .module {{ padding: 14px 12px 12px; }}
       .section-head {{ margin-bottom: 10px; }}
       .section-head h2 {{ font-size: 23px; }}
