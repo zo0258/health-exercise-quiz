@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T15:44:02",
+  "generatedAt": "2026-05-20T15:48:25",
   "stats": {
     "attemptCount": 3,
     "totalScore": 26,
@@ -12,9 +12,15 @@
   },
   "mastered": [],
   "reviewState": {
-    "importance": {},
+    "importance": {
+      "2023-1A-73-19": "high"
+    },
     "mastered": [],
-    "choiceFlags": {}
+    "choiceFlags": {
+      "2023-1A-73-19": [
+        "0"
+      ]
+    }
   },
   "syncConfig": {
     "enabled": true,
