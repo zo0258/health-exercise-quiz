@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="So02">
-  <rect width="64" height="64" rx="18" fill="#F8FAF7"/>
-  <rect x="1" y="1" width="62" height="62" rx="17" fill="none" stroke="#DDE5DC"/>
-  <path d="M18 29.5 32 18l14 11.5" fill="none" stroke="#58705D" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M24.5 28.5v15h15v-15" fill="none" stroke="#58705D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".72"/>
-  <path d="M29 33h6v10h-6z" fill="#58705D" opacity=".18"/>
-  <text x="32" y="52" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="700" fill="#1D241F">So02</text>
-</svg>
