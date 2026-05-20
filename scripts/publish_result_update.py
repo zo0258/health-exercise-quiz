@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC_BASE_URL = "https://zo0258.github.io/health-exercise-quiz/"
+PUBLIC_BASE_URL = "https://zo0258.github.io/so0258house/"
 
 
 def run(command, input_text=None, check=True):
@@ -44,6 +44,13 @@ def commit_message(payload):
     return "Update quiz result status"
 
 
+def result_date(payload):
+    for line in payload.splitlines():
+        if line.startswith("date="):
+            return line.split("=", 1)[1].strip()
+    return None
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Record a copied quiz result, rebuild public pages, commit, and push the free GitHub Pages site."
@@ -65,6 +72,11 @@ def main():
     finally:
         temp_path.unlink(missing_ok=True)
 
+    date = result_date(payload)
+    quiz_json = ROOT / "data" / "quizzes" / f"{date}-daily.json" if date else None
+    if quiz_json and quiz_json.exists():
+        run([sys.executable, "scripts/generate_quiz_html.py", str(quiz_json)])
+
     run([sys.executable, "scripts/build_static_site.py", "--site-dir", "."])
 
     paths = [
@@ -72,6 +84,8 @@ def main():
         "wrong-note.html",
         "data/review/wrong-note.json",
     ]
+    if date and (ROOT / "quizzes" / f"quiz-{date}.html").exists():
+        paths.append(f"quizzes/quiz-{date}.html")
     run(["git", "add", *paths])
 
     if has_staged_changes():

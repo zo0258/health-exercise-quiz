@@ -14,10 +14,36 @@ def read_json(path):
         return json.load(file)
 
 
+def read_jsonl(path):
+    if not path.exists():
+        return []
+    rows = []
+    with path.open("r", encoding="utf-8") as file:
+        for line in file:
+            if line.strip():
+                rows.append(json.loads(line))
+    return rows
+
+
+def latest_attempt_for_date(quiz_date):
+    attempts_path = ROOT / "results" / "attempts.jsonl"
+    attempts = [attempt for attempt in read_jsonl(attempts_path) if attempt.get("date") == quiz_date]
+    return attempts[-1] if attempts else None
+
+
 def render_html(quiz):
     data_json = json.dumps(quiz, ensure_ascii=False)
+    attempt = latest_attempt_for_date(quiz.get("date"))
+    attempt_json = json.dumps(attempt, ensure_ascii=False)
     safe_data = (
         data_json
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+        .replace("</script", "\\u003c/script")
+    )
+    safe_attempt = (
+        attempt_json
         .replace("<", "\\u003c")
         .replace(">", "\\u003e")
         .replace("&", "\\u0026")
@@ -301,6 +327,17 @@ def render_html(quiz):
     .choice:disabled:hover {{
       border-color: var(--line);
       background: #fff;
+    }}
+
+    .review-mode-note {{
+      margin: 0 0 14px;
+      padding: 12px 13px;
+      border: 1px solid rgba(47, 107, 79, .18);
+      border-radius: var(--radius);
+      background: var(--accent-wash);
+      color: var(--accent-strong);
+      font-size: 14px;
+      font-weight: 800;
     }}
 
     .choice-prefix {{
@@ -673,15 +710,22 @@ def render_html(quiz):
   </div>
 
   <script id="quiz-data" type="application/json">{safe_data}</script>
+  <script id="attempt-data" type="application/json">{safe_attempt}</script>
   <script>
     const quiz = JSON.parse(document.getElementById('quiz-data').textContent);
+    const completedAttempt = JSON.parse(document.getElementById('attempt-data').textContent);
+    const reviewMode = Boolean(completedAttempt);
     const circled = ['①', '②', '③', '④', '⑤'];
     const wrongReasonOptions = ['개념 모름', '헷갈림', '계산 실수', '문제 잘못 읽음'];
     const storageKey = 'health-exercise-quiz:' + quiz.quizId;
+    const reviewAnswers = new Map((completedAttempt?.answerLog || []).map(item => [
+      item.questionId,
+      item.selected === 'none' ? null : Number(item.selected) - 1
+    ]));
     const state = {{
       current: 0,
       answers: Array(quiz.questions.length).fill(null),
-      explanationOpen: Array(quiz.questions.length).fill(false),
+      explanationOpen: Array(quiz.questions.length).fill(reviewMode),
       bookmarked: Array(quiz.questions.length).fill(false),
       wrongReasons: Array(quiz.questions.length).fill('')
     }};
@@ -704,6 +748,10 @@ def render_html(quiz):
 
     function loadSavedState() {{
       try {{
+        if (reviewMode) {{
+          saveStateLabel.textContent = '풀이완료 · 복습 모드';
+          return;
+        }}
         const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
         if (!saved || saved.quizId !== quiz.quizId) return;
         state.current = Math.min(Math.max(Number(saved.current || 0), 0), quiz.questions.length);
@@ -718,6 +766,7 @@ def render_html(quiz):
     }}
 
     function saveState() {{
+      if (reviewMode) return;
       const payload = {{
         quizId: quiz.quizId,
         date: quiz.date,
@@ -733,12 +782,14 @@ def render_html(quiz):
     }}
 
     function score() {{
+      if (reviewMode) return Number(completedAttempt.score || 0);
       return state.answers.reduce((total, selected, index) => {{
         return total + (selected === quiz.questions[index].answerIndex ? 1 : 0);
       }}, 0);
     }}
 
     function answeredCount() {{
+      if (reviewMode) return Number(completedAttempt.answered || completedAttempt.total || quiz.questions.length);
       return state.answers.filter(value => value !== null).length;
     }}
 
@@ -749,12 +800,14 @@ def render_html(quiz):
     }}
 
     function unansweredCount() {{
+      if (reviewMode) return Number(completedAttempt.unansweredCount || 0);
       return unansweredIndexes().length;
     }}
 
     function renderQuiz() {{
       quizView.innerHTML = quiz.questions.map((q, index) => `
         <article class="question-card ${{index === state.current ? 'active' : ''}}" data-index="${{index}}">
+          ${{reviewMode ? '<div class="review-mode-note">이미 풀이한 회차입니다. 보기를 누르지 않아도 정답과 해설을 확인할 수 있습니다.</div>' : ''}}
           <div class="q-head">
             <div class="q-count">Q${{index + 1}}</div>
             <div class="topic">${{q.year}} · ${{q.topic}}</div>
@@ -763,7 +816,7 @@ def render_html(quiz):
           <div class="choices">
             ${{q.choices.map((choice, choiceIndex) => choiceMarkup(q, index, choice, choiceIndex)).join('')}}
           </div>
-          <div class="feedback ${{state.answers[index] !== null ? 'visible' : ''}}">
+          <div class="feedback ${{reviewMode || state.answers[index] !== null ? 'visible' : ''}}">
             ${{feedbackMarkup(q, index)}}
           </div>
         </article>
@@ -772,6 +825,7 @@ def render_html(quiz):
       quizView.querySelectorAll('.choice').forEach(button => {{
         button.addEventListener('click', () => {{
           const questionIndex = Number(button.dataset.question);
+          if (reviewMode) return;
           if (state.answers[questionIndex] !== null) return;
           const choiceIndex = Number(button.dataset.choice);
           state.answers[questionIndex] = choiceIndex;
@@ -803,8 +857,8 @@ def render_html(quiz):
     }}
 
     function choiceMarkup(q, questionIndex, choice, choiceIndex) {{
-      const selected = state.answers[questionIndex];
-      const answered = selected !== null;
+      const selected = selectedForQuestion(questionIndex);
+      const answered = reviewMode || selected !== null;
       const isCorrect = choiceIndex === q.answerIndex;
       const isSelected = choiceIndex === selected;
       const disabled = answered ? 'disabled' : '';
@@ -820,6 +874,11 @@ def render_html(quiz):
           <span class="choice-prefix">${{circled[choiceIndex]}}</span><span class="choice-text">${{escapeHtml(choice)}}</span>
         </button>
       `;
+    }}
+
+    function selectedForQuestion(questionIndex) {{
+      if (reviewMode) return reviewAnswers.get(quiz.questions[questionIndex].id) ?? null;
+      return state.answers[questionIndex];
     }}
 
     function normalizeQuestionText(text) {{
@@ -900,10 +959,12 @@ def render_html(quiz):
     }}
 
     function feedbackMarkup(q, index) {{
-      const selected = state.answers[index];
-      if (selected === null) return '';
+      const selected = selectedForQuestion(index);
+      if (!reviewMode && selected === null) return '';
       const ok = selected === q.answerIndex;
-      const title = ok ? '정답입니다' : `오답입니다 · 정답 ${{circled[q.answerIndex]}}`;
+      const title = reviewMode
+        ? `풀이완료 · 정답 ${{circled[q.answerIndex]}}`
+        : (ok ? '정답입니다' : `오답입니다 · 정답 ${{circled[q.answerIndex]}}`);
       const reviewPoint = `${{q.topic}} 기준을 다시 확인하고, 같은 표현이 다른 보기로 바뀌어도 핵심어를 먼저 찾기`;
       return `
         <p class="feedback-title ${{ok ? 'ok' : 'bad'}}">${{title}}</p>
@@ -915,7 +976,7 @@ def render_html(quiz):
           <button class="bookmark-toggle ${{state.bookmarked[index] ? 'active' : ''}}" type="button" data-question="${{index}}">
             ${{state.bookmarked[index] ? '다시 볼 문제로 표시됨' : '다시 볼 문제로 표시'}}
           </button>
-          ${{ok ? '' : reasonMarkup(index)}}
+          ${{reviewMode || ok ? '' : reasonMarkup(index)}}
         </div>
       `;
     }}
@@ -1102,17 +1163,17 @@ def render_html(quiz):
 
       renderQuiz();
       const q = quiz.questions[state.current];
-      const selected = state.answers[state.current];
+      const selected = selectedForQuestion(state.current);
       const progress = ((state.current + 1) / quiz.questions.length) * 100;
       positionLabel.textContent = `${{state.current + 1}} / ${{quiz.questions.length}}`;
       progressBar.style.width = `${{progress}}%`;
       scoreChip.textContent = `${{score()}}점`;
       prevBtn.disabled = state.current === 0;
       nextBtn.textContent = state.current === quiz.questions.length - 1 ? '결과' : '다음';
-      if (state.current === quiz.questions.length - 1 && unansweredCount() > 0) {{
+      if (!reviewMode && state.current === quiz.questions.length - 1 && unansweredCount() > 0) {{
         nextBtn.textContent = `미응답 ${{unansweredCount()}}개`;
       }}
-      explainBtn.disabled = selected === null;
+      explainBtn.disabled = !reviewMode && selected === null;
       explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : '해설 보기';
     }}
 
@@ -1134,7 +1195,7 @@ def render_html(quiz):
     nextBtn.addEventListener('click', () => {{
       if (state.current === quiz.questions.length - 1) {{
         const missing = unansweredIndexes();
-        if (missing.length) {{
+        if (!reviewMode && missing.length) {{
           state.current = missing[0];
           render();
           return;
@@ -1146,7 +1207,7 @@ def render_html(quiz):
     }});
 
     explainBtn.addEventListener('click', () => {{
-      if (state.answers[state.current] === null) return;
+      if (!reviewMode && state.answers[state.current] === null) return;
       state.explanationOpen[state.current] = !state.explanationOpen[state.current];
       saveState();
       render();
