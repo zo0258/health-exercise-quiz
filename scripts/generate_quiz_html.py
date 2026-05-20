@@ -832,7 +832,7 @@ def render_html(quiz):
           <div>
             <h1>{title}</h1>
             <div class="meta">{date} · {subject} · <span id="positionLabel">1 / 10</span></div>
-            <div class="utility-row"><span id="saveStateLabel">자동 저장 대기</span><a href="../wrong-note.html">오답노트</a></div>
+            <div class="utility-row"><span id="saveStateLabel">풀이 중</span><a href="../wrong-note.html">오답노트</a></div>
           </div>
           <div class="score-chip" id="scoreChip">0점</div>
         </div>
@@ -903,9 +903,9 @@ def render_html(quiz):
         state.explanationOpen = normalizeArray(saved.explanationOpen, state.explanationOpen).map(Boolean);
         state.bookmarked = normalizeArray(saved.bookmarked, state.bookmarked).map(Boolean);
         state.wrongReasons = normalizeArray(saved.wrongReasons, state.wrongReasons).map(value => String(value || ''));
-        saveStateLabel.textContent = '저장된 풀이 불러옴';
+        saveStateLabel.textContent = '풀이 결과 불러옴';
       }} catch (error) {{
-        saveStateLabel.textContent = '저장 불러오기 실패';
+        saveStateLabel.textContent = '풀이 결과 불러오기 실패';
       }}
     }}
 
@@ -922,7 +922,7 @@ def render_html(quiz):
         wrongReasons: state.wrongReasons
       }};
       localStorage.setItem(storageKey, JSON.stringify(payload));
-      saveStateLabel.textContent = '풀이 자동 저장됨';
+      saveStateLabel.textContent = '풀이 중';
     }}
 
     function score() {{
@@ -1202,7 +1202,7 @@ def render_html(quiz):
         </div>
         <h2 class="section-title">오늘 확인할 오답</h2>
         <div class="wrong-summary">${{wrongSummaryMarkup(wrong, unanswered)}}</div>
-        ${{syncConfig.enabled ? '<button class="btn primary" id="submitBtn" type="button">결과 제출</button><div class="sync-status" id="syncStatus">제출하면 Google Sheets에 바로 저장됩니다.</div>' : ''}}
+        ${{syncConfig.enabled ? '<button class="btn primary" id="submitBtn" type="button">결과 제출</button><div class="sync-status" id="syncStatus">제출하면 결과가 저장됩니다.</div>' : ''}}
         <div class="result-actions">
           <a href="../wrong-note.html">오답노트로 이동</a>
           <a class="secondary" id="retryLink" href="${{location.pathname}}">오늘 다시 풀기</a>
@@ -1242,7 +1242,7 @@ def render_html(quiz):
       submitBtn.disabled = true;
       submitBtn.textContent = '제출 중';
       syncStatus.className = 'sync-status';
-      syncStatus.textContent = 'Google Sheets에 저장 중입니다.';
+      syncStatus.textContent = '결과 저장 중입니다.';
       const payload = {{
         source: 'so0258house',
         submittedAt: new Date().toISOString(),
@@ -1392,7 +1392,7 @@ def render_html(quiz):
       }}
       nextBtn.disabled = !reviewMode && selected === null;
       explainBtn.disabled = !reviewMode && selected === null;
-      explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : '해설 보기';
+      explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : (selected === null && !reviewMode ? '답 선택 후 해설' : '해설 보기');
     }}
 
     function escapeHtml(value) {{

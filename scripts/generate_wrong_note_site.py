@@ -156,6 +156,9 @@ def render_html(data):
     .toolbar {{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin:12px 0 18px; padding:12px; border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; }}
     .toggle {{ display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:14px; font-weight:850; }}
     .export {{ min-height:38px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; color:var(--muted); padding:8px 11px; font:inherit; font-size:13px; font-weight:900; }}
+    .admin-tools {{ width:100%; margin-top:8px; }}
+    .admin-tools summary {{ color:var(--muted); font-size:12px; font-weight:900; cursor:pointer; }}
+    .admin-tools .export {{ margin-top:8px; }}
     .priority {{ margin:18px 0 14px; padding:14px; border:1px solid rgba(47,107,79,.18); border-radius:var(--radius); background:#f5faf6; }}
     .priority h2 {{ margin:0 0 10px; font-size:17px; font-weight:900; }}
     .priority-list {{ display:grid; gap:8px; }}
@@ -191,12 +194,15 @@ def render_html(data):
   <main>
     <div class="nav"><a href="index.html">데일리 퀴즈</a><a href="wrong-note.html">오답노트</a></div>
     <h1>건강운동관리사 오답노트</h1>
-    <div class="meta">틀린 문제만 누적합니다. 숙지 완료 체크는 이 브라우저에 저장됩니다.</div>
+    <div class="meta">틀린 문제만 모았습니다. 숙지 완료 체크는 이 브라우저에 저장됩니다.</div>
     <section class="stats" id="stats"></section>
     <section class="priority" id="priority"></section>
     <section class="toolbar">
-      <label class="toggle"><input type="checkbox" id="hideMastered"> 숙지 완료 숨기기</label>
-      <button class="export" id="exportBtn" type="button">관리자용 동기화</button>
+      <label class="toggle"><input type="checkbox" id="hideMastered"> 숙지 완료 숨김</label>
+      <details class="admin-tools">
+        <summary>관리</summary>
+        <button class="export" id="exportBtn" type="button">관리자용 동기화</button>
+      </details>
     </section>
     <section class="list" id="list"></section>
     <textarea id="exportBox" readonly hidden></textarea>
@@ -241,7 +247,7 @@ def render_html(data):
       return '오답입니다. ' + (record.trap || '문제 조건과 보기 표현을 분리해서 확인하세요.');
     }}
     function renderStats(items, mastered) {{
-      const rows = [['누적 풀이', data.stats.attemptCount + '회'], ['누적 정답률', data.stats.accuracy + '%'], ['오답 문항', items.length + '개'], ['숙지 완료', mastered.size + '개']];
+      const rows = [['누적 풀이', data.stats.attemptCount + '회'], ['전체 정답률', data.stats.accuracy + '%'], ['틀린 문제', items.length + '개'], ['숙지 완료', mastered.size + '개']];
       stats.innerHTML = rows.map(function(row) {{ return '<div class="stat"><span>' + row[0] + '</span><strong>' + row[1] + '</strong></div>'; }}).join('');
     }}
     function renderPriority(items, mastered) {{
@@ -250,9 +256,9 @@ def render_html(data):
         if (roundDiff) return roundDiff;
         return b.dates.join('').localeCompare(a.dates.join(''));
       }}).slice(0, 3);
-      if (!candidates.length) {{ priority.innerHTML = '<h2>오늘 복습 우선순위</h2><div class="priority-list"><div class="priority-item"><strong>누적 오답이 없습니다</strong><span>오늘 문제 풀이 후 자동으로 우선순위가 잡힙니다.</span></div></div>'; return; }}
-      priority.innerHTML = '<h2>오늘 복습 우선순위</h2><div class="priority-list">' + candidates.map(function(item, index) {{
-        return '<a class="priority-item" href="#' + anchorId(item.questionId) + '"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject) + ' · 회독 ' + (item.reviewRound || 1) + '회 · 최근 ' + escapeHtml(item.dates[item.dates.length - 1] || '') + '</span></a>';
+      if (!candidates.length) {{ priority.innerHTML = '<h2>오늘 복습할 문제 3개</h2><div class="priority-list"><div class="priority-item"><strong>틀린 문제가 없습니다</strong><span>오늘 문제를 풀면 자동으로 정리됩니다.</span></div></div>'; return; }}
+      priority.innerHTML = '<h2>오늘 복습할 문제 3개</h2><div class="priority-list">' + candidates.map(function(item, index) {{
+        return '<a class="priority-item" href="#' + anchorId(item.questionId) + '"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject) + ' · 복습 ' + (item.reviewRound || 1) + '회 · 최근 ' + escapeHtml(item.dates[item.dates.length - 1] || '') + '</span></a>';
       }}).join('') + '</div>';
     }}
     function renderList() {{
@@ -273,7 +279,7 @@ def render_html(data):
         const ex = (record.choices || []).map(function(choice, index) {{
           return '<div class="ex-row"><strong>' + (circled[index] || index + 1) + ' ' + (index === answer ? '정답' : '오답') + '</strong><span>' + escapeHtml(choiceExplanation(record, index)) + '</span></div>';
         }}).join('');
-        return '<details class="card ' + (isMastered ? 'mastered' : '') + '" id="' + anchorId(record.questionId) + '"><summary class="card-head"><div><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 틀린 날짜 ' + record.dates.map(escapeHtml).join(', ') + ' · 회독 ' + (record.reviewRound || 1) + '회 · 이유 ' + escapeHtml(record.reasons.join(', ')) + '</div><div class="open-hint">문제·해설 보기</div></div><label class="master"><input type="checkbox" class="masteredBox" data-id="' + escapeHtml(record.questionId) + '"' + (isMastered ? ' checked' : '') + '> 숙지 완료</label></summary><div class="body"><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><div class="explanation">' + ex + '</div></div></details>';
+        return '<details class="card ' + (isMastered ? 'mastered' : '') + '" id="' + anchorId(record.questionId) + '"><summary class="card-head"><div><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 틀린 날짜 ' + record.dates.map(escapeHtml).join(', ') + ' · 복습 ' + (record.reviewRound || 1) + '회 · 이유 ' + escapeHtml(record.reasons.join(', ')) + '</div><div class="open-hint">문제·해설 보기</div></div><label class="master"><input type="checkbox" class="masteredBox" data-id="' + escapeHtml(record.questionId) + '"' + (isMastered ? ' checked' : '') + '> 숙지 완료</label></summary><div class="body"><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><div class="explanation">' + ex + '</div></div></details>';
       }}).join('');
       list.querySelectorAll('.masteredBox').forEach(function(box) {{
         box.addEventListener('click', function(event) {{ event.stopPropagation(); }});

@@ -72,7 +72,7 @@ def status_badges(label, attempts, review_dates):
         score_text = f"{score}/{total}" if score is not None and total else "완료"
         badges = [f'<span class="badge done">풀이완료 {html.escape(score_text)}</span>']
         if label in review_dates:
-            badges.append('<span class="badge review">오답반영</span>')
+            badges.append('<span class="badge review">오답노트 반영</span>')
         return "".join(badges)
     return '<span class="badge pending">미완료</span>'
 
@@ -233,7 +233,7 @@ def render_index(files):
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      margin: 0 0 12px;
+      margin: 12px 0 0;
     }}
     .stat {{
       padding: 12px 14px;
@@ -389,7 +389,7 @@ def render_index(files):
       .section-head {{ gap: 6px; margin-bottom: 10px; }}
       .section-head h2 {{ font-size: 17px; line-height: 1.1; }}
       .section-head span {{ min-height: 22px; padding: 3px 6px; font-size: 9.5px; }}
-      .stats {{ grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 10px; }}
+      .stats {{ grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin: 10px 0 0; }}
       .stat {{ padding: 8px 9px; }}
       .stat strong {{ font-size: 19px; }}
       .stat small {{ font-size: 11px; }}
@@ -418,17 +418,17 @@ def render_index(files):
     </header>
     <section class="module">
       <div class="section-head"><h2>건강운동관리사 데일리 퀴즈</h2><span>전과목 10문항</span></div>
-      <section class="stats" aria-label="학습 현황">
-        <div class="stat"><strong>{completed_count}</strong><small>풀이완료</small></div>
-        <div class="stat"><strong>{review_count}</strong><small>오답반영</small></div>
-        <div class="stat"><strong>{pending_count}</strong><small>미완료</small></div>
-      </section>
       <section class="today-status" aria-label="오늘 학습 상태">
         <strong>오늘 {html.escape(latest_label)}</strong><span class="{latest_status_class}">{html.escape(latest_status)}</span>
       </section>
       <section class="quick" aria-label="빠른 이동">
         <a href="{html.escape(latest_href, quote=True)}"><strong>오늘 문제 풀기</strong><small>{html.escape(latest_label)} 퀴즈 바로가기</small></a>
         <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제·다시 볼 문제</small></a>
+      </section>
+      <section class="stats" aria-label="학습 현황">
+        <div class="stat"><strong>{completed_count}</strong><small>풀이완료</small></div>
+        <div class="stat"><strong>{review_count}</strong><small>오답노트 반영</small></div>
+        <div class="stat"><strong>{pending_count}</strong><small>미완료</small></div>
       </section>
     </section>
     <div class="history-title">학습 기록</div>
