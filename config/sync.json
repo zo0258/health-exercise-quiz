@@ -1,6 +1,6 @@
 {
-  "enabled": false,
+  "enabled": true,
   "mode": "google-apps-script",
-  "submitUrl": "",
+  "submitUrl": "https://script.google.com/macros/s/AKfycbxLBnQsxe61wtXORx4q-ebWYPpaeH5Vy0h-hoZ51d0Oy-YYR_wX6UV5L7TjO1hVUHBH1A/exec",
   "csvUrl": ""
 }

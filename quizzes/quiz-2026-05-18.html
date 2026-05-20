@@ -682,6 +682,16 @@
       font-weight: 800;
     }
 
+    .sync-status {
+      margin: 10px 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .sync-status.ok { color: var(--ok); }
+    .sync-status.bad { color: var(--danger); }
+
     @media (max-width: 420px) {
       .question {
         font-size: 18px;
@@ -734,9 +744,11 @@
 
   <script id="quiz-data" type="application/json">{"quizId": "2026-05-18-daily-all-subjects", "date": "2026-05-18", "title": "건강운동관리사 데일리 퀴즈", "subject": "전과목", "round": "시험 임박 전과목 10문항", "timeLimitMinutes": 10, "sourceSummary": "2023년 검증 문제은행 기반", "generationNote": "정책 기반 자동 생성", "missingSubjects": [], "questions": [{"id": "2023-1A-exphys-03", "year": 2023, "subject": "운동생리학", "topic": "체온 조절", "type": "개념구분", "difficulty": 3, "trap": "고온 노출을 대사율 증가로 연결하는 함정", "question": "고온 노출 시 항상성 유지를 위한 반응은?", "choices": ["대사율 증가", "부교감신경 활성 증가", "티록신 분비 증가", "갑상선 자극호르몬(TSH) 분비 증가"], "answerIndex": 1, "explanation": "고온에서는 열 생산을 늘리는 방향보다 열 방출을 돕는 방향의 반응이 중요하다. 대사율과 갑상선계 호르몬 증가는 열 생산 쪽이라 문맥에 맞지 않는다.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 3}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "data/quizzes/2026-05-18-daily.json"}, {"id": "2023-1A-73-02", "year": 2023, "subject": "운동부하검사", "topic": "운동부하검사 필요한", "type": "부정형", "difficulty": 3, "trap": "운동부하검사 필요한 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "운동부하검사가 필요한 경우로 옳지 않은 것은?", "choices": ["가슴 통증으로 병원을 찾은 사람들의 평가를 위해", "2일 이내 발생한 급성심근경색 환자의 예후 예측을 위해", "심장발작 이후 직장의 복귀 여부를 판단하기 위해", "심장질환자의 운동처방을 권고하기 위해"], "answerIndex": 1, "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 2, "session": 1, "form": "A", "subjectCode": 73}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-1A-72-12", "year": 2023, "subject": "운동처방론", "topic": "ACSM 권고하", "type": "부정형", "difficulty": 3, "trap": "ACSM 권고하 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "ACSM(11판)에서 권고하는 신장질환자를 위한 운동처방 시 고려사항\n으로 옳지 않은 것은?", "choices": ["신장이식을 받은 사람은 거부반응 기간에는 운동을 금지해야 한다.", "일반적으로 혈액투석 종료 2시간 후에 운동을 권고한다.", "개인의 상태에 따라 혈액투석을 받는 동안 의자에 앉아 하체운동을 할 수 있다.", "지속적인 운동을 할 수 없는 경우 3~5분씩 간헐적 운동을 20~60분/일이 축적되도록 한다."], "answerIndex": 0, "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 12, "session": 1, "form": "A", "subjectCode": 72}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-75-01", "year": 2023, "subject": "기능해부학", "topic": "종아리세갈래근 구성하", "type": "개념구분", "difficulty": 3, "trap": "종아리세갈래근 구성하 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "종아리세갈래근 군(triceps surae group)을 구성하는 근육으로 바르게\n연결된 것은?", "choices": ["장딴지근(gastrocnemius) - 앞정강근(tibialis anterior)", "장딴지근 - 가자미근(soleus)", "장딴지근 - 뒤정강근(tibialis posterior)", "뒤정강근 - 가자미근"], "answerIndex": 1, "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 1, "session": 2, "form": "A", "subjectCode": 75}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-74-11", "year": 2023, "subject": "운동상해", "topic": "발목관절 가동화", "type": "개념구분", "difficulty": 3, "trap": "발목관절 가동화 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "발목관절(talocruraljoint) 가동화(mobilization) 기법과 기대되는 효과가\n바르게 연결된 것은?", "choices": ["목말뼈(talus)를 기준으로 정강뼈(tibia)의 뒤쪽(posterior) 활주(glide) - 발바닥 굽힘(plantar flexion) 증가", "목말뼈를 기준으로 정강뼈의 앞쪽(anterior) 활주 - 발바닥 굽힘 증가", "정강뼈를 기준으로 목말뼈의 뒤쪽 활주 - 발바닥 굽힘 증가", "정강뼈를 기준으로 목말뼈의 앞쪽 활주 - 발등 굽힘(dorsi flexion) 증가"], "answerIndex": 0, "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 11, "session": 2, "form": "A", "subjectCode": 74}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-1A-71-08", "year": 2023, "subject": "건강·체력평가", "topic": "설명하 용어는", "type": "개념구분", "difficulty": 3, "trap": "설명하 용어는 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c보기\u003e가 설명하는 용어는?\n\u003c보기\u003e.\n∙ 심박수와 수축기 혈압을 곱한 값이다.\n∙ 관상동맥 혈류 공급과 수요의 문제로 발생되는 심근허혈 증상과\n관련이 있다.", "choices": ["최대산소섭취량(V̇O2max)", "심박출량(cardiac output)", "심근산소요구량(RPP)", "심계항진(palpitations)"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 8, "session": 1, "form": "A", "subjectCode": 71}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-1A-71-17", "year": 2023, "subject": "건강·체력평가", "topic": "신체측정법 비만", "type": "개념구분", "difficulty": 3, "trap": "신체측정법 비만 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c표\u003e에서 ‘A 신체측정법’에 대한 비만 평가 해석으로 옳은 것은?\n구분\nA 신체측정법\n합계\n양성 음성\n비만 15명 10명 25명\n정상 10명 40명 50명\n합계 25명 50명 75명", "choices": ["민감도는 비만이 아닌 사람을 정확하게 식별하는 음성검사 백분율 이다.", "특이도는 비만을 정확하게 식별하는 양성검사 백분율이다.", "A 신체측정법의 민감도는 80 %이다.", "A 신체측정법의 특이도는 80 %이다."], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 17, "session": 1, "form": "A", "subjectCode": 71}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-1A-70-12", "year": 2023, "subject": "운동생리학", "topic": "괄호 안에", "type": "빈칸", "difficulty": 4, "trap": "괄호 안에 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c보기\u003e의 괄호 안에 들어갈 용어는?\n\u003c보기\u003e.\n근육 경련(muscle cramps)과 사후 강직(rigor mortis)은 파워\n스트로크(power stroke) 후 새로운 ( )가 마이오신 머리에 붙지\n않고 액틴과 마이오신의 결합상태가 유지되기 때문에 나타나는\n일시적인 불수의적 수축유지 현상이다.", "choices": ["Pi", "AMP", "ADP", "ATP"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 12, "session": 1, "form": "A", "subjectCode": 70}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-76-18", "year": 2023, "subject": "병태생리학", "topic": "대사증후군 진단항목", "type": "부정형", "difficulty": 4, "trap": "대사증후군 진단항목 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c보기\u003e에서 대사증후군 진단항목 중 성인치료패널 III(ATPIII, adult\ntreatment panel III)의 기준으로 옳지 않은 것으로만 고른 것은?\n\u003c보기\u003e.\n㉠ 허리둘레: 남성＞110 cm, 여성＞85 cm\n㉡ 공복혈당: ≥100 mg･dL-1\n또는 경구혈당강하제 복용자\n㉢ 고밀도지단백 콜레스테롤(HDL-C): 남성＜35 mg･dL-1\n, 여성\n＜40 mg･dL-1\n또는 고밀도지단백 콜레스테롤 개선제 복용자\n㉣ 중성지방(TG): ≥150 mg･dL-1\n또는 고중성지방강하제 복용자\n㉤ 안정시 수축기혈압/이완기혈압: ≥140/85 mmHg 또는 항고혈압\n약제 복용자", "choices": ["㉠, ㉡, ㉢", "㉠, ㉢, ㉣", "㉠, ㉢, ㉤", "㉡, ㉢, ㉣"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 18, "session": 2, "form": "A", "subjectCode": 76}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-77-11", "year": 2023, "subject": "스포츠심리학", "topic": "숙련자 특성", "type": "보기조합", "difficulty": 4, "trap": "숙련자 특성 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c보기\u003e에서 숙련자의 특성으로 옳은 것으로만 모두 고른 것은?\n\u003c보기\u003e.\n㉠ 환경 정보를 빨리 탐색할 수 있다.\n㉡ 새로운 상황에 쉽게 적응할 수 있다.\n㉢ 짧은 시간에 의미 있는 정보를 선택할 수 있다.", "choices": ["㉠, ㉡", "㉠, ㉢", "㉡, ㉢", "㉠, ㉡, ㉢"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 11, "session": 2, "form": "A", "subjectCode": 77}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}]}</script>
   <script id="attempt-data" type="application/json">{"wrong": [{"questionId": "2023-1A-72-05", "topic": "ACSM이 권고하", "selected": "2", "answer": "3", "wrongReason": "개념 모름", "bookmarked": "yes"}], "review": [{"questionId": "2023-2A-74-06", "topic": "발목인대 평가하", "reason": "bookmarked"}], "unanswered": [], "date": "2026-05-18", "quizId": "2026-05-18-daily-all-subjects", "subject": "전과목", "score": 9, "total": 10, "answered": 10, "unansweredCount": 0, "recordedAt": "2026-05-19T22:59:10"}</script>
+  <script id="sync-config" type="application/json">{"enabled": true, "submitUrl": "https://script.google.com/macros/s/AKfycbxLBnQsxe61wtXORx4q-ebWYPpaeH5Vy0h-hoZ51d0Oy-YYR_wX6UV5L7TjO1hVUHBH1A/exec", "mode": "google-apps-script"}</script>
   <script>
     const quiz = JSON.parse(document.getElementById('quiz-data').textContent);
     const completedAttempt = JSON.parse(document.getElementById('attempt-data').textContent);
+    const syncConfig = JSON.parse(document.getElementById('sync-config').textContent);
     const reviewMode = Boolean(completedAttempt);
     const circled = ['①', '②', '③', '④', '⑤'];
     const wrongReasonOptions = ['개념 모름', '헷갈림', '계산 실수', '문제 잘못 읽음'];
@@ -1081,19 +1093,25 @@
         </div>
         <h2 class="section-title">오늘 확인할 오답</h2>
         <div class="wrong-summary">${wrongSummaryMarkup(wrong, unanswered)}</div>
+        ${syncConfig.enabled ? '<button class="btn primary" id="submitBtn" type="button">결과 제출</button><div class="sync-status" id="syncStatus">제출하면 Google Sheets에 바로 저장됩니다.</div>' : ''}
         <div class="result-actions">
           <a href="../wrong-note.html">오답노트로 이동</a>
           <a class="secondary" id="retryLink" href="${location.pathname}">오늘 다시 풀기</a>
         </div>
-        <h2 class="section-title">Telegram 반영용 결과</h2>
+        <h2 class="section-title">${syncConfig.enabled ? '수동 백업용 결과' : 'Telegram 반영용 결과'}</h2>
         <button class="btn primary" id="copyBtn" type="button">결과 복사</button>
         <textarea class="copy-box" id="copyBox" readonly>${escapeHtml(resultText)}</textarea>
       `;
 
       const copyBtn = document.getElementById('copyBtn');
       const copyBox = document.getElementById('copyBox');
+      const submitBtn = document.getElementById('submitBtn');
+      const syncStatus = document.getElementById('syncStatus');
       const retryLink = document.getElementById('retryLink');
       retryLink.addEventListener('click', () => localStorage.removeItem(storageKey));
+      if (submitBtn) {
+        submitBtn.addEventListener('click', async () => submitResult(resultText, submitBtn, syncStatus));
+      }
       copyBtn.addEventListener('click', async () => {
         copyBox.select();
         try {
@@ -1104,6 +1122,39 @@
           copyBtn.textContent = '선택됨';
         }
       });
+    }
+
+    async function submitResult(resultText, submitBtn, syncStatus) {
+      if (!syncConfig.enabled || !syncConfig.submitUrl) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = '제출 중';
+      syncStatus.className = 'sync-status';
+      syncStatus.textContent = 'Google Sheets에 저장 중입니다.';
+      const payload = {
+        source: 'so0258house',
+        submittedAt: new Date().toISOString(),
+        quizId: quiz.quizId,
+        date: quiz.date,
+        subject: quiz.subject,
+        resultText,
+        userAgent: navigator.userAgent
+      };
+      try {
+        await fetch(syncConfig.submitUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        submitBtn.textContent = '제출 완료';
+        syncStatus.className = 'sync-status ok';
+        syncStatus.textContent = '저장 요청을 보냈습니다. 메인/오답노트 반영은 OpenClaw 동기화 후 갱신됩니다.';
+      } catch (error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '다시 제출';
+        syncStatus.className = 'sync-status bad';
+        syncStatus.textContent = '제출 실패. 아래 결과 복사로 Telegram에 보내면 수동 반영할 수 있습니다.';
+      }
     }
 
     function wrongSummaryMarkup(wrong, unanswered) {
