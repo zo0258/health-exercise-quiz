@@ -31,22 +31,26 @@
     .card-head { display:block; padding:14px; border-bottom:1px solid var(--line); background:#fbfcfa; }
     .topic { font-size:15px; font-weight:950; }
     .sub { margin-top:3px; color:var(--muted); font-size:13px; font-weight:700; }
-    .review-controls { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:0 0 10px; padding:7px 8px; border:1px solid rgba(102,115,93,.14); border-radius:999px; background:#fbfcfa; }
-    .importance { display:inline-flex; align-items:center; gap:2px; flex:1 1 auto; min-width:0; padding:2px; border:1px solid rgba(102,115,93,.18); border-radius:999px; background:#fff; }
-    .importance-label { margin:0 3px 0 5px; color:var(--muted); font-size:10.5px; font-weight:900; white-space:nowrap; }
-    .importance button { min-width:25px; min-height:24px; border:0; border-radius:999px; background:transparent; color:var(--muted); font:inherit; font-size:11.5px; font-weight:950; }
+    .review-controls { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0 0 10px; padding:7px 9px; border:1px solid rgba(102,115,93,.14); border-radius:999px; background:#fbfcfa; }
+    .importance { display:inline-flex; align-items:center; justify-content:space-between; gap:6px; flex:1 1 auto; min-width:0; max-width:218px; padding:3px 5px 3px 9px; border:1px solid rgba(102,115,93,.18); border-radius:999px; background:#fff; }
+    .importance-label { margin:0 2px 0 0; color:var(--ink); font-size:11.5px; font-weight:950; white-space:nowrap; }
+    .importance button { min-width:34px; min-height:30px; border:0; border-radius:999px; background:transparent; color:var(--muted); font:inherit; font-size:12.5px; font-weight:950; }
     .importance button.active { background:var(--accent); color:#fff; }
-    .master-toggle { flex:0 0 auto; min-height:30px; padding:5px 9px; border:1px solid rgba(102,115,93,.22); border-radius:999px; background:#fff; color:var(--accent); font:inherit; font-size:11.5px; font-weight:950; white-space:nowrap; }
+    .master-toggle { flex:0 0 auto; min-height:34px; padding:6px 11px; border:1px solid rgba(102,115,93,.22); border-radius:999px; background:#fff; color:var(--accent); font:inherit; font-size:12px; font-weight:950; white-space:nowrap; }
     .master-toggle.active { background:var(--sage); color:var(--accent-dark); }
     .body { padding:14px; }
     .question { margin:0 0 11px; font-size:15.2px; font-weight:850; line-height:1.46; white-space:pre-line; word-break:keep-all; overflow-wrap:anywhere; }
     .choices { display:grid; gap:7px; margin:10px 0 12px; }
-    .choice { display:grid; grid-template-columns:24px 1fr 36px; gap:7px; align-items:center; padding:9px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; font-size:13.4px; line-height:1.38; cursor:pointer; }
+    .choice { display:grid; grid-template-columns:24px 1fr 38px; gap:7px; align-items:center; padding:9px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; font-size:13.4px; line-height:1.38; cursor:pointer; }
     .choice strong { align-self:start; }
+    .choice span { transition:color .15s ease, text-decoration-color .15s ease; }
     .choice.answer { border-color:var(--ok); background:var(--ok-soft); }
     .choice.selected:not(.answer) { border-color:var(--danger); background:var(--danger-soft); }
-    .choice-check { width:36px; min-width:36px; min-height:36px; border:1px solid rgba(102,115,93,.28); border-radius:10px; background:#fff; color:var(--muted); font:inherit; font-size:17px; font-weight:950; }
-    .choice-check.active { border-color:var(--accent); background:var(--sage); color:var(--accent-dark); }
+    .choice.flagged { border-color:rgba(176,65,65,.28); background:#fff3f1; }
+    .choice.flagged strong { color:#b04141; opacity:.72; }
+    .choice.flagged span { color:rgba(57,43,37,.58); text-decoration:line-through; text-decoration-thickness:1.5px; text-decoration-color:rgba(176,65,65,.55); }
+    .choice-check { width:38px; min-width:38px; min-height:38px; border:1px solid rgba(102,115,93,.28); border-radius:11px; background:#fff; color:var(--muted); font:inherit; font-size:18px; font-weight:950; }
+    .choice-check.active { border-color:#b04141; background:#ffe4df; color:#b04141; }
     .explain-toggle { width:100%; min-height:42px; margin-top:8px; border:0; border-radius:10px; background:var(--accent); color:#fff; font:inherit; font-size:14px; font-weight:950; }
     .explanation { display:grid; gap:8px; margin-top:12px; }
     .explanation[hidden] { display:none; }
@@ -55,7 +59,7 @@
     .ex-row span { color:#2c352f; font-size:14px; white-space:pre-line; }
     .empty { padding:28px 14px; color:var(--muted); border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; text-align:center; font-weight:800; }
     textarea { width:100%; min-height:130px; margin-top:10px; padding:10px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:13px; resize:vertical; }
-    @media (max-width:520px) { main { padding:18px 12px 28px; } h1 { font-size:25px; } .back { font-size:12px; } .stats { margin-bottom:15px; } .stat { min-height:27px; padding:4px 8px; } .priority { padding:13px 12px; } .priority h2 { font-size:17px; } .card-head { padding:13px; } .body { padding:13px; } .question { font-size:14.6px; } .choice { grid-template-columns:23px 1fr 36px; padding:8px 9px; font-size:13px; } }
+    @media (max-width:520px) { main { padding:18px 12px 28px; } h1 { font-size:25px; } .back { font-size:12px; } .stats { margin-bottom:15px; } .stat { min-height:27px; padding:4px 8px; } .priority { padding:13px 12px; } .priority h2 { font-size:17px; } .card-head { padding:13px; } .body { padding:13px; } .review-controls { gap:8px; padding:7px 8px; } .importance { max-width:205px; gap:5px; padding-left:8px; } .importance button { min-width:32px; min-height:30px; } .master-toggle { min-height:34px; padding:6px 10px; } .question { font-size:14.6px; } .choice { grid-template-columns:23px 1fr 38px; padding:8px 9px; font-size:13px; } }
   </style>
 </head>
 <body>
@@ -65,7 +69,7 @@
     <section class="priority" id="priority"></section>
     <section class="list" id="list"></section>
   </main>
-  <script id="wrong-note-data" type="application/json">{"generatedAt": "2026-05-20T15:02:20", "stats": {"attemptCount": 2, "totalScore": 17, "totalQuestions": 20, "accuracy": 85.0, "wrongCount": 3, "wrongQuestionCount": 3, "reviewCount": 2, "masteredCount": 0}, "mastered": [], "wrong": [{"date": "2026-05-19", "quizId": "2026-05-19-daily-all-subjects", "subject": "운동상해", "questionId": "2023-2A-74-13", "topic": "요통 환자", "selected": "2", "selectedLabel": "②", "answer": "4", "answerLabel": "④", "wrongReason": "문제 잘못 읽음", "bookmarked": "no", "question": "요통 환자의 질환 - 검사 - 양성반응이 바르게 나열된 것은?\n질환 검사 양성반응", "choices": ["속질핵탈출증 (herniated nucleus pulposus) 후버 검사 요추 통증", "척추전방전위증 (spondylolisthesis) 슬럼프 검사 무릎 통증", "엉치엉덩관절기능부전 (sacroiliac joint dysfunction) 하지직거상 검사 무릎아래 통증", "돌기사이관절증후군 (facet joint syndrome) 신전회전 검사 요추 통증"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "요통 환자 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": [], "reviewRound": 1}, {"date": "2026-05-19", "quizId": "2026-05-19-daily-all-subjects", "subject": "기능해부학", "questionId": "2023-2A-75-15", "topic": "오목위팔 관절", "selected": "4", "selectedLabel": "④", "answer": "3", "answerLabel": "③", "wrongReason": "문제 잘못 읽음", "bookmarked": "no", "question": "오목위팔(glenohumeral, GH) 관절에서 관절주머니의 위쪽 구조들\n(superior capsular structures, SCS)과 중력(gravity, G)의 힘 벡터 결합은\n관절오목에 대해 압박력(comprehension force, CF)을 발생시켜 GH 관절의\n수동적 안정성을 높인다. 이때 SCS에 해당하지 않는 것은?", "choices": ["가시위근(supraspinatus)", "관절주머니인대(capsular ligament)", "위팔가로인대(transverse humeral ligament)", "부리위팔인대(coracohumeral ligament)"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "오목위팔 관절 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": [], "reviewRound": 1}, {"date": "2026-05-18", "quizId": "2026-05-18-daily-all-subjects", "subject": "운동처방론", "questionId": "2023-1A-72-05", "topic": "ACSM이 권고하", "selected": "2", "selectedLabel": "②", "answer": "3", "answerLabel": "③", "wrongReason": "개념 모름", "bookmarked": "yes", "question": "\u003c보기\u003e에서 ACSM(11판)이 권고하는 유산소운동에 대한 설명으로\n옳은 것으로만 모두 고른 것은?\n\u003c보기\u003e.\n㉠ 노인: 30~60분/일, ≥5일/주, 운동자각도 5~6(10점 척도)의\n중강도 운동을 권장한다.\n㉡ 청소년: ≥60분/일, 7일/주, 중강도에서 고강도의 스포츠를\n포함한 신체활동을 권장한다.\n㉢ 임산부: ≥20~30분/일, 3~7일/주, 저강도에서 중강도의 운동을\n권장한다.\n㉣ 성인: 건강증진을 위한 최소 걸음 수는 10,000보/일이다.", "choices": ["㉠", "㉠, ㉡", "㉠, ㉡, ㉢", "㉠, ㉡, ㉢, ㉣"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "ACSM이 권고하 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": [], "reviewRound": 1}], "review": [{"date": "2026-05-19", "quizId": "2026-05-19-daily-all-subjects", "subject": "병태생리학", "questionId": "2023-2A-76-05", "topic": "만성폐쇄성폐질환 설명", "reason": "bookmarked", "question": "\u003c보기\u003e에서 만성폐쇄성폐질환(COPD)에 대한 설명으로 옳지 않은\n것으로만 고른 것은?\n\u003c보기\u003e.\n㉠ 만성기관지염은 점액샘의 부종에 의해 기관지벽이 두꺼워져\n기관지 내강을 좁게한다.\n㉡ 만성기관지염은 기관지 상피조직의 술잔세포(goblet cell)의 수를\n증가시킨다.\n㉢ 폐기종은 종말세기관지 말단의 공기강이 영구적으로 축소되는\n질환이다.\n㉣ 폐기종은 엘라스틱용해 활성이 증가되거나 항엘라스틱 활성이\n감소 될 경우 발생한다.\n㉤ 흡연은 메티오닌 잔기를 산화시켜 알파1-안티트립신(α1-AT)\n활성 증가를 통해 COPD를 발생시킨다.", "choices": ["㉠, ㉡", "㉡, ㉣", "㉢, ㉣", "㉢, ㉤"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "만성폐쇄성폐질환 설명 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": []}, {"date": "2026-05-18", "quizId": "2026-05-18-daily-all-subjects", "subject": "운동상해", "questionId": "2023-2A-74-06", "topic": "발목인대 평가하", "reason": "bookmarked", "question": "\u003c보기\u003e에서 발목인대를 평가하는 특수검사(special test)로 옳은\n것으로만 모두 고른 것은?\n\u003c보기\u003e.\n㉠ 호만(Homan’s) 검사\n㉡ 클레이거(Kleiger’s) 검사\n㉢ 목말뼈 경사(talar tilt) 검사\n㉣ 충격(bump) 검사", "choices": ["㉠, ㉢", "㉠, ㉣", "㉡, ㉢", "㉡, ㉣"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "발목인대 평가하 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": []}]}</script>
+  <script id="wrong-note-data" type="application/json">{"generatedAt": "2026-05-20T15:11:44", "stats": {"attemptCount": 2, "totalScore": 17, "totalQuestions": 20, "accuracy": 85.0, "wrongCount": 3, "wrongQuestionCount": 3, "reviewCount": 2, "masteredCount": 0}, "mastered": [], "wrong": [{"date": "2026-05-19", "quizId": "2026-05-19-daily-all-subjects", "subject": "운동상해", "questionId": "2023-2A-74-13", "topic": "요통 환자", "selected": "2", "selectedLabel": "②", "answer": "4", "answerLabel": "④", "wrongReason": "문제 잘못 읽음", "bookmarked": "no", "question": "요통 환자의 질환 - 검사 - 양성반응이 바르게 나열된 것은?\n질환 검사 양성반응", "choices": ["속질핵탈출증 (herniated nucleus pulposus) 후버 검사 요추 통증", "척추전방전위증 (spondylolisthesis) 슬럼프 검사 무릎 통증", "엉치엉덩관절기능부전 (sacroiliac joint dysfunction) 하지직거상 검사 무릎아래 통증", "돌기사이관절증후군 (facet joint syndrome) 신전회전 검사 요추 통증"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "요통 환자 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": [], "reviewRound": 1}, {"date": "2026-05-19", "quizId": "2026-05-19-daily-all-subjects", "subject": "기능해부학", "questionId": "2023-2A-75-15", "topic": "오목위팔 관절", "selected": "4", "selectedLabel": "④", "answer": "3", "answerLabel": "③", "wrongReason": "문제 잘못 읽음", "bookmarked": "no", "question": "오목위팔(glenohumeral, GH) 관절에서 관절주머니의 위쪽 구조들\n(superior capsular structures, SCS)과 중력(gravity, G)의 힘 벡터 결합은\n관절오목에 대해 압박력(comprehension force, CF)을 발생시켜 GH 관절의\n수동적 안정성을 높인다. 이때 SCS에 해당하지 않는 것은?", "choices": ["가시위근(supraspinatus)", "관절주머니인대(capsular ligament)", "위팔가로인대(transverse humeral ligament)", "부리위팔인대(coracohumeral ligament)"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "오목위팔 관절 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": [], "reviewRound": 1}, {"date": "2026-05-18", "quizId": "2026-05-18-daily-all-subjects", "subject": "운동처방론", "questionId": "2023-1A-72-05", "topic": "ACSM이 권고하", "selected": "2", "selectedLabel": "②", "answer": "3", "answerLabel": "③", "wrongReason": "개념 모름", "bookmarked": "yes", "question": "\u003c보기\u003e에서 ACSM(11판)이 권고하는 유산소운동에 대한 설명으로\n옳은 것으로만 모두 고른 것은?\n\u003c보기\u003e.\n㉠ 노인: 30~60분/일, ≥5일/주, 운동자각도 5~6(10점 척도)의\n중강도 운동을 권장한다.\n㉡ 청소년: ≥60분/일, 7일/주, 중강도에서 고강도의 스포츠를\n포함한 신체활동을 권장한다.\n㉢ 임산부: ≥20~30분/일, 3~7일/주, 저강도에서 중강도의 운동을\n권장한다.\n㉣ 성인: 건강증진을 위한 최소 걸음 수는 10,000보/일이다.", "choices": ["㉠", "㉠, ㉡", "㉠, ㉡, ㉢", "㉠, ㉡, ㉢, ㉣"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "ACSM이 권고하 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": [], "reviewRound": 1}], "review": [{"date": "2026-05-19", "quizId": "2026-05-19-daily-all-subjects", "subject": "병태생리학", "questionId": "2023-2A-76-05", "topic": "만성폐쇄성폐질환 설명", "reason": "bookmarked", "question": "\u003c보기\u003e에서 만성폐쇄성폐질환(COPD)에 대한 설명으로 옳지 않은\n것으로만 고른 것은?\n\u003c보기\u003e.\n㉠ 만성기관지염은 점액샘의 부종에 의해 기관지벽이 두꺼워져\n기관지 내강을 좁게한다.\n㉡ 만성기관지염은 기관지 상피조직의 술잔세포(goblet cell)의 수를\n증가시킨다.\n㉢ 폐기종은 종말세기관지 말단의 공기강이 영구적으로 축소되는\n질환이다.\n㉣ 폐기종은 엘라스틱용해 활성이 증가되거나 항엘라스틱 활성이\n감소 될 경우 발생한다.\n㉤ 흡연은 메티오닌 잔기를 산화시켜 알파1-안티트립신(α1-AT)\n활성 증가를 통해 COPD를 발생시킨다.", "choices": ["㉠, ㉡", "㉡, ㉣", "㉢, ㉣", "㉢, ㉤"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "만성폐쇄성폐질환 설명 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": []}, {"date": "2026-05-18", "quizId": "2026-05-18-daily-all-subjects", "subject": "운동상해", "questionId": "2023-2A-74-06", "topic": "발목인대 평가하", "reason": "bookmarked", "question": "\u003c보기\u003e에서 발목인대를 평가하는 특수검사(special test)로 옳은\n것으로만 모두 고른 것은?\n\u003c보기\u003e.\n㉠ 호만(Homan’s) 검사\n㉡ 클레이거(Kleiger’s) 검사\n㉢ 목말뼈 경사(talar tilt) 검사\n㉣ 충격(bump) 검사", "choices": ["㉠, ㉢", "㉠, ㉣", "㉡, ㉢", "㉡, ㉣"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "trap": "발목인대 평가하 관련 조건과 보기 표현을 섞어 판단하는 문항", "choiceExplanations": []}]}</script>
   <script>
     const data = JSON.parse(document.getElementById('wrong-note-data').textContent);
     const circled = ['①','②','③','④','⑤'];
@@ -150,7 +154,7 @@
         const answer = Number(record.answer) - 1;
         const choices = (record.choices || []).map(function(choice, index) {
           const checked = flagged.has(String(index));
-          return '<div class="choice" role="button" tabindex="0" data-answer="' + answer + '" data-index="' + index + '"><strong>' + (circled[index] || index + 1) + '</strong><span>' + escapeHtml(choice) + '</span><button class="choice-check ' + (checked ? 'active' : '') + '" type="button" data-id="' + escapeHtml(record.questionId) + '" data-choice="' + index + '" aria-pressed="' + (checked ? 'true' : 'false') + '">' + (checked ? '☑' : '☐') + '</button></div>';
+          return '<div class="choice ' + (checked ? 'flagged' : '') + '" role="button" tabindex="0" data-answer="' + answer + '" data-index="' + index + '"><strong>' + (circled[index] || index + 1) + '</strong><span>' + escapeHtml(choice) + '</span><button class="choice-check ' + (checked ? 'active' : '') + '" type="button" data-id="' + escapeHtml(record.questionId) + '" data-choice="' + index + '" aria-pressed="' + (checked ? 'true' : 'false') + '" aria-label="보기 소거 표시">' + (checked ? '☑' : '☐') + '</button></div>';
         }).join('');
         const ex = (record.choices || []).map(function(choice, index) {
           return '<div class="ex-row"><strong>' + (circled[index] || index + 1) + ' ' + (index === answer ? '정답' : '오답') + '</strong><span>' + escapeHtml(choiceExplanation(record, index)) + '</span></div>';
@@ -167,7 +171,10 @@
           const next = loadImportance();
           next[button.dataset.id] = button.dataset.importance;
           saveImportance(next);
-          renderList();
+          const group = button.closest('.importance');
+          group.querySelectorAll('button').forEach(function(item) {
+            item.classList.toggle('active', item === button);
+          });
         });
       });
       list.querySelectorAll('.choice').forEach(function(choice) {
@@ -198,7 +205,12 @@
           next[id] = Array.from(set).sort();
           if (!next[id].length) delete next[id];
           saveChoiceFlags(next);
-          renderList();
+          const active = set.has(choice);
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          button.textContent = active ? '☑' : '☐';
+          const row = button.closest('.choice');
+          if (row) row.classList.toggle('flagged', active);
         });
       });
       list.querySelectorAll('.explain-toggle').forEach(function(button) {

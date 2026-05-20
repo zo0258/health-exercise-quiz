@@ -167,22 +167,26 @@ def render_html(data):
     .card-head {{ display:block; padding:14px; border-bottom:1px solid var(--line); background:#fbfcfa; }}
     .topic {{ font-size:15px; font-weight:950; }}
     .sub {{ margin-top:3px; color:var(--muted); font-size:13px; font-weight:700; }}
-    .review-controls {{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin:0 0 10px; padding:7px 8px; border:1px solid rgba(102,115,93,.14); border-radius:999px; background:#fbfcfa; }}
-    .importance {{ display:inline-flex; align-items:center; gap:2px; flex:1 1 auto; min-width:0; padding:2px; border:1px solid rgba(102,115,93,.18); border-radius:999px; background:#fff; }}
-    .importance-label {{ margin:0 3px 0 5px; color:var(--muted); font-size:10.5px; font-weight:900; white-space:nowrap; }}
-    .importance button {{ min-width:25px; min-height:24px; border:0; border-radius:999px; background:transparent; color:var(--muted); font:inherit; font-size:11.5px; font-weight:950; }}
+    .review-controls {{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0 0 10px; padding:7px 9px; border:1px solid rgba(102,115,93,.14); border-radius:999px; background:#fbfcfa; }}
+    .importance {{ display:inline-flex; align-items:center; justify-content:space-between; gap:6px; flex:1 1 auto; min-width:0; max-width:218px; padding:3px 5px 3px 9px; border:1px solid rgba(102,115,93,.18); border-radius:999px; background:#fff; }}
+    .importance-label {{ margin:0 2px 0 0; color:var(--ink); font-size:11.5px; font-weight:950; white-space:nowrap; }}
+    .importance button {{ min-width:34px; min-height:30px; border:0; border-radius:999px; background:transparent; color:var(--muted); font:inherit; font-size:12.5px; font-weight:950; }}
     .importance button.active {{ background:var(--accent); color:#fff; }}
-    .master-toggle {{ flex:0 0 auto; min-height:30px; padding:5px 9px; border:1px solid rgba(102,115,93,.22); border-radius:999px; background:#fff; color:var(--accent); font:inherit; font-size:11.5px; font-weight:950; white-space:nowrap; }}
+    .master-toggle {{ flex:0 0 auto; min-height:34px; padding:6px 11px; border:1px solid rgba(102,115,93,.22); border-radius:999px; background:#fff; color:var(--accent); font:inherit; font-size:12px; font-weight:950; white-space:nowrap; }}
     .master-toggle.active {{ background:var(--sage); color:var(--accent-dark); }}
     .body {{ padding:14px; }}
     .question {{ margin:0 0 11px; font-size:15.2px; font-weight:850; line-height:1.46; white-space:pre-line; word-break:keep-all; overflow-wrap:anywhere; }}
     .choices {{ display:grid; gap:7px; margin:10px 0 12px; }}
-    .choice {{ display:grid; grid-template-columns:24px 1fr 36px; gap:7px; align-items:center; padding:9px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; font-size:13.4px; line-height:1.38; cursor:pointer; }}
+    .choice {{ display:grid; grid-template-columns:24px 1fr 38px; gap:7px; align-items:center; padding:9px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; font-size:13.4px; line-height:1.38; cursor:pointer; }}
     .choice strong {{ align-self:start; }}
+    .choice span {{ transition:color .15s ease, text-decoration-color .15s ease; }}
     .choice.answer {{ border-color:var(--ok); background:var(--ok-soft); }}
     .choice.selected:not(.answer) {{ border-color:var(--danger); background:var(--danger-soft); }}
-    .choice-check {{ width:36px; min-width:36px; min-height:36px; border:1px solid rgba(102,115,93,.28); border-radius:10px; background:#fff; color:var(--muted); font:inherit; font-size:17px; font-weight:950; }}
-    .choice-check.active {{ border-color:var(--accent); background:var(--sage); color:var(--accent-dark); }}
+    .choice.flagged {{ border-color:rgba(176,65,65,.28); background:#fff3f1; }}
+    .choice.flagged strong {{ color:#b04141; opacity:.72; }}
+    .choice.flagged span {{ color:rgba(57,43,37,.58); text-decoration:line-through; text-decoration-thickness:1.5px; text-decoration-color:rgba(176,65,65,.55); }}
+    .choice-check {{ width:38px; min-width:38px; min-height:38px; border:1px solid rgba(102,115,93,.28); border-radius:11px; background:#fff; color:var(--muted); font:inherit; font-size:18px; font-weight:950; }}
+    .choice-check.active {{ border-color:#b04141; background:#ffe4df; color:#b04141; }}
     .explain-toggle {{ width:100%; min-height:42px; margin-top:8px; border:0; border-radius:10px; background:var(--accent); color:#fff; font:inherit; font-size:14px; font-weight:950; }}
     .explanation {{ display:grid; gap:8px; margin-top:12px; }}
     .explanation[hidden] {{ display:none; }}
@@ -191,7 +195,7 @@ def render_html(data):
     .ex-row span {{ color:#2c352f; font-size:14px; white-space:pre-line; }}
     .empty {{ padding:28px 14px; color:var(--muted); border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; text-align:center; font-weight:800; }}
     textarea {{ width:100%; min-height:130px; margin-top:10px; padding:10px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:13px; resize:vertical; }}
-    @media (max-width:520px) {{ main {{ padding:18px 12px 28px; }} h1 {{ font-size:25px; }} .back {{ font-size:12px; }} .stats {{ margin-bottom:15px; }} .stat {{ min-height:27px; padding:4px 8px; }} .priority {{ padding:13px 12px; }} .priority h2 {{ font-size:17px; }} .card-head {{ padding:13px; }} .body {{ padding:13px; }} .question {{ font-size:14.6px; }} .choice {{ grid-template-columns:23px 1fr 36px; padding:8px 9px; font-size:13px; }} }}
+    @media (max-width:520px) {{ main {{ padding:18px 12px 28px; }} h1 {{ font-size:25px; }} .back {{ font-size:12px; }} .stats {{ margin-bottom:15px; }} .stat {{ min-height:27px; padding:4px 8px; }} .priority {{ padding:13px 12px; }} .priority h2 {{ font-size:17px; }} .card-head {{ padding:13px; }} .body {{ padding:13px; }} .review-controls {{ gap:8px; padding:7px 8px; }} .importance {{ max-width:205px; gap:5px; padding-left:8px; }} .importance button {{ min-width:32px; min-height:30px; }} .master-toggle {{ min-height:34px; padding:6px 10px; }} .question {{ font-size:14.6px; }} .choice {{ grid-template-columns:23px 1fr 38px; padding:8px 9px; font-size:13px; }} }}
   </style>
 </head>
 <body>
@@ -286,7 +290,7 @@ def render_html(data):
         const answer = Number(record.answer) - 1;
         const choices = (record.choices || []).map(function(choice, index) {{
           const checked = flagged.has(String(index));
-          return '<div class="choice" role="button" tabindex="0" data-answer="' + answer + '" data-index="' + index + '"><strong>' + (circled[index] || index + 1) + '</strong><span>' + escapeHtml(choice) + '</span><button class="choice-check ' + (checked ? 'active' : '') + '" type="button" data-id="' + escapeHtml(record.questionId) + '" data-choice="' + index + '" aria-pressed="' + (checked ? 'true' : 'false') + '">' + (checked ? '☑' : '☐') + '</button></div>';
+          return '<div class="choice ' + (checked ? 'flagged' : '') + '" role="button" tabindex="0" data-answer="' + answer + '" data-index="' + index + '"><strong>' + (circled[index] || index + 1) + '</strong><span>' + escapeHtml(choice) + '</span><button class="choice-check ' + (checked ? 'active' : '') + '" type="button" data-id="' + escapeHtml(record.questionId) + '" data-choice="' + index + '" aria-pressed="' + (checked ? 'true' : 'false') + '" aria-label="보기 소거 표시">' + (checked ? '☑' : '☐') + '</button></div>';
         }}).join('');
         const ex = (record.choices || []).map(function(choice, index) {{
           return '<div class="ex-row"><strong>' + (circled[index] || index + 1) + ' ' + (index === answer ? '정답' : '오답') + '</strong><span>' + escapeHtml(choiceExplanation(record, index)) + '</span></div>';
@@ -303,7 +307,10 @@ def render_html(data):
           const next = loadImportance();
           next[button.dataset.id] = button.dataset.importance;
           saveImportance(next);
-          renderList();
+          const group = button.closest('.importance');
+          group.querySelectorAll('button').forEach(function(item) {{
+            item.classList.toggle('active', item === button);
+          }});
         }});
       }});
       list.querySelectorAll('.choice').forEach(function(choice) {{
@@ -334,7 +341,12 @@ def render_html(data):
           next[id] = Array.from(set).sort();
           if (!next[id].length) delete next[id];
           saveChoiceFlags(next);
-          renderList();
+          const active = set.has(choice);
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          button.textContent = active ? '☑' : '☐';
+          const row = button.closest('.choice');
+          if (row) row.classList.toggle('flagged', active);
         }});
       }});
       list.querySelectorAll('.explain-toggle').forEach(function(button) {{
