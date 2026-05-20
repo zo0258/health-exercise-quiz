@@ -428,7 +428,7 @@ def render_index(files):
       </section>
       <section class="quick" aria-label="빠른 이동">
         <a href="{html.escape(latest_href, quote=True)}"><strong>오늘 문제 풀기</strong><small>{html.escape(latest_label)} 퀴즈 바로가기</small></a>
-        <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제와 다시 볼 문제 모아보기</small></a>
+        <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제·다시 볼 문제</small></a>
       </section>
     </section>
     <div class="history-title">학습 기록</div>
