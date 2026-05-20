@@ -86,6 +86,8 @@ def render_index(files):
     items = []
     latest_href = "wrong-note.html"
     latest_label = "준비 중"
+    latest_status = "퀴즈 준비 중"
+    latest_status_class = "pending"
     for path in files:
         label = date_label(path)
         cache_buster = str(int(path.stat().st_mtime))
@@ -93,6 +95,14 @@ def render_index(files):
         if latest_label == "준비 중":
             latest_href = href
             latest_label = label
+            if label in attempts:
+                score = attempts[label].get("score")
+                total = attempts[label].get("total")
+                score_text = f"{score}/{total}" if score is not None and total else "완료"
+                latest_status = f"풀이완료 · {score_text} · 복습 가능"
+                latest_status_class = "done"
+            else:
+                latest_status = "미풀이 · 10문항 남음"
         badges = status_badges(label, attempts, review_dates)
         items.append(
             f'<li><a class="quiz-row" href="{html.escape(href, quote=True)}">'
@@ -241,6 +251,34 @@ def render_index(files):
       text-align: left;
       font-size: 12px;
     }}
+    .today-status {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 12px;
+      padding: 13px 14px;
+      border: 1px solid rgba(102, 115, 93, .22);
+      border-radius: 12px;
+      background: rgba(255,255,255,.72);
+    }}
+    .today-status strong {{
+      display: block;
+      color: var(--accent-dark);
+      font-size: 16px;
+      font-weight: 950;
+    }}
+    .today-status span {{
+      display: inline-flex;
+      min-height: 26px;
+      align-items: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }}
+    .today-status span.done {{ color: #2f583a; background: #e1eddf; }}
+    .today-status span.pending {{ color: #5f6661; background: #ecefed; }}
     .quick {{
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -352,6 +390,9 @@ def render_index(files):
       .stat {{ padding: 8px 9px; }}
       .stat strong {{ font-size: 19px; }}
       .stat small {{ font-size: 11px; }}
+      .today-status {{ padding: 10px 11px; margin-bottom: 10px; }}
+      .today-status strong {{ font-size: 14px; }}
+      .today-status span {{ font-size: 11px; }}
       .quick {{ grid-template-columns: 1fr 1fr; gap: 7px; }}
       .quick a {{ min-height: 78px; padding: 11px; }}
       .quick strong {{ font-size: 17px; }}
@@ -378,6 +419,9 @@ def render_index(files):
         <div class="stat"><strong>{completed_count}</strong><small>풀이완료</small></div>
         <div class="stat"><strong>{review_count}</strong><small>오답반영</small></div>
         <div class="stat"><strong>{pending_count}</strong><small>미완료</small></div>
+      </section>
+      <section class="today-status" aria-label="오늘 학습 상태">
+        <strong>오늘 {html.escape(latest_label)}</strong><span class="{latest_status_class}">{html.escape(latest_status)}</span>
       </section>
       <section class="quick" aria-label="빠른 이동">
         <a href="{html.escape(latest_href, quote=True)}"><strong>오늘 문제 풀기</strong><small>{html.escape(latest_label)} 퀴즈 바로가기</small></a>

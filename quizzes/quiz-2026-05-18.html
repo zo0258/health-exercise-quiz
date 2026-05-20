@@ -286,6 +286,37 @@
       font-weight: 800;
     }
 
+    .review-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .review-summary div {
+      min-height: 58px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfa;
+    }
+
+    .review-summary span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .review-summary strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--accent-strong);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
     .choice-prefix {
       display: inline-flex;
       align-items: center;
@@ -609,6 +640,48 @@
       font-weight: 900;
     }
 
+    .result-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 14px 0 18px;
+    }
+
+    .result-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .result-actions a.secondary {
+      background: #fff;
+      color: var(--accent);
+    }
+
+    .wrong-summary {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 18px;
+    }
+
+    .wrong-summary div {
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfa;
+      color: #2c352f;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
     @media (max-width: 420px) {
       .question {
         font-size: 18px;
@@ -625,6 +698,10 @@
       .btn {
         font-size: 14px;
       }
+
+      .review-summary { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .review-summary div { padding: 8px; min-height: 52px; }
+      .review-summary strong { font-size: 17px; }
     }
   </style>
 </head>
@@ -754,6 +831,7 @@
       quizView.innerHTML = quiz.questions.map((q, index) => `
         <article class="question-card ${index === state.current ? 'active' : ''}" data-index="${index}">
           ${reviewMode ? '<div class="review-mode-note">이미 풀이한 회차입니다. 보기를 누르지 않아도 정답과 해설을 확인할 수 있습니다.</div>' : ''}
+          ${reviewMode && index === 0 ? reviewSummaryMarkup() : ''}
           <div class="q-head">
             <div class="q-count">Q${index + 1}</div>
             <div class="topic">${q.year} · ${q.topic}</div>
@@ -825,6 +903,18 @@
     function selectedForQuestion(questionIndex) {
       if (reviewMode) return reviewAnswers.get(quiz.questions[questionIndex].id) ?? null;
       return state.answers[questionIndex];
+    }
+
+    function reviewSummaryMarkup() {
+      const wrongCount = Number((completedAttempt?.wrong || []).length);
+      const reviewCount = Number((completedAttempt?.review || []).length);
+      return `
+        <section class="review-summary" aria-label="복습 요약">
+          <div><span>완료 점수</span><strong>${completedAttempt.score || 0}/${completedAttempt.total || quiz.questions.length}</strong></div>
+          <div><span>오답</span><strong>${wrongCount}</strong></div>
+          <div><span>다시 볼 문제</span><strong>${reviewCount}</strong></div>
+        </section>
+      `;
     }
 
     function normalizeQuestionText(text) {
@@ -989,13 +1079,21 @@
           <div class="summary-item"><div class="summary-label">오답</div><div class="summary-value">${wrong.length}</div></div>
           <div class="summary-item"><div class="summary-label">미응답</div><div class="summary-value warn">${unanswered.length}</div></div>
         </div>
-        <h2 class="section-title">오답 결과 복사</h2>
+        <h2 class="section-title">오늘 확인할 오답</h2>
+        <div class="wrong-summary">${wrongSummaryMarkup(wrong, unanswered)}</div>
+        <div class="result-actions">
+          <a href="../wrong-note.html">오답노트로 이동</a>
+          <a class="secondary" id="retryLink" href="${location.pathname}">오늘 다시 풀기</a>
+        </div>
+        <h2 class="section-title">Telegram 반영용 결과</h2>
         <button class="btn primary" id="copyBtn" type="button">결과 복사</button>
         <textarea class="copy-box" id="copyBox" readonly>${escapeHtml(resultText)}</textarea>
       `;
 
       const copyBtn = document.getElementById('copyBtn');
       const copyBox = document.getElementById('copyBox');
+      const retryLink = document.getElementById('retryLink');
+      retryLink.addEventListener('click', () => localStorage.removeItem(storageKey));
       copyBtn.addEventListener('click', async () => {
         copyBox.select();
         try {
@@ -1006,6 +1104,15 @@
           copyBtn.textContent = '선택됨';
         }
       });
+    }
+
+    function wrongSummaryMarkup(wrong, unanswered) {
+      if (!wrong.length && !unanswered.length) {
+        return '<div>오답 없이 마무리했습니다. 오답노트로 이동해 누적 약점만 가볍게 확인하세요.</div>';
+      }
+      const rows = wrong.slice(0, 3).map(item => `<div>${escapeHtml(item.q.topic)} · 내 답 ${item.selected === null ? '미응답' : circled[item.selected]} / 정답 ${circled[item.q.answerIndex]}</div>`);
+      unanswered.slice(0, 2).forEach(item => rows.push(`<div>${escapeHtml(item.q.topic)} · 미응답 / 정답 ${circled[item.q.answerIndex]}</div>`));
+      return rows.join('');
     }
 
     function buildReviewItems(wrong) {

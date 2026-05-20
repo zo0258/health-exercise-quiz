@@ -156,6 +156,12 @@ def render_html(data):
     .toolbar {{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin:12px 0 18px; padding:12px; border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; }}
     .toggle {{ display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:14px; font-weight:850; }}
     .export {{ min-height:38px; border:1px solid var(--accent); border-radius:var(--radius); background:var(--accent); color:#fff; padding:8px 11px; font:inherit; font-size:13px; font-weight:900; }}
+    .priority {{ margin:18px 0 14px; padding:14px; border:1px solid rgba(47,107,79,.18); border-radius:var(--radius); background:#f5faf6; }}
+    .priority h2 {{ margin:0 0 10px; font-size:17px; font-weight:900; }}
+    .priority-list {{ display:grid; gap:8px; }}
+    .priority-item {{ padding:11px 12px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; }}
+    .priority-item strong {{ display:block; font-size:14px; }}
+    .priority-item span {{ display:block; margin-top:3px; color:var(--muted); font-size:13px; font-weight:750; }}
     .list {{ display:grid; gap:12px; }}
     .card {{ border:1px solid var(--line); border-radius:var(--radius); background:#fff; overflow:hidden; }}
     .card.mastered {{ opacity:.62; }}
@@ -184,6 +190,7 @@ def render_html(data):
     <h1>건강운동관리사 오답노트</h1>
     <div class="meta">틀린 문제만 누적합니다. 숙지 완료 체크는 이 브라우저에 저장됩니다.</div>
     <section class="stats" id="stats"></section>
+    <section class="priority" id="priority"></section>
     <section class="toolbar">
       <label class="toggle"><input type="checkbox" id="hideMastered"> 숙지 완료 숨기기</label>
       <button class="export" id="exportBtn" type="button">숙지 목록 복사</button>
@@ -198,6 +205,7 @@ def render_html(data):
     const masteredKey = 'health-exercise-mastered';
     const list = document.getElementById('list');
     const stats = document.getElementById('stats');
+    const priority = document.getElementById('priority');
     const hideMastered = document.getElementById('hideMastered');
     const exportBtn = document.getElementById('exportBtn');
     const exportBox = document.getElementById('exportBox');
@@ -232,10 +240,22 @@ def render_html(data):
       const rows = [['누적 풀이', data.stats.attemptCount + '회'], ['누적 정답률', data.stats.accuracy + '%'], ['오답 문항', items.length + '개'], ['숙지 완료', mastered.size + '개']];
       stats.innerHTML = rows.map(function(row) {{ return '<div class="stat"><span>' + row[0] + '</span><strong>' + row[1] + '</strong></div>'; }}).join('');
     }}
+    function renderPriority(items, mastered) {{
+      const candidates = items.filter(function(item) {{ return !mastered.has(item.questionId); }}).slice().sort(function(a, b) {{
+        const roundDiff = (b.reviewRound || 1) - (a.reviewRound || 1);
+        if (roundDiff) return roundDiff;
+        return b.dates.join('').localeCompare(a.dates.join(''));
+      }}).slice(0, 3);
+      if (!candidates.length) {{ priority.innerHTML = '<h2>오늘 복습 우선순위</h2><div class="priority-list"><div class="priority-item"><strong>누적 오답이 없습니다</strong><span>오늘 문제 풀이 후 자동으로 우선순위가 잡힙니다.</span></div></div>'; return; }}
+      priority.innerHTML = '<h2>오늘 복습 우선순위</h2><div class="priority-list">' + candidates.map(function(item, index) {{
+        return '<div class="priority-item"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject) + ' · 회독 ' + (item.reviewRound || 1) + '회 · 최근 ' + escapeHtml(item.dates[item.dates.length - 1] || '') + '</span></div>';
+      }}).join('') + '</div>';
+    }}
     function renderList() {{
       const mastered = loadMastered();
       const items = groupedWrong();
       renderStats(items, mastered);
+      renderPriority(items, mastered);
       const visible = hideMastered.checked ? items.filter(function(item) {{ return !mastered.has(item.questionId); }}) : items;
       if (!visible.length) {{ list.innerHTML = '<div class="empty">표시할 오답 문제가 없습니다.</div>'; return; }}
       list.innerHTML = visible.map(function(record) {{
