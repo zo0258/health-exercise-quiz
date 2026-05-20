@@ -139,40 +139,39 @@ def render_html(data):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>건강운동관리사 오답노트</title>
+  <title>소빵이의 오답노트</title>
   <style>
-    :root {{ --bg:#f3f5f0; --surface:#fff; --ink:#17201a; --muted:#69736c; --line:#dfe5dc; --accent:#2f6b4f; --danger:#b64032; --danger-soft:#f8e8e5; --ok:#287a4b; --ok-soft:#e4f3e9; --radius:8px; }}
+    :root {{ --bg:#f3f5f0; --surface:#fff; --ink:#17201a; --muted:#69736c; --line:#dfe5dc; --accent:#2f6b4f; --accent-dark:#214735; --danger:#b64032; --danger-soft:#f8e8e5; --ok:#287a4b; --ok-soft:#e4f3e9; --sage:#e9eee4; --radius:8px; }}
     * {{ box-sizing:border-box; }}
     body {{ margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; line-height:1.5; letter-spacing:0; }}
-    main {{ width:min(820px,100%); min-height:100svh; margin:0 auto; padding:24px 16px 32px; background:var(--surface); border-left:1px solid rgba(23,32,26,.06); border-right:1px solid rgba(23,32,26,.06); }}
-    .nav {{ display:flex; justify-content:space-between; gap:12px; margin-bottom:18px; }}
-    .nav a {{ color:var(--accent); font-size:14px; font-weight:900; text-decoration:none; }}
-    h1 {{ margin:0; font-size:24px; line-height:1.25; font-weight:900; }}
-    .meta {{ margin-top:6px; color:var(--muted); font-size:13px; font-weight:700; }}
-    .stats {{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:20px 0 14px; }}
-    .stat {{ min-height:72px; padding:12px 10px; border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; }}
-    .stat span {{ display:block; color:var(--muted); font-size:12px; font-weight:800; }}
-    .stat strong {{ display:block; margin-top:5px; font-size:22px; line-height:1; font-weight:900; }}
-    .toolbar {{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin:12px 0 18px; padding:12px; border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; }}
+    main {{ width:min(820px,100%); min-height:100svh; margin:0 auto; padding:22px 16px 32px; background:var(--surface); border-left:1px solid rgba(23,32,26,.06); border-right:1px solid rgba(23,32,26,.06); }}
+    .topline {{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px; }}
+    .back {{ color:var(--accent); font-size:13px; font-weight:950; text-decoration:none; white-space:nowrap; transform:translateY(4px); }}
+    h1 {{ margin:0; color:var(--accent-dark); font-size:28px; line-height:1.15; font-weight:950; }}
+    .stats {{ display:flex; flex-wrap:wrap; gap:7px; margin:2px 0 16px; }}
+    .stat {{ display:inline-flex; align-items:center; gap:5px; min-height:29px; padding:5px 9px; border:1px solid rgba(102,115,93,.18); border-radius:999px; background:#fbfcfa; }}
+    .stat span {{ color:var(--muted); font-size:11.5px; font-weight:850; }}
+    .stat strong {{ color:var(--accent-dark); font-size:12.5px; line-height:1; font-weight:950; }}
+    .toolbar {{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin:12px 0 16px; padding:10px 11px; border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; }}
     .toggle {{ display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:14px; font-weight:850; }}
     .export {{ min-height:38px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; color:var(--muted); padding:8px 11px; font:inherit; font-size:13px; font-weight:900; }}
     .admin-tools {{ width:100%; margin-top:8px; }}
     .admin-tools summary {{ color:var(--muted); font-size:12px; font-weight:900; cursor:pointer; }}
     .admin-tools .export {{ margin-top:8px; }}
-    .priority {{ margin:18px 0 14px; padding:14px; border:1px solid rgba(47,107,79,.18); border-radius:var(--radius); background:#f5faf6; }}
-    .priority h2 {{ margin:0 0 10px; font-size:17px; font-weight:900; }}
+    .priority {{ margin:14px 0 14px; padding:14px; border:1px solid rgba(47,107,79,.22); border-left:3px solid var(--accent); border-radius:13px; background:linear-gradient(135deg, rgba(233,238,228,.78), rgba(255,255,255,.76)); box-shadow:0 8px 20px rgba(36,37,34,.04); }}
+    .priority h2 {{ margin:0 0 10px; color:var(--accent-dark); font-size:18px; font-weight:950; }}
     .priority-list {{ display:grid; gap:8px; }}
-    .priority-item {{ display:block; padding:11px 12px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; color:var(--ink); text-decoration:none; }}
-    .priority-item strong {{ display:block; font-size:14px; }}
-    .priority-item span {{ display:block; margin-top:3px; color:var(--muted); font-size:13px; font-weight:750; }}
+    .priority-item {{ display:block; padding:12px; border:1px solid rgba(102,115,93,.2); border-radius:10px; background:#fff; color:var(--ink); text-decoration:none; }}
+    .priority-item strong {{ display:block; font-size:14px; font-weight:950; }}
+    .priority-item span {{ display:block; margin-top:3px; color:var(--muted); font-size:12.5px; font-weight:800; }}
     .list {{ display:grid; gap:12px; }}
-    .card {{ border:1px solid var(--line); border-radius:var(--radius); background:#fff; overflow:hidden; scroll-margin-top:14px; }}
+    .card {{ border:1px solid var(--line); border-radius:13px; background:#fff; overflow:hidden; scroll-margin-top:14px; }}
     details.card summary {{ list-style:none; cursor:pointer; }}
     details.card summary::-webkit-details-marker {{ display:none; }}
-    .open-hint {{ margin-top:8px; color:var(--accent); font-size:13px; font-weight:900; }}
+    .open-hint {{ margin-top:8px; color:var(--accent); font-size:13px; font-weight:950; }}
     .card.mastered {{ opacity:.62; }}
     .card-head {{ display:grid; grid-template-columns:1fr auto; gap:12px; padding:14px; border-bottom:1px solid var(--line); background:#fbfcfa; }}
-    .topic {{ font-size:15px; font-weight:900; }}
+    .topic {{ font-size:15px; font-weight:950; }}
     .sub {{ margin-top:3px; color:var(--muted); font-size:13px; font-weight:700; }}
     .master {{ display:inline-flex; align-items:center; gap:7px; color:var(--accent); font-size:13px; font-weight:900; white-space:nowrap; }}
     .body {{ padding:14px; }}
@@ -181,20 +180,20 @@ def render_html(data):
     .choice {{ display:grid; grid-template-columns:28px 1fr; gap:8px; padding:10px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; font-size:14px; }}
     .choice.answer {{ border-color:var(--ok); background:var(--ok-soft); }}
     .choice.selected:not(.answer) {{ border-color:var(--danger); background:var(--danger-soft); }}
+    .explain-toggle {{ width:100%; min-height:42px; margin-top:8px; border:0; border-radius:10px; background:var(--accent); color:#fff; font:inherit; font-size:14px; font-weight:950; }}
     .explanation {{ display:grid; gap:8px; margin-top:12px; }}
+    .explanation[hidden] {{ display:none; }}
     .ex-row {{ padding:10px; border:1px solid rgba(23,32,26,.08); border-radius:var(--radius); background:#fbfcfa; }}
     .ex-row strong {{ display:block; margin-bottom:4px; color:var(--accent); font-size:13px; }}
     .ex-row span {{ color:#2c352f; font-size:14px; white-space:pre-line; }}
     .empty {{ padding:28px 14px; color:var(--muted); border:1px solid var(--line); border-radius:var(--radius); background:#fbfcfa; text-align:center; font-weight:800; }}
     textarea {{ width:100%; min-height:130px; margin-top:10px; padding:10px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:13px; resize:vertical; }}
-    @media (max-width:520px) {{ .stats {{ grid-template-columns:repeat(2,1fr); }} .card-head {{ grid-template-columns:1fr; }} }}
+    @media (max-width:520px) {{ main {{ padding:18px 12px 28px; }} h1 {{ font-size:25px; }} .back {{ font-size:12px; }} .stats {{ margin-bottom:15px; }} .stat {{ min-height:27px; padding:4px 8px; }} .priority {{ padding:13px 12px; }} .priority h2 {{ font-size:17px; }} .card-head {{ grid-template-columns:1fr; padding:13px; }} .body {{ padding:13px; }} .question {{ font-size:15.5px; }} }}
   </style>
 </head>
 <body>
   <main>
-    <div class="nav"><a href="index.html">데일리 퀴즈</a><a href="wrong-note.html">오답노트</a></div>
-    <h1>건강운동관리사 오답노트</h1>
-    <div class="meta">틀린 문제만 모았습니다. 숙지 완료 체크는 이 브라우저에 저장됩니다.</div>
+    <div class="topline"><h1>소빵이의 오답노트</h1><a class="back" href="index.html">Dashboard</a></div>
     <section class="stats" id="stats"></section>
     <section class="priority" id="priority"></section>
     <section class="toolbar">
@@ -247,7 +246,7 @@ def render_html(data):
       return '오답입니다. ' + (record.trap || '문제 조건과 보기 표현을 분리해서 확인하세요.');
     }}
     function renderStats(items, mastered) {{
-      const rows = [['누적 풀이', data.stats.attemptCount + '회'], ['전체 정답률', data.stats.accuracy + '%'], ['틀린 문제', items.length + '개'], ['숙지 완료', mastered.size + '개']];
+      const rows = [['틀린 문제', items.length + '개'], ['숙지 완료', mastered.size + '개'], ['전체 정답률', data.stats.accuracy + '%']];
       stats.innerHTML = rows.map(function(row) {{ return '<div class="stat"><span>' + row[0] + '</span><strong>' + row[1] + '</strong></div>'; }}).join('');
     }}
     function renderPriority(items, mastered) {{
@@ -258,7 +257,7 @@ def render_html(data):
       }}).slice(0, 3);
       if (!candidates.length) {{ priority.innerHTML = '<h2>오늘 복습할 문제 3개</h2><div class="priority-list"><div class="priority-item"><strong>틀린 문제가 없습니다</strong><span>오늘 문제를 풀면 자동으로 정리됩니다.</span></div></div>'; return; }}
       priority.innerHTML = '<h2>오늘 복습할 문제 3개</h2><div class="priority-list">' + candidates.map(function(item, index) {{
-        return '<a class="priority-item" href="#' + anchorId(item.questionId) + '"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject) + ' · 복습 ' + (item.reviewRound || 1) + '회 · 최근 ' + escapeHtml(item.dates[item.dates.length - 1] || '') + '</span></a>';
+        return '<a class="priority-item" href="#' + anchorId(item.questionId) + '"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject) + ' · 문제 먼저 풀어보기</span></a>';
       }}).join('') + '</div>';
     }}
     function renderList() {{
@@ -270,17 +269,28 @@ def render_html(data):
       if (!visible.length) {{ list.innerHTML = '<div class="empty">표시할 오답 문제가 없습니다.</div>'; return; }}
       list.innerHTML = visible.map(function(record) {{
         const isMastered = mastered.has(record.questionId);
-        const selected = Number(record.selected) - 1;
         const answer = Number(record.answer) - 1;
         const choices = (record.choices || []).map(function(choice, index) {{
-          const klass = 'choice ' + (index === answer ? 'answer ' : '') + (index === selected ? 'selected' : '');
-          return '<div class="' + klass + '"><strong>' + (circled[index] || index + 1) + '</strong><span>' + escapeHtml(choice) + '</span></div>';
+          return '<div class="choice"><strong>' + (circled[index] || index + 1) + '</strong><span>' + escapeHtml(choice) + '</span></div>';
         }}).join('');
         const ex = (record.choices || []).map(function(choice, index) {{
           return '<div class="ex-row"><strong>' + (circled[index] || index + 1) + ' ' + (index === answer ? '정답' : '오답') + '</strong><span>' + escapeHtml(choiceExplanation(record, index)) + '</span></div>';
         }}).join('');
-        return '<details class="card ' + (isMastered ? 'mastered' : '') + '" id="' + anchorId(record.questionId) + '"><summary class="card-head"><div><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 틀린 날짜 ' + record.dates.map(escapeHtml).join(', ') + ' · 복습 ' + (record.reviewRound || 1) + '회 · 이유 ' + escapeHtml(record.reasons.join(', ')) + '</div><div class="open-hint">문제·해설 보기</div></div><label class="master"><input type="checkbox" class="masteredBox" data-id="' + escapeHtml(record.questionId) + '"' + (isMastered ? ' checked' : '') + '> 숙지 완료</label></summary><div class="body"><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><div class="explanation">' + ex + '</div></div></details>';
+        return '<details class="card ' + (isMastered ? 'mastered' : '') + '" id="' + anchorId(record.questionId) + '"><summary class="card-head"><div><div class="topic">' + escapeHtml(record.topic || record.questionId) + '</div><div class="sub">' + escapeHtml(record.subject) + ' · 복습 ' + (record.reviewRound || 1) + '회</div><div class="open-hint">문제 보기</div></div><label class="master"><input type="checkbox" class="masteredBox" data-id="' + escapeHtml(record.questionId) + '"' + (isMastered ? ' checked' : '') + '> 숙지 완료</label></summary><div class="body"><p class="question">' + escapeHtml(record.question || record.questionId) + '</p><div class="choices">' + choices + '</div><button class="explain-toggle" type="button">해설 보기</button><div class="explanation" hidden>' + ex + '</div></div></details>';
       }}).join('');
+      list.querySelectorAll('.explain-toggle').forEach(function(button) {{
+        button.addEventListener('click', function() {{
+          const explanation = button.nextElementSibling;
+          const isHidden = explanation.hasAttribute('hidden');
+          if (isHidden) {{
+            explanation.removeAttribute('hidden');
+            button.textContent = '해설 숨김';
+          }} else {{
+            explanation.setAttribute('hidden', '');
+            button.textContent = '해설 보기';
+          }}
+        }});
+      }});
       list.querySelectorAll('.masteredBox').forEach(function(box) {{
         box.addEventListener('click', function(event) {{ event.stopPropagation(); }});
         box.addEventListener('change', function() {{
@@ -298,6 +308,10 @@ def render_html(data):
           const card = document.querySelector(link.getAttribute('href'));
           if (card) {{
             card.open = true;
+            const explanation = card.querySelector('.explanation');
+            const button = card.querySelector('.explain-toggle');
+            if (explanation) explanation.setAttribute('hidden', '');
+            if (button) button.textContent = '해설 보기';
             setTimeout(function() {{ card.scrollIntoView({{ behavior: 'smooth', block: 'start' }}); }}, 0);
           }}
         }});
