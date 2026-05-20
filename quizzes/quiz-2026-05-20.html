@@ -73,7 +73,7 @@
     }
 
     .topbar-inner {
-      padding: 13px 14px 10px;
+      padding: 14px 14px 10px;
     }
 
     .title-row {
@@ -85,43 +85,19 @@
 
     h1 {
       margin: 0;
-      font-size: 18px;
+      font-size: 21px;
       line-height: 1.25;
       font-weight: 950;
       color: var(--accent-strong);
     }
 
-    .meta {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .utility-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 7px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 750;
-    }
-
-    .utility-row a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 900;
-    }
-
-    .score-chip {
+    .progress-chip {
       flex: 0 0 auto;
-      min-width: 56px;
-      padding: 7px 10px;
+      min-width: 58px;
+      padding: 8px 11px;
       border-radius: 999px;
       background: var(--accent-soft);
-      color: var(--accent);
+      color: var(--accent-strong);
       text-align: center;
       font-size: 12px;
       font-weight: 950;
@@ -167,7 +143,7 @@
 
     .q-head {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 14px;
@@ -176,16 +152,16 @@
     .q-count {
       color: var(--accent-strong);
       font-size: 13px;
-      font-weight: 800;
-      padding: 5px 9px;
+      font-weight: 900;
+      padding: 6px 10px;
       border-radius: 999px;
       background: var(--accent-soft);
     }
 
     .topic {
       color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
       text-align: right;
     }
 
@@ -286,7 +262,7 @@
       padding: 12px 13px;
       border: 1px solid rgba(47, 107, 79, .18);
       border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      background: var(--accent-soft);
       color: var(--accent-strong);
       font-size: 14px;
       font-weight: 800;
@@ -294,7 +270,7 @@
 
     .review-mode-note strong {
       display: block;
-      color: #fff;
+      color: var(--accent-strong);
       font-size: 16px;
       font-weight: 950;
     }
@@ -302,7 +278,7 @@
     .review-mode-note span {
       display: block;
       margin-top: 4px;
-      color: rgba(255,255,255,.82);
+      color: var(--muted);
       font-size: 13px;
     }
 
@@ -539,20 +515,21 @@
     }
 
     .result-hero {
-      padding: 22px 0 16px;
+      padding: 18px 0 14px;
     }
 
     .result-score {
-      font-size: 44px;
+      font-size: 25px;
       line-height: 1;
-      font-weight: 900;
+      font-weight: 950;
+      color: var(--accent-strong);
     }
 
     .result-sub {
       margin-top: 8px;
       color: var(--muted);
-      font-size: 15px;
-      font-weight: 650;
+      font-size: 14px;
+      font-weight: 800;
     }
 
     .result-message {
@@ -639,40 +616,6 @@
       display: grid;
       gap: 10px;
       margin-top: 14px;
-    }
-
-    .copy-box {
-      width: 100%;
-      min-height: 180px;
-      margin-top: 12px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      color: #273029;
-      background: #fbfcfa;
-      font-size: 13px;
-      resize: vertical;
-    }
-
-    .backup-panel {
-      margin-top: 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fbfcfa;
-      overflow: hidden;
-    }
-
-    .backup-panel summary {
-      min-height: 44px;
-      padding: 12px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 900;
-      cursor: pointer;
-    }
-
-    .backup-body {
-      padding: 0 12px 12px;
     }
 
     .section-title {
@@ -763,10 +706,8 @@
         <div class="title-row">
           <div>
             <h1>건강운동관리사 데일리 퀴즈</h1>
-            <div class="meta">2026-05-20 · 전과목 · <span id="positionLabel">1 / 10</span></div>
-            <div class="utility-row"><span id="saveStateLabel">풀이 중</span><a href="../wrong-note.html">오답노트</a></div>
           </div>
-          <div class="score-chip" id="scoreChip">0점</div>
+          <div class="progress-chip" id="positionLabel">1/10</div>
         </div>
         <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
       </div>
@@ -809,13 +750,11 @@
     const quizView = document.getElementById('quizView');
     const resultView = document.getElementById('resultView');
     const positionLabel = document.getElementById('positionLabel');
-    const scoreChip = document.getElementById('scoreChip');
     const progressBar = document.getElementById('progressBar');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const explainBtn = document.getElementById('explainBtn');
     const actions = document.getElementById('actions');
-    const saveStateLabel = document.getElementById('saveStateLabel');
 
     function normalizeArray(value, fallback) {
       if (!Array.isArray(value)) return [...fallback];
@@ -824,10 +763,7 @@
 
     function loadSavedState() {
       try {
-        if (reviewMode) {
-          saveStateLabel.textContent = '풀이완료 · 복습 모드';
-          return;
-        }
+        if (reviewMode) return;
         const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
         if (!saved || saved.quizId !== quiz.quizId) return;
         state.current = Math.min(Math.max(Number(saved.current || 0), 0), quiz.questions.length);
@@ -835,9 +771,8 @@
         state.explanationOpen = normalizeArray(saved.explanationOpen, state.explanationOpen).map(Boolean);
         state.bookmarked = normalizeArray(saved.bookmarked, state.bookmarked).map(Boolean);
         state.wrongReasons = normalizeArray(saved.wrongReasons, state.wrongReasons).map(value => String(value || ''));
-        saveStateLabel.textContent = '풀이 결과 불러옴';
       } catch (error) {
-        saveStateLabel.textContent = '풀이 결과 불러오기 실패';
+        console.warn('Saved quiz state could not be loaded.', error);
       }
     }
 
@@ -854,7 +789,6 @@
         wrongReasons: state.wrongReasons
       };
       localStorage.setItem(storageKey, JSON.stringify(payload));
-      saveStateLabel.textContent = '풀이 중';
     }
 
     function score() {
@@ -883,11 +817,11 @@
     function renderQuiz() {
       quizView.innerHTML = quiz.questions.map((q, index) => `
         <article class="question-card ${index === state.current ? 'active' : ''}" data-index="${index}">
-          ${reviewMode ? '<div class="review-mode-note"><strong>복습 모드</strong><span>풀이완료 회차입니다. 정답과 해설을 바로 확인하세요.</span></div>' : ''}
+          ${reviewMode && index === 0 ? '<div class="review-mode-note"><strong>복습 모드</strong><span>풀이완료 회차입니다. 정답과 해설을 바로 확인하세요.</span></div>' : ''}
           ${reviewMode && index === 0 ? reviewSummaryMarkup() : ''}
           <div class="q-head">
-            <div class="q-count">Q${index + 1}</div>
-            <div class="topic">${q.year} · ${q.topic}</div>
+            <div class="q-count">Q${index + 1} · ${escapeHtml(q.topic)}</div>
+            <div class="topic">${q.year} 기출</div>
           </div>
           <div class="question">${questionMarkup(q.question)}</div>
           <div class="choices">
@@ -1119,54 +1053,33 @@
 
       resultView.innerHTML = `
         <div class="result-hero">
-          <div class="result-score">${currentScore}/${total}</div>
-          <div class="result-sub">${quiz.subject} · 오답 ${wrong.length}개 · 미응답 ${unanswered.length}개</div>
+          <div class="result-score">오늘 풀이 완료</div>
+          <div class="result-sub">전체 정답률 ${currentScore}/${total} · 틀린 문제 ${wrong.length}개 · 미응답 ${unanswered.length}개</div>
         </div>
         <section class="result-message">
           <h2>${escapeHtml(message.title)}</h2>
           <p>${escapeHtml(message.body)}</p>
         </section>
         <div class="summary-grid">
-          <div class="summary-item"><div class="summary-label">풀이</div><div class="summary-value">${answeredCount()}</div></div>
-          <div class="summary-item"><div class="summary-label">정답</div><div class="summary-value">${currentScore}</div></div>
-          <div class="summary-item"><div class="summary-label">오답</div><div class="summary-value">${wrong.length}</div></div>
+          <div class="summary-item"><div class="summary-label">전체 정답률</div><div class="summary-value">${currentScore}/${total}</div></div>
+          <div class="summary-item"><div class="summary-label">풀이 완료</div><div class="summary-value">${answeredCount()}</div></div>
+          <div class="summary-item"><div class="summary-label">틀린 문제</div><div class="summary-value">${wrong.length}</div></div>
           <div class="summary-item"><div class="summary-label">미응답</div><div class="summary-value warn">${unanswered.length}</div></div>
         </div>
         <h2 class="section-title">오늘 확인할 오답</h2>
         <div class="wrong-summary">${wrongSummaryMarkup(wrong, unanswered)}</div>
-        ${syncConfig.enabled ? '<button class="btn primary" id="submitBtn" type="button">결과 제출</button><div class="sync-status" id="syncStatus">제출하면 결과가 저장됩니다.</div>' : ''}
+        ${syncConfig.enabled ? '<button class="btn primary" id="submitBtn" type="button">결과 저장</button><div class="sync-status" id="syncStatus">저장하면 대시보드와 오답노트에 반영됩니다.</div>' : ''}
         <div class="result-actions">
-          <a href="../wrong-note.html">오답노트로 이동</a>
-          <a class="secondary" id="retryLink" href="${location.pathname}">오늘 다시 풀기</a>
+          <a href="../wrong-note.html">오답노트 보기</a>
+          <a class="secondary" href="../index.html">메인으로</a>
         </div>
-        <details class="backup-panel">
-          <summary>${syncConfig.enabled ? '제출 오류 시 수동 백업' : 'Telegram 반영용 결과'}</summary>
-          <div class="backup-body">
-            <button class="btn primary" id="copyBtn" type="button">결과 복사</button>
-            <textarea class="copy-box" id="copyBox" readonly>${escapeHtml(resultText)}</textarea>
-          </div>
-        </details>
       `;
 
-      const copyBtn = document.getElementById('copyBtn');
-      const copyBox = document.getElementById('copyBox');
       const submitBtn = document.getElementById('submitBtn');
       const syncStatus = document.getElementById('syncStatus');
-      const retryLink = document.getElementById('retryLink');
-      retryLink.addEventListener('click', () => localStorage.removeItem(storageKey));
       if (submitBtn) {
         submitBtn.addEventListener('click', async () => submitResult(resultText, submitBtn, syncStatus));
       }
-      copyBtn.addEventListener('click', async () => {
-        copyBox.select();
-        try {
-          await navigator.clipboard.writeText(copyBox.value);
-          copyBtn.textContent = '복사 완료';
-        } catch (error) {
-          document.execCommand('copy');
-          copyBtn.textContent = '선택됨';
-        }
-      });
     }
 
     async function submitResult(resultText, submitBtn, syncStatus) {
@@ -1193,12 +1106,12 @@
         });
         submitBtn.textContent = '제출 완료';
         syncStatus.className = 'sync-status ok';
-        syncStatus.textContent = '제출 요청 완료. 잠시 후 대시보드와 오답노트에 반영됩니다.';
+        syncStatus.textContent = '저장 요청 완료. 잠시 후 대시보드와 오답노트에 반영됩니다.';
       } catch (error) {
         submitBtn.disabled = false;
-        submitBtn.textContent = '다시 제출';
+        submitBtn.textContent = '다시 저장';
         syncStatus.className = 'sync-status bad';
-        syncStatus.textContent = '제출 실패. 아래 결과 복사로 Telegram에 보내면 수동 반영할 수 있습니다.';
+        syncStatus.textContent = '저장 실패. 잠시 후 다시 시도해 주세요.';
       }
     }
 
@@ -1303,9 +1216,8 @@
       actions.style.display = isResult ? 'none' : 'grid';
 
       if (isResult) {
-        positionLabel.textContent = '결과';
+        positionLabel.textContent = '완료';
         progressBar.style.width = '100%';
-        scoreChip.textContent = `${score()}점`;
         renderResult();
         return;
       }
@@ -1314,17 +1226,16 @@
       const q = quiz.questions[state.current];
       const selected = selectedForQuestion(state.current);
       const progress = ((state.current + 1) / quiz.questions.length) * 100;
-      positionLabel.textContent = `${state.current + 1} / ${quiz.questions.length}`;
+      positionLabel.textContent = `${state.current + 1}/${quiz.questions.length}`;
       progressBar.style.width = `${progress}%`;
-      scoreChip.textContent = `${score()}점`;
       prevBtn.disabled = state.current === 0;
-      nextBtn.textContent = state.current === quiz.questions.length - 1 ? '결과' : '다음';
+      nextBtn.textContent = state.current === quiz.questions.length - 1 ? '결과 보기' : '다음';
       if (!reviewMode && state.current === quiz.questions.length - 1 && unansweredCount() > 0) {
         nextBtn.textContent = `미응답 ${unansweredCount()}개`;
       }
       nextBtn.disabled = !reviewMode && selected === null;
       explainBtn.disabled = !reviewMode && selected === null;
-      explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : (selected === null && !reviewMode ? '답 선택 후 해설' : '해설 보기');
+      explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : '해설 보기';
     }
 
     function escapeHtml(value) {
