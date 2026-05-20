@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>건강운동관리사 데일리 퀴즈 | 2026-05-20</title>
+  <style>
+    :root {
+      --bg: #f3f5f0;
+      --surface: #ffffff;
+      --ink: #17201a;
+      --muted: #69736c;
+      --line: #dfe5dc;
+      --accent: #2f6b4f;
+      --accent-strong: #234d39;
+      --accent-soft: #e5f1ea;
+      --accent-wash: #f1f7f3;
+      --danger: #b64032;
+      --danger-soft: #f8e8e5;
+      --ok: #287a4b;
+      --ok-soft: #e4f3e9;
+      --warn: #a16b18;
+      --shadow: 0 18px 42px rgba(23, 32, 26, .10);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(47, 107, 79, .08), rgba(47, 107, 79, 0) 260px),
+        var(--bg);
+    }
+
+    button, textarea {
+      font: inherit;
+    }
+
+    .app {
+      width: min(760px, 100%);
+      min-height: 100svh;
+      margin: 0 auto;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      border-left: 1px solid rgba(23, 32, 26, .06);
+      border-right: 1px solid rgba(23, 32, 26, .06);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      padding: 16px 16px 12px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .meta {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .utility-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .utility-row a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .score-chip {
+      flex: 0 0 auto;
+      min-width: 64px;
+      padding: 9px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 6px;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e8ece6;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+      transition: width .25s ease;
+    }
+
+    main {
+      padding: 20px 16px 28px;
+    }
+
+    .question-card {
+      display: none;
+    }
+
+    .question-card.active {
+      display: block;
+      animation: questionIn .18s ease-out;
+    }
+
+    @keyframes questionIn {
+      from { opacity: .72; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .q-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .q-count {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+    }
+
+    .topic {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .question {
+      margin: 0 0 20px;
+      font-size: 20px;
+      line-height: 1.56;
+      font-weight: 760;
+    }
+
+    .q-line {
+      margin: 0 0 8px;
+    }
+
+    .q-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .q-label {
+      margin-top: 10px;
+      color: var(--accent-strong);
+      font-weight: 900;
+    }
+
+    .q-block {
+      margin: 14px 0 16px;
+      padding: 14px 14px 12px;
+      border: 1px solid rgba(47, 107, 79, .22);
+      border-radius: var(--radius);
+      background: var(--accent-wash);
+    }
+
+    .q-block .q-label {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .q-block .q-line {
+      margin-bottom: 10px;
+    }
+
+    .q-block .q-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .q-hang {
+      padding-left: 1.65em;
+      text-indent: -1.65em;
+    }
+
+    .q-dot {
+      padding-left: 1em;
+      text-indent: -1em;
+    }
+
+    .choices {
+      display: grid;
+      gap: 11px;
+    }
+
+    .choice {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 8px;
+      width: 100%;
+      min-height: 58px;
+      padding: 15px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .15s ease, background .15s ease, transform .15s ease;
+    }
+
+    .choice:hover {
+      border-color: rgba(47, 107, 79, .45);
+      background: #fbfdfb;
+    }
+
+    .choice:active {
+      transform: scale(.99);
+    }
+
+    .choice:disabled {
+      cursor: default;
+    }
+
+    .choice:disabled:hover {
+      border-color: var(--line);
+      background: #fff;
+    }
+
+    .choice-prefix {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #eef2ed;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .choice-text {
+      min-width: 0;
+      padding-top: 1px;
+    }
+
+    .choice.correct {
+      border-color: var(--ok);
+      background: var(--ok-soft);
+    }
+
+    .choice.wrong {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+    }
+
+    .choice.selected .choice-prefix {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fbfcfa, #f6f8f5);
+      border: 1px solid var(--line);
+    }
+
+    .feedback.visible {
+      display: block;
+    }
+
+    .feedback-title {
+      margin: 0 0 8px;
+      font-size: 15px;
+      font-weight: 850;
+    }
+
+    .feedback-title.ok { color: var(--ok); }
+    .feedback-title.bad { color: var(--danger); }
+
+    .explanation {
+      display: none;
+      gap: 9px;
+      margin: 10px 0 0;
+    }
+
+    .explanation.visible {
+      display: grid;
+    }
+
+    .ex-row {
+      display: grid;
+      gap: 4px;
+      padding: 10px 11px;
+      border: 1px solid rgba(23, 32, 26, .08);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .ex-row strong {
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .ex-row span {
+      color: #2c352f;
+      font-size: 14px;
+      line-height: 1.62;
+      white-space: pre-line;
+    }
+
+    .review-tools {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .bookmark-toggle {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 850;
+      text-align: left;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .bookmark-toggle.active {
+      border-color: var(--warn);
+      background: #fff7e8;
+      color: #7a4d0d;
+    }
+
+    .reason-panel {
+      display: grid;
+      gap: 8px;
+    }
+
+    .reason-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .reason-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .reason-chip {
+      min-height: 36px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .reason-chip.active {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+      color: var(--danger);
+    }
+
+    .actions {
+      position: sticky;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 8px;
+      margin: 24px -16px -28px;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, .96);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .btn {
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: var(--accent-strong);
+    }
+
+    .btn.ghost {
+      color: var(--muted);
+    }
+
+    .btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .result {
+      display: none;
+    }
+
+    .result.active {
+      display: block;
+    }
+
+    .result-hero {
+      padding: 22px 0 16px;
+    }
+
+    .result-score {
+      font-size: 44px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .result-sub {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    .result-message {
+      margin: 16px 0 18px;
+      padding: 18px;
+      border: 1px solid rgba(47, 107, 79, .18);
+      border-radius: var(--radius);
+      background: #f5faf6;
+    }
+
+    .result-message h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 900;
+    }
+
+    .result-message p {
+      margin: 0;
+      color: #334138;
+      font-size: 15px;
+      line-height: 1.65;
+      white-space: pre-line;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .summary-item {
+      padding: 12px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfa;
+    }
+
+    .summary-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .summary-value {
+      margin-top: 4px;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .summary-value.warn {
+      color: var(--warn);
+    }
+
+    .wrong-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .wrong-item,
+    .review-item {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .wrong-item strong,
+    .review-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .wrong-item span,
+    .review-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .copy-box {
+      width: 100%;
+      min-height: 180px;
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: #273029;
+      background: #fbfcfa;
+      font-size: 13px;
+      resize: vertical;
+    }
+
+    .section-title {
+      margin: 24px 0 8px;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    @media (max-width: 420px) {
+      .question {
+        font-size: 18px;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .actions {
+        grid-template-columns: .9fr 1.2fr .9fr;
+      }
+
+      .btn {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="title-row">
+          <div>
+            <h1>건강운동관리사 데일리 퀴즈</h1>
+            <div class="meta">2026-05-20 · 전과목 · <span id="positionLabel">1 / 10</span></div>
+            <div class="utility-row"><span id="saveStateLabel">자동 저장 대기</span><a href="../wrong-note.html">오답노트</a></div>
+          </div>
+          <div class="score-chip" id="scoreChip">0점</div>
+        </div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="quizView"></section>
+      <section id="resultView" class="result"></section>
+      <nav class="actions" id="actions">
+        <button class="btn ghost" id="prevBtn" type="button">이전</button>
+        <button class="btn primary" id="explainBtn" type="button">해설 보기</button>
+        <button class="btn" id="nextBtn" type="button">다음</button>
+      </nav>
+    </main>
+  </div>
+
+  <script id="quiz-data" type="application/json">{"quizId": "2026-05-20-daily-all-subjects", "date": "2026-05-20", "title": "건강운동관리사 데일리 퀴즈", "subject": "전과목", "round": "시험 임박 전과목 10문항", "timeLimitMinutes": 10, "sourceSummary": "2023년 검증 문제은행 기반", "generationNote": "정책 기반 자동 생성", "missingSubjects": [], "questions": [{"id": "2023-1A-exphys-01", "year": 2023, "subject": "운동생리학", "topic": "에너지 대사", "type": "개념구분", "difficulty": 3, "trap": "전력달리기 초반 이후에도 계속 크레아틴 인산만 생각하는 함정", "question": "전력달리기 초반 크레아틴 인산 사용 후 동원되는 주요 에너지원은?", "choices": ["근육 내 젖산", "혈중 아미노산", "혈중 중성지방", "근육 내 글리코겐"], "answerIndex": 3, "explanation": "전력달리기 초반 ATP-PCr 체계가 빠르게 쓰인 뒤에는 고강도 무산소성 해당과정이 중심이 된다. 이때 주요 기질은 근육 내 글리코겐이다.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 1}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "data/quizzes/2026-05-18-daily.json"}, {"id": "2023-1A-70-11", "year": 2023, "subject": "운동생리학", "topic": "장기간 고지대", "type": "개념구분", "difficulty": 3, "trap": "장기간 고지대 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "장기간 고지대 적응 훈련 후에 나타나는 생리적 특징으로 옳은 것은?", "choices": ["높은 피루브산 생성 능력", "높은 젖산탈수소효소(LDH) 활성도", "높은 포스포프럭토카이네이즈(PFK) 활성도", "높은 2,3 DPG(diphosphoglycerate) 농도"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 11, "session": 1, "form": "A", "subjectCode": 70}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-1A-72-02", "year": 2023, "subject": "운동처방론", "topic": "정적 스트레칭", "type": "부정형", "difficulty": 3, "trap": "정적 스트레칭 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "정적 스트레칭 운동 시 관절가동범위가 증가되는 요인으로 옳지 않은\n것은?", "choices": ["신경 억제 감소", "연부조직 탄성 감소", "스트레칭에 대한 내성(저항) 감소", "근건 단위 경직(musculotendinous unit stiffness) 감소"], "answerIndex": 1, "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 2, "session": 1, "form": "A", "subjectCode": 72}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-1A-71-18", "year": 2023, "subject": "건강·체력평가", "topic": "ACSM 제시한", "type": "부정형", "difficulty": 3, "trap": "ACSM 제시한 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "ACSM(11판)에서 제시한 신체둘레 측정 부위(선 자세)에 대한 설명\n으로 옳지 않은 것은?", "choices": ["복부: 엉덩뼈능선 높이(일반적으로 배꼽 높이)에서 수평 측정", "엉덩이: 엉덩이의 최대 둘레에서 수평 측정", "허리: 복부를 수축한 상태에서 몸통에서 수평 측정", "장딴지: 장축에 수직인 무릎과 발목 사이의 최대 둘레에서 수평 측정"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 18, "session": 1, "form": "A", "subjectCode": 71}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-1A-73-19", "year": 2023, "subject": "운동부하검사", "topic": "퀸스대학 스텝", "type": "개념구분", "difficulty": 3, "trap": "퀸스대학 스텝 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "퀸스대학 스텝 검사(Queens college step test)에 대한 설명으로 옳지\n않은 것은?", "choices": ["스텝박스의 높이는 41.25 cm(16.25 in)이다.", "남성은 분당 24스텝(96박자), 여성은 분당 22스텝(88박자)의 속도로 3분 동안 수행한다.", "최대산소섭취량을 산출하기 위하여 남녀 간 동일한 회귀공식을 사용한다.", "심박수는 스텝 종료 후 5초에서 20초까지 계측 후 분당 심박수로 환산한다."], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 19, "session": 1, "form": "A", "subjectCode": 73}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-77-14", "year": 2023, "subject": "스포츠심리학", "topic": "운동과 우울증", "type": "부정형", "difficulty": 3, "trap": "운동과 우울증 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "운동과 우울증에 대한 모노아민 가설(monoamine hypothesis)에서\n강조하는 신경전달물질로 옳지 않은 것은?", "choices": ["엔돌핀", "도파민", "세로토닌", "노르에피네프린"], "answerIndex": 0, "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 14, "session": 2, "form": "A", "subjectCode": 77}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-75-16", "year": 2023, "subject": "기능해부학", "topic": "동일한 사람이", "type": "개념구분", "difficulty": 3, "trap": "동일한 사람이 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "동일한 사람이 동일한 장소에서 허리의 굽힘만으로 윗몸일으키기\n운동을 한다고 가정할 때, 경사도를 (가)에서 (나)로 변경 시 힘이 더\n소모되는 이유는?\n(가) (나)", "choices": ["몸통 관성의 변화", "몸통 질량의 변화", "몸통 중력가속도의 변화", "몸통 무게중심의 수직 이동거리 변화"], "answerIndex": 3, "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 16, "session": 2, "form": "A", "subjectCode": 75}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-76-16", "year": 2023, "subject": "병태생리학", "topic": "뼈엉성증 설명", "type": "개념구분", "difficulty": 4, "trap": "뼈엉성증 설명 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c보기\u003e에서 뼈엉성증(골다공증, osteoporosis)에 대한 설명으로 옳은\n것으로만 고른 것은?\n\u003c보기\u003e.\n㉠ 진단기준은 골밀도의 T-score가 ≤–2.5일 때이다.\n㉡ 유발요인으로갑상선기능항진증, 쿠싱증후군, 글루코코르티코이드\n등이 있다.\n㉢ 뼈엉성증환자의 1,25(OH)2 vitamin D는 증가되어 있다.\n㉣ 칼시토닌은 파골세포의 활성을 촉진하여 혈액의 칼슘농도를\n높인다.", "choices": ["㉠, ㉡", "㉠, ㉢", "㉡, ㉢", "㉡, ㉣"], "answerIndex": 0, "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 16, "session": 2, "form": "A", "subjectCode": 76}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-74-01", "year": 2023, "subject": "운동상해", "topic": "손상 조직", "type": "보기조합", "difficulty": 4, "trap": "손상 조직 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c보기\u003e에서 손상에 대한 조직 반응 중 증식(proliferation) 단계의\n특성으로 옳은 것으로만 모두 고른 것은?\n\u003c보기\u003e.\n㉠ 섬유 증식 ㉡ 포식작용\n㉢ 혈액 응고 ㉣ 육아조직 생성", "choices": ["㉠, ㉢", "㉡, ㉢", "㉠, ㉣", "㉡, ㉣"], "answerIndex": 2, "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 1, "session": 2, "form": "A", "subjectCode": 74}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}, {"id": "2023-2A-74-18", "year": 2023, "subject": "운동상해", "topic": "SOAP 객관적", "type": "보기조합", "difficulty": 4, "trap": "SOAP 객관적 관련 조건과 보기 표현을 섞어 판단하는 문항", "question": "\u003c보기\u003e에서 SOAP의 객관적 기록으로 옳은 것으로만 모두 고른\n것은?\n\u003c보기\u003e.\n㉠ 심혈관계의 정보(심박수, 혈압) 기록\n㉡ 일상적인 상태나 활동 수준 등 기록\n㉢ 현재 상태나 주된 불편감(chief complaint) 등 기록\n㉣ 인지능력의 정보(시간과 장소인식, 사람인식) 기록", "choices": ["㉠, ㉡", "㉠, ㉣", "㉡, ㉢", "㉢, ㉣"], "answerIndex": 1, "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.", "source": {"file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf", "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf", "questionNo": 18, "session": 2, "form": "A", "subjectCode": 74}, "wrongRateBasis": "고오답 추정", "verified": true, "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"}]}</script>
+  <script>
+    const quiz = JSON.parse(document.getElementById('quiz-data').textContent);
+    const circled = ['①', '②', '③', '④', '⑤'];
+    const wrongReasonOptions = ['개념 모름', '헷갈림', '계산 실수', '문제 잘못 읽음'];
+    const storageKey = 'health-exercise-quiz:' + quiz.quizId;
+    const state = {
+      current: 0,
+      answers: Array(quiz.questions.length).fill(null),
+      explanationOpen: Array(quiz.questions.length).fill(false),
+      bookmarked: Array(quiz.questions.length).fill(false),
+      wrongReasons: Array(quiz.questions.length).fill('')
+    };
+
+    const quizView = document.getElementById('quizView');
+    const resultView = document.getElementById('resultView');
+    const positionLabel = document.getElementById('positionLabel');
+    const scoreChip = document.getElementById('scoreChip');
+    const progressBar = document.getElementById('progressBar');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const explainBtn = document.getElementById('explainBtn');
+    const actions = document.getElementById('actions');
+    const saveStateLabel = document.getElementById('saveStateLabel');
+
+    function normalizeArray(value, fallback) {
+      if (!Array.isArray(value)) return [...fallback];
+      return fallback.map((item, index) => value[index] ?? item);
+    }
+
+    function loadSavedState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+        if (!saved || saved.quizId !== quiz.quizId) return;
+        state.current = Math.min(Math.max(Number(saved.current || 0), 0), quiz.questions.length);
+        state.answers = normalizeArray(saved.answers, state.answers).map(value => value === null ? null : Number(value));
+        state.explanationOpen = normalizeArray(saved.explanationOpen, state.explanationOpen).map(Boolean);
+        state.bookmarked = normalizeArray(saved.bookmarked, state.bookmarked).map(Boolean);
+        state.wrongReasons = normalizeArray(saved.wrongReasons, state.wrongReasons).map(value => String(value || ''));
+        saveStateLabel.textContent = '저장된 풀이 불러옴';
+      } catch (error) {
+        saveStateLabel.textContent = '저장 불러오기 실패';
+      }
+    }
+
+    function saveState() {
+      const payload = {
+        quizId: quiz.quizId,
+        date: quiz.date,
+        savedAt: new Date().toISOString(),
+        current: state.current,
+        answers: state.answers,
+        explanationOpen: state.explanationOpen,
+        bookmarked: state.bookmarked,
+        wrongReasons: state.wrongReasons
+      };
+      localStorage.setItem(storageKey, JSON.stringify(payload));
+      saveStateLabel.textContent = '풀이 자동 저장됨';
+    }
+
+    function score() {
+      return state.answers.reduce((total, selected, index) => {
+        return total + (selected === quiz.questions[index].answerIndex ? 1 : 0);
+      }, 0);
+    }
+
+    function answeredCount() {
+      return state.answers.filter(value => value !== null).length;
+    }
+
+    function unansweredIndexes() {
+      return state.answers
+        .map((value, index) => value === null ? index : null)
+        .filter(value => value !== null);
+    }
+
+    function unansweredCount() {
+      return unansweredIndexes().length;
+    }
+
+    function renderQuiz() {
+      quizView.innerHTML = quiz.questions.map((q, index) => `
+        <article class="question-card ${index === state.current ? 'active' : ''}" data-index="${index}">
+          <div class="q-head">
+            <div class="q-count">Q${index + 1}</div>
+            <div class="topic">${q.year} · ${q.topic}</div>
+          </div>
+          <div class="question">${questionMarkup(q.question)}</div>
+          <div class="choices">
+            ${q.choices.map((choice, choiceIndex) => choiceMarkup(q, index, choice, choiceIndex)).join('')}
+          </div>
+          <div class="feedback ${state.answers[index] !== null ? 'visible' : ''}">
+            ${feedbackMarkup(q, index)}
+          </div>
+        </article>
+      `).join('');
+
+      quizView.querySelectorAll('.choice').forEach(button => {
+        button.addEventListener('click', () => {
+          const questionIndex = Number(button.dataset.question);
+          if (state.answers[questionIndex] !== null) return;
+          const choiceIndex = Number(button.dataset.choice);
+          state.answers[questionIndex] = choiceIndex;
+          if (choiceIndex !== quiz.questions[questionIndex].answerIndex) {
+            state.explanationOpen[questionIndex] = true;
+          }
+          saveState();
+          render();
+        });
+      });
+
+      quizView.querySelectorAll('.bookmark-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const questionIndex = Number(button.dataset.question);
+          state.bookmarked[questionIndex] = !state.bookmarked[questionIndex];
+          saveState();
+          render();
+        });
+      });
+
+      quizView.querySelectorAll('.reason-chip').forEach(button => {
+        button.addEventListener('click', () => {
+          const questionIndex = Number(button.dataset.question);
+          state.wrongReasons[questionIndex] = button.dataset.reason;
+          saveState();
+          render();
+        });
+      });
+    }
+
+    function choiceMarkup(q, questionIndex, choice, choiceIndex) {
+      const selected = state.answers[questionIndex];
+      const answered = selected !== null;
+      const isCorrect = choiceIndex === q.answerIndex;
+      const isSelected = choiceIndex === selected;
+      const disabled = answered ? 'disabled' : '';
+      const classes = [
+        'choice',
+        answered && isCorrect ? 'correct' : '',
+        answered && isSelected && !isCorrect ? 'wrong selected' : '',
+        answered && isSelected && isCorrect ? 'selected' : ''
+      ].filter(Boolean).join(' ');
+
+      return `
+        <button class="${classes}" type="button" data-question="${questionIndex}" data-choice="${choiceIndex}" ${disabled}>
+          <span class="choice-prefix">${circled[choiceIndex]}</span><span class="choice-text">${escapeHtml(choice)}</span>
+        </button>
+      `;
+    }
+
+    function normalizeQuestionText(text) {
+      const normalized = String(text)
+        .replaceAll('&lt;', '<')
+        .replaceAll('&gt;', '>')
+        .replace(/<보기>\s*\./g, '<보기>')
+        .replace(/<그림>\s*\./g, '<그림>')
+        .replace(/<표>\s*\./g, '<표>');
+      return mergeWrappedLines(normalized);
+    }
+
+    function mergeWrappedLines(text) {
+      const lines = text.split('\n').map(line => line.trim());
+      const merged = [];
+      lines.forEach(line => {
+        if (!line) return;
+        if (isSectionLabel(line) || isListStart(line) || !merged.length || isSectionLabel(merged[merged.length - 1])) {
+          merged.push(line);
+          return;
+        }
+        if (isContinuationLine(line)) {
+          merged[merged.length - 1] = `${merged[merged.length - 1]} ${line}`;
+          return;
+        }
+        merged.push(line);
+      });
+      return merged.join('\n');
+    }
+
+    function isSectionLabel(line) {
+      return line === '<보기>' || line === '<그림>' || line === '<표>';
+    }
+
+    function isListStart(line) {
+      return /^[㉠㉡㉢㉣㉤∙•·▪□]/.test(line);
+    }
+
+    function isContinuationLine(line) {
+      return !isListStart(line) && !isSectionLabel(line);
+    }
+
+    function questionMarkup(text) {
+      const lines = normalizeQuestionText(text).split('\n').map(line => line.trim()).filter(Boolean);
+      const parts = [];
+      let blockLines = [];
+
+      lines.forEach(line => {
+        if (isSectionLabel(line)) {
+          if (blockLines.length) parts.push(renderQuestionBlock(blockLines));
+          blockLines = [line];
+          return;
+        }
+        if (blockLines.length) {
+          blockLines.push(line);
+          return;
+        }
+        parts.push(renderQuestionLine(line));
+      });
+
+      if (blockLines.length) parts.push(renderQuestionBlock(blockLines));
+      return parts.join('');
+    }
+
+    function renderQuestionBlock(lines) {
+      return `<div class="q-block">${lines.map(line => renderQuestionLine(line)).join('')}</div>`;
+    }
+
+    function renderQuestionLine(line) {
+      return `<div class="${questionLineClass(line)}">${escapeHtml(line)}</div>`;
+    }
+
+    function questionLineClass(line) {
+      if (line === '<보기>' || line === '<그림>' || line === '<표>') return 'q-line q-label';
+      if (/^[㉠㉡㉢㉣㉤]/.test(line)) return 'q-line q-hang';
+      if (/^[∙•·▪□]/.test(line)) return 'q-line q-dot';
+      return 'q-line';
+    }
+
+    function feedbackMarkup(q, index) {
+      const selected = state.answers[index];
+      if (selected === null) return '';
+      const ok = selected === q.answerIndex;
+      const title = ok ? '정답입니다' : `오답입니다 · 정답 ${circled[q.answerIndex]}`;
+      const reviewPoint = `${q.topic} 기준을 다시 확인하고, 같은 표현이 다른 보기로 바뀌어도 핵심어를 먼저 찾기`;
+      return `
+        <p class="feedback-title ${ok ? 'ok' : 'bad'}">${title}</p>
+        <div class="explanation ${state.explanationOpen[index] ? 'visible' : ''}">
+          ${choiceExplanationMarkup(q)}
+          <div class="ex-row"><strong>다음에 볼 포인트</strong><span>${escapeHtml(reviewPoint)}</span></div>
+        </div>
+        <div class="review-tools">
+          <button class="bookmark-toggle ${state.bookmarked[index] ? 'active' : ''}" type="button" data-question="${index}">
+            ${state.bookmarked[index] ? '다시 볼 문제로 표시됨' : '다시 볼 문제로 표시'}
+          </button>
+          ${ok ? '' : reasonMarkup(index)}
+        </div>
+      `;
+    }
+
+    function choiceExplanationMarkup(q) {
+      const rows = Array.isArray(q.choiceExplanations) && q.choiceExplanations.length === q.choices.length
+        ? q.choiceExplanations
+        : fallbackChoiceExplanations(q);
+      return rows.map((text, choiceIndex) => {
+        const label = choiceIndex === q.answerIndex ? `${circled[choiceIndex]} 정답` : `${circled[choiceIndex]} 오답`;
+        return `<div class="ex-row"><strong>${escapeHtml(label)}</strong><span>${escapeHtml(text)}</span></div>`;
+      }).join('');
+    }
+
+    function fallbackChoiceExplanations(q) {
+      return q.choices.map((choice, choiceIndex) => {
+        if (choiceIndex === q.answerIndex) {
+          return `정답입니다. ${q.explanation || '최종정답 기준에 맞는 보기입니다.'}`;
+        }
+        return `정답 기준과 맞지 않는 보기입니다. ${q.trap || '문제의 핵심 조건과 보기 표현을 나누어 확인하세요.'} 선택지 표현: ${choice}`;
+      });
+    }
+
+    function reasonMarkup(index) {
+      return `
+        <div class="reason-panel">
+          <div class="reason-label">틀린 이유</div>
+          <div class="reason-options">
+            ${wrongReasonOptions.map(reason => `
+              <button class="reason-chip ${state.wrongReasons[index] === reason ? 'active' : ''}" type="button" data-question="${index}" data-reason="${escapeHtml(reason)}">
+                ${escapeHtml(reason)}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderResult() {
+      const wrong = quiz.questions
+        .map((q, index) => ({ q, index, selected: state.answers[index] }))
+        .filter(item => item.selected !== null && item.selected !== item.q.answerIndex);
+      const unanswered = quiz.questions
+        .map((q, index) => ({ q, index, selected: state.answers[index] }))
+        .filter(item => item.selected === null);
+      const total = quiz.questions.length;
+      const currentScore = score();
+      const reviewItems = buildReviewItems(wrong);
+      const resultText = buildResultText(wrong, unanswered, reviewItems, currentScore, total);
+      const message = buildEncouragement(currentScore, total, wrong.length, unanswered.length);
+
+      resultView.innerHTML = `
+        <div class="result-hero">
+          <div class="result-score">${currentScore}/${total}</div>
+          <div class="result-sub">${quiz.subject} · 오답 ${wrong.length}개 · 미응답 ${unanswered.length}개</div>
+        </div>
+        <section class="result-message">
+          <h2>${escapeHtml(message.title)}</h2>
+          <p>${escapeHtml(message.body)}</p>
+        </section>
+        <div class="summary-grid">
+          <div class="summary-item"><div class="summary-label">풀이</div><div class="summary-value">${answeredCount()}</div></div>
+          <div class="summary-item"><div class="summary-label">정답</div><div class="summary-value">${currentScore}</div></div>
+          <div class="summary-item"><div class="summary-label">오답</div><div class="summary-value">${wrong.length}</div></div>
+          <div class="summary-item"><div class="summary-label">미응답</div><div class="summary-value warn">${unanswered.length}</div></div>
+        </div>
+        <h2 class="section-title">오답 결과 복사</h2>
+        <button class="btn primary" id="copyBtn" type="button">결과 복사</button>
+        <textarea class="copy-box" id="copyBox" readonly>${escapeHtml(resultText)}</textarea>
+      `;
+
+      const copyBtn = document.getElementById('copyBtn');
+      const copyBox = document.getElementById('copyBox');
+      copyBtn.addEventListener('click', async () => {
+        copyBox.select();
+        try {
+          await navigator.clipboard.writeText(copyBox.value);
+          copyBtn.textContent = '복사 완료';
+        } catch (error) {
+          document.execCommand('copy');
+          copyBtn.textContent = '선택됨';
+        }
+      });
+    }
+
+    function buildReviewItems(wrong) {
+      const wrongMap = new Map(wrong.map(item => [item.index, item]));
+      const reviewMap = new Map();
+      wrong.forEach(item => reviewMap.set(item.index, { ...item, priority: 'wrong' }));
+      quiz.questions.forEach((q, index) => {
+        if (state.bookmarked[index] && !reviewMap.has(index)) {
+          reviewMap.set(index, { q, index, selected: state.answers[index], priority: 'bookmarked' });
+        }
+      });
+      return Array.from(reviewMap.values()).sort((a, b) => {
+        const aReason = state.wrongReasons[a.index] ? 0 : 1;
+        const bReason = state.wrongReasons[b.index] ? 0 : 1;
+        if (aReason !== bReason) return aReason - bReason;
+        if (a.priority !== b.priority) return a.priority === 'wrong' ? -1 : 1;
+        return a.index - b.index;
+      });
+    }
+
+    function buildEncouragement(currentScore, total, wrongCount, unansweredCountValue) {
+      if (unansweredCountValue > 0) {
+        return {
+          title: '끝까지 확인하면 점수가 됩니다',
+          body: '아직 답하지 않은 문제가 남아 있어요. 오늘의 목표는 완벽함보다 끝까지 확인하는 습관입니다.\n남은 문제까지 차분히 눌러 보고, 헷갈린 기준만 표시해두면 오늘 공부는 충분히 의미 있게 끝납니다.'
+        };
+      }
+      const rate = total ? currentScore / total : 0;
+      if (rate >= .9) {
+        return {
+          title: '오늘도 충분히 잘했습니다',
+          body: '잘하고 있어요. 오늘 맞힌 문제들은 그냥 운이 아니라, 버티면서 쌓아온 시간이 만든 결과입니다.\n남은 건 완벽해지는 일이 아니라, 흔들려도 다시 기준을 떠올리는 연습입니다. 고생 많았고, 오늘 하루도 차분하게 마무리해요.'
+        };
+      }
+      if (rate >= .7) {
+        return {
+          title: '좋은 흐름 안에 있습니다',
+          body: '틀린 문제보다 중요한 건 오늘 끝까지 풀었다는 사실입니다. 지금의 오답은 부족함의 증거가 아니라, 시험 전에 발견한 힌트입니다.\n오늘 헷갈린 기준만 다시 잡으면 내일은 더 가볍게 넘어갈 수 있어요. 잘될 거예요.'
+        };
+      }
+      return {
+        title: '오늘의 오답은 내일의 점수입니다',
+        body: '많이 틀린 날도 공부가 무너진 날은 아닙니다. 오히려 지금 틀려서 다행인 문제들이 있습니다.\n오늘은 고생 많았어요. 정답보다 중요한 건 다시 확인할 기준을 얻었다는 것, 그리고 포기하지 않고 여기까지 왔다는 것입니다. 내일도 한 문제씩 가면 됩니다.'
+      };
+    }
+
+    function buildResultText(wrong, unanswered, reviewItems, currentScore, total) {
+      const lines = [
+        '[HEALTH_EXERCISE_RESULT]',
+        `date=${quiz.date}`,
+        `quizId=${quiz.quizId}`,
+        `subject=${quiz.subject}`,
+        `score=${currentScore}`,
+        `total=${total}`,
+        `answered=${answeredCount()}`,
+        `unansweredCount=${unanswered.length}`
+      ];
+
+      quiz.questions.forEach((q, index) => {
+        const selected = state.answers[index];
+        const selectedText = selected === null ? 'none' : selected + 1;
+        const bookmarked = state.bookmarked[index] ? 'yes' : 'no';
+        const reason = state.wrongReasons[index] || '';
+        const correct = selected !== null && selected === q.answerIndex ? 'yes' : 'no';
+        lines.push(`answerLog=${q.id}|topic=${q.topic}|selected=${selectedText}|answer=${q.answerIndex + 1}|correct=${correct}|bookmarked=${bookmarked}|wrongReason=${reason || 'none'}`);
+      });
+
+      wrong.forEach(item => {
+        const reason = state.wrongReasons[item.index] || '미선택';
+        const bookmarked = state.bookmarked[item.index] ? 'yes' : 'no';
+        lines.push(`wrong=${item.q.id}|topic=${item.q.topic}|selected=${item.selected === null ? 'none' : item.selected + 1}|answer=${item.q.answerIndex + 1}|wrongReason=${reason}|bookmarked=${bookmarked}`);
+      });
+
+      unanswered.forEach(item => {
+        lines.push(`unanswered=${item.q.id}|topic=${item.q.topic}|answer=${item.q.answerIndex + 1}`);
+      });
+
+      reviewItems
+        .filter(item => item.selected === item.q.answerIndex && state.bookmarked[item.index])
+        .forEach(item => {
+          lines.push(`review=${item.q.id}|topic=${item.q.topic}|reason=bookmarked`);
+      });
+
+      lines.push('[/HEALTH_EXERCISE_RESULT]');
+      return lines.join('\n');
+    }
+
+    function render() {
+      const isResult = state.current >= quiz.questions.length;
+      quizView.style.display = isResult ? 'none' : 'block';
+      resultView.classList.toggle('active', isResult);
+      actions.style.display = isResult ? 'none' : 'grid';
+
+      if (isResult) {
+        positionLabel.textContent = '결과';
+        progressBar.style.width = '100%';
+        scoreChip.textContent = `${score()}점`;
+        renderResult();
+        return;
+      }
+
+      renderQuiz();
+      const q = quiz.questions[state.current];
+      const selected = state.answers[state.current];
+      const progress = ((state.current + 1) / quiz.questions.length) * 100;
+      positionLabel.textContent = `${state.current + 1} / ${quiz.questions.length}`;
+      progressBar.style.width = `${progress}%`;
+      scoreChip.textContent = `${score()}점`;
+      prevBtn.disabled = state.current === 0;
+      nextBtn.textContent = state.current === quiz.questions.length - 1 ? '결과' : '다음';
+      if (state.current === quiz.questions.length - 1 && unansweredCount() > 0) {
+        nextBtn.textContent = `미응답 ${unansweredCount()}개`;
+      }
+      explainBtn.disabled = selected === null;
+      explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : '해설 보기';
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    prevBtn.addEventListener('click', () => {
+      state.current = Math.max(0, state.current - 1);
+      saveState();
+      render();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (state.current === quiz.questions.length - 1) {
+        const missing = unansweredIndexes();
+        if (missing.length) {
+          state.current = missing[0];
+          render();
+          return;
+        }
+      }
+      state.current = Math.min(quiz.questions.length, state.current + 1);
+      saveState();
+      render();
+    });
+
+    explainBtn.addEventListener('click', () => {
+      if (state.answers[state.current] === null) return;
+      state.explanationOpen[state.current] = !state.explanationOpen[state.current];
+      saveState();
+      render();
+    });
+
+    loadSavedState();
+    render();
+  </script>
+</body>
+</html>
