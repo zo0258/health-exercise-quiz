@@ -328,16 +328,23 @@ def order_for_exam_flow(questions):
     return sorted(questions, key=flow_key)
 
 
-def build_quiz(questions, target_date, allow_partial, missing_subjects):
+def build_quiz(questions, target_date, allow_partial, missing_subjects, sequence):
     subjects = Counter(q["subject"] for q in questions)
     subject_text = "전과목" if len(subjects) > 1 else (next(iter(subjects)) if subjects else "미분류")
     round_text = f"시험 임박 전과목 {len(questions)}문항"
     if allow_partial:
         round_text = "부분 문제은행 점검용"
     source_years = sorted({str(q.get("year", "")) for q in questions if q.get("year")})
+    date_text = target_date.isoformat()
+    slug = f"{date_text}-{sequence}" if sequence else date_text
+    display_date = f"{date_text} ({sequence})" if sequence else date_text
+    quiz_id = f"{date_text}-daily-{sequence}-all-subjects" if sequence else f"{date_text}-daily-all-subjects"
     quiz = {
-        "quizId": f"{target_date.isoformat()}-daily-all-subjects",
-        "date": target_date.isoformat(),
+        "quizId": quiz_id,
+        "date": date_text,
+        "displayDate": display_date,
+        "slug": slug,
+        "sequence": sequence,
         "title": "건강운동관리사 데일리 퀴즈",
         "subject": subject_text,
         "round": round_text,
@@ -364,6 +371,7 @@ def main():
     parser.add_argument("--attempts", type=Path, default=ATTEMPTS_PATH)
     parser.add_argument("--mastered", type=Path, default=MASTERED_PATH)
     parser.add_argument("--output", type=Path, help="Output quiz JSON path.")
+    parser.add_argument("--sequence", type=int, choices=range(1, 10), metavar="N", help="Daily sequence number shown as YYYY-MM-DD (N).")
     parser.add_argument("--html", action="store_true", help="Also generate the mobile HTML delivery file.")
     parser.add_argument("--allow-partial", action="store_true", help="Generate with the available verified bank even if full policy is not yet satisfiable.")
     parser.add_argument("--skip-validation", action="store_true", help="Skip policy validation after generation.")
@@ -374,7 +382,8 @@ def main():
     bank_dir = args.bank_dir if args.bank_dir.is_absolute() else ROOT / args.bank_dir
     attempts_path = args.attempts if args.attempts.is_absolute() else ROOT / args.attempts
     mastered_path = args.mastered if args.mastered.is_absolute() else ROOT / args.mastered
-    output_path = args.output or QUIZ_DIR / f"{target_date.isoformat()}-daily.json"
+    output_stem = f"{target_date.isoformat()}-{args.sequence}-daily" if args.sequence else f"{target_date.isoformat()}-daily"
+    output_path = args.output or QUIZ_DIR / f"{output_stem}.json"
     output_path = output_path if output_path.is_absolute() else ROOT / output_path
 
     policy = read_json(policy_path)
@@ -390,7 +399,7 @@ def main():
         questions, missing_subjects = select_questions(bank, policy, attempts, delivered, mastered_ids, target_date, count, args.allow_partial)
     except RuntimeError as error:
         raise SystemExit(f"생성 중단: {error}") from error
-    quiz = build_quiz(questions, target_date, args.allow_partial, missing_subjects)
+    quiz = build_quiz(questions, target_date, args.allow_partial, missing_subjects, args.sequence)
     write_json(output_path, quiz)
     print(output_path)
 

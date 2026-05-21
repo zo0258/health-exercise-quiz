@@ -25,9 +25,12 @@ def read_jsonl(path):
     return rows
 
 
-def latest_attempt_for_date(quiz_date):
+def latest_attempt_for_quiz(quiz):
     attempts_path = ROOT / "results" / "attempts.jsonl"
-    attempts = [attempt for attempt in read_jsonl(attempts_path) if attempt.get("date") == quiz_date]
+    quiz_id = quiz.get("quizId")
+    attempts = [attempt for attempt in read_jsonl(attempts_path) if quiz_id and attempt.get("quizId") == quiz_id]
+    if not attempts:
+        attempts = [attempt for attempt in read_jsonl(attempts_path) if attempt.get("date") == quiz.get("date")]
     return attempts[-1] if attempts else None
 
 
@@ -45,7 +48,7 @@ def load_sync_config():
 
 def render_html(quiz):
     data_json = json.dumps(quiz, ensure_ascii=False)
-    attempt = latest_attempt_for_date(quiz.get("date"))
+    attempt = latest_attempt_for_quiz(quiz)
     attempt_json = json.dumps(attempt, ensure_ascii=False)
     sync_json = json.dumps(load_sync_config(), ensure_ascii=False)
     safe_data = (
@@ -71,7 +74,7 @@ def render_html(quiz):
     )
     title = html.escape(quiz["title"])
     subject = html.escape(quiz["subject"])
-    date = html.escape(quiz["date"])
+    date = html.escape(quiz.get("displayDate") or quiz["date"])
     return f"""<!doctype html>
 <html lang="ko">
 <head>
@@ -1532,7 +1535,8 @@ def main():
 
     quiz_path = args.quiz_json if args.quiz_json.is_absolute() else ROOT / args.quiz_json
     quiz = read_json(quiz_path)
-    output = args.output or DEFAULT_DELIVERY_DIR / f"건강운동관리사_{quiz['date']}.html"
+    output_slug = quiz.get("slug") or quiz["date"]
+    output = args.output or DEFAULT_DELIVERY_DIR / f"건강운동관리사_{output_slug}.html"
     output = output if output.is_absolute() else ROOT / output
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(render_html(quiz), encoding="utf-8")

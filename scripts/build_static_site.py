@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+from collections import Counter
 from datetime import date, datetime
 import html
 import json
@@ -51,9 +52,16 @@ def find_quiz_files(source_dir):
     return sorted(files, key=lambda path: path.name, reverse=True)
 
 
-def date_label(path):
-    match = re.search(r"(\d{4}-\d{2}-\d{2})", path.name)
-    return match.group(1) if match else path.stem
+def quiz_identity(path):
+    match = re.search(r"(\d{4}-\d{2}-\d{2})(?:-(\d+))?", path.name)
+    if not match:
+        return path.stem, path.stem, path.stem, None
+    date_text = match.group(1)
+    sequence = match.group(2)
+    slug = f"{date_text}-{sequence}" if sequence else date_text
+    display = f"{date_text} ({sequence})" if sequence else date_text
+    quiz_id = f"{date_text}-daily-{sequence}-all-subjects" if sequence else f"{date_text}-daily-all-subjects"
+    return date_text, display, slug, quiz_id
 
 
 def load_attempt_status():
@@ -68,9 +76,9 @@ def load_attempt_status():
             record = json.loads(line)
         except json.JSONDecodeError:
             continue
-        date = record.get("date")
-        if date:
-            completed[date] = {
+        quiz_key = record.get("quizId") or record.get("date")
+        if quiz_key:
+            completed[quiz_key] = {
                 "score": record.get("score"),
                 "total": record.get("total"),
             }
@@ -111,13 +119,14 @@ def read_review_generated_at():
     return "대기 중"
 
 
-def status_badges(label, attempts, review_dates):
-    if label in attempts:
-        score = attempts[label].get("score")
-        total = attempts[label].get("total")
+def status_badges(date_text, quiz_id, attempts, review_dates):
+    attempt = attempts.get(quiz_id) or attempts.get(date_text)
+    if attempt:
+        score = attempt.get("score")
+        total = attempt.get("total")
         score_text = f"{score}/{total}" if score is not None and total else "완료"
         badges = [f'<span class="badge done">풀이완료 {html.escape(score_text)}</span>']
-        if label in review_dates:
+        if date_text in review_dates:
             badges.append('<span class="badge review">오답노트 반영</span>')
         return "".join(badges)
     return '<span class="badge pending">미완료</span>'
@@ -145,8 +154,15 @@ def render_index(files):
     sync_time = read_review_generated_at()
     dday_label, daily_sentence = today_sentence()
     daily_sentence_html = "".join(f"<span>{html.escape(line)}</span>" for line in sentence_lines(daily_sentence))
-    completed_count = sum(1 for path in files if date_label(path) in attempts)
-    review_count = sum(1 for path in files if date_label(path) in review_dates)
+    date_counts = Counter(quiz_identity(path)[0] for path in files)
+    completed_count = 0
+    review_count = 0
+    for path in files:
+        date_text, _, _, quiz_id = quiz_identity(path)
+        if quiz_id in attempts or date_text in attempts:
+            completed_count += 1
+        if date_text in review_dates:
+            review_count += 1
     pending_count = max(len(files) - completed_count, 0)
     items = []
     latest_href = "wrong-note.html"
@@ -154,21 +170,24 @@ def render_index(files):
     latest_status = "퀴즈 준비 중"
     latest_status_class = "pending"
     for path in files:
-        label = date_label(path)
+        date_text, label, _, quiz_id = quiz_identity(path)
+        if date_counts[date_text] > 1 and label == date_text:
+            label = f"{date_text} (1)"
         cache_buster = str(int(path.stat().st_mtime))
         href = f"quizzes/{path.name}?v={cache_buster}"
         if latest_label == "준비 중":
             latest_href = href
             latest_label = label
-            if label in attempts:
-                score = attempts[label].get("score")
-                total = attempts[label].get("total")
+            latest_attempt = attempts.get(quiz_id) or attempts.get(date_text)
+            if latest_attempt:
+                score = latest_attempt.get("score")
+                total = latest_attempt.get("total")
                 score_text = f"{score}/{total}" if score is not None and total else "완료"
                 latest_status = f"풀이완료 · {score_text} · 복습 가능"
                 latest_status_class = "done"
             else:
                 latest_status = "미풀이 · 10문항 남음"
-        badges = status_badges(label, attempts, review_dates)
+        badges = status_badges(date_text, quiz_id, attempts, review_dates)
         items.append(
             f'<li><a class="quiz-row" href="{html.escape(href, quote=True)}">'
             f'<span class="date">{html.escape(label)}</span>'
@@ -610,7 +629,8 @@ def main():
     (site_dir / ".nojekyll").write_text("", encoding="utf-8")
     copied = []
     for path in files:
-        target = quiz_dir / f"quiz-{date_label(path)}.html"
+        _, _, slug, _ = quiz_identity(path)
+        target = quiz_dir / f"quiz-{slug}.html"
         shutil.copy2(path, target)
         copied.append(target)
     wrong_note = ROOT / "wrong-note.html"
