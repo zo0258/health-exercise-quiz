@@ -1,0 +1,327 @@
+{
+  "quizId": "2026-05-22-daily-1-all-subjects",
+  "date": "2026-05-22",
+  "displayDate": "2026-05-22 (오전)",
+  "slug": "2026-05-22-1",
+  "sequence": 1,
+  "title": "건강운동관리사 데일리 퀴즈",
+  "subject": "전과목",
+  "round": "시험 임박 전과목 10문항",
+  "timeLimitMinutes": 10,
+  "sourceSummary": "2016, 2019, 2020, 2021, 2022, 2024년 검증 문제은행 기반",
+  "generationNote": "정책 기반 자동 생성",
+  "missingSubjects": [],
+  "questions": [
+    {
+      "id": "2022-1A-71-01",
+      "year": 2022,
+      "subject": "건강·체력평가",
+      "topic": "규칙적인 운동",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "규칙적인 운동 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "규칙적인 운동의 이점이 아닌 것은?",
+      "choices": [
+        "염증 감소",
+        "젖산역치 감소",
+        "혈소판 응집성 감소",
+        "인슐린 요구도 감소"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2022/questions/2022 건강운동관리사 필기시험 1교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2022/final_answer/2022 건강운동관리사 필기시험 최종정답(게시).pdf",
+        "questionNo": 1,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2016-1A-70-13",
+      "year": 2016,
+      "subject": "운동생리학",
+      "topic": "탄수화물 지방",
+      "type": "개념구분",
+      "difficulty": 3,
+      "trap": "탄수화물 지방 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "탄수화물, 지방, 단백질 모두를 운동 에너지 기질\n(energy substrates)로 사용할 수 있는 에너지 대\n사과정은?",
+      "choices": [
+        "베타산화과정",
+        "젖산 시스템",
+        "ATP-PC 시스템",
+        "유산소성 시스템"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2016/questions_and_draft_answer/건강운동관리사 필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2016/final_answer_notice/건강필기_정답.hwp",
+        "questionNo": 13,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2022-2A-76-02",
+      "year": 2022,
+      "subject": "병태생리학",
+      "topic": "다음 심전도",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "다음 심전도 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "다음 <그림>의 심전도(ECG)가 나타내는 부정맥은?",
+      "choices": [
+        "부루가다 증후군(brugada syndrome)",
+        "WPW 증후군(wolff-parkinson-white syndrome)",
+        "조기심실수축(premature ventricular contraction)",
+        "2도 I형 방실차단(second-degree type I AV block)"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2022/questions/2022 건강운동관리사 필기시험 2교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2022/final_answer/2022 건강운동관리사 필기시험 최종정답(게시).pdf",
+        "questionNo": 2,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 76
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭",
+      "images": [
+        {
+          "src": "assets/question-images/2022-2A-76-02.png",
+          "alt": "2022-2A-76-02 원본 그림 문항",
+          "sourcePage": 7
+        }
+      ]
+    },
+    {
+      "id": "2024-1A-71-11",
+      "year": 2024,
+      "subject": "건강·체력평가",
+      "topic": "비만도 결과",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "비만도 결과 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<표>의 비만도 평가 결과에 대한 해석으로 옳은 것은?\n구분\n준거 검사\n합계\n비만 정상\n현장 검사\n비만 90명(45.0%) 25명(12.5%) 115명\n정상 15명(7.5%) 70명(35.0%) 85명\n합계 105명 95명 200명",
+      "choices": [
+        "현장 검사에 의한 비만 판정의 결정 타당도 지수는 57.5이다.",
+        "준거 검사에 의한 비만 판정의 결정 타당도 지수는 52.5이다.",
+        "준거 검사에 근거한 현장 검사의 분류 정확 확률은 80.0%이다.",
+        "두 검사의 상관계수는 .90으로 현장 검사는 높은 타당성을 나타낸다."
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 1교시 A형.pdf",
+        "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
+        "questionNo": 11,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭",
+      "images": [
+        {
+          "src": "assets/question-images/2024-1A-71-11.png",
+          "alt": "2024-1A-71-11 원본 그림 문항",
+          "sourcePage": 6
+        }
+      ]
+    },
+    {
+      "id": "2022-1A-70-03",
+      "year": 2022,
+      "subject": "운동생리학",
+      "topic": "해당하 바르게",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "해당하 바르게 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 ㉠, ㉡에 해당하는 값을 바르게 나열한 것은?\n<보기>.\n심장의 확장기말 용량(end-diastolicvolume)이 100mL이고, 수축기말\n용량(end-systolic volume)은 40mL이며, 심박수가 60회/분일 경우,\n박출계수(ejection fraction)는 ( ㉠ )%이며, 심박출량(cardiac\noutput)은 ( ㉡ ) L/분이다.\n㉠ ㉡",
+      "choices": [
+        "40 2.4",
+        "40 3.6",
+        "60 2.4",
+        "60 3.6"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2022/questions/2022 건강운동관리사 필기시험 1교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2022/final_answer/2022 건강운동관리사 필기시험 최종정답(게시).pdf",
+        "questionNo": 3,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2016-1A-73-07",
+      "year": 2016,
+      "subject": "운동부하검사",
+      "topic": "운동부하검사 운동",
+      "type": "보기조합",
+      "difficulty": 4,
+      "trap": "운동부하검사 운동 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "운동부하검사 시 운동을 종료하고 자동제세동기\n를 적용해야 하는 심전도 파형으로 옳은 것만을\n<보기>에서 모두 고른 것은?\n<보기>\n㉠ 심실 빈맥 ㉡ 심실 조동\n㉢ 심방 세동 ㉣ 심정지",
+      "choices": [
+        "㉠, ㉡, ㉢",
+        "㉠, ㉡, ㉣",
+        "㉠, ㉢, ㉣",
+        "㉠, ㉡, ㉢, ㉣"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2016/questions_and_draft_answer/건강운동관리사 필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2016/final_answer_notice/건강필기_정답.hwp",
+        "questionNo": 7,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 73
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2021-1A-72-09",
+      "year": 2021,
+      "subject": "운동처방론",
+      "topic": "대상자 일주일",
+      "type": "계산",
+      "difficulty": 5,
+      "trap": "대상자 일주일 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 대상자가 일주일 동안 운동으로 소비한 총에너지가 1,470\nkcal라고 할 때 운동강도는?\n<보기>.\n∙ 성별 : 남성 ∙ 체중 : 70 kg\n∙ 운동시간 : 1시간 ∙ 운동빈도 : 4일/주\n∙ 운동형태 : 유산소운동\n※ 산소소비량 1 L당 5 kcal의 소비를 기준으로 계산",
+      "choices": [
+        "3 METs",
+        "5 METs",
+        "7 METs",
+        "9 METs"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2021/questions/2021 건강운동관리사 필기시험 1교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2021/final_answer/2021년_건강운동관리사_최종정답.pdf",
+        "questionNo": 9,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 72
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2019-2A-74-18",
+      "year": 2019,
+      "subject": "운동상해",
+      "topic": "안쪽 정강뼈",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "안쪽 정강뼈 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "안쪽 정강뼈 스트레스 증후군(medial tibial stress syndrome)에\n대한 옳은 설명을 <보기>에서 모두 고른 것은?\n<보기>.\n㉠ 정강이 안쪽에 통증을 느낀다.\n㉡ 정강뼈피로골절(tibiastressfracture)에의해일어난다.\n㉢ 운동구획증후군(exertional compartment syndrome)으로\n진행될 수 있다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉡, ㉢",
+        "㉠, ㉢",
+        "㉠, ㉡, ㉢"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2019/questions_and_draft_answer/2019건강운동관리사 필기시험 2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2019/final_answer/2019년 건강운동관리사 필기시험 최종답안.pdf",
+        "questionNo": 18,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 74
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2021-2A-77-11",
+      "year": 2021,
+      "subject": "스포츠심리학",
+      "topic": "윌스와 쉰너",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "윌스와 쉰너 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 윌스와 쉰너(T. A. Wills & O. Shinar, 2000)의 사회적 지지\n유형과 설명이 옳은 것으로만 묶인 것은?\n<보기>.\n㉠ 정서적 지지 : 노력에 대해 칭찬하고 어려움을 호소할 때 공감해\n주기\n㉡ 정보적 지지 : 운동 방법에 대해 조언을 하고 진행 과정에서\n피드백 주기\n㉢ 동반자 지지 : 운동할 때 보조 역할을 하고 운동 장소까지 태워다\n주기\n㉣ 도구적 지지 : 타인과의 비교를 통해 자신의 생각과 감정이\n정상이라는 것을 확인하기",
+      "choices": [
+        "㉠, ㉡",
+        "㉠, ㉢",
+        "㉡, ㉢",
+        "㉡, ㉣"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2021/questions/2021 건강운동관리사 필기시험 2교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2021/final_answer/2021년_건강운동관리사_최종정답.pdf",
+        "questionNo": 11,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 77
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2020-2A-75-04",
+      "year": 2020,
+      "subject": "기능해부학",
+      "topic": "척추뼈 특징",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "척추뼈 특징 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<표>에서 척추뼈의 특징에 대한 설명으로 옳지 않은\n것을 모두 고른 것은?\n종류\n목뼈\n(cervical vertebrae)\n등뼈\n(thoracic vertebrae)\n허리뼈\n(lumbar vertebrae)\n가시돌기\n(spinous\nprocess)\n㉠돌기 끝부분이\n갈라져있는뼈\n존재\n가로돌기\n(transverse\nprocess)\n㉡갈비뼈와 관절\n하는 관절면이\nT1 ~ T12까지\n모두존재\n운동범위\n㉢등뼈, 허리뼈\n보다큰가쪽굽\n힘(이마면 운동)\n이일어남\n㉣목뼈, 허리뼈\n보다큰축돌림\n(수평면 운동)이\n일어남\n㉤등뼈보다폄\n(시상면 운동)이\n더크게일어남",
+      "choices": [
+        "㉠, ㉡, ㉣",
+        "㉠, ㉢, ㉤",
+        "㉡, ㉣, ㉤",
+        "㉢, ㉣, ㉤"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2020/questions_and_draft_answer/2020건강운동관리사 필기시험 2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2020/final_answer/2020건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 4,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 75
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭",
+      "images": [
+        {
+          "src": "assets/question-images/2020-2A-75-04.png",
+          "alt": "2020-2A-75-04 원본 그림 문항",
+          "sourcePage": 5
+        }
+      ]
+    }
+  ]
+}
