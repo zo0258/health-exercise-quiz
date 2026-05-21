@@ -1,0 +1,313 @@
+{
+  "quizId": "2026-05-21-daily-2-all-subjects",
+  "date": "2026-05-21",
+  "displayDate": "21(저녁)",
+  "slug": "2026-05-21-2",
+  "sequence": 2,
+  "title": "건강운동관리사 데일리 퀴즈",
+  "subject": "전과목",
+  "round": "시험 임박 전과목 10문항",
+  "timeLimitMinutes": 10,
+  "sourceSummary": "2016, 2017, 2018, 2019, 2020, 2022, 2024년 검증 문제은행 기반",
+  "generationNote": "정책 기반 자동 생성",
+  "missingSubjects": [],
+  "questions": [
+    {
+      "id": "2020-1A-70-04",
+      "year": 2020,
+      "subject": "운동생리학",
+      "topic": "일회박출량 설명",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "일회박출량 설명 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "일회박출량(strokevolume)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        "누운 자세에서 직립 자세로의 변화는 안정 시 일회박출량을 증가시킨다.",
+        "운동 중 이완기말 용적(enddiastolicvolume)의 증가가 일회박출량을 증가시킨다.",
+        "운동 중 증가된 심실 수축력(ventricularcontractility)이 일회박출량을 증가시킨다.",
+        "운동 중 평균동맥혈압(meanarterialpressure)의 감소가 일회박출량을 증가시킨다."
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2020/questions_and_draft_answer/2020건강운동관리사 필기시험 1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2020/final_answer/2020건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 4,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2017-1A-71-02",
+      "year": 2017,
+      "subject": "건강·체력평가",
+      "topic": "규칙적인운동 발생하는혈압감소의",
+      "type": "개념구분",
+      "difficulty": 3,
+      "trap": "규칙적인운동 발생하는혈압감소의 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서규칙적인운동으로발생하는혈압감소의\n원인에대한설명을모두고른것은?\n<보기>.\n㉠교감신경활성증가및부교감신경활성감소\n㉡혈중카테콜라민(catecholamine)증가\n㉢레닌-안지오텐신시스템(renin-angiotensinsystem)\n활성감소\n㉣향상된신장기능으로인해Na+체외배출증가",
+      "choices": [
+        "㉠,㉡",
+        "㉡,㉢",
+        "㉢,㉣",
+        "㉠,㉣"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2017/questions_and_draft_answer/건강운동관리사_필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2017/final_answer/최종 정답.pdf",
+        "questionNo": 2,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2022-2A-76-01",
+      "year": 2022,
+      "subject": "병태생리학",
+      "topic": "다음 해당하",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "다음 해당하 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "다음 <표>의 ㉠~㉣에 해당하는 용어를 바르게 나열한 것은?\n염증 반응 매개체\n혈관투과성 증가 ㉠\n백혈구 모집과 활성 ㉡\n발열반응 ㉢\n통증 ㉣\n㉠ ㉡ ㉢ ㉣",
+      "choices": [
+        "브라디키닌 (bradykinin) 종양괴사인자 (tumor necrosis factor) 인터루킨-1 (interleukin-1) 신경펩티드 (neuropeptide)",
+        "글루코코르티 코이드 (glucocorticoid) 브라디키닌 인터루킨-1 종양괴사인자",
+        "글루코코르티 코이드 인터루킨-1 브라디키닌 신경펩티드",
+        "인터루킨-1 글루코코르티 코이드 브라디키닌 종양괴사인자"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2022/questions/2022 건강운동관리사 필기시험 2교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2022/final_answer/2022 건강운동관리사 필기시험 최종정답(게시).pdf",
+        "questionNo": 1,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 76
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭",
+      "images": [
+        {
+          "src": "assets/question-images/2022-2A-76-01.png",
+          "alt": "2022-2A-76-01 원본 그림 문항",
+          "sourcePage": 10
+        }
+      ]
+    },
+    {
+      "id": "2016-2A-74-16",
+      "year": 2016,
+      "subject": "운동상해",
+      "topic": "설명하고 손상",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "설명하고 손상 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 설명하고 있는 손상 평가 방법은?\n<보기>\n• 부상선수를 테이블에 눕게 한다.\n• 검사자의 한 손으로 부상선수의 종아리뼈(경\n골, fibula) 머리를 잡고, 다른 한 손으로 발\n목을 잡아 고정한다.\n• 검사자가 종아리뼈 머리를 잡은 손으로 힘을\n주어 부상선수의 무릎에 외반력(valgus stress)을\n가한다.",
+      "choices": [
+        "라크만 검사(Lachman drawer test)",
+        "앞당김 검사(Anterior drawer test)",
+        "피봇 시프트 검사(Pivot-shift test)",
+        "애플리 검사(Apley test)"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2016/questions_and_draft_answer/건강운동관리사 필기시험_2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2016/final_answer_notice/건강필기_정답.hwp",
+        "questionNo": 16,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 74
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2020-2A-77-13",
+      "year": 2020,
+      "subject": "스포츠심리학",
+      "topic": "변화단계이론 단계",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "변화단계이론 단계 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 변화단계이론(stage of change theory;\n범이론모형,transtheoreticalmodel)의 단계 변화 요인을 모두\n고른 것은?\n<보기>.\n㉠ 운동했을 때 기대되는 혜택과 손실에 대한 평가\n㉡ 운동에 대한 태도, 생각, 느낌 등을 바꾸는 과정\n㉢ 사회적 환경, 물리적 환경, 정책 변인 등과의 상호작용\n㉣ 자신에게 영향을 미치는 중요한 타자(significant\nothers)로부터의 피드백",
+      "choices": [
+        "㉠, ㉡",
+        "㉠, ㉡, ㉣",
+        "㉢, ㉣",
+        "㉠, ㉡, ㉢, ㉣ 12면 ※ 국가자격 시험문제는 저작권법상 보호되는 저작물이고, 저작권자는 국민체 육진흥공단입니다. 문제의 일부 또는 전부를 무단 복제, 배포, (전자) 출판하 는 등 저작권을 침해하는 일체의 행위를 금합니다."
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2020/questions_and_draft_answer/2020건강운동관리사 필기시험 2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2020/final_answer/2020건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 13,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 77
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2018-2A-75-19",
+      "year": 2018,
+      "subject": "기능해부학",
+      "topic": "손목굴 설명",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "손목굴 설명 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 손목굴(수근관, carpal tunnel)에 대한 설명으로 바르게\n묶인 것은?\n<보기>.\n㉠ 손목굴은 손목뼈(수근골, carpal bone)들과 깊은손가락굽힘근힘줄\n(심지굴근건, flexor digitorum profundus tendons)들 사이의 공간을\n의미한다.\n㉡ 손목굴의 자신경(척골신경, ulnar nerve)이 눌릴 때 손목굴증후군\n(수근관증후군, carpal tunnel syndrome)이 나타난다.\n㉢ 손목굴증후군이 나타나면 엄지와 집게, 가운데 손가락의 약화가\n나타난다.\n㉣ 손목중립자세는 손목굴의 정중신경(median nerve)눌림을 완화시\n킨다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉡, ㉢",
+        "㉢, ㉣",
+        "㉠, ㉣"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2018/questions_and_draft_answer/2018_건강운동관리사_필기시험_2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2018/final_answer/건강필기_최종답안.pdf",
+        "questionNo": 19,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 75
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2019-1A-71-10",
+      "year": 2019,
+      "subject": "건강·체력평가",
+      "topic": "등속성 근관절",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "등속성 근관절 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "등속성 근관절 검사에 관한 설명으로 옳은 것을 <보기>에서\n모두 고른 것은?\n<보기>.\n㉠ 단축성수축(concentriccontraction)과신장성수축(eccentric\ncontraction) 모두 측정 가능하다.\n㉡ 각속도에 따라 운동강도를 조절할 수 있다.\n㉢ 다른 검사에 비해 검사시간이 상대적으로 짧다.\n㉣ 전체 관절가동범위 내 최대 근수축이 가능하다.\n㉤ 근손상의 위험이 높다.",
+      "choices": [
+        "㉠, ㉡, ㉢",
+        "㉠, ㉡, ㉣",
+        "㉡, ㉢, ㉤",
+        "㉡, ㉣, ㉤"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2019/questions_and_draft_answer/2019건강운동관리사 필기시험 1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2019/final_answer/2019년 건강운동관리사 필기시험 최종답안.pdf",
+        "questionNo": 10,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2020-1A-72-13",
+      "year": 2020,
+      "subject": "운동처방론",
+      "topic": "최신 ACSM이",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "최신 ACSM이 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 최신 ACSM이 권장하고 있는 임산부의\n운동 시 고려사항으로 적절한 것을 모두 고른 것은?\n<보기>.\n㉠ 운동처방은임신동안의증상과운동능력에따라수정한다.\n㉡ 운동참여전에신체활동준비설문지(PAR-Q+)를완료해야한다.\n㉢ 임산부에게는대근육을이용한저항운동을권장하지않는다.\n㉣ 산후기간의운동은임신전체질량지수(BMI)로돌아가는\n것이 목표이다.\n㉤ 일반적으로정상분만후4~6주이후부터운동을시작할수있다.",
+      "choices": [
+        "㉠, ㉡, ㉢",
+        "㉡, ㉢, ㉣",
+        "㉢, ㉣, ㉤",
+        "㉠, ㉣, ㉤ 9면"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2020/questions_and_draft_answer/2020건강운동관리사 필기시험 1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2020/final_answer/2020건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 13,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 72
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2020-1A-70-13",
+      "year": 2020,
+      "subject": "운동생리학",
+      "topic": "자율신경 통한",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "자율신경 통한 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 자율신경을 통한 혈당량 조절 경로에서\n옳은 설명을 모두 고른 것은?\n<보기>.\n㉠ ⓐ의 신경절이후(postganglionic) 신경섬유 말단에서\n노에피네프린(norepinephrine)이 분비된다.\n㉡ ⓑ의 신경절이전(preganglionic) 신경섬유의 세포체는\n척수의 백질(white matter)에 존재한다.\n㉢ ⓐ와ⓑ의신경절이전(preganglionic)신경섬유말단에서\n분비되는 신경전달물질은 같다.\n㉣ X호르몬은 췌장의 베타()세포에서, Y호르몬은 알파()\n세포에서 분비된다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉡, ㉢",
+        "㉢, ㉣",
+        "㉠, ㉣ 3면"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2020/questions_and_draft_answer/2020건강운동관리사 필기시험 1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2020/final_answer/2020건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 13,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2024-1A-73-06",
+      "year": 2024,
+      "subject": "운동부하검사",
+      "topic": "생존자 위한",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "생존자 위한 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 암 생존자를 위한 운동검사에 대한 설명으로 옳지 않은\n것만을 모두 고른 것은?\n<보기>.\nㄱ. 화학요법 치료환자는 치료 4시간 이후에 검사한다.\nㄴ. 안드로겐 차단요법 환자는 트레드밀 검사가 적합하다.\nㄷ. 균형과 화학뇌(chemo brain) 상태를 확인하고 검사한다.\nㄹ. 심장독성 위험 환자는 운동자각도(RPE) 방법으로 강도를 관찰한다.\nㅁ. 심장독성 위험 환자는 심실기능장애 및 심장기능상실 예방을 위해\nβ-차단제, 레닌-안지오텐신 억제제 또는 알도스테론 길항제를\n복용한 후 검사할 수 있다.",
+      "choices": [
+        "ㄱ, ㄴ",
+        "ㄹ, ㅁ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄷ, ㄹ, ㅁ"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 1교시 A형.pdf",
+        "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
+        "questionNo": 6,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 73
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    }
+  ]
+}

@@ -5,8 +5,9 @@ import sys
 import time
 import urllib.error
 import urllib.request
-from datetime import date
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +22,18 @@ def run(command, check=True):
     if check and result.returncode != 0:
         raise SystemExit(result.returncode)
     return result
+
+
+def today_kst():
+    return datetime.now(ZoneInfo("Asia/Seoul")).date().isoformat()
+
+
+def sequence_label(sequence):
+    if sequence == 1:
+        return "오전"
+    if sequence == 2:
+        return "저녁"
+    return f"{sequence}회"
 
 
 def has_staged_changes():
@@ -64,9 +77,9 @@ def verify_public_url(quiz_date, sequence=None, attempts=5, delay=15):
 
 def main():
     parser = argparse.ArgumentParser(description="Generate, validate, build, commit, and push a daily quiz.")
-    parser.add_argument("--date", default=date.today().isoformat(), help="Quiz date, YYYY-MM-DD.")
+    parser.add_argument("--date", default=today_kst(), help="Quiz date, YYYY-MM-DD. Defaults to Asia/Seoul today.")
     parser.add_argument("--count", type=int, help="Question count override.")
-    parser.add_argument("--sequence", type=int, choices=range(1, 10), metavar="N", help="Daily sequence number shown as YYYY-MM-DD (N).")
+    parser.add_argument("--sequence", type=int, choices=range(1, 10), metavar="N", help="Daily sequence: 1=오전, 2=저녁.")
     parser.add_argument("--no-push", action="store_true", help="Commit only. Do not push to origin.")
     args = parser.parse_args()
 
@@ -87,7 +100,7 @@ def main():
     run(["git", "add", *paths])
 
     if has_staged_changes():
-        commit_label = f"{args.date} ({args.sequence})" if args.sequence else args.date
+        commit_label = f"{args.date} {sequence_label(args.sequence)}" if args.sequence else args.date
         run(["git", "commit", "-m", f"Publish quiz {commit_label}"])
     else:
         print("변경 사항이 없어 commit을 건너뜁니다.")

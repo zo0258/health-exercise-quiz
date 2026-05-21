@@ -8,6 +8,7 @@ import re
 import shutil
 import unicodedata
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,7 +50,29 @@ def find_quiz_files(source_dir):
         normalized_name = unicodedata.normalize("NFC", path.name)
         if normalized_name.startswith("건강운동관리사_"):
             files.append(path)
-    return sorted(files, key=lambda path: path.name, reverse=True)
+    return sorted(files, key=quiz_sort_key, reverse=True)
+
+
+def quiz_sort_key(path):
+    date_text, _, _, _ = quiz_identity(path)
+    match = re.search(r"(\d{4}-\d{2}-\d{2})(?:-(\d+))?", path.name)
+    sequence = int(match.group(2)) if match and match.group(2) else 1
+    return (date_text, sequence)
+
+
+def sequence_label(sequence):
+    if sequence == "1":
+        return "오전"
+    if sequence == "2":
+        return "저녁"
+    return f"{sequence}회"
+
+
+def display_label(date_text, sequence=None):
+    if not sequence:
+        return date_text
+    day = int(date_text[-2:])
+    return f"{day}({sequence_label(sequence)})"
 
 
 def quiz_identity(path):
@@ -59,7 +82,7 @@ def quiz_identity(path):
     date_text = match.group(1)
     sequence = match.group(2)
     slug = f"{date_text}-{sequence}" if sequence else date_text
-    display = f"{date_text} ({sequence})" if sequence else date_text
+    display = display_label(date_text, sequence)
     quiz_id = f"{date_text}-daily-{sequence}-all-subjects" if sequence else f"{date_text}-daily-all-subjects"
     return date_text, display, slug, quiz_id
 
@@ -133,7 +156,7 @@ def status_badges(date_text, quiz_id, attempts, review_dates):
 
 
 def today_sentence():
-    today = date.today()
+    today = datetime.now(ZoneInfo("Asia/Seoul")).date()
     key = today.isoformat()
     sentence = DAILY_SENTENCES.get(key)
     if sentence is None:
@@ -169,24 +192,20 @@ def render_index(files):
     latest_label = "준비 중"
     latest_status = "퀴즈 준비 중"
     latest_status_class = "pending"
+    latest_candidate = None
+    latest_candidate_status = None
     for path in files:
         date_text, label, _, quiz_id = quiz_identity(path)
         if date_counts[date_text] > 1 and label == date_text:
-            label = f"{date_text} (1)"
+            label = display_label(date_text, "1")
         cache_buster = str(int(path.stat().st_mtime))
         href = f"quizzes/{path.name}?v={cache_buster}"
-        if latest_label == "준비 중":
-            latest_href = href
-            latest_label = label
-            latest_attempt = attempts.get(quiz_id) or attempts.get(date_text)
-            if latest_attempt:
-                score = latest_attempt.get("score")
-                total = latest_attempt.get("total")
-                score_text = f"{score}/{total}" if score is not None and total else "완료"
-                latest_status = f"풀이완료 · {score_text} · 복습 가능"
-                latest_status_class = "done"
-            else:
-                latest_status = "미풀이 · 10문항 남음"
+        latest_attempt = attempts.get(quiz_id) or attempts.get(date_text)
+        candidate = (href, label, latest_attempt)
+        if latest_candidate is None:
+            latest_candidate = candidate
+        if latest_candidate_status is None and not latest_attempt:
+            latest_candidate_status = candidate
         badges = status_badges(date_text, quiz_id, attempts, review_dates)
         items.append(
             f'<li><a class="quiz-row" href="{html.escape(href, quote=True)}">'
@@ -194,6 +213,18 @@ def render_index(files):
             f'<span class="row-meta"><span class="badges">{badges}</span></span>'
             "</a></li>"
         )
+
+    selected_latest = latest_candidate_status or latest_candidate
+    if selected_latest:
+        latest_href, latest_label, latest_attempt = selected_latest
+        if latest_attempt:
+            score = latest_attempt.get("score")
+            total = latest_attempt.get("total")
+            score_text = f"{score}/{total}" if score is not None and total else "완료"
+            latest_status = f"풀이완료 · {score_text} · 복습 가능"
+            latest_status_class = "done"
+        else:
+            latest_status = "미풀이 · 10문항 남음"
 
     return f"""<!doctype html>
 <html lang="ko">

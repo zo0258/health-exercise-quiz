@@ -8,6 +8,7 @@ import sys
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -339,6 +340,24 @@ def order_for_exam_flow(questions):
     return sorted(questions, key=flow_key)
 
 
+def today_kst():
+    return datetime.now(ZoneInfo("Asia/Seoul")).date().isoformat()
+
+
+def sequence_label(sequence):
+    if sequence == 1:
+        return "오전"
+    if sequence == 2:
+        return "저녁"
+    return f"{sequence}회"
+
+
+def sequence_display_date(target_date, sequence):
+    if not sequence:
+        return target_date.isoformat()
+    return f"{target_date.day}({sequence_label(sequence)})"
+
+
 def build_quiz(questions, target_date, allow_partial, missing_subjects, sequence):
     subjects = Counter(q["subject"] for q in questions)
     subject_text = "전과목" if len(subjects) > 1 else (next(iter(subjects)) if subjects else "미분류")
@@ -348,7 +367,7 @@ def build_quiz(questions, target_date, allow_partial, missing_subjects, sequence
     source_years = sorted({str(q.get("year", "")) for q in questions if q.get("year")})
     date_text = target_date.isoformat()
     slug = f"{date_text}-{sequence}" if sequence else date_text
-    display_date = f"{date_text} ({sequence})" if sequence else date_text
+    display_date = sequence_display_date(target_date, sequence)
     quiz_id = f"{date_text}-daily-{sequence}-all-subjects" if sequence else f"{date_text}-daily-all-subjects"
     quiz = {
         "quizId": quiz_id,
@@ -375,14 +394,14 @@ def run_script(script_name, *args):
 
 def main():
     parser = argparse.ArgumentParser(description="Generate a daily all-subject quiz JSON and optional mobile HTML.")
-    parser.add_argument("--date", default=date.today().isoformat(), help="Quiz date, YYYY-MM-DD.")
+    parser.add_argument("--date", default=today_kst(), help="Quiz date, YYYY-MM-DD. Defaults to Asia/Seoul today.")
     parser.add_argument("--count", type=int, help="Question count. Defaults to policy dailyQuestionCount.")
     parser.add_argument("--policy", type=Path, default=POLICY_PATH)
     parser.add_argument("--bank-dir", type=Path, default=QUESTION_BANK_DIR)
     parser.add_argument("--attempts", type=Path, default=ATTEMPTS_PATH)
     parser.add_argument("--mastered", type=Path, default=MASTERED_PATH)
     parser.add_argument("--output", type=Path, help="Output quiz JSON path.")
-    parser.add_argument("--sequence", type=int, choices=range(1, 10), metavar="N", help="Daily sequence number shown as YYYY-MM-DD (N).")
+    parser.add_argument("--sequence", type=int, choices=range(1, 10), metavar="N", help="Daily sequence: 1=오전, 2=저녁.")
     parser.add_argument("--html", action="store_true", help="Also generate the mobile HTML delivery file.")
     parser.add_argument("--allow-partial", action="store_true", help="Generate with the available verified bank even if full policy is not yet satisfiable.")
     parser.add_argument("--skip-validation", action="store_true", help="Skip policy validation after generation.")
