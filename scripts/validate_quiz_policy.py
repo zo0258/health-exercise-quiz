@@ -29,12 +29,13 @@ def normalize_stem(text):
 def has_extraction_artifact(question):
     artifact_patterns = ("건강운동관리사 필기시험", "A형 건강운동관리사", "B형 건강운동관리사")
     stem = question.get("question", "")
+    has_images = bool(question.get("images"))
     figure_dependent_patterns = (
         "<그림>",
         "그림>",
         "분포도",
     )
-    if any(pattern in stem for pattern in figure_dependent_patterns):
+    if any(pattern in stem for pattern in figure_dependent_patterns) and not has_images:
         return True
     if re.search(r"[㉠-㉧]\s*,\s*,", stem):
         return True
