@@ -71,8 +71,7 @@ def sequence_label(sequence):
 def display_label(date_text, sequence=None):
     if not sequence:
         return date_text
-    day = int(date_text[-2:])
-    return f"{day}({sequence_label(sequence)})"
+    return f"{date_text} ({sequence_label(sequence)})"
 
 
 def quiz_identity(path):

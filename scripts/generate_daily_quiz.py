@@ -355,7 +355,7 @@ def sequence_label(sequence):
 def sequence_display_date(target_date, sequence):
     if not sequence:
         return target_date.isoformat()
-    return f"{target_date.day}({sequence_label(sequence)})"
+    return f"{target_date.isoformat()} ({sequence_label(sequence)})"
 
 
 def build_quiz(questions, target_date, allow_partial, missing_subjects, sequence):
