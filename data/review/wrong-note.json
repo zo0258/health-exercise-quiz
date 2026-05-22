@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-05-22T21:04:18",
+  "generatedAt": "2026-05-23T07:42:40",
   "stats": {
     "attemptCount": 5,
-    "totalScore": 42,
+    "totalScore": 44,
     "totalQuestions": 50,
-    "accuracy": 84.0,
-    "wrongCount": 8,
-    "wrongQuestionCount": 8,
+    "accuracy": 88.0,
+    "wrongCount": 6,
+    "wrongQuestionCount": 6,
     "reviewCount": 2,
     "masteredCount": 0
   },
@@ -175,56 +175,6 @@
       "trap": "심전도 판독이 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": [],
       "reviewRound": 1
-    },
-    {
-      "date": "2026-05-22",
-      "quizId": "2026-05-22-daily-2-all-subjects",
-      "subject": "운동상해",
-      "questionId": "2022-2A-74-15",
-      "topic": "반달연골 설명",
-      "selected": "3",
-      "selectedLabel": "③",
-      "answer": "1",
-      "answerLabel": "①",
-      "wrongReason": "미선택",
-      "bookmarked": "yes",
-      "question": "<보기>의 반달연골(meniscus)에 관한 설명 중 옳은 것으로만 묶인\n것은?\n<보기>.\n㉠ 가쪽(lateral) 반달연골이 안쪽(medial) 반달연골보다 손상률이\n높다.\n㉡ 반달연골의 안쪽 부분은 무릎동맥(genicular arteries)으로부터 직접\n혈액을 받는다.\n㉢ 반달연골은 가쪽 부분 손상이 안쪽 부분 손상 보다 치유에\n유리하다.\n㉣ 반달연골의 흔한 부상 기전은 넙다리뼈(femur)의 축돌림(axial\nrotation), 밖굽이 힘(valgus force)과 관련이 있다.",
-      "choices": [
-        "㉠, ㉢",
-        "㉡, ㉣",
-        "㉢, ㉣",
-        "㉡, ㉢"
-      ],
-      "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
-      "trap": "반달연골 설명 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "choiceExplanations": [],
-      "reviewRound": 1
-    },
-    {
-      "date": "2026-05-22",
-      "quizId": "2026-05-22-daily-2-all-subjects",
-      "subject": "기능해부학",
-      "questionId": "2024-2A-75-07",
-      "topic": "발목관절 발바닥",
-      "selected": "1",
-      "selectedLabel": "①",
-      "answer": "2",
-      "answerLabel": "②",
-      "wrongReason": "미선택",
-      "bookmarked": "no",
-      "question": "<보기>에서 발목관절(족관절, ankle joint)의 발바닥 굽힘(저측굴곡, plantar\nflexion)에 작용하는 근육을 모두 고른 것은?\n<보기>.\nㄱ. 뒤정강근(후경골근, tibialis posterior)\nㄴ. 짧은종아리근(단비골근, peroneus brevis)\nㄷ. 짧은발가락굽힘근(단지굴근, flexor digitorum brevis)\nㄹ. 발바닥쪽뼈사이근(저측 골간근, plantar interossei)\nㅁ. 긴발가락굽힘근(장지굴근, flexor digitorum longus)",
-      "choices": [
-        "ㄱ, ㄴ, ㅁ",
-        "ㄱ, ㄷ, ㅁ",
-        "ㄴ, ㄷ, ㄹ",
-        "ㄴ, ㄹ, ㅁ"
-      ],
-      "answerIndex": 1,
-      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
-      "trap": "발목관절 발바닥 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "choiceExplanations": [],
-      "reviewRound": 1
     }
   ],
   "review": [
@@ -261,8 +211,8 @@
         "㉡, ㉢",
         "㉡, ㉣"
       ],
-      "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
       "trap": "발목인대 평가하 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": []
     }

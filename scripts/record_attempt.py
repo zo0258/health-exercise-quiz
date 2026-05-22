@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RESULTS_PATH = ROOT / "results" / "attempts.jsonl"
 NOTE_PATH = ROOT / "notes" / "wrong-note.md"
 MASTERED_PATH = ROOT / "results" / "mastered.json"
+QUIZ_DIR = ROOT / "data" / "quizzes"
 
 
 def parse_result(text):
@@ -117,6 +118,77 @@ def load_attempts():
             if line.strip():
                 attempts.append(json.loads(line))
     return attempts
+
+
+def load_quiz_for_attempt(attempt):
+    quiz_id = attempt.get("quizId")
+    attempt_date = attempt.get("date")
+    for path in sorted(QUIZ_DIR.glob("*-daily.json")):
+        try:
+            quiz = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        if quiz_id and quiz.get("quizId") == quiz_id:
+            return quiz
+        if not quiz_id and attempt_date and quiz.get("date") == attempt_date:
+            return quiz
+    return None
+
+
+def canonicalize_attempt_answers(attempt):
+    if not attempt.get("answerLog"):
+        return attempt
+
+    quiz = load_quiz_for_attempt(attempt)
+    if not quiz:
+        return attempt
+
+    question_map = {question["id"]: question for question in quiz.get("questions", [])}
+    old_wrong = {item.get("questionId"): item for item in attempt.get("wrong", [])}
+    score = 0
+    wrong = []
+
+    for item in attempt.get("answerLog", []):
+        question = question_map.get(item.get("questionId"))
+        if not question:
+            continue
+        answer = str(int(question["answerIndex"]) + 1)
+        selected = item.get("selected", "none")
+        correct = "yes" if selected != "none" and selected == answer else "no"
+        item["answer"] = answer
+        item["correct"] = correct
+        if correct == "yes":
+            score += 1
+            continue
+        if selected != "none":
+            previous = old_wrong.get(item.get("questionId"), {})
+            wrong.append({
+                "questionId": item.get("questionId"),
+                "topic": item.get("topic") or question.get("topic", ""),
+                "selected": selected,
+                "answer": answer,
+                "wrongReason": previous.get("wrongReason") or item.get("wrongReason") or "미선택",
+                "bookmarked": previous.get("bookmarked") or item.get("bookmarked") or "no",
+            })
+
+    unanswered = []
+    answered_ids = {item.get("questionId") for item in attempt.get("answerLog", [])}
+    for question in quiz.get("questions", []):
+        if question["id"] in answered_ids:
+            continue
+        unanswered.append({
+            "questionId": question["id"],
+            "topic": question.get("topic", ""),
+            "answer": str(int(question["answerIndex"]) + 1),
+        })
+
+    attempt["wrong"] = wrong
+    attempt["unanswered"] = unanswered
+    attempt["score"] = score
+    attempt["total"] = len(quiz.get("questions", [])) or attempt.get("total", 0)
+    attempt["answered"] = len(attempt.get("answerLog", []))
+    attempt["unansweredCount"] = len(unanswered)
+    return attempt
 
 
 def append_attempt(attempt):
@@ -244,7 +316,7 @@ def main():
         print(f"mastered: {MASTERED_PATH}")
         return
 
-    attempt = parse_result(text)
+    attempt = canonicalize_attempt_answers(parse_result(text))
     append_attempt(attempt)
     if mastered:
         save_mastered([*load_mastered(), *mastered])

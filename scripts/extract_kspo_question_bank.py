@@ -135,11 +135,49 @@ def subject_answer_rows_from_text(text):
     return rows
 
 
+def session_answer_rows_from_text(text):
+    session_matches = list(re.finditer(r"(\d)\s*교시\s*정답", text))
+    if not session_matches:
+        return None
+
+    parsed = {}
+    for idx, match in enumerate(session_matches):
+        session = int(match.group(1))
+        if session not in SESSION_SUBJECTS:
+            continue
+        start = match.end()
+        end = session_matches[idx + 1].start() if idx + 1 < len(session_matches) else len(text)
+        section = text[start:end]
+        rows = []
+        for line in section.splitlines():
+            tokens = answer_tokens(line)
+            if len(tokens) == 20:
+                rows.append(tokens)
+        if len(rows) >= 4:
+            parsed[(session, "A")] = rows[:4]
+        if len(rows) >= 8:
+            parsed[(session, "B")] = rows[4:8]
+
+    if (1, "A") in parsed or (2, "A") in parsed:
+        return parsed
+    return None
+
+
 def parse_answer_rows(answer_path):
     if answer_path.suffix.lower() == ".hwp":
         text = run_hwp5html_text(answer_path)
     else:
         text = run_pdftotext(answer_path)
+
+    session_rows = session_answer_rows_from_text(text)
+    if session_rows:
+        result = {}
+        for session in (1, 2):
+            for form in ("A", "B"):
+                key = (session, form)
+                if key in session_rows:
+                    result[key] = session_rows[key]
+        return result
 
     form_sections = {}
     form_matches = list(re.finditer(r"건강\s*[\(（]\s*([ABＡＢ]|A|B|에이|비)\s*[형型]", text))

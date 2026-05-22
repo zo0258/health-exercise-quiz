@@ -6,11 +6,21 @@ from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
+from extract_kspo_question_bank import parse_answer_rows
+
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "config" / "daily-selection-policy.json"
 ATTEMPTS_PATH = ROOT / "results" / "attempts.jsonl"
 DELIVERY_HISTORY_PATH = ROOT / "data" / "delivery-history.jsonl"
+QUESTION_BANK_DIR = ROOT / "data" / "question-bank"
+HTML_QUIZ_DIR = ROOT / "quizzes"
+
+
+SESSION_SUBJECTS = {
+    1: ["운동생리학", "건강·체력평가", "운동처방론", "운동부하검사"],
+    2: ["운동상해", "기능해부학", "병태생리학", "스포츠심리학"],
+}
 
 
 def load_json(path):
@@ -71,7 +81,133 @@ def load_history(path):
     return records
 
 
-def validate(quiz, policy, attempts, history):
+def load_question_bank(bank_dir):
+    bank = {}
+    duplicates = []
+    for path in sorted(bank_dir.glob("*.jsonl")):
+        with path.open("r", encoding="utf-8") as file:
+            for line_no, line in enumerate(file, start=1):
+                if not line.strip():
+                    continue
+                question = json.loads(line)
+                question_id = question.get("id")
+                if not question_id:
+                    continue
+                if question_id in bank:
+                    duplicates.append(question_id)
+                    continue
+                bank[question_id] = {
+                    "question": question,
+                    "path": path,
+                    "line": line_no,
+                }
+    if duplicates:
+        duplicated = ", ".join(sorted(set(duplicates))[:20])
+        raise ValueError(f"문제은행 questionId 중복: {duplicated}")
+    return bank
+
+
+def infer_session(question):
+    source = question.get("source") or {}
+    if source.get("session"):
+        return int(source["session"])
+    subject = question.get("subject")
+    for session, subjects in SESSION_SUBJECTS.items():
+        if subject in subjects:
+            return session
+    return None
+
+
+def official_answer_index(question, answer_cache):
+    source = question.get("source") or {}
+    answer_file = source.get("answerFile")
+    question_no = source.get("questionNo")
+    session = infer_session(question)
+    form = source.get("form") or "A"
+    subject = question.get("subject")
+
+    missing = []
+    if not answer_file:
+        missing.append("source.answerFile")
+    if not question_no:
+        missing.append("source.questionNo")
+    if not session:
+        missing.append("source.session 또는 subject")
+    if subject not in SESSION_SUBJECTS.get(session, []):
+        missing.append("subject")
+    if missing:
+        raise ValueError(f"공식 정답 대조 필드 누락: {', '.join(missing)}")
+
+    answer_path = ROOT / answer_file
+    if not answer_path.exists():
+        raise FileNotFoundError(f"공식 정답 파일 없음: {answer_file}")
+
+    rows = answer_cache.get(answer_path)
+    if rows is None:
+        rows = parse_answer_rows(answer_path)
+        answer_cache[answer_path] = rows
+
+    subjects = SESSION_SUBJECTS[session]
+    subject_index = subjects.index(subject)
+    return rows[(session, form)][subject_index][int(question_no) - 1]
+
+
+def validate_answers(questions, bank):
+    errors = []
+    warnings = []
+    answer_cache = {}
+
+    for question in questions:
+        question_id = question.get("id", "id없음")
+        answer_index = int(question.get("answerIndex", -1))
+
+        bank_record = bank.get(question_id)
+        if not bank_record:
+            warnings.append(f"문제은행에 없는 문항입니다: {question_id}")
+        else:
+            bank_answer = int(bank_record["question"].get("answerIndex", -1))
+            if answer_index != bank_answer:
+                errors.append(
+                    f"문제은행 정답과 불일치: {question_id} "
+                    f"quiz={answer_index + 1} bank={bank_answer + 1}"
+                )
+
+        try:
+            official_answer = official_answer_index(question, answer_cache)
+        except Exception as error:
+            errors.append(f"공식 정답 대조 실패: {question_id} ({error})")
+            continue
+
+        if answer_index != official_answer:
+            source = question.get("source") or {}
+            errors.append(
+                f"공식 최종정답과 불일치: {question_id} "
+                f"Q{source.get('questionNo', '?')} quiz={answer_index + 1} official={official_answer + 1}"
+            )
+
+    return errors, warnings
+
+
+def validate_bank_answers(bank):
+    errors = []
+    answer_cache = {}
+    for question_id, record in sorted(bank.items()):
+        question = record["question"]
+        try:
+            official_answer = official_answer_index(question, answer_cache)
+        except Exception as error:
+            errors.append(f"문제은행 공식 정답 대조 실패: {question_id} ({error})")
+            continue
+        answer_index = int(question.get("answerIndex", -1))
+        if answer_index != official_answer:
+            errors.append(
+                f"문제은행 공식 최종정답과 불일치: {question_id} "
+                f"bank={answer_index + 1} official={official_answer + 1}"
+            )
+    return errors
+
+
+def validate(quiz, policy, attempts, history, bank):
     errors = []
     warnings = []
     questions = quiz.get("questions", [])
@@ -166,34 +302,116 @@ def validate(quiz, policy, attempts, history):
         if question["topic"] in seen_recent_topics:
             warnings.append(f"최근 {dedupe['sameTopicCooldownDays']}일 내 topic 반복: {question['topic']} ({', '.join(seen_recent_topics[question['topic']])})")
 
+    answer_errors, answer_warnings = validate_answers(questions, bank)
+    errors.extend(answer_errors)
+    warnings.extend(answer_warnings)
+
     return errors, warnings
+
+
+def validate_one(quiz_path, policy, attempts, history, bank):
+    quiz = load_json(quiz_path)
+    return validate(quiz, policy, attempts, history, bank)
+
+
+def html_quiz_path(quiz):
+    slug = quiz.get("slug") or quiz["date"]
+    return HTML_QUIZ_DIR / f"quiz-{slug}.html"
+
+
+def load_html_quiz(path):
+    raw = path.read_text(encoding="utf-8")
+    match = re.search(
+        r'<script id="quiz-data" type="application/json">(.*?)</script>',
+        raw,
+        re.S,
+    )
+    if not match:
+        raise ValueError("HTML quiz-data script를 찾지 못했습니다.")
+    return json.loads(match.group(1))
+
+
+def validate_html_matches_json(quiz):
+    errors = []
+    path = html_quiz_path(quiz)
+    if not path.exists():
+        errors.append(f"HTML 퀴즈 파일 없음: {path.relative_to(ROOT)}")
+        return errors
+
+    html_quiz = load_html_quiz(path)
+    json_questions = quiz.get("questions", [])
+    html_questions = html_quiz.get("questions", [])
+    if len(json_questions) != len(html_questions):
+        errors.append(
+            f"HTML 문항 수 불일치: {path.relative_to(ROOT)} "
+            f"json={len(json_questions)} html={len(html_questions)}"
+        )
+        return errors
+
+    for index, (json_question, html_question) in enumerate(zip(json_questions, html_questions), start=1):
+        if json_question.get("id") != html_question.get("id"):
+            errors.append(
+                f"HTML 문항 순서 불일치: {path.relative_to(ROOT)} Q{index} "
+                f"json={json_question.get('id')} html={html_question.get('id')}"
+            )
+            continue
+        for field in ("answerIndex", "explanation", "question", "choices"):
+            if json_question.get(field) != html_question.get(field):
+                errors.append(
+                    f"HTML {field} 불일치: {path.relative_to(ROOT)} "
+                    f"{json_question.get('id')}"
+                )
+    return errors
 
 
 def main():
     parser = argparse.ArgumentParser(description="Validate a daily quiz against selection and deduplication policy.")
-    parser.add_argument("quiz_json", type=Path)
+    parser.add_argument("quiz_json", nargs="?", type=Path)
+    parser.add_argument("--all", action="store_true", help="Validate every data/quizzes/*-daily.json file.")
     parser.add_argument("--policy", type=Path, default=POLICY_PATH)
     parser.add_argument("--attempts", type=Path, default=ATTEMPTS_PATH)
     parser.add_argument("--history", type=Path, default=DELIVERY_HISTORY_PATH)
+    parser.add_argument("--bank-dir", type=Path, default=QUESTION_BANK_DIR)
     args = parser.parse_args()
 
-    quiz_path = args.quiz_json if args.quiz_json.is_absolute() else ROOT / args.quiz_json
+    if not args.all and not args.quiz_json:
+        parser.error("quiz_json 또는 --all 중 하나가 필요합니다.")
+
     policy_path = args.policy if args.policy.is_absolute() else ROOT / args.policy
     attempts_path = args.attempts if args.attempts.is_absolute() else ROOT / args.attempts
     history_path = args.history if args.history.is_absolute() else ROOT / args.history
+    bank_dir = args.bank_dir if args.bank_dir.is_absolute() else ROOT / args.bank_dir
 
-    quiz = load_json(quiz_path)
     policy = load_json(policy_path)
     attempts = load_attempts(attempts_path)
     history = load_history(history_path)
-    errors, warnings = validate(quiz, policy, attempts, history)
+    bank = load_question_bank(bank_dir)
 
-    for warning in warnings:
+    quiz_paths = []
+    if args.all:
+        quiz_paths = sorted((ROOT / "data" / "quizzes").glob("*-daily.json"))
+    else:
+        quiz_path = args.quiz_json if args.quiz_json.is_absolute() else ROOT / args.quiz_json
+        quiz_paths = [quiz_path]
+
+    all_errors = []
+    all_warnings = []
+    if args.all:
+        all_errors.extend(validate_bank_answers(bank))
+    for quiz_path in quiz_paths:
+        quiz = load_json(quiz_path)
+        errors, warnings = validate(quiz, policy, attempts, history, bank)
+        if args.all:
+            errors.extend(validate_html_matches_json(quiz))
+        all_warnings.extend(f"{quiz_path.relative_to(ROOT)}: {warning}" for warning in warnings)
+        all_errors.extend(f"{quiz_path.relative_to(ROOT)}: {error}" for error in errors)
+
+    for warning in all_warnings:
         print(f"WARNING: {warning}")
-    for error in errors:
+    for error in all_errors:
         print(f"ERROR: {error}")
 
-    if errors:
+    if all_errors:
         raise SystemExit(1)
     print("quiz-policy-ok")
 
