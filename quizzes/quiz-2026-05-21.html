@@ -1430,8 +1430,9 @@
       if (!reviewMode && state.current === quiz.questions.length - 1 && unansweredCount() > 0) {
         nextBtn.textContent = `미응답 ${unansweredCount()}개`;
       }
-      nextBtn.disabled = !reviewMode && selected === null;
-      explainBtn.disabled = !reviewMode && selected === null;
+      const canAdvance = reviewMode || selected !== null;
+      nextBtn.disabled = !canAdvance;
+      explainBtn.disabled = !canAdvance;
       explainBtn.textContent = state.explanationOpen[state.current] ? '해설 숨김' : '해설 보기';
     }
 
