@@ -29,7 +29,7 @@ def latest_attempt_for_quiz(quiz):
     attempts_path = ROOT / "results" / "attempts.jsonl"
     quiz_id = quiz.get("quizId")
     attempts = [attempt for attempt in read_jsonl(attempts_path) if quiz_id and attempt.get("quizId") == quiz_id]
-    if not attempts:
+    if not attempts and not quiz.get("sequence"):
         attempts = [attempt for attempt in read_jsonl(attempts_path) if attempt.get("date") == quiz.get("date")]
     return attempts[-1] if attempts else None
 
