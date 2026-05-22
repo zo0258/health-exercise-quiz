@@ -1,0 +1,306 @@
+{
+  "quizId": "2026-05-23-daily-1-all-subjects",
+  "date": "2026-05-23",
+  "displayDate": "2026-05-23 (오전)",
+  "slug": "2026-05-23-1",
+  "sequence": 1,
+  "title": "건강운동관리사 데일리 퀴즈",
+  "subject": "전과목",
+  "round": "시험 임박 전과목 10문항",
+  "timeLimitMinutes": 10,
+  "sourceSummary": "2016, 2018, 2019, 2021, 2024년 검증 문제은행 기반",
+  "generationNote": "정책 기반 자동 생성",
+  "missingSubjects": [],
+  "questions": [
+    {
+      "id": "2018-1A-70-11",
+      "year": 2018,
+      "subject": "운동생리학",
+      "topic": "운동단위 근섬유",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "운동단위 근섬유 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "운동단위(motor unit) 및 근섬유 동원(muscle fiber recruitment)\n원리에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        "활동전위가 전달되면 그 운동단위에 연결된 모든 근섬유는 수축한다.",
+        "동일한 근육에서 활성화되는 운동단위가 많을수록 큰 힘을 발휘한다.",
+        "크기의 원리(size principle)는 typeⅡ 섬유가 먼저 동원된 후 typeⅠ 섬유가 동원되는 것을 말한다.",
+        "typeⅡ 운동단위는 typeⅠ 운동단위보다 더 많은 근섬유를 포함하고 있다."
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2018/questions_and_draft_answer/2018_건강운동관리사_필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2018/final_answer/건강필기_최종답안.pdf",
+        "questionNo": 11,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2021-1A-71-16",
+      "year": 2021,
+      "subject": "건강·체력평가",
+      "topic": "제시된 피검사자",
+      "type": "개념구분",
+      "difficulty": 3,
+      "trap": "제시된 피검사자 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에 제시된 피검사자 다리의 상대근력 값은?\n<보기>.\n∙ 신장 : 172 cm ∙ 체중 : 80 kg ∙ 체지방률 : 32 %\n∙ BMI : 27 ㎏/㎡ ∙ 레그프레스 1 RM : 140 kg",
+      "choices": [
+        "1.75",
+        "2.05",
+        "4.37",
+        "5.18"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2021/questions/2021 건강운동관리사 필기시험 1교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2021/final_answer/2021년_건강운동관리사_최종정답.pdf",
+        "questionNo": 16,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2016-1A-72-13",
+      "year": 2016,
+      "subject": "운동처방론",
+      "topic": "환자에게 운동처방",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "환자에게 운동처방 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 환자에게 운동처방을 실시하고자 할 때\n목표심박수의 범위로 옳은 것은?\n<보기>\n연령이 40세인 고지혈증 환자가 운동부하검사\n를 받은 결과 최대심박수 180회/분, 안정시 심\n박수 60회/분으로 나타났다(참고: 고지혈증 환\n자를 위한 운동 강도는 40~75%이며, HRR(여\n유심박수)공식을 이용하시오).",
+      "choices": [
+        "18~20회/10초",
+        "108~140회/분",
+        "18~25회/10초",
+        "108~145회/분"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2016/questions_and_draft_answer/건강운동관리사 필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2016/final_answer_notice/건강필기_정답.hwp",
+        "questionNo": 13,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 72
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2024-2A-77-20",
+      "year": 2024,
+      "subject": "스포츠심리학",
+      "topic": "합리적 행동이론",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "합리적 행동이론 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>는 합리적 행동이론(Ajzen & Fishbein, 1975)에 대한 설명이다.\n㉠〜㉢에 해당하는 용어를 바르게 나열한 것은?\n<보기>.\n∙ ( ㉠ ): 특정 행동에 대한 사회적 압력\n∙ ( ㉡ ): 특정 행동에 대해 좋거나 나쁘게 평가하는 것\n∙ ( ㉢ ): 특정 행동을 실행하겠다는 의지와 노력의 정도\n㉠ ㉡ ㉢",
+      "choices": [
+        "주관적 규범 태도 의도",
+        "주관적 규범 태도 행동통제",
+        "태도 주관적 규범 행동통제",
+        "태도 주관적 규범 의도 ※ 본 제작물에는 대한인쇄문화협회에서 제공한 서체가 적용되어 있습니다."
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 2교시 A형.pdf",
+        "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
+        "questionNo": 20,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 77
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2024-1A-71-17",
+      "year": 2024,
+      "subject": "건강·체력평가",
+      "topic": "국민체력100 체력측정검사",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "국민체력100 체력측정검사 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 ‘국민체력100’ 체력측정검사 내용으로 옳은 것만을 모두\n고른 것은?\n<보기>.\n대상 요소 방법 파울기준\nㄱ.유아기 유연성\n앉아윗몸앞으로\n굽히기\n양발이 11자 형태를 유지하지\n못하고 벌려지는 경우\nㄴ.청소년기 근지구력 반복점프 장애물을 건드릴 경우\nㄷ.성인기 순발력 제자리멀리뛰기\n선을 밟거나 발을 두 번 구르는\n경우\nㄹ.어르신기 민첩성 반응시간검사\n측정 센서 바깥으로 발이\n나가는 경우",
+      "choices": [
+        "ㄱ, ㄴ",
+        "ㄷ, ㄹ",
+        "ㄱ, ㄴ, ㄷ",
+        "ㄴ, ㄷ, ㄹ"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 1교시 A형.pdf",
+        "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
+        "questionNo": 17,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2019-1A-73-02",
+      "year": 2019,
+      "subject": "운동부하검사",
+      "topic": "심폐운동부하검사 주요",
+      "type": "보기조합",
+      "difficulty": 4,
+      "trap": "심폐운동부하검사 주요 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "심폐운동부하검사(cardiopulmonary exercise test) 중 주요 측정\n변인을 <보기>에서 모두 고른 것은?\n<보기>.\n㉠ 체온 ㉡ 혈압 ㉢ 산소섭취량\n㉣ 근전도 ㉤ 심전도",
+      "choices": [
+        "㉠, ㉡, ㉢",
+        "㉠, ㉢, ㉣",
+        "㉡, ㉢, ㉣",
+        "㉡, ㉢, ㉤"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2019/questions_and_draft_answer/2019건강운동관리사 필기시험 1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2019/final_answer/2019년 건강운동관리사 필기시험 최종답안.pdf",
+        "questionNo": 2,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 73
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2019-1A-70-04",
+      "year": 2019,
+      "subject": "운동생리학",
+      "topic": "운동 피로에",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "운동 피로에 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "운동 중 피로에 의해 근육의 힘이 감소되는 원인을 <보기>에서\n모두 고른 것은?\n<보기>.\n㉠ 운동 시 동원되는 운동단위 수의 감소\n㉡ 장시간지속적인운동시활동하는근섬유내글리코겐\n양의 증가\n㉢ 단시간최대운동시산소결핍및혈중과근육의젖산감소\n㉣ 신경근연접(neuromuscularjunction)에서운동신경세포로부터\n근섬유로의 신호 전달 감소",
+      "choices": [
+        "㉠, ㉡",
+        "㉠, ㉣",
+        "㉡, ㉢",
+        "㉢, ㉣"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2019/questions_and_draft_answer/2019건강운동관리사 필기시험 1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2019/final_answer/2019년 건강운동관리사 필기시험 최종답안.pdf",
+        "questionNo": 4,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2019-2A-74-04",
+      "year": 2019,
+      "subject": "운동상해",
+      "topic": "무릎 퇴행성",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "무릎 퇴행성 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "무릎 퇴행성 관절염에 대한 설명으로 옳은 것을 <보기>에서\n모두 고른 것은?\n<보기>.\n㉠ 무릎관절 부상 병력은 퇴행성 관절염 발생확률을\n증가시킨다.\n㉡ 외측구획(lateralcompartment)의발생률이내측(medial)\n구획보다 더 높다.\n㉢ 넙다리네갈래근(대퇴사두근,quadriceps)의근위축(atrophy)\n혹은 근력저하가 나타난다.\n㉣ 퇴행성연골의손상은운동치료를통해완치될수있으며\n일반적인 방법으로 체중감량과 유산소운동이 있다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉠, ㉢",
+        "㉡, ㉣",
+        "㉢, ㉣"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2019/questions_and_draft_answer/2019건강운동관리사 필기시험 2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2019/final_answer/2019년 건강운동관리사 필기시험 최종답안.pdf",
+        "questionNo": 4,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 74
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2021-2A-76-02",
+      "year": 2021,
+      "subject": "병태생리학",
+      "topic": "바이러스 설명",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "바이러스 설명 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 바이러스(virus)에 관한 설명으로 옳은 것을 모두 고른 것은?\n<보기>.\n㉠ 바이러스는 단세포 생물이며, 생존을 위해 살아있는 조직이\n필요하지 않다.\n㉡ 코로나바이러스(coronavirus)는 사람의 호흡계 등에 감염을\n일으키는 RNA 바이러스이다.\n㉢ DNA 바이러스에 비해 RNA 바이러스에서 돌연변이가 일어날\n확률이 높다.\n㉣ RNA 바이러스에는 에볼라, 에이즈, 구제역, 인플루엔자바이러스\n등이 있으며 ‘코로나바이러스’ 계열인 메르스, 사스도 여기에\n속한다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉡, ㉣",
+        "㉠, ㉢, ㉣",
+        "㉡, ㉢, ㉣"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2021/questions/2021 건강운동관리사 필기시험 2교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2021/final_answer/2021년_건강운동관리사_최종정답.pdf",
+        "questionNo": 2,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 76
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2019-2A-75-15",
+      "year": 2019,
+      "subject": "기능해부학",
+      "topic": "넙다리 삼각",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "넙다리 삼각 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "넙다리 삼각(femoral triangle)에 대한 설명으로 옳은 것을\n<보기>에서 모두 고른 것은?\n<보기>.\n㉠ 위쪽은 샅고랑인대(서혜인대,inguinal ligament)로 경계를\n이룬다.\n㉡ 안쪽은 두덩근(치골근, pectineus)으로 경계를 이룬다.\n㉢ 가쪽은넙다리빗근(봉공근,sartorius)으로경계를이룬다.\n㉣ 궁둥구멍근(이상근, piriformis)이 공간을 지난다.\n㉤ 넙다리동맥(대퇴동맥, femoral artery)이 공간을 지난다.\n㉥ 넙다리정맥(대퇴정맥, femoral vein)이 공간을 지난다.",
+      "choices": [
+        "㉠, ㉡, ㉢, ㉥",
+        "㉠, ㉡, ㉤, ㉥",
+        "㉡, ㉢, ㉣, ㉤",
+        "㉠, ㉢, ㉤, ㉥"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2019/questions_and_draft_answer/2019건강운동관리사 필기시험 2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2019/final_answer/2019년 건강운동관리사 필기시험 최종답안.pdf",
+        "questionNo": 15,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 75
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    }
+  ]
+}
