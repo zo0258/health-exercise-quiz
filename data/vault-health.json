@@ -1,0 +1,14 @@
+{
+  "notes": 411,
+  "domainMocs": 8,
+  "mocs": 20,
+  "topics": 56,
+  "daily": 306,
+  "brokenLinks": 0,
+  "isolatedNotes": 0,
+  "noIncoming": 0,
+  "noOutgoing": 0,
+  "dailyMocCoverage": "306/306",
+  "topicMocCoverage": "56/56",
+  "generatedAt": "2026-05-23"
+}

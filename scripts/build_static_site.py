@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE_DIR = Path.home() / "Desktop" / "건강운동관리사"
 DEFAULT_SITE_DIR = Path.home() / "Desktop" / "건강운동관리사_web"
 SYNC_CONFIG_PATH = ROOT / "config" / "sync.json"
+VAULT_HEALTH_PATH = ROOT / "data" / "vault-health.json"
 EXAM_DATE = date(2026, 6, 13)
 DAILY_SENTENCES = {
     "2026-05-20": "새로운 문제가 나와도 괜찮다. 그동안 쌓아온 실력이 너를 지켜준다.",
@@ -155,6 +156,19 @@ def load_sync_config():
     }
 
 
+def load_vault_health():
+    if not VAULT_HEALTH_PATH.exists():
+        return None
+    try:
+        data = json.loads(VAULT_HEALTH_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    required = ("notes", "domainMocs", "topics", "daily", "brokenLinks", "isolatedNotes")
+    if not all(key in data for key in required):
+        return None
+    return data
+
+
 def status_badges(date_text, quiz_id, attempts, review_dates):
     attempt = attempts.get(quiz_id)
     if not re.search(r"-daily-\d+-", str(quiz_id or "")):
@@ -190,11 +204,30 @@ def render_index(files):
     attempts = load_attempt_status()
     review_dates = load_review_dates()
     sync_config = load_sync_config()
+    vault_health = load_vault_health()
     sync_config_json = json.dumps(sync_config, ensure_ascii=False)
     safe_sync_config_json = sync_config_json.replace("</", "<\\/")
     sync_time = read_review_generated_at()
     dday_label, daily_sentence = today_sentence()
     daily_sentence_html = "".join(f"<span>{html.escape(line)}</span>" for line in sentence_lines(daily_sentence))
+    vault_health_html = ""
+    if vault_health:
+        health_status = "정상" if vault_health.get("brokenLinks") == 0 and vault_health.get("isolatedNotes") == 0 else "점검"
+        vault_health_html = f'''
+    <section class="vault-health" aria-label="지식 저장소 상태">
+      <div class="vault-health-head">
+        <h2>지식 저장소</h2>
+        <span>{html.escape(health_status)}</span>
+      </div>
+      <div class="vault-metrics">
+        <div><strong>{int(vault_health.get("notes", 0))}</strong><span>Notes</span></div>
+        <div><strong>{int(vault_health.get("domainMocs", 0))}</strong><span>Domain</span></div>
+        <div><strong>{int(vault_health.get("topics", 0))}</strong><span>Topics</span></div>
+        <div><strong>{int(vault_health.get("daily", 0))}</strong><span>Daily</span></div>
+      </div>
+      <p>링크 오류 {int(vault_health.get("brokenLinks", 0))} · 고립 노트 {int(vault_health.get("isolatedNotes", 0))} · MOC 연결 {html.escape(str(vault_health.get("dailyMocCoverage", "")))}</p>
+    </section>
+'''
     date_counts = Counter(quiz_identity(path)[0] for path in files)
     completed_count = 0
     review_count = 0
@@ -523,6 +556,75 @@ def render_index(files):
     .daily-word p span + span {{
       margin-top: 2px;
     }}
+    .vault-health {{
+      width: calc(100% - 10px);
+      margin: 16px auto 0;
+      padding: 14px;
+      border: 1px solid rgba(53, 93, 122, .18);
+      border-radius: 13px;
+      background: rgba(255,255,255,.76);
+      box-shadow: 0 8px 20px rgba(36,37,34,.04);
+    }}
+    .vault-health-head {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }}
+    .vault-health h2 {{
+      margin: 0;
+      color: var(--accent-dark);
+      font-size: 16px;
+      font-weight: 950;
+    }}
+    .vault-health-head span {{
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }}
+    .vault-metrics {{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+    }}
+    .vault-metrics div {{
+      min-height: 54px;
+      padding: 8px 6px;
+      border: 1px solid rgba(102,115,93,.16);
+      border-radius: 9px;
+      background: rgba(248,244,241,.72);
+      text-align: center;
+    }}
+    .vault-metrics strong {{
+      display: block;
+      color: var(--accent-dark);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+    }}
+    .vault-metrics span {{
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 900;
+    }}
+    .vault-health p {{
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 800;
+      text-align: right;
+    }}
     .history-title {{
       margin: 0;
       color: var(--accent-dark);
@@ -607,6 +709,13 @@ def render_index(files):
       .daily-word-title {{ font-size: 12px; }}
       .daily-word-day {{ font-size: 10.5px; }}
       .daily-word p {{ font-size: 12.8px; line-height: 1.48; }}
+      .vault-health {{ width: calc(100% - 8px); margin-top: 13px; padding: 12px; }}
+      .vault-health h2 {{ font-size: 15px; }}
+      .vault-metrics {{ gap: 6px; }}
+      .vault-metrics div {{ min-height: 50px; padding: 7px 4px; }}
+      .vault-metrics strong {{ font-size: 18px; }}
+      .vault-metrics span {{ font-size: 10px; }}
+      .vault-health p {{ text-align: left; font-size: 10.8px; }}
       .history-wrap {{ width: calc(100% - 8px); }}
       .history-bar {{ margin: 19px 0 10px; }}
       .sync-note {{ text-align: left; font-size: 11px; }}
@@ -647,6 +756,7 @@ def render_index(files):
       </div>
       <p>{daily_sentence_html}</p>
     </section>
+    {vault_health_html}
     <div class="history-wrap">
       <div class="history-bar">
         <div class="history-title">학습 기록</div>

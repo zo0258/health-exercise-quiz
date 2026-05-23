@@ -272,6 +272,75 @@
     .daily-word p span + span {
       margin-top: 2px;
     }
+    .vault-health {
+      width: calc(100% - 10px);
+      margin: 16px auto 0;
+      padding: 14px;
+      border: 1px solid rgba(53, 93, 122, .18);
+      border-radius: 13px;
+      background: rgba(255,255,255,.76);
+      box-shadow: 0 8px 20px rgba(36,37,34,.04);
+    }
+    .vault-health-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .vault-health h2 {
+      margin: 0;
+      color: var(--accent-dark);
+      font-size: 16px;
+      font-weight: 950;
+    }
+    .vault-health-head span {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .vault-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+    }
+    .vault-metrics div {
+      min-height: 54px;
+      padding: 8px 6px;
+      border: 1px solid rgba(102,115,93,.16);
+      border-radius: 9px;
+      background: rgba(248,244,241,.72);
+      text-align: center;
+    }
+    .vault-metrics strong {
+      display: block;
+      color: var(--accent-dark);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 950;
+    }
+    .vault-metrics span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 900;
+    }
+    .vault-health p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 800;
+      text-align: right;
+    }
     .history-title {
       margin: 0;
       color: var(--accent-dark);
@@ -356,6 +425,13 @@
       .daily-word-title { font-size: 12px; }
       .daily-word-day { font-size: 10.5px; }
       .daily-word p { font-size: 12.8px; line-height: 1.48; }
+      .vault-health { width: calc(100% - 8px); margin-top: 13px; padding: 12px; }
+      .vault-health h2 { font-size: 15px; }
+      .vault-metrics { gap: 6px; }
+      .vault-metrics div { min-height: 50px; padding: 7px 4px; }
+      .vault-metrics strong { font-size: 18px; }
+      .vault-metrics span { font-size: 10px; }
+      .vault-health p { text-align: left; font-size: 10.8px; }
       .history-wrap { width: calc(100% - 8px); }
       .history-bar { margin: 19px 0 10px; }
       .sync-note { text-align: left; font-size: 11px; }
@@ -396,6 +472,21 @@
       </div>
       <p><span>합격은 모든 걸 완벽히 아는 사람이 아니라, 흔들려도 자기 기준을 잃지 않는 사람이 가져간다.</span></p>
     </section>
+    
+    <section class="vault-health" aria-label="지식 저장소 상태">
+      <div class="vault-health-head">
+        <h2>지식 저장소</h2>
+        <span>정상</span>
+      </div>
+      <div class="vault-metrics">
+        <div><strong>411</strong><span>Notes</span></div>
+        <div><strong>8</strong><span>Domain</span></div>
+        <div><strong>56</strong><span>Topics</span></div>
+        <div><strong>306</strong><span>Daily</span></div>
+      </div>
+      <p>링크 오류 0 · 고립 노트 0 · MOC 연결 306/306</p>
+    </section>
+
     <div class="history-wrap">
       <div class="history-bar">
         <div class="history-title">학습 기록</div>
