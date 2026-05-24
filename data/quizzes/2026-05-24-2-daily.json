@@ -1,0 +1,306 @@
+{
+  "quizId": "2026-05-24-daily-2-all-subjects",
+  "date": "2026-05-24",
+  "displayDate": "2026-05-24 (저녁)",
+  "slug": "2026-05-24-2",
+  "sequence": 2,
+  "title": "건강운동관리사 데일리 퀴즈",
+  "subject": "전과목",
+  "round": "시험 임박 전과목 10문항",
+  "timeLimitMinutes": 10,
+  "sourceSummary": "2016, 2017, 2018, 2020, 2021, 2022, 2024년 검증 문제은행 기반",
+  "generationNote": "정책 기반 자동 생성",
+  "missingSubjects": [],
+  "questions": [
+    {
+      "id": "2016-1A-71-19",
+      "year": 2016,
+      "subject": "건강·체력평가",
+      "topic": "그래프 해석",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "그래프 해석 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 그래프에 대한 해석으로 옳지 않은 것은?\n<보기>",
+      "choices": [
+        "근력과 근골격계 질환위험은 정적상관이 있다.",
+        "근력이 높을수록 근골격계 질환위험은 낮다.",
+        "근력과 근골격계 질환위험은 관계가 있다.",
+        "24명을 대상으로 자료를 수집한 것이다."
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2016/questions_and_draft_answer/건강운동관리사 필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2016/final_answer_notice/건강필기_정답.hwp",
+        "questionNo": 19,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2018-1A-70-20",
+      "year": 2018,
+      "subject": "운동생리학",
+      "topic": "열순응 과정",
+      "type": "부정형",
+      "difficulty": 3,
+      "trap": "열순응 과정 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "열순응 과정에서 발생하는 주요 생리학적 반응으로 옳지 않은 것은?",
+      "choices": [
+        "혈장단백질 증가에 의한 혈장량 증가",
+        "체내 전해질 균형을 위한 알도스테론(aldosterone) 분비 증가",
+        "운동 시작 후 빠른 땀분비를 통한 열축적 감소 및 혈액의 피부순환량 감소",
+        "열 스트레스 감소로 인한 열충격 단백질(heat shock protein) 생성 감소"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2018/questions_and_draft_answer/2018_건강운동관리사_필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2018/final_answer/건강필기_최종답안.pdf",
+        "questionNo": 20,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2017-2A-77-16",
+      "year": 2017,
+      "subject": "스포츠심리학",
+      "topic": "의유켈슨이제안한팀의 의사소통문화를개선하는방법",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "의유켈슨이제안한팀의 의사소통문화를개선하는방법 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의유켈슨(D.Yukelson,1997)이제안한팀의\n의사소통문화를개선하는방법으로바르게묶인것은?\n<보기>.\n㉠팀목표설정을함께한다.\n㉡주기적으로팀미팅을갖고솔직한대화를한다.\n㉢개인의개성(독특성)보다팀성과를우선한다.\n㉣팀 소속감에 대한 자긍심과 팀 정체감을 발전\n시킨다.\n㉤목표에대한평가는하지않는다.",
+      "choices": [
+        "㉠,㉡,㉢",
+        "㉠,㉡,㉣",
+        "㉠,㉣,㉤",
+        "㉢,㉣,㉤"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2017/questions_and_draft_answer/건강운동관리사_필기시험_2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2017/final_answer/최종 정답.pdf",
+        "questionNo": 16,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 77
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2017-1A-72-01",
+      "year": 2017,
+      "subject": "운동처방론",
+      "topic": "운동부하검사시검사자가고려해야할 내용",
+      "type": "개념구분",
+      "difficulty": 4,
+      "trap": "운동부하검사시검사자가고려해야할 내용 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서운동부하검사시검사자가고려해야할\n내용으로옳은것은?\n<보기>.\n㉠검사직전까지음식섭취를허용한다.\n㉡검사중초래되는증상과흔치않은느낌을신속히\n알리도록한다.\n㉢처방되지않은약물을제외한복용약물은정확\n하게밝히도록한다.\n㉣원활한검사를위해모든질문은자제하도록한다.\n㉤피검자가불편함이나피로감을느끼는경우운동\n부하검사의중단을요청할수있도록한다.",
+      "choices": [
+        "㉠,㉡",
+        "㉡,㉢",
+        "㉡,㉤",
+        "㉢,㉤"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2017/questions_and_draft_answer/건강운동관리사_필기시험_1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2017/final_answer/최종 정답.pdf",
+        "questionNo": 1,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 72
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2024-1A-73-19",
+      "year": 2024,
+      "subject": "운동부하검사",
+      "topic": "관상동맥질환 사전검사",
+      "type": "부정형",
+      "difficulty": 4,
+      "trap": "관상동맥질환 사전검사 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 관상동맥질환(CAD) 사전검사 예측도를 이용한 운동부하검사\n후 CAD 발생 예측으로 옳지 않은 것은?\n<보기>.\n∙ CAD 사전검사 예측도(%)\n나이\n무증상 비협심증성 흉통 비전형적 협심증 전형적 협심증\n남자 여자 남자 여자 남자 여자 남자 여자\n30대 1.9 0.3 5.2 0.8 23.8 4.2 69.7 25.8\n40대 5.5 1.0 14.1 2.8 46.1 13.3 80.1 55.2\n50대 10.0 3.2 21.5 8.4 58.9 32.4 92.0 79.4\n60대 12.3 7.5 28.1 20.0 67.1 54.4 94.3 90.6\n∙ 베이즈정리(Baye’stheorem)를 활용한 운동부하검사 후 CAD 사후검사\n예측도(%)\n증상분류 연령대/성별\n운동부하\n검사결과\nCAD 사후 검사\n예측확률",
+      "choices": [
+        "전형적 협심증 40대 남성 음성 약 90%",
+        "비협심증성 흉통 60대 여성 음성 약 5%",
+        "비전형적 협심증 30대 남성 양성 약 40%",
+        "무증상 50대 남성 양성 약 20%"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 1교시 A형.pdf",
+        "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
+        "questionNo": 19,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 73
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2020-1A-70-18",
+      "year": 2020,
+      "subject": "운동생리학",
+      "topic": "인체 포도당이",
+      "type": "보기조합",
+      "difficulty": 4,
+      "trap": "인체 포도당이 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>는 인체에서 포도당이 분해되는 과정이다.\n옳은 것을 모두 고른 것은?\n<보기>.\n㉠ 효소가 필요하다.\n㉡ 방출된 에너지 중 일부는 체온유지에 이용된다.\n㉢ 방출된 에너지 중 일부는 아데노신삼인산(ATP)을\n합성하는데 이용된다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉡, ㉢",
+        "㉠, ㉢",
+        "㉠, ㉡, ㉢"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2020/questions_and_draft_answer/2020건강운동관리사 필기시험 1교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2020/final_answer/2020건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 18,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2021-2A-74-01",
+      "year": 2021,
+      "subject": "운동상해",
+      "topic": "손상조직 치유과정",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "손상조직 치유과정 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 손상조직의 치유과정 중 염증반응 단계(inflammatory\nresponse phase)의 내용으로 옳은 것을 모두 고른 것은?\n<보기>.\n㉠ 포식작용(phagocytosis)\n㉡ 육아조직(granulation tissue) 생성과 혈관 생성\n㉢ 혈관 수축과 혈관 확장\n㉣ 섬유아세포(fibroblast)와 상처 크기 감소",
+      "choices": [
+        "㉠, ㉡",
+        "㉠, ㉢",
+        "㉡, ㉣",
+        "㉢, ㉣"
+      ],
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2021/questions/2021 건강운동관리사 필기시험 2교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2021/final_answer/2021년_건강운동관리사_최종정답.pdf",
+        "questionNo": 1,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 74
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2022-2A-76-15",
+      "year": 2022,
+      "subject": "병태생리학",
+      "topic": "류마티스성 관절염",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "류마티스성 관절염 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 류마티스성 관절염에 관한 설명으로 옳은 것을 모두 고른\n것은?\n<보기>.\n㉠ 염증이 관절 연골의 표면으로 확대되어 연골을 파괴시킨다.\n㉡ 뼈의 과증식이 나타나고 요산이 축적되어 관절을 손상시킨다.\n㉢ 침범된 관절 부위에 비정상적인 면역반응이 일어나 활액막에\n염증이 나타난다.\n㉣ 남성보다 여성에게 빈번하게 나타나며 손가락과 같은 작은\n관절에서도 발생된다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉡, ㉢",
+        "㉢, ㉣",
+        "㉠, ㉢, ㉣"
+      ],
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2022/questions/2022 건강운동관리사 필기시험 2교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2022/final_answer/2022 건강운동관리사 필기시험 최종정답(게시).pdf",
+        "questionNo": 15,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 76
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2022-1A-71-07",
+      "year": 2022,
+      "subject": "건강·체력평가",
+      "topic": "ACSM이 제시한",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "ACSM이 제시한 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>에서 ACSM(10, 11판)이 제시한 체력측정 방법으로 옳은 것을\n모두 고른 것은?\n<보기>.\n㉠ 유연성 검사 시, 거리 검사보다는 각도 검사를 권장한다.\n㉡ 악력은 양손 각각 두 번씩 측정 후 가장 높은 값을 사용한다.\n㉢ Queens 대학 스텝테스트는 남성은 분당 24스텝 속도로 3분간\n실시한다.\n㉣ 피부두겹법 검사 시, 복부 부위는 배꼽 오른쪽 2 cm를 수직으로\n측정한다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉠, ㉢, ㉣",
+        "㉡, ㉢, ㉣",
+        "㉠, ㉡, ㉢, ㉣"
+      ],
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2022/questions/2022 건강운동관리사 필기시험 1교시 A형(게시).pdf",
+        "answerFile": "materials/raw/kspo/2022/final_answer/2022 건강운동관리사 필기시험 최종정답(게시).pdf",
+        "questionNo": 7,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 71
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    },
+    {
+      "id": "2020-2A-75-15",
+      "year": 2020,
+      "subject": "기능해부학",
+      "topic": "무릎관절 나사",
+      "type": "보기조합",
+      "difficulty": 5,
+      "trap": "무릎관절 나사 관련 조건과 보기 표현을 섞어 판단하는 문항",
+      "question": "<보기>의 무릎관절 ‘나사-집 돌림(screw-homerotation)’\n현상에 관한 설명으로 옳은 것을 모두 고른 것은?\n<보기>.\n㉠ 앞십자인대(전방십자인대, anterior cruciate ligament)의\n장력에 영향을 받는다.\n㉡ 넙다리네갈래근(대퇴사두근, quadriceps)의 안쪽(medial)\n당김(pull)에 의해 추진된다.\n㉢ 돌림성잠김작용(rotarylockingaction)은무릎폄(무릎신전,\nknee extension)의 마지막 10도에서 시작된다.\n㉣ 정강뼈(경골, tibia) 바깥 돌림(외회전, external rotation)과\n무릎 폄의 결합은 성인 무릎의접촉면을 최대화시킨다.",
+      "choices": [
+        "㉠, ㉡",
+        "㉠, ㉣",
+        "㉡, ㉢",
+        "㉢, ㉣"
+      ],
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "source": {
+        "file": "materials/raw/kspo/2020/questions_and_draft_answer/2020건강운동관리사 필기시험 2교시_A형.pdf",
+        "answerFile": "materials/raw/kspo/2020/final_answer/2020건강운동관리사 필기시험 최종정답.pdf",
+        "questionNo": 15,
+        "session": 2,
+        "form": "A",
+        "subjectCode": 75
+      },
+      "wrongRateBasis": "고오답 추정",
+      "verified": true,
+      "bankSource": "공식 KSPO 원문 자동 추출 후 정답 매칭"
+    }
+  ]
+}
