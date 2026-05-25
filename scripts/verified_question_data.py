@@ -11,6 +11,14 @@ ALLOWED_ANSWER_STATUS = {"official_verified", "manual_verified"}
 ALLOWED_EXPLANATION_STATUS = {"reviewed", "cross_checked"}
 ALLOWED_CONFIDENCE = {"high", "manual"}
 MIN_EXTERNAL_REVIEW_SOURCES = 2
+FOOTER_CONTAMINATION_TERMS = (
+    "건강운동관리사 자격검정",
+    "본 문제는 저작권법에",
+    "한국스포츠정책과학원",
+    "페이지",
+    "쪽",
+)
+REQUIRED_MANUAL_APPROVAL_FIELDS = ("manualApproved", "reviewer", "reviewedAt", "sourceEvidence", "choiceExplanationsVerified")
 PLACEHOLDER_PATTERNS = (
     "해설 보강 전 기본 문항",
     "최종정답 기준 정답은",
@@ -124,8 +132,15 @@ def validate_verified_question(question, path=None):
         errors.append(f"{prefix}: id 누락")
     if not str(question.get("question") or "").strip():
         errors.append(f"{prefix}: 문제 본문 누락")
-    if len(choices) < 4:
-        errors.append(f"{prefix}: 보기 부족: {len(choices)}")
+    if len(choices) != 4:
+        errors.append(f"{prefix}: 4지선다 보기 수 불일치: {len(choices)}")
+    normalized_choices = [normalized_stem(choice) for choice in choices]
+    if any(not choice for choice in normalized_choices):
+        errors.append(f"{prefix}: 빈 선택지 포함")
+    if len(set(normalized_choices)) != len(normalized_choices):
+        errors.append(f"{prefix}: 중복 선택지 포함")
+    if any(any(term in str(choice) for term in FOOTER_CONTAMINATION_TERMS) for choice in choices):
+        errors.append(f"{prefix}: 페이지/저작권 문구가 선택지에 섞임")
     if answer_index < 0 or answer_index >= len(choices):
         errors.append(f"{prefix}: answerIndex 범위 오류: {answer_index}")
 
@@ -141,6 +156,16 @@ def validate_verified_question(question, path=None):
         errors.append(f"{prefix}: explanationStatus 미검증: {question.get('explanationStatus')}")
     if question.get("parserConfidence") not in ALLOWED_CONFIDENCE:
         errors.append(f"{prefix}: parserConfidence 낮음/누락: {question.get('parserConfidence')}")
+    if question.get("manualApproved") is not True:
+        errors.append(f"{prefix}: manualApproved가 true가 아님")
+    if not str(question.get("reviewer") or "").strip():
+        errors.append(f"{prefix}: reviewer 누락")
+    if not str(question.get("reviewedAt") or "").strip():
+        errors.append(f"{prefix}: reviewedAt 누락")
+    if len(question.get("sourceEvidence") or []) < 1:
+        errors.append(f"{prefix}: sourceEvidence 누락")
+    if question.get("choiceExplanationsVerified") is not True:
+        errors.append(f"{prefix}: choiceExplanationsVerified가 true가 아님")
 
     try:
         if answer_index not in official_answer_index(question):
