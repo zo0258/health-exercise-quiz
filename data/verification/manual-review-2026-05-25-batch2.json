@@ -1,0 +1,269 @@
+{
+  "reviewer": "Diana",
+  "items": [
+    {
+      "id": "2024-1A-70-09",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "운동시간이 길어질수록 근글리코겐 의존도는 줄고 혈중 유리지방산 동원과 산화 비율이 증가한다. 낮은 강도에서 RER은 1.00보다 낮고, 중강도 1시간 이내 운동에서 단백질이 주 에너지원이 되지는 않으며, 훈련자는 동일 절대강도에서 지방 이용 비율이 커지는 경향이 있다.",
+      "reviewPoint": "운동 중 에너지원은 강도와 시간에 따라 달라진다. 장시간 운동은 지방 동원이 증가하고, 고강도 운동은 탄수화물 의존도가 높다.",
+      "choiceReasons": [
+        "40% VO2max는 낮은~중등도 강도라 RER이 1.00이라고 보기 어렵다.",
+        "운동시간이 증가하면 혈중 유리지방산 사용 비율이 증가한다.",
+        "중강도 1시간 이내 운동에서 단백질이 탄수화물·지방보다 주 에너지원이 되지는 않는다.",
+        "훈련자는 동일 절대강도에서 탄수화물보다 지방을 더 효율적으로 쓰는 경향이 있다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription, exercise metabolism",
+          "url": "textbook:ACSM-GETP-11"
+        },
+        {
+          "title": "McArdle, Katch & Katch, Exercise Physiology: Nutrition, Energy, and Human Performance",
+          "url": "textbook:McArdle-Exercise-Physiology"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-70-17",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "평균동맥압은 단순히 수축기혈압과 이완기혈압의 산술평균으로 계산하지 않는다. 안정 시에는 대략 이완기혈압 + 1/3 맥압으로 추정한다. 세동맥 저항, 대동맥 압력, 혈액량·점도·심박출량·총말초저항에 관한 나머지 설명은 순환계 생리와 부합한다.",
+      "reviewPoint": "평균동맥압은 심장주기에서 이완기가 더 길기 때문에 단순 평균이 아니라 맥압을 반영해 추정한다.",
+      "choiceReasons": [
+        "세동맥은 말초저항 조절의 핵심이며 교감신경 활성에 의해 직경과 저항이 변한다.",
+        "평균동맥압은 수축기혈압과 이완기혈압의 단순 평균이 아니다.",
+        "대동맥은 좌심실에서 혈액을 직접 받아 높은 압력을 가진다.",
+        "동맥혈압은 혈액량, 점도, 심박출량, 총말초혈관저항의 영향을 받는다."
+      ],
+      "sources": [
+        {
+          "title": "OpenStax A&P 2e, Blood Flow, Blood Pressure, and Resistance",
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-2-blood-flow-blood-pressure-and-resistance"
+        },
+        {
+          "title": "Guyton and Hall Textbook of Medical Physiology, arterial pressure regulation",
+          "url": "textbook:Guyton-and-Hall"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-70-05",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "허파동맥은 우심실에서 폐로 가는 정맥혈을 운반하므로 제시된 선택지 중 산소 농도가 가장 낮다. 대동맥, 허파정맥, 관상동맥은 산소화된 동맥혈에 해당한다.",
+      "reviewPoint": "폐순환에서는 허파동맥이 정맥혈, 허파정맥이 동맥혈을 운반한다는 예외를 기억한다.",
+      "choiceReasons": [
+        "대동맥은 좌심실에서 나가는 산소화 혈액을 운반한다.",
+        "허파정맥은 폐에서 좌심방으로 돌아오는 산소화 혈액을 운반한다.",
+        "허파동맥은 우심실에서 폐로 가는 산소가 낮은 혈액을 운반한다.",
+        "관상동맥은 대동맥에서 분지되어 심장근육에 산소화 혈액을 공급한다."
+      ],
+      "sources": [
+        {
+          "title": "OpenStax A&P 2e, Pulmonary Circulation",
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-5-circulatory-pathways"
+        },
+        {
+          "title": "OpenStax A&P 2e, Gas Exchange",
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-4-gas-exchange"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-72-09",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "에너지소비량은 MET-min × 3.5 × 체중(kg) / 200으로 계산한다. 1,000 × 3.5 × 100 / 200 = 1,750 kcal이므로 정답은 ④이다.",
+      "reviewPoint": "MET-min을 kcal로 바꿀 때는 1 MET = 3.5 mL/kg/min, 산소 1 L당 약 5 kcal 기준을 적용한다.",
+      "choiceReasons": [
+        "1,450 kcal은 공식 계산값보다 낮다.",
+        "1,550 kcal은 공식 계산값보다 낮다.",
+        "1,650 kcal은 공식 계산값보다 낮다.",
+        "공식에 대입하면 1,750 kcal이다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription, metabolic calculations",
+          "url": "textbook:ACSM-GETP-11"
+        },
+        {
+          "title": "Compendium of Physical Activities, MET convention",
+          "url": "https://pacompendium.com/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-75-04",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "운동역학(kinetics)은 힘과 그 효과를 다루며 충격량은 힘과 시간의 곱 또는 힘-시간 적분으로 설명되는 kinetics 변인이다. 각속도, 관절가동범위, 한걸음 길이는 움직임의 위치·각도·속도·거리와 관련된 kinematics 변인이다.",
+      "reviewPoint": "kinetics는 힘·토크·일·파워·충격량, kinematics는 위치·변위·속도·가속도·각도 계열로 나눈다.",
+      "choiceReasons": [
+        "충격량은 힘-시간 관계로 정의되는 kinetics 변인이다.",
+        "각속도는 움직임의 속도를 나타내는 kinematics 변인이다.",
+        "관절가동범위는 각도/변위 성격의 kinematics 변인이다.",
+        "한걸음 길이는 거리/변위 성격의 kinematics 변인이다."
+      ],
+      "sources": [
+        {
+          "title": "Hall, Basic Biomechanics, kinetics and kinematics variables",
+          "url": "textbook:Hall-Basic-Biomechanics"
+        },
+        {
+          "title": "Winter, Biomechanics and Motor Control of Human Movement",
+          "url": "textbook:Winter-Biomechanics"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-75-03",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "스쿼트, 바벨 컬, 데드리프트의 주된 관절 움직임은 시상면 굽힘/폄 계열이다. 레터럴 레이즈의 어깨관절 벌림은 주로 관상면 움직임이므로 운동면이 다르다.",
+      "reviewPoint": "시상면은 굽힘/폄, 관상면은 벌림/모음, 수평면은 회전 움직임과 연결한다.",
+      "choiceReasons": [
+        "스쿼트의 무릎 굽힘/폄은 주로 시상면 움직임이다.",
+        "바벨 컬의 팔꿈치 굽힘/폄은 주로 시상면 움직임이다.",
+        "데드리프트의 엉덩관절 굽힘/폄은 주로 시상면 움직임이다.",
+        "레터럴 레이즈의 어깨 벌림은 주로 관상면 움직임이다."
+      ],
+      "sources": [
+        {
+          "title": "OpenStax A&P 2e, Types of Body Movements",
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-5-types-of-body-movements"
+        },
+        {
+          "title": "Neumann, Kinesiology of the Musculoskeletal System",
+          "url": "textbook:Neumann-Kinesiology"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-74-11",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "Salter-Harris 2형은 성장판을 지나 골간단으로 연장되는 골절이다. 뼈 골절 없이 골단의 압착은 5형에 해당하므로 ②가 옳지 않다.",
+      "reviewPoint": "Salter-Harris 분류는 I 성장판 분리, II 골간단 포함, III 골단 포함, IV 골단+골간단, V 압착으로 정리한다.",
+      "choiceReasons": [
+        "1형은 뼈 골절 없이 성장판 분리로 설명할 수 있다.",
+        "2형은 압착이 아니라 성장판과 골간단을 포함하는 골절이다.",
+        "3형은 골단 부위까지 관여한다.",
+        "4형은 골단과 골간단을 모두 침범한다."
+      ],
+      "sources": [
+        {
+          "title": "Brukner & Khan Clinical Sports Medicine, epiphyseal plate injuries",
+          "url": "textbook:Brukner-Khan"
+        },
+        {
+          "title": "Merck Manual Professional, Physeal fractures",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/fractures/physeal-growth-plate-fractures"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-76-01",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "급성염증 초기에는 주로 호중구가 먼저 침윤하고 이후 단핵구/대식세포가 뒤따른다. 선택지 ③은 초기와 이후 세포 반응의 순서를 반대로 설명하므로 옳지 않다.",
+      "reviewPoint": "급성염증은 혈관확장, 투과성 증가, 혈장 단백 이동, 초기 호중구 침윤을 핵심으로 본다.",
+      "choiceReasons": [
+        "히스타민은 혈관확장과 투과성 증가에 관여한다.",
+        "손상 세포와 염증세포는 화학매개체를 분비한다.",
+        "초기 주된 침윤세포는 단핵구/대식세포가 아니라 호중구다.",
+        "모세혈관 투과성 증가로 수분과 단백질이 사이질로 이동한다."
+      ],
+      "sources": [
+        {
+          "title": "Robbins & Cotran Pathologic Basis of Disease, acute inflammation",
+          "url": "textbook:Robbins-Cotran"
+        },
+        {
+          "title": "OpenStax A&P 2e, Inflammation and Fever",
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/21-3-the-adaptive-immune-response-t-lymphocytes-and-their-functional-types"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-76-04",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "기도재형성은 반복·만성 염증으로 기도 구조가 변화하는 과정이며 급성적이고 가역적인 기류폐쇄 자체를 의미하지 않는다. 베타2 효능제 사용, 아토피성 천식의 흔함, 비아토피성 천식의 감염·오염 관련성은 일반 설명과 부합한다.",
+      "reviewPoint": "천식은 가역적 기류제한과 만성 기도염증을 특징으로 하지만, 기도재형성은 장기 구조 변화로 구분한다.",
+      "choiceReasons": [
+        "베타2-아드레날린성 효능제는 기관지 확장에 사용된다.",
+        "아토피성 천식은 흔한 유형이며 유전·알레르기 성향과 관련된다.",
+        "비아토피성 천식은 감염, 자극물, 오염 등과 관련될 수 있다.",
+        "기도재형성은 급성 가역적 기류폐쇄가 아니라 만성 구조 변화에 가깝다."
+      ],
+      "sources": [
+        {
+          "title": "GINA Global Strategy for Asthma Management and Prevention",
+          "url": "https://ginasthma.org/"
+        },
+        {
+          "title": "Robbins & Cotran Pathologic Basis of Disease, asthma airway remodeling",
+          "url": "textbook:Robbins-Cotran"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-77-01",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "운동발달에 영향을 미치는 사회·문화적 요인은 성역할이다. 유전, 신체 성장, 체력 발달은 생물학적·개인적 요인에 가깝다.",
+      "reviewPoint": "운동발달 요인은 생물학적 성장 요인과 사회문화적 환경 요인을 구분한다.",
+      "choiceReasons": [
+        "유전은 생물학적 요인이다.",
+        "성역할은 사회·문화적 기대와 행동양식에 관련된다.",
+        "신체의 성장은 생물학적 발달 요인이다.",
+        "체력의 발달은 개인의 신체·운동능력 요인이다."
+      ],
+      "sources": [
+        {
+          "title": "Gallahue, Ozmun & Goodway, Understanding Motor Development",
+          "url": "textbook:Gallahue-Motor-Development"
+        },
+        {
+          "title": "Weinberg & Gould, Foundations of Sport and Exercise Psychology",
+          "url": "textbook:Weinberg-Gould"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-77-20",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "과제 내 전이는 같은 과제 안에서 조건·상황을 달리한 훈련이 수행에 미치는 효과를 말한다. 야구 타격 동작 훈련이 골프 드라이버 비거리에 미치는 효과는 서로 다른 과제 사이의 전이에 가까우므로 과제 내 전이와 관련이 가장 낮다.",
+      "reviewPoint": "과제 내 전이(intratask)는 같은 기술 안의 조건 변화, 과제 간 전이(intertask)는 서로 다른 기술 사이의 전이로 구분한다.",
+      "choiceReasons": [
+        "소음 속 골프퍼팅 훈련이 실제 퍼팅에 미치는 효과는 같은 과제 안 조건 변화에 가깝다.",
+        "야구 타격과 골프 드라이버는 서로 다른 과제 사이 전이에 가깝다.",
+        "재활 걷기 훈련과 실생활 보행 적응은 같은 보행 과제의 전이로 볼 수 있다.",
+        "모래주머니 착용 달리기와 100m 달리기는 같은 달리기 과제 안 조건 변화에 가깝다."
+      ],
+      "sources": [
+        {
+          "title": "Schmidt & Lee, Motor Control and Learning, transfer of learning",
+          "url": "textbook:Schmidt-Lee-Motor-Control"
+        },
+        {
+          "title": "Magill & Anderson, Motor Learning and Control, transfer taxonomy",
+          "url": "textbook:Magill-Anderson"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-77-02",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "초보자는 어떤 오류가 있었고 어떻게 수정해야 하는지 구체적으로 알려주는 처방 피드백의 도움을 크게 받는다. 숙련자는 자기 감각과 내재 피드백을 더 잘 활용할 수 있어 같은 방식의 직접 처방 의존도가 상대적으로 낮다.",
+      "reviewPoint": "초보자에게는 오류 수정 방향을 구체적으로 제시하는 피드백이 유용하고, 숙련자에게는 자율성과 내재 피드백 활용이 중요하다.",
+      "choiceReasons": [
+        "처방 피드백은 수정 방법을 제시하므로 초보자에게 유용하다.",
+        "시각 피드백은 정보 양식이지 초보자에게만 특히 유용한 분류로 보기 어렵다.",
+        "기술 피드백은 넓은 표현이라 문항의 초점인 초보자용 구체 처방과 다르다.",
+        "매개변수 피드백은 운동 조절 변수에 대한 정보로, 초보자에게 가장 일반적으로 강조되는 답은 아니다."
+      ],
+      "sources": [
+        {
+          "title": "Schmidt & Lee, Motor Control and Learning, feedback and knowledge of performance",
+          "url": "textbook:Schmidt-Lee-Motor-Control"
+        },
+        {
+          "title": "Magill & Anderson, Motor Learning and Control, augmented feedback",
+          "url": "textbook:Magill-Anderson"
+        }
+      ]
+    }
+  ]
+}
