@@ -1,0 +1,599 @@
+{
+  "reviewer": "Diana+subagents",
+  "items": [
+    {
+      "id": "2023-2A-76-05",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "COPD 문항은 옳지 않은 설명만 고르는 문제다. 폐기종은 종말세기관지 말단 공기공간의 영구적 확장과 폐포벽 파괴가 핵심이고, 흡연은 α1-antitrypsin의 항엘라스타제 활성을 떨어뜨린다. 따라서 ㉢과 ㉤ 조합이 공식정답과 의학 근거에 부합한다.",
+      "reviewPoint": "폐기종은 공기공간 축소가 아니라 확장, 흡연은 α1-AT 활성 증가가 아니라 기능 저하로 정리한다.",
+      "choiceReasons": [
+        "① ㉠, ㉡: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㉡, ㉣: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ ㉢, ㉣: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ ㉢, ㉤: 공식 정답이며, COPD 문항은 옳지 않은 설명만 고르는 문제다. 폐기종은 종말세기관지 말단 공기공간의 영구적 확장과 폐포벽 파괴가 핵심이고, 흡연은 α1-antitrypsin의 항엘라스타제 활성을 떨어뜨린다. 따라서 ㉢과 ㉤ 조합이 공식정답과 의학 근거에 부합한다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional Edition",
+          "url": "https://www.merckmanuals.com/professional"
+        },
+        {
+          "title": "NCBI Bookshelf",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-76-11",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "급성관상동맥증후군은 관상동맥 죽상경화반 파열, 혈소판 활성화, 혈전 형성과 관련된다. 심근손상이 동반되면 cTnI/cTnT 상승과 ST분절 상승이 나타날 수 있으므로 ㉡과 ㉣ 조합이 맞다.",
+      "reviewPoint": "안정 시 사라지는 안정형 협심증 설명과 ACS의 plaque rupture·troponin·ST 변화를 구분한다.",
+      "choiceReasons": [
+        "① ㉠, ㉡: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㉠, ㉢: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ ㉡, ㉢: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ ㉡, ㉣: 공식 정답이며, 급성관상동맥증후군은 관상동맥 죽상경화반 파열, 혈소판 활성화, 혈전 형성과 관련된다. 심근손상이 동반되면 cTnI/cTnT 상승과 ST분절 상승이 나타날 수 있으므로 ㉡과 ㉣ 조합이 맞다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional Edition",
+          "url": "https://www.merckmanuals.com/professional"
+        },
+        {
+          "title": "NCBI Bookshelf",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-76-15",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "천식은 기도 과민성, 대개 가역적인 기도폐쇄, 염증이 특징이다. 기관지경련 완화에는 β2-agonist를 쓰므로 β-2 억제제를 투여한다는 설명이 틀리다.",
+      "reviewPoint": "천식 약물은 β2 억제가 아니라 β2 작용제에 의한 기관지확장이다.",
+      "choiceReasons": [
+        "① 기도의 과민반응으로 대부분 가역적인 기관지 수축이 특징이다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 비아토피성 천식유발인자는 주로 바이러스감염과 공기오염물질이다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 기관지경련을 완화하기 위해 β-2 억제제를 투여한다.: 공식 정답이며, 천식은 기도 과민성, 대개 가역적인 기도폐쇄, 염증이 특징이다. 기관지경련 완화에는 β2-agonist를 쓰므로 β-2 억제제를 투여한다는 설명이 틀리다.",
+        "④ 기도재형성(airway remodeling)이 되면 폐쇄성질환에 대한 비가역적 요소가 된다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional Edition",
+          "url": "https://www.merckmanuals.com/professional"
+        },
+        {
+          "title": "NCBI Bookshelf",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-76-17",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "콜레스테롤은 세포막 구성과 스테로이드 전구체 등으로 중요하지만, 에너지원으로 주로 사용되는 것은 중성지방과 지방산이다. LDL-C 자체를 에너지원으로 사용한다는 설명은 부적절하다.",
+      "reviewPoint": "LDL은 콜레스테롤 운반 입자이지 에너지원 자체로 외우지 않는다.",
+      "choiceReasons": [
+        "① 세포막 구성성분의 일부는 콜레스테롤로 구성되어 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 혈중지질개선을 위한 약물치료가 식이요법 보다 더 효과적이다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 중성지방을 제외한 저밀도지단백 콜레스테롤(LDL-C)은 에너지원으로 사용될 수 있다.: 공식 정답이며, 콜레스테롤은 세포막 구성과 스테로이드 전구체 등으로 중요하지만, 에너지원으로 주로 사용되는 것은 중성지방과 지방산이다. LDL-C 자체를 에너지원으로 사용한다는 설명은 부적절하다.",
+        "④ 스타틴은 간에서 HMG-CoA 환원효소를 억제하여 콜레스테롤을 개선시키고, 드물게 근육통의 부작용이 나타날 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional Edition",
+          "url": "https://www.merckmanuals.com/professional"
+        },
+        {
+          "title": "NCBI Bookshelf",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-76-19",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "일과성허혈발작(TIA)은 일시적인 국소 신경학적 증상이 나타났다가 영구적 뇌손상 없이 회복되는 것이 핵심이다. 영구적 뇌손상이 특징이라는 설명은 틀리다.",
+      "reviewPoint": "TIA는 transient라는 이름 그대로 영구 뇌손상이 특징이 아니다.",
+      "choiceReasons": [
+        "① 고혈압은 뇌동맥 파열의 주요 위험요인이다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 색전증으로 인한 뇌경색은 심방세동으로 유발될 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 뇌동맥류의 증상은 갑작스런 극심한 두통이며 치료법으로는 클립결찰술(clipping)이나 코일색전술(coil embolization)이 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 일과성허혈발작(transient ischemic attack)은 급성기에 영구적 뇌손상이 특징이다.: 공식 정답이며, 일과성허혈발작(TIA)은 일시적인 국소 신경학적 증상이 나타났다가 영구적 뇌손상 없이 회복되는 것이 핵심이다. 영구적 뇌손상이 특징이라는 설명은 틀리다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional Edition",
+          "url": "https://www.merckmanuals.com/professional"
+        },
+        {
+          "title": "NCBI Bookshelf",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-77-18",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "심리신경근이론은 심상 중 실제 동작 수행과 유사하지만 더 약한 신경근 활동이 발생해 수행에 도움을 준다고 본다. 실제 동작과 유사한 근육 자극 발생이 핵심이다.",
+      "reviewPoint": "심리신경근이론은 imagery 중 미세한 신경근 활성, 상징학습이론은 CNS 운동프로그램 저장으로 구분한다.",
+      "choiceReasons": [
+        "① 심리기술을 발달시킨다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 자극전제와 반응전제로 구성되어 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 실제 동작과 유사한 근육 자극을 발생시킨다.: 공식 정답이며, 심리신경근이론은 심상 중 실제 동작 수행과 유사하지만 더 약한 신경근 활동이 발생해 수행에 도움을 준다고 본다. 실제 동작과 유사한 근육 자극 발생이 핵심이다.",
+        "④ 움직임 패턴을 중추신경계에 저장하는 과정이다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "APA Dictionary of Psychology",
+          "url": "https://dictionary.apa.org/"
+        },
+        {
+          "title": "NCBI PMC - Motor Imagery Review",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-77-19",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "사례는 자기 숙련 기준보다 타인과의 비교에서 더 우월해지기 위해 속도를 높이는 행동이다. 이는 타인 대비 유능감을 입증하려는 수행접근목표에 해당한다.",
+      "reviewPoint": "타인보다 잘하려는 접근 동기는 수행접근, 못해 보임을 피하려는 동기는 수행회피로 구분한다.",
+      "choiceReasons": [
+        "① 숙달접근목표: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 수행접근목표: 공식 정답이며, 사례는 자기 숙련 기준보다 타인과의 비교에서 더 우월해지기 위해 속도를 높이는 행동이다. 이는 타인 대비 유능감을 입증하려는 수행접근목표에 해당한다.",
+        "③ 숙달회피목표: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 수행회피목표: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "APA Dictionary of Psychology",
+          "url": "https://dictionary.apa.org/"
+        },
+        {
+          "title": "NCBI PMC - Motor Imagery Review",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-75-02",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "벡터는 크기와 방향을 모두 가지는 물리량이다. 각속도는 회전축 방향을 갖고 관절 토크도 회전 효과의 방향성을 가지므로 ㄱ과 ㄹ이 벡터에 해당한다.",
+      "reviewPoint": "속력은 스칼라, 속도·각속도·토크는 방향성을 가진다는 점을 구분한다.",
+      "choiceReasons": [
+        "① ㄱ, ㄴ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㄱ, ㄹ: 공식 정답이며, 벡터는 크기와 방향을 모두 가지는 물리량이다. 각속도는 회전축 방향을 갖고 관절 토크도 회전 효과의 방향성을 가지므로 ㄱ과 ㄹ이 벡터에 해당한다.",
+        "③ ㄴ, ㄷ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ ㄷ, ㄹ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "OpenStax University Physics",
+          "url": "https://openstax.org/subjects/science"
+        },
+        {
+          "title": "Kenhub Anatomy Library",
+          "url": "https://www.kenhub.com/en/library/anatomy"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-75-04",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "가로돌기가시근군은 반가시근, 뭇갈래근, 돌림근을 포함한다. 가시근은 척주세움근군에 속하므로 가로돌기가시근군에 포함되지 않는다.",
+      "reviewPoint": "Transversospinalis는 semispinalis, multifidus, rotatores로 묶고 spinalis는 erector spinae로 분류한다.",
+      "choiceReasons": [
+        "① 뭇갈래근(다열근, multifidus): 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 가시근(극근. spinalis): 공식 정답이며, 가로돌기가시근군은 반가시근, 뭇갈래근, 돌림근을 포함한다. 가시근은 척주세움근군에 속하므로 가로돌기가시근군에 포함되지 않는다.",
+        "③ 돌림근(회선근, rotators): 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 반가시근(반극근, semispinalis): 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "OpenStax University Physics",
+          "url": "https://openstax.org/subjects/science"
+        },
+        {
+          "title": "Kenhub Anatomy Library",
+          "url": "https://www.kenhub.com/en/library/anatomy"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-76-09",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "경추 추간판탈출증은 자세 문제, 목 주변 근긴장, 퇴행성 변화와 관련될 수 있고 목 통증, 두통, 상지 저림을 보일 수 있다. 심한 척수 압박이 있으면 마비 등 중추신경 증상도 가능하다.",
+      "reviewPoint": "경추 추간판탈출증은 목 증상뿐 아니라 상지 방사 증상과 심한 척수 압박 증상까지 연결된다.",
+      "choiceReasons": [
+        "① ㄱ, ㄷ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㄴ, ㄹ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ ㄱ, ㄴ, ㄹ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ ㄱ, ㄷ, ㄹ: 공식 정답이며, 경추 추간판탈출증은 자세 문제, 목 주변 근긴장, 퇴행성 변화와 관련될 수 있고 목 통증, 두통, 상지 저림을 보일 수 있다. 심한 척수 압박이 있으면 마비 등 중추신경 증상도 가능하다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional Edition",
+          "url": "https://www.merckmanuals.com/professional"
+        },
+        {
+          "title": "NCBI Bookshelf",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-77-07",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "운동학적 측정은 힘의 원인보다 위치, 각도, 속도, 가속도 같은 움직임 형태를 측정한다. 전자식 각도계는 관절각과 관절운동범위 측정 장비이므로 가장 적합하다.",
+      "reviewPoint": "운동학은 위치·각도·속도, 운동역학은 힘·토크·지면반력으로 구분한다.",
+      "choiceReasons": [
+        "① 지면반력기: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 회전판 추적기: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 전자식 각도계: 공식 정답이며, 운동학적 측정은 힘의 원인보다 위치, 각도, 속도, 가속도 같은 움직임 형태를 측정한다. 전자식 각도계는 관절각과 관절운동범위 측정 장비이므로 가장 적합하다.",
+        "④ 바크만(Bachman) 사다리: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "OpenStax University Physics",
+          "url": "https://openstax.org/subjects/science"
+        },
+        {
+          "title": "Kenhub Anatomy Library",
+          "url": "https://www.kenhub.com/en/library/anatomy"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-77-17",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "사례는 운동을 통해 신체상 만족이 높아지고 자신을 사회적으로 가치 있는 사람으로 평가하게 된 흐름이다. 자신에 대한 전반적 가치 평가는 자기존중감에 해당한다.",
+      "reviewPoint": "자기효능감은 할 수 있다는 능력 기대, 자기존중감은 나는 가치 있다는 자기 가치 평가다.",
+      "choiceReasons": [
+        "① 자기개념(self-concept): 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 자기존중감(self-esteem): 공식 정답이며, 사례는 운동을 통해 신체상 만족이 높아지고 자신을 사회적으로 가치 있는 사람으로 평가하게 된 흐름이다. 자신에 대한 전반적 가치 평가는 자기존중감에 해당한다.",
+        "③ 자기효능감(self-efficacy): 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 자기신체지각(self-body perception): 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "APA Dictionary of Psychology",
+          "url": "https://dictionary.apa.org/"
+        },
+        {
+          "title": "NCBI PMC - Motor Imagery Review",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-72-03",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "ACSM의 건강한 성인 저항운동 처방에서는 큰 근육군·다관절 운동을 먼저 시행하고 작은 근육군·단일관절 운동을 뒤에 배치하는 것이 일반 원칙이다. 단일관절 후 다관절 권고라는 설명은 반대다.",
+      "reviewPoint": "저항운동 순서는 다관절·대근육 우선 원칙을 확인한다.",
+      "choiceReasons": [
+        "① 초보자의 운동빈도는 주당 최소 2일을 권고한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 초보자의 운동강도는 1RM의 60~70%로 권고한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 운동순서는 단일관절운동 후 다관절운동을 권고한다.: 공식 정답이며, ACSM의 건강한 성인 저항운동 처방에서는 큰 근육군·다관절 운동을 먼저 시행하고 작은 근육군·단일관절 운동을 뒤에 배치하는 것이 일반 원칙이다. 단일관절 후 다관절 권고라는 설명은 반대다.",
+        "④ 숙련자는 개인별 선호도에 따라 근육군별로 주당 운동빈도를 조절할 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM's Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "KSPO 체육지도자 자격검정 - 필기시험 문제·정답",
+          "url": "https://sqms.kspo.or.kr/exam/wrQnaList.kspo"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-72-13",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "유산소운동은 우울 증상 감소에 도움이 되고 다양한 강도의 운동이 증상 완화에 기여할 수 있다. 운동 후 즉각적 기분 개선과 공황장애 환자에게 운동 반응을 사전 설명해야 한다는 고려도 타당하므로 모두 옳다.",
+      "reviewPoint": "운동의 정신건강 효과와 공황 유사 생리반응 사전 설명 필요성을 함께 본다.",
+      "choiceReasons": [
+        "① ㉠: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㉠, ㉡: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ ㉠, ㉡, ㉢: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ ㉠, ㉡, ㉢, ㉣: 공식 정답이며, 유산소운동은 우울 증상 감소에 도움이 되고 다양한 강도의 운동이 증상 완화에 기여할 수 있다. 운동 후 즉각적 기분 개선과 공황장애 환자에게 운동 반응을 사전 설명해야 한다는 고려도 타당하므로 모두 옳다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM's Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "KSPO 체육지도자 자격검정 - 필기시험 문제·정답",
+          "url": "https://sqms.kspo.or.kr/exam/wrQnaList.kspo"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-72-14",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "관절염 환자는 통증과 기능 제한이 특별히 없으면 일반 성인 운동처방 원칙을 바탕으로 적용할 수 있고, 유연성·저항운동도 기능 개선과 통증 감소에 도움이 될 수 있다. 체중부하 운동을 일괄 금지하는 설명은 과도하다.",
+      "reviewPoint": "관절염 운동처방은 무조건 회피가 아니라 증상과 기능 제한에 맞춘 조절이 핵심이다.",
+      "choiceReasons": [
+        "① ㉠: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㉠, ㉡: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ ㉠, ㉡, ㉢: 공식 정답이며, 관절염 환자는 통증과 기능 제한이 특별히 없으면 일반 성인 운동처방 원칙을 바탕으로 적용할 수 있고, 유연성·저항운동도 기능 개선과 통증 감소에 도움이 될 수 있다. 체중부하 운동을 일괄 금지하는 설명은 과도하다.",
+        "④ ㉠, ㉡, ㉢, ㉣: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM's Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "KSPO 체육지도자 자격검정 - 필기시험 문제·정답",
+          "url": "https://sqms.kspo.or.kr/exam/wrQnaList.kspo"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-72-18",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "암 환자는 발열, 극심한 피로, 감염 위험, 뼈 전이 등 상태에 따라 운동을 조절하거나 중단해야 한다. 수술 후 최소 3개월을 일괄 대기한다는 기준은 환자 상태와 수술 부위에 따른 개별 판단 원칙과 맞지 않는다.",
+      "reviewPoint": "암 환자 운동처방은 고정 대기기간보다 의학적 안정성, 치료 부작용, 감염·골절 위험 평가가 중요하다.",
+      "choiceReasons": [
+        "① 발열 또는 극심한 피로감이 있으면 운동하지 말아야 한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 암 수술 후에는 운동프로그램 시작 전까지 최소 3개월 이상 회복이 필요하다.: 공식 정답이며, 암 환자는 발열, 극심한 피로, 감염 위험, 뼈 전이 등 상태에 따라 운동을 조절하거나 중단해야 한다. 수술 후 최소 3개월을 일괄 대기한다는 기준은 환자 상태와 수술 부위에 따른 개별 판단 원칙과 맞지 않는다.",
+        "③ 뼈 전이가 있는 환자는 골절의 위험이 있는 운동을 피해야 한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 화학요법 및 방사선 치료를 받는 환자는 감염의 위험이 커지므로 운동 시 주의가 필요하다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM's Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "KSPO 체육지도자 자격검정 - 필기시험 문제·정답",
+          "url": "https://sqms.kspo.or.kr/exam/wrQnaList.kspo"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-74-03",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "반충골절은 충격을 받은 부위의 반대쪽에 손상이 발생하는 형태다. 나머지 보기는 선상, 결출, 함몰 골절의 정의가 서로 바뀌어 있어 공식정답 ①이 타당하다.",
+      "reviewPoint": "반충, 결출, 선상, 함몰 골절의 발생기전을 1:1로 연결한다.",
+      "choiceReasons": [
+        "① 반충(contrecoup) 골절: 외상이 발생 된 반대 지점에 발생: 공식 정답이며, 반충골절은 충격을 받은 부위의 반대쪽에 손상이 발생하는 형태다. 나머지 보기는 선상, 결출, 함몰 골절의 정의가 서로 바뀌어 있어 공식정답 ①이 타당하다.",
+        "② 선단(linear) 골절: 인대나 근육에 의해 당겨질 때 뼈 조각이 떨어 지는 형태로 발생: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 결출(avulsion) 골절: 편평골에서 가장 빈번하며, 직접적으로 가해지는 외상에 의해 발생: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 함몰(depressed) 골절: 주로 뼈의 장축으로 발생하며, 높은 곳에서의 점프 또는 낙상 시 주로 발생: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional - Overview of Fractures",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/fractures/overview-of-fractures"
+        },
+        {
+          "title": "NATA/CDC sports injury and concussion resources",
+          "url": "https://www.cdc.gov/heads-up/"
+        }
+      ]
+    },
+    {
+      "id": "2023-2A-74-05",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "다이버가 하강하면 주변 수압은 증가하고 신체의 공기 공간은 압력 변화에 따라 압축되거나 균등화가 필요하다. 내부 공기 압력이 수면보다 낮아진다는 설명은 하강 시 압력 증가 원리와 맞지 않는다.",
+      "reviewPoint": "수중 환경 문항은 하강 시 수압 증가와 공기 공간 압축·균등화를 기준으로 판단한다.",
+      "choiceReasons": [
+        "① 수중에서 다이버가 하강할 때 수압은 증가하고, 신체 내부의 공기 압력은 수면보다 낮아진다.: 공식 정답이며, 다이버가 하강하면 주변 수압은 증가하고 신체의 공기 공간은 압력 변화에 따라 압축되거나 균등화가 필요하다. 내부 공기 압력이 수면보다 낮아진다는 설명은 하강 시 압력 증가 원리와 맞지 않는다.",
+        "② 고지대의 공기는 건조하고 호흡률이 더 높게 나타날 수 있어서 흔히 구강호흡의 형태를 보이게 된다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 건조한 저온환경에서 호흡을 통한 수분 손실은 탈수가 유발될 수 있으며 저체온증에 걸릴 위험성을 높일 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 고온환경에서 수분의 과다 공급은 저나트륨혈증(hyponatremia)을 유발할 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional - Overview of Fractures",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/fractures/overview-of-fractures"
+        },
+        {
+          "title": "NATA/CDC sports injury and concussion resources",
+          "url": "https://www.cdc.gov/heads-up/"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-74-13",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "BESS는 정적 균형을 평가하는 오류 채점 시스템으로 평평한 바닥과 폼 패드 조건, 두발서기·외발서기·일자서기 조건을 사용한다. 회당 시간은 20초가 표준이므로 ㄴ과 ㄷ이 맞다.",
+      "reviewPoint": "BESS는 동적 균형 검사가 아니라 정적 균형 오류 채점 시스템이며 시간은 20초 조건이다.",
+      "choiceReasons": [
+        "① ㄱ, ㄴ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㄱ, ㄹ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ ㄴ, ㄷ: 공식 정답이며, BESS는 정적 균형을 평가하는 오류 채점 시스템으로 평평한 바닥과 폼 패드 조건, 두발서기·외발서기·일자서기 조건을 사용한다. 회당 시간은 20초가 표준이므로 ㄴ과 ㄷ이 맞다.",
+        "④ ㄷ, ㄹ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional - Overview of Fractures",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/fractures/overview-of-fractures"
+        },
+        {
+          "title": "NATA/CDC sports injury and concussion resources",
+          "url": "https://www.cdc.gov/heads-up/"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-74-14",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "어프리헨션 검사와 재배치 검사는 전방 오목위팔관절 불안정성 평가에 쓰이는 대표적 특수검사다. 저버 리프트오프는 견갑하근, 예가손은 상완이두근 장두/SLAP 평가 쪽이다.",
+      "reviewPoint": "어깨 불안정성 검사는 apprehension-relocation 조합으로 잡는다.",
+      "choiceReasons": [
+        "① ㄱ, ㄴ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② ㄱ, ㄹ: 공식 정답이며, 어프리헨션 검사와 재배치 검사는 전방 오목위팔관절 불안정성 평가에 쓰이는 대표적 특수검사다. 저버 리프트오프는 견갑하근, 예가손은 상완이두근 장두/SLAP 평가 쪽이다.",
+        "③ ㄴ, ㄷ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ ㄷ, ㄹ: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional - Overview of Fractures",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/fractures/overview-of-fractures"
+        },
+        {
+          "title": "NATA/CDC sports injury and concussion resources",
+          "url": "https://www.cdc.gov/heads-up/"
+        }
+      ]
+    },
+    {
+      "id": "2024-2A-74-18",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "경기장 손상진단은 생명 위협 손상을 확인하는 일차 검사가 우선이고 의식이 없는 환자는 즉시 응급의료체계에 연락하며 순환·기도·호흡을 확보한다. 이차 검사는 안정화 이후 가능한 경우에 시행한다.",
+      "reviewPoint": "응급평가 순서는 primary survey와 생명보존 조치가 먼저이고 secondary survey는 안정화 이후다.",
+      "choiceReasons": [
+        "① 생명을 위협할 수 있는 손상을 확인하기 위해 일차 검사(primary survey)를 실시한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 의식이 없는 환자의 경우 즉각적으로 119로 연락해야 한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 의식 유무와 관계없이 필수적으로 이차 검사(secondary survey)를 수행 해야 한다.: 공식 정답이며, 경기장 손상진단은 생명 위협 손상을 확인하는 일차 검사가 우선이고 의식이 없는 환자는 즉시 응급의료체계에 연락하며 순환·기도·호흡을 확보한다. 이차 검사는 안정화 이후 가능한 경우에 시행한다.",
+        "④ 의식이 없는 환자의 경우 순환, 기도, 호흡이 잘 이루어질 수 있도록 즉각적인 조치를 취해야 한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "Merck Manual Professional - Overview of Fractures",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/fractures/overview-of-fractures"
+        },
+        {
+          "title": "NATA/CDC sports injury and concussion resources",
+          "url": "https://www.cdc.gov/heads-up/"
+        }
+      ]
+    },
+    {
+      "id": "2024-1A-71-07",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "국민체력100의 청소년 눈-손 협응력 검사는 T-wall 검사다. 성공과 실패 횟수를 합산해 총 100회 터치할 때까지 수행하는 방식이므로 해당 설명이 옳다.",
+      "reviewPoint": "국민체력100 협응력 검사는 대상 연령과 검사명, 기록 방식을 함께 확인한다.",
+      "choiceReasons": [
+        "① T-wall 측정은 대상자가 유소년이며, 측정 종료 후 0.001초 단위의 시간과 실패한 횟수를 기록한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② T-wall 측정은 대상자가 청소년이며, 성공한 횟수와 실패한 횟수를 합하여 총 100번 터치할 때까지 진행한다.: 공식 정답이며, 국민체력100의 청소년 눈-손 협응력 검사는 T-wall 검사다. 성공과 실패 횟수를 합산해 총 100회 터치할 때까지 수행하는 방식이므로 해당 설명이 옳다.",
+        "③ 벽패스 측정은 대상자가 유소년이며, 공을 잡지 않고 왼손과 오른손 으로 번갈아 가며 쳐낸다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 벽패스 측정은 대상자가 청소년이며, 중간에 공을 떨어뜨리는 경우 그 공을 다시 주워서 실시한다. 건강운동관리사 필기시험 1교시 (A형) 5면: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "국민체력100 체력측정 항목",
+          "url": "https://nfa.kspo.or.kr/front/measure/measurePhysical.do"
+        },
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-71-20",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "AACVPR/ACSM 기준 심장재활 위험 분류에서 EF가 50%를 초과하는 것은 고위험군 소견이 아니라 낮은 위험 쪽에 가까운 소견이다. 따라서 고위험군에 해당되지 않는 항목은 EF>50%다.",
+      "reviewPoint": "EF 수치와 운동 중 부정맥, ST 하강, 저강도 증상 발생을 구분한다.",
+      "choiceReasons": [
+        "① 좌심실 박출률(EF)＞50%: 공식 정답이며, AACVPR/ACSM 기준 심장재활 위험 분류에서 EF가 50%를 초과하는 것은 고위험군 소견이 아니라 낮은 위험 쪽에 가까운 소견이다. 따라서 고위험군에 해당되지 않는 항목은 EF>50%다.",
+        "② 안정 시 또는 운동 시 복합 심실부정맥: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 운동 검사 또는 회복기에 증상 없이 ST 분절 ≥2 mm 하강: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 낮은 운동강도(＜5 METs)나 회복기의 협심증, 어지럼증, 가벼운 두통 또는 호흡곤란을 포함한 증상과 징후: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "국민체력100 체력측정 항목",
+          "url": "https://nfa.kspo.or.kr/front/measure/measurePhysical.do"
+        },
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        }
+      ]
+    },
+    {
+      "id": "2023-1A-71-14",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "어르신기 6분걷기는 심폐지구력 평가에 해당하며 근지구력 검사는 의자에 앉았다 일어서기 등으로 평가한다. 따라서 근지구력 검사를 6분걷기로 본 설명이 틀리다.",
+      "reviewPoint": "국민체력100은 생애주기별 체력요소와 검사명을 연결해 판단한다.",
+      "choiceReasons": [
+        "① 유소년기(만 11세~12세) 협응력 검사는 벽패스 검사(회/30초)를 실시한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 어르신기(만 65세 이상) 근지구력 검사는 6분걷기(m)를 실시한다.: 공식 정답이며, 어르신기 6분걷기는 심폐지구력 평가에 해당하며 근지구력 검사는 의자에 앉았다 일어서기 등으로 평가한다. 따라서 근지구력 검사를 6분걷기로 본 설명이 틀리다.",
+        "③ 청소년기(만 13세~18세) 민첩성 검사는 일리노이 민첩성 검사(초)를 실시한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 성인기(만 19세~64세) 유연성 검사는 앉아윗몸앞으로굽히기(cm)를 실시한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "국민체력100 체력측정 항목",
+          "url": "https://nfa.kspo.or.kr/front/measure/measurePhysical.do"
+        },
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        }
+      ]
+    },
+    {
+      "id": "2024-1A-73-16",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "Digitalis는 허혈이 없어도 운동부하검사 중 ST분절 하강을 유발할 수 있어 위양성 가능성을 높인다. 위양성이 늘면 특이도는 감소한다.",
+      "reviewPoint": "민감도와 특이도의 방향을 구분하고, Digitalis 관련 ST 하강은 위양성 증가로 연결한다.",
+      "choiceReasons": [
+        "① 특이도를 증가시킬 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 특이도를 감소시킬 수 있다.: 공식 정답이며, Digitalis는 허혈이 없어도 운동부하검사 중 ST분절 하강을 유발할 수 있어 위양성 가능성을 높인다. 위양성이 늘면 특이도는 감소한다.",
+        "③ 민감도를 증가시킬 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 민감도를 감소시킬 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "Topend Sports - Queens College Step Test",
+          "url": "https://www.topendsports.com/testing/tests/step-queens.htm"
+        }
+      ]
+    },
+    {
+      "id": "2024-1A-73-10",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "HRV 증가는 일반적으로 부교감신경 활성 증가 또는 자율신경 조절능 향상과 관련해 해석한다. HRV 증가를 부교감신경 활성 감소와 교감신경 활성으로 설명한 보기는 반대다.",
+      "reviewPoint": "높은 HRV는 대체로 더 좋은 자율신경 조절, 낮은 HRV는 스트레스·불안 등과 관련된다.",
+      "choiceReasons": [
+        "① 높은 우울/불안 증상은 심폐체력 감소와 관련성이 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 운동이 처음인 환자는 운동의 생리적 반응에 대해 미리 상담하는 것이 좋다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "③ 운동검사 중 심박수, 땀, 호흡 증가에 대한 생리적 각성의 민감도가 과하게 증가할 수 있다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 심박변이도(HRV) 증가는 부교감신경계의 활성 감소로 인한 자율신경계 불균형과 교감신경 활성을 의미한다.: 공식 정답이며, HRV 증가는 일반적으로 부교감신경 활성 증가 또는 자율신경 조절능 향상과 관련해 해석한다. HRV 증가를 부교감신경 활성 감소와 교감신경 활성으로 설명한 보기는 반대다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "Topend Sports - Queens College Step Test",
+          "url": "https://www.topendsports.com/testing/tests/step-queens.htm"
+        }
+      ]
+    },
+    {
+      "id": "2024-1A-73-07",
+      "reviewedAt": "2026-05-25",
+      "correctRationale": "운동 중 정상적으로 수축기혈압은 운동강도 증가에 따라 상승한다. 심박출 능력이 제한된 환자에서는 수축기혈압 상승이 정상보다 빠른 것이 아니라 둔화되거나 비정상적으로 떨어질 수 있다.",
+      "reviewPoint": "운동 중 혈압 반응은 정상 상승, 이완기혈압 변화, 비정상 상승·저하 기준을 구분한다.",
+      "choiceReasons": [
+        "① 이완기 혈압은 변화가 없거나 다소 감소한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "② 심박출 능력이 제한된 환자는 운동 중 수축기 혈압 반응이 정상보다 빨라진다.: 공식 정답이며, 운동 중 정상적으로 수축기혈압은 운동강도 증가에 따라 상승한다. 심박출 능력이 제한된 환자에서는 수축기혈압 상승이 정상보다 빠른 것이 아니라 둔화되거나 비정상적으로 떨어질 수 있다.",
+        "③ 수축기 혈압이 안정 시보다 140 mmHg를 초과하면 잠재적 안정 시 고혈압으로 예측한다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다.",
+        "④ 최고 이완기 혈압이 90 mmHg를 초과 또는 안정 시보다 10 mmHg를 초과하는 경우 운동성 허혈의 위험이 증가된다.: 문항의 핵심 조건 및 공식 정답 대조 결과 정답 선택지와 맞지 않아 오답이다."
+      ],
+      "sources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "Topend Sports - Queens College Step Test",
+          "url": "https://www.topendsports.com/testing/tests/step-queens.htm"
+        }
+      ]
+    }
+  ]
+}
