@@ -94,6 +94,7 @@ def render_html(quiz):
       --accent: #66735d;
       --accent-strong: #2f3d32;
       --accent-soft: #e9eee4;
+      --sage: #e9eee4;
       --accent-wash: #f7faf4;
       --danger: #b64032;
       --danger-soft: #f8e8e5;
@@ -237,6 +238,7 @@ def render_html(quiz):
 
     .topic {{
       display: inline-flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: flex-end;
       gap: 8px;
@@ -244,6 +246,27 @@ def render_html(quiz):
       font-size: 12px;
       font-weight: 800;
       text-align: right;
+    }}
+
+    .trust-strip {{
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 5px;
+    }}
+
+    .verify-badge {{
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 8px;
+      border: 1px solid rgba(102, 115, 93, .22);
+      border-radius: 999px;
+      background: rgba(233, 238, 228, .78);
+      color: var(--accent-strong);
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
     }}
 
     .question {{
@@ -527,6 +550,35 @@ def render_html(quiz):
       color: #fff;
     }}
 
+    .issue-toggle {{
+      border-color: rgba(161, 107, 24, .30);
+      color: #7d5113;
+    }}
+
+    .issue-toggle.active {{
+      border-color: var(--warn);
+      background: #fff3dc;
+      color: #7d5113;
+      box-shadow: 0 4px 12px rgba(161, 107, 24, .14);
+    }}
+
+    .issue-toggle.active .bookmark-icon {{
+      background: rgba(161, 107, 24, .18);
+      color: #7d5113;
+    }}
+
+    .issue-note {{
+      margin: 10px 0 0;
+      padding: 10px 11px;
+      border: 1px solid rgba(161, 107, 24, .22);
+      border-radius: var(--radius);
+      background: #fff8eb;
+      color: #6d4916;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 800;
+    }}
+
     .reason-panel {{
       display: grid;
       gap: 8px;
@@ -629,6 +681,10 @@ def render_html(quiz):
       color: var(--muted);
       font-size: 14px;
       font-weight: 800;
+    }}
+
+    .result-sub.warn {{
+      color: var(--warn);
     }}
 
     .result-message {{
@@ -855,6 +911,19 @@ def render_html(quiz):
       white-space: pre-line;
     }}
 
+    .result-review-tag {{
+      display: inline-flex;
+      width: fit-content;
+      min-height: 25px;
+      margin: 0 0 8px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #fff3dc;
+      color: #7d5113;
+      font-size: 12px;
+      font-weight: 950;
+    }}
+
     .result-clear {{
       padding: 13px;
       border: 1px solid rgba(47, 107, 79, .16);
@@ -979,6 +1048,7 @@ def render_html(quiz):
       answers: Array(quiz.questions.length).fill(null),
       explanationOpen: Array(quiz.questions.length).fill(false),
       bookmarked: quiz.questions.map(q => initialReviewIds.has(q.id)),
+      objections: Array(quiz.questions.length).fill(false),
       wrongReasons: Array(quiz.questions.length).fill('')
     }};
 
@@ -1005,6 +1075,7 @@ def render_html(quiz):
         state.answers = normalizeArray(saved.answers, state.answers).map(value => value === null ? null : Number(value));
         state.explanationOpen = normalizeArray(saved.explanationOpen, state.explanationOpen).map(Boolean);
         state.bookmarked = normalizeArray(saved.bookmarked, state.bookmarked).map(Boolean);
+        state.objections = normalizeArray(saved.objections, state.objections).map(Boolean);
         state.wrongReasons = normalizeArray(saved.wrongReasons, state.wrongReasons).map(value => String(value || ''));
       }} catch (error) {{
         console.warn('Saved quiz state could not be loaded.', error);
@@ -1021,6 +1092,7 @@ def render_html(quiz):
         answers: state.answers,
         explanationOpen: state.explanationOpen,
         bookmarked: state.bookmarked,
+        objections: state.objections,
         wrongReasons: state.wrongReasons
       }};
       localStorage.setItem(storageKey, JSON.stringify(payload));
@@ -1029,8 +1101,24 @@ def render_html(quiz):
     function score() {{
       if (reviewMode) return Number(completedAttempt.score || 0);
       return state.answers.reduce((total, selected, index) => {{
-        return total + (selected === quiz.questions[index].answerIndex ? 1 : 0);
+        return total + (isCorrectAnswer(quiz.questions[index], selected) ? 1 : 0);
       }}, 0);
+    }}
+
+    function correctIndexes(q) {{
+      const raw = q.answerIndexes || q.officialAnswerIndexes || q.answerEvidence?.officialAnswerIndexes || [q.answerIndex];
+      return (Array.isArray(raw) ? raw : [raw])
+        .map(value => Number(value))
+        .filter(value => Number.isInteger(value) && value >= 0);
+    }}
+
+    function isCorrectAnswer(q, selected) {{
+      if (selected === null || selected === undefined || Number.isNaN(Number(selected))) return false;
+      return correctIndexes(q).includes(Number(selected));
+    }}
+
+    function correctLabel(q) {{
+      return correctIndexes(q).map(index => circled[index] || String(index + 1)).join(', ');
     }}
 
     function answeredCount() {{
@@ -1057,8 +1145,12 @@ def render_html(quiz):
             <div class="q-count">Q${{index + 1}} · ${{escapeHtml(q.topic)}}</div>
             <div class="topic">
               <span>${{q.year}} 기출</span>
+              ${{verificationBadges(q)}}
               <button class="bookmark-toggle ${{state.bookmarked[index] ? 'active' : ''}}" type="button" data-question="${{index}}" aria-label="다시 볼 문제 표시" aria-pressed="${{state.bookmarked[index] ? 'true' : 'false'}}">
                 <span class="bookmark-icon">${{state.bookmarked[index] ? '☑' : '☐'}}</span><span>다시 보기</span>
+              </button>
+              <button class="bookmark-toggle issue-toggle ${{state.objections[index] ? 'active' : ''}}" type="button" data-question="${{index}}" aria-label="문제 이의제기 표시" aria-pressed="${{state.objections[index] ? 'true' : 'false'}}">
+                <span class="bookmark-icon">${{state.objections[index] ? '!' : '?'}}</span><span>이의제기</span>
               </button>
             </div>
           </div>
@@ -1070,6 +1162,7 @@ def render_html(quiz):
           <div class="feedback ${{state.explanationOpen[index] || (!reviewMode && state.answers[index] !== null) ? 'visible' : ''}}">
             ${{feedbackMarkup(q, index)}}
           </div>
+          ${{state.objections[index] ? '<div class="issue-note">이 문항은 이의제기 문제로 따로 분류됩니다. 저장 후 Diana가 원문·공식정답·해설 근거를 다시 확인해 피드백할 수 있습니다.</div>' : ''}}
         </article>
       `).join('');
 
@@ -1079,7 +1172,7 @@ def render_html(quiz):
           if (state.answers[questionIndex] !== null) return;
           const choiceIndex = Number(button.dataset.choice);
           state.answers[questionIndex] = choiceIndex;
-          if (reviewMode || choiceIndex !== quiz.questions[questionIndex].answerIndex) {{
+          if (reviewMode || !isCorrectAnswer(quiz.questions[questionIndex], choiceIndex)) {{
             state.explanationOpen[questionIndex] = true;
           }}
           saveState();
@@ -1090,7 +1183,11 @@ def render_html(quiz):
       quizView.querySelectorAll('.bookmark-toggle').forEach(button => {{
         button.addEventListener('click', () => {{
           const questionIndex = Number(button.dataset.question);
-          state.bookmarked[questionIndex] = !state.bookmarked[questionIndex];
+          if (button.classList.contains('issue-toggle')) {{
+            state.objections[questionIndex] = !state.objections[questionIndex];
+          }} else {{
+            state.bookmarked[questionIndex] = !state.bookmarked[questionIndex];
+          }}
           saveState();
           render();
         }});
@@ -1109,7 +1206,7 @@ def render_html(quiz):
     function choiceMarkup(q, questionIndex, choice, choiceIndex) {{
       const selected = selectedForQuestion(questionIndex);
       const answered = reviewMode ? state.explanationOpen[questionIndex] : selected !== null;
-      const isCorrect = choiceIndex === q.answerIndex;
+      const isCorrect = isCorrectAnswer(q, choiceIndex);
       const isSelected = choiceIndex === selected;
       const disabled = answered ? 'disabled' : '';
       const classes = [
@@ -1124,6 +1221,14 @@ def render_html(quiz):
           <span class="choice-prefix">${{circled[choiceIndex]}}</span><span class="choice-text">${{escapeHtml(choice)}}</span>
         </button>
       `;
+    }}
+
+    function verificationBadges(q) {{
+      const badges = [];
+      if (q.answerVerified || q.answerStatus === 'official_verified') badges.push('공식정답 검수');
+      if (q.explanationVerified || q.explanationStatus === 'cross_checked') badges.push('해설 교차검수');
+      if (!badges.length) return '';
+      return '<span class="trust-strip">' + badges.map(label => '<span class="verify-badge">' + escapeHtml(label) + '</span>').join('') + '</span>';
     }}
 
     function questionImagesMarkup(q) {{
@@ -1240,10 +1345,10 @@ def render_html(quiz):
       const selected = selectedForQuestion(index);
       if (reviewMode && !state.explanationOpen[index]) return '';
       if (!reviewMode && selected === null) return '';
-      const ok = selected === q.answerIndex;
+      const ok = isCorrectAnswer(q, selected);
       const title = reviewMode
-        ? `풀이완료 · 정답 ${{circled[q.answerIndex]}}`
-        : (ok ? '정답입니다' : `오답입니다 · 정답 ${{circled[q.answerIndex]}}`);
+        ? `풀이완료 · 정답 ${{correctLabel(q)}}`
+        : (ok ? '정답입니다' : `오답입니다 · 정답 ${{correctLabel(q)}}`);
       const reviewPoint = `${{q.topic}} 기준을 다시 확인하고, 같은 표현이 다른 보기로 바뀌어도 핵심어를 먼저 찾기`;
       return `
         <p class="feedback-title ${{ok ? 'ok' : 'bad'}}">${{title}}</p>
@@ -1260,14 +1365,15 @@ def render_html(quiz):
         ? q.choiceExplanations
         : fallbackChoiceExplanations(q);
       return rows.map((text, choiceIndex) => {{
-        const label = choiceIndex === q.answerIndex ? `${{circled[choiceIndex]}} 정답` : `${{circled[choiceIndex]}} 오답`;
-        return `<div class="ex-row"><strong>${{escapeHtml(label)}}</strong><span>${{escapeHtml(text)}}</span></div>`;
+        const label = isCorrectAnswer(q, choiceIndex) ? `${{circled[choiceIndex]}} 정답` : `${{circled[choiceIndex]}} 오답`;
+        const body = typeof text === 'object' && text !== null ? (text.reason || text.fix || text.trap || '') : text;
+        return `<div class="ex-row"><strong>${{escapeHtml(label)}}</strong><span>${{escapeHtml(body)}}</span></div>`;
       }}).join('');
     }}
 
     function fallbackChoiceExplanations(q) {{
       return q.choices.map((choice, choiceIndex) => {{
-        if (choiceIndex === q.answerIndex) {{
+        if (isCorrectAnswer(q, choiceIndex)) {{
           return `정답입니다. ${{q.explanation || '최종정답 기준에 맞는 보기입니다.'}}`;
         }}
         return `정답 기준과 맞지 않는 보기입니다. ${{q.trap || '문제의 핵심 조건과 보기 표현을 나누어 확인하세요.'}} 선택지 표현: ${{choice}}`;
@@ -1292,20 +1398,22 @@ def render_html(quiz):
     function renderResult() {{
       const wrong = quiz.questions
         .map((q, index) => ({{ q, index, selected: state.answers[index] }}))
-        .filter(item => item.selected !== null && item.selected !== item.q.answerIndex);
+        .filter(item => item.selected !== null && !isCorrectAnswer(item.q, item.selected));
       const unanswered = quiz.questions
         .map((q, index) => ({{ q, index, selected: state.answers[index] }}))
         .filter(item => item.selected === null);
       const total = quiz.questions.length;
       const currentScore = score();
-      const reviewItems = buildReviewItems(wrong);
-      const resultText = buildResultText(wrong, unanswered, reviewItems, currentScore, total);
+      const objections = buildObjectionItems();
+      const reviewItems = buildReviewItems(wrong, unanswered, objections);
+      const resultText = buildResultText(wrong, unanswered, reviewItems, objections, currentScore, total);
       const message = buildEncouragement(currentScore, total, wrong.length, unanswered.length);
 
       resultView.innerHTML = `
         <div class="result-hero">
           <div class="result-score">오늘 풀이 완료</div>
           <div class="result-sub">전체 정답률 ${{currentScore}}/${{total}} · 틀린 문제 ${{wrong.length}}개 · 미응답 ${{unanswered.length}}개</div>
+          ${{objections.length ? '<div class="result-sub warn">이의제기 ' + objections.length + '문항은 별도 검수 큐로 분류됩니다.</div>' : ''}}
         </div>
         <section class="result-message">
           <h2>${{escapeHtml(message.title)}}</h2>
@@ -1313,9 +1421,9 @@ def render_html(quiz):
         </section>
         <section class="result-review">
           <h2>오늘 다시 볼 문제</h2>
-          ${{resultReviewMarkup(wrong, unanswered)}}
+          ${{resultReviewMarkup(reviewItems)}}
         </section>
-        ${{syncConfig.enabled ? '<button class="btn primary" id="submitBtn" type="button">결과 저장</button><div class="sync-status" id="syncStatus">저장하면 대시보드와 오답노트에 반영됩니다.</div>' : ''}}
+        ${{syncConfig.enabled ? '<button class="btn primary" id="submitBtn" type="button">결과 저장</button><div class="sync-status" id="syncStatus">저장 요청 후 대시보드와 오답노트에 반영됩니다.</div>' : ''}}
         <div class="result-actions">
           <a href="../wrong-note.html">오답노트 보기</a>
           <a class="secondary" href="../index.html">메인으로</a>
@@ -1332,9 +1440,9 @@ def render_html(quiz):
     async function submitResult(resultText, submitBtn, syncStatus) {{
       if (!syncConfig.enabled || !syncConfig.submitUrl) return;
       submitBtn.disabled = true;
-      submitBtn.textContent = '제출 중';
+      submitBtn.textContent = '저장 요청 중';
       syncStatus.className = 'sync-status';
-      syncStatus.textContent = '결과 저장 중입니다.';
+      syncStatus.textContent = '결과 저장을 요청하는 중입니다.';
       const payload = {{
         source: 'so0258house',
         submittedAt: new Date().toISOString(),
@@ -1351,7 +1459,7 @@ def render_html(quiz):
           headers: {{ 'Content-Type': 'text/plain;charset=utf-8' }},
           body: JSON.stringify(payload)
         }});
-        submitBtn.textContent = '제출 완료';
+        submitBtn.textContent = '저장 요청 완료';
         syncStatus.className = 'sync-status ok';
         syncStatus.textContent = '저장 요청 완료. 잠시 후 대시보드와 오답노트에 반영됩니다.';
       }} catch (error) {{
@@ -1362,25 +1470,26 @@ def render_html(quiz):
       }}
     }}
 
-    function resultReviewMarkup(wrong, unanswered) {{
-      if (!wrong.length && !unanswered.length) {{
+    function resultReviewMarkup(items) {{
+      if (!items.length) {{
         return '<div class="result-clear">오답 없이 마무리했습니다. 오늘은 누적 오답만 가볍게 확인하면 충분합니다.</div>';
       }}
-      const rows = [...wrong, ...unanswered].map(item => {{
+      const rows = items.map(item => {{
         const selectedLabel = item.selected === null ? '미응답' : circled[item.selected];
         const choices = item.q.choices.map((choice, index) => {{
           const classes = [
             'result-review-choice',
-            index === item.q.answerIndex ? 'correct' : '',
+            isCorrectAnswer(item.q, index) ? 'correct' : '',
             index === item.selected ? 'picked' : ''
           ].filter(Boolean).join(' ');
           return `<div class="${{classes}}"><strong>${{circled[index]}}</strong><span>${{escapeHtml(choice)}}</span></div>`;
         }}).join('');
         return `
           <article class="result-review-card">
+            ${{item.priority === 'objection' ? '<div class="result-review-tag">이의제기 검수 예정</div>' : ''}}
             <div class="result-review-meta">
               <span>Q${{item.index + 1}} · ${{escapeHtml(item.q.topic)}}</span>
-              <span>내 답 ${{selectedLabel}} / 정답 ${{circled[item.q.answerIndex]}}</span>
+              <span>내 답 ${{selectedLabel}} / 정답 ${{correctLabel(item.q)}}</span>
             </div>
             <p class="result-review-question">${{escapeHtml(item.q.question)}}</p>
             <div class="result-review-choices">${{choices}}</div>
@@ -1391,10 +1500,19 @@ def render_html(quiz):
       return `<div class="result-review-list">${{rows.join('')}}</div>`;
     }}
 
-    function buildReviewItems(wrong) {{
-      const wrongMap = new Map(wrong.map(item => [item.index, item]));
+    function buildObjectionItems() {{
+      return quiz.questions
+        .map((q, index) => ({{ q, index, selected: state.answers[index] }}))
+        .filter(item => state.objections[item.index]);
+    }}
+
+    function buildReviewItems(wrong, unanswered, objections) {{
       const reviewMap = new Map();
       wrong.forEach(item => reviewMap.set(item.index, {{ ...item, priority: 'wrong' }}));
+      unanswered.forEach(item => {{
+        if (!reviewMap.has(item.index)) reviewMap.set(item.index, {{ ...item, priority: 'unanswered' }});
+      }});
+      objections.forEach(item => reviewMap.set(item.index, {{ ...item, priority: 'objection' }}));
       quiz.questions.forEach((q, index) => {{
         if (state.bookmarked[index] && !reviewMap.has(index)) {{
           reviewMap.set(index, {{ q, index, selected: state.answers[index], priority: 'bookmarked' }});
@@ -1404,7 +1522,8 @@ def render_html(quiz):
         const aReason = state.wrongReasons[a.index] ? 0 : 1;
         const bReason = state.wrongReasons[b.index] ? 0 : 1;
         if (aReason !== bReason) return aReason - bReason;
-        if (a.priority !== b.priority) return a.priority === 'wrong' ? -1 : 1;
+        const rank = {{ objection: 0, wrong: 1, unanswered: 2, bookmarked: 3 }};
+        if (a.priority !== b.priority) return (rank[a.priority] ?? 9) - (rank[b.priority] ?? 9);
         return a.index - b.index;
       }});
     }}
@@ -1442,7 +1561,7 @@ def render_html(quiz):
       }};
     }}
 
-    function buildResultText(wrong, unanswered, reviewItems, currentScore, total) {{
+    function buildResultText(wrong, unanswered, reviewItems, objections, currentScore, total) {{
       const lines = [
         '[HEALTH_EXERCISE_RESULT]',
         `date=${{quiz.date}}`,
@@ -1458,25 +1577,31 @@ def render_html(quiz):
         const selected = state.answers[index];
         const selectedText = selected === null ? 'none' : selected + 1;
         const bookmarked = state.bookmarked[index] ? 'yes' : 'no';
+        const objection = state.objections[index] ? 'yes' : 'no';
         const reason = state.wrongReasons[index] || '';
-        const correct = selected !== null && selected === q.answerIndex ? 'yes' : 'no';
-        lines.push(`answerLog=${{q.id}}|topic=${{q.topic}}|selected=${{selectedText}}|answer=${{q.answerIndex + 1}}|correct=${{correct}}|bookmarked=${{bookmarked}}|wrongReason=${{reason || 'none'}}`);
+        const correct = isCorrectAnswer(q, selected) ? 'yes' : 'no';
+        const answerText = correctIndexes(q).map(index => index + 1).join(',');
+        lines.push(`answerLog=${{q.id}}|topic=${{q.topic}}|selected=${{selectedText}}|answer=${{answerText}}|correct=${{correct}}|bookmarked=${{bookmarked}}|objection=${{objection}}|wrongReason=${{reason || 'none'}}`);
       }});
 
       wrong.forEach(item => {{
         const reason = state.wrongReasons[item.index] || '미선택';
         const bookmarked = state.bookmarked[item.index] ? 'yes' : 'no';
-        lines.push(`wrong=${{item.q.id}}|topic=${{item.q.topic}}|selected=${{item.selected === null ? 'none' : item.selected + 1}}|answer=${{item.q.answerIndex + 1}}|wrongReason=${{reason}}|bookmarked=${{bookmarked}}`);
+        lines.push(`wrong=${{item.q.id}}|topic=${{item.q.topic}}|selected=${{item.selected === null ? 'none' : item.selected + 1}}|answer=${{correctIndexes(item.q).map(index => index + 1).join(',')}}|wrongReason=${{reason}}|bookmarked=${{bookmarked}}`);
       }});
 
       unanswered.forEach(item => {{
-        lines.push(`unanswered=${{item.q.id}}|topic=${{item.q.topic}}|answer=${{item.q.answerIndex + 1}}`);
+        lines.push(`unanswered=${{item.q.id}}|topic=${{item.q.topic}}|answer=${{correctIndexes(item.q).map(index => index + 1).join(',')}}`);
       }});
 
       reviewItems
-        .filter(item => item.selected === item.q.answerIndex && state.bookmarked[item.index])
+        .filter(item => isCorrectAnswer(item.q, item.selected) && state.bookmarked[item.index])
         .forEach(item => {{
           lines.push(`review=${{item.q.id}}|topic=${{item.q.topic}}|reason=bookmarked`);
+      }});
+
+      objections.forEach(item => {{
+        lines.push(`objection=${{item.q.id}}|topic=${{item.q.topic}}|selected=${{item.selected === null ? 'none' : item.selected + 1}}|answer=${{correctIndexes(item.q).map(index => index + 1).join(',')}}|reason=user_flagged`);
       }});
 
       lines.push('[/HEALTH_EXERCISE_RESULT]');

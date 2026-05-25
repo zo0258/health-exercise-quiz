@@ -56,6 +56,8 @@ def load_question_map():
 
 def choice_label(value):
     labels = ["①", "②", "③", "④", "⑤"]
+    if isinstance(value, str) and "," in value:
+        return ", ".join(choice_label(item.strip()) for item in value.split(",") if item.strip())
     try:
         return labels[int(value) - 1]
     except (TypeError, ValueError, IndexError):
@@ -78,6 +80,7 @@ def build_data():
     wrong_rounds = Counter()
     wrong = []
     review = []
+    objections = []
 
     for attempt in attempts:
         date = attempt.get("date", "")
@@ -121,6 +124,32 @@ def build_data():
                 "trap": question.get("trap", ""),
                 "choiceExplanations": question.get("choiceExplanations", []),
             })
+        seen_objections = set()
+        for item in attempt.get("objections", []):
+            question_id = item.get("questionId", "")
+            if not question_id or question_id in seen_objections:
+                continue
+            seen_objections.add(question_id)
+            question = questions.get(question_id, {})
+            objections.append({
+                "date": date,
+                "quizId": attempt.get("quizId", ""),
+                "subject": question.get("subject", attempt.get("subject", "")),
+                "questionId": question_id,
+                "topic": item.get("topic") or question.get("topic", ""),
+                "selected": item.get("selected", "none"),
+                "selectedLabel": choice_label(item.get("selected")),
+                "answer": item.get("answer", ""),
+                "answerLabel": choice_label(item.get("answer")),
+                "reason": item.get("reason", "user_flagged"),
+                "question": question.get("question", ""),
+                "choices": question.get("choices", []),
+                "answerIndex": question.get("answerIndex"),
+                "explanation": question.get("explanation", ""),
+                "trap": question.get("trap", ""),
+                "choiceExplanations": question.get("choiceExplanations", []),
+                "status": "검토 대기",
+            })
 
     for item in wrong:
         item["reviewRound"] = wrong_rounds[item["questionId"]]
@@ -136,6 +165,7 @@ def build_data():
             "wrongCount": len(wrong),
             "wrongQuestionCount": len({item["questionId"] for item in wrong}),
             "reviewCount": len(review),
+            "objectionCount": len(objections),
             "masteredCount": len(set(mastered) | set(review_state.get("mastered", []))),
         },
         "mastered": sorted(set(mastered) | set(review_state.get("mastered", []))),
@@ -151,6 +181,7 @@ def build_data():
         },
         "wrong": wrong,
         "review": review,
+        "objections": objections,
     }
 
 
@@ -180,8 +211,15 @@ def render_html(data):
     .stat {{ display:inline-flex; align-items:center; gap:5px; min-height:29px; padding:5px 9px; border:1px solid rgba(102,115,93,.18); border-radius:999px; background:#fbfcfa; }}
     .stat span {{ color:var(--muted); font-size:11.5px; font-weight:850; }}
     .stat strong {{ color:var(--accent-dark); font-size:12.5px; line-height:1; font-weight:950; }}
-    .priority {{ margin:14px 0 14px; padding:14px; border:1px solid rgba(47,107,79,.22); border-left:3px solid var(--accent); border-radius:13px; background:linear-gradient(135deg, rgba(233,238,228,.78), rgba(255,255,255,.76)); box-shadow:0 8px 20px rgba(36,37,34,.04); }}
+    .priority, .objection-panel {{ margin:14px 0 14px; padding:14px; border:1px solid rgba(47,107,79,.22); border-left:3px solid var(--accent); border-radius:13px; background:linear-gradient(135deg, rgba(233,238,228,.78), rgba(255,255,255,.76)); box-shadow:0 8px 20px rgba(36,37,34,.04); }}
     .priority h2 {{ margin:0 0 10px; color:var(--accent-dark); font-size:18px; font-weight:950; }}
+    .objection-panel {{ border-color:rgba(161,107,24,.24); border-left-color:#a16b18; background:linear-gradient(135deg, rgba(255,243,220,.82), rgba(255,255,255,.80)); }}
+    .objection-panel h2 {{ margin:0 0 8px; color:#7d5113; font-size:18px; font-weight:950; }}
+    .objection-panel p {{ margin:0 0 10px; color:#705323; font-size:13px; line-height:1.5; font-weight:800; }}
+    .objection-list {{ display:grid; gap:8px; }}
+    .objection-item {{ display:block; padding:12px; border:1px solid rgba(161,107,24,.22); border-radius:10px; background:#fff; color:var(--ink); text-decoration:none; }}
+    .objection-item strong {{ display:block; font-size:14px; font-weight:950; }}
+    .objection-item span {{ display:block; margin-top:3px; color:#705323; font-size:12.5px; font-weight:800; }}
     .priority-list {{ display:grid; gap:8px; }}
     .priority-item {{ display:block; padding:12px; border:1px solid rgba(102,115,93,.2); border-radius:10px; background:#fff; color:var(--ink); text-decoration:none; }}
     .priority-item strong {{ display:block; font-size:14px; font-weight:950; }}
@@ -233,6 +271,7 @@ def render_html(data):
     <div class="topline"><h1>소빵이의 오답노트</h1><a class="back" href="index.html">Dashboard</a></div>
     <section class="stats" id="stats"></section>
     <section class="priority" id="priority"></section>
+    <section class="objection-panel" id="objections" hidden></section>
     <section class="list" id="list"></section>
   </main>
   <script id="wrong-note-data" type="application/json">{safe_data}</script>
@@ -244,6 +283,7 @@ def render_html(data):
     const list = document.getElementById('list');
     const stats = document.getElementById('stats');
     const priority = document.getElementById('priority');
+    const objections = document.getElementById('objections');
     const importanceKey = 'health-exercise-importance';
     const choiceFlagKey = 'health-exercise-choice-flags';
     const localUpdatedSuffix = ':updated';
@@ -323,8 +363,16 @@ def render_html(data):
       return '오답입니다. ' + (record.trap || '문제 조건과 보기 표현을 분리해서 확인하세요.');
     }}
     function renderStats(items, mastered) {{
-      const rows = [['틀린 문제', items.length + '개'], ['숙지 완료', mastered.size + '개']];
+      const rows = [['틀린 문제', items.length + '개'], ['이의제기', (data.objections || []).length + '개'], ['숙지 완료', mastered.size + '개']];
       stats.innerHTML = rows.map(function(row) {{ return '<div class="stat"><span>' + row[0] + '</span><strong>' + row[1] + '</strong></div>'; }}).join('');
+    }}
+    function renderObjections() {{
+      const items = data.objections || [];
+      if (!items.length) {{ objections.hidden = true; objections.innerHTML = ''; return; }}
+      objections.hidden = false;
+      objections.innerHTML = '<h2>이의제기 문제</h2><p>사용자가 답안 또는 해설 확인을 요청한 문항입니다. 별도 검수 후 피드백 대상으로 분류됩니다.</p><div class="objection-list">' + items.map(function(item, index) {{
+        return '<div class="objection-item"><strong>' + (index + 1) + '. ' + escapeHtml(item.topic || item.questionId) + '</strong><span>' + escapeHtml(item.subject || '') + ' · ' + escapeHtml(item.date || '') + ' · ' + escapeHtml(item.status || '검토 대기') + ' · 내 답 ' + escapeHtml(item.selectedLabel || item.selected || '미응답') + ' / 정답 ' + escapeHtml(item.answerLabel || item.answer || '') + '</span><span>' + escapeHtml(item.question || item.questionId) + '</span></div>';
+      }}).join('') + '</div>';
     }}
     function renderPriority(items, mastered) {{
       const importance = loadImportance();
@@ -349,6 +397,7 @@ def render_html(data):
       const items = groupedWrong();
       renderStats(items, mastered);
       renderPriority(items, mastered);
+      renderObjections();
       const visible = items;
       if (!visible.length) {{ list.innerHTML = '<div class="empty">표시할 오답 문제가 없습니다.</div>'; return; }}
       const cards = visible.map(function(record) {{

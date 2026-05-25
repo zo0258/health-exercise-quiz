@@ -7,6 +7,7 @@ import sys
 import tempfile
 import urllib.parse
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -51,7 +52,7 @@ def read_jsonl(path):
 def parse_key(result_text):
     data = {}
     for line in str(result_text or "").splitlines():
-        if "=" not in line or line.startswith(("wrong=", "review=", "answerLog=", "unanswered=")):
+        if "=" not in line or line.startswith(("wrong=", "review=", "answerLog=", "unanswered=", "objection=")):
             continue
         key, value = line.split("=", 1)
         data[key] = value
@@ -168,8 +169,59 @@ def import_review_state(rows):
     return False
 
 
-def load_existing_keys():
-    return {(row.get("date", ""), row.get("quizId", "")) for row in read_jsonl(ATTEMPTS_PATH)}
+def parse_datetime(value):
+    if not value:
+        return None
+    text = str(value).strip()
+    if text.endswith("Z"):
+        text = text[:-1] + "+00:00"
+    try:
+        parsed = datetime.fromisoformat(text)
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.astimezone()
+    return parsed.astimezone(timezone.utc)
+
+
+def load_existing_import_state():
+    imported_rows = set()
+    latest_by_quiz = {}
+    for row in read_jsonl(ATTEMPTS_PATH):
+        date_text = row.get("date", "")
+        quiz_id = row.get("quizId", "")
+        if not date_text or not quiz_id:
+            continue
+        source_received_at = row.get("sourceReceivedAt")
+        if source_received_at:
+            imported_rows.add((date_text, quiz_id, source_received_at))
+        recorded_at = parse_datetime(row.get("recordedAt"))
+        key = (date_text, quiz_id)
+        if recorded_at and (key not in latest_by_quiz or recorded_at > latest_by_quiz[key]):
+            latest_by_quiz[key] = recorded_at
+    return imported_rows, latest_by_quiz
+
+
+def should_import_row(key, row, imported_rows, latest_by_quiz):
+    source_received_at = str(row.get("receivedAt") or "")
+    if source_received_at and (*key, source_received_at) in imported_rows:
+        return False
+    received_at = parse_datetime(source_received_at)
+    latest_recorded_at = latest_by_quiz.get(key)
+    if latest_recorded_at and received_at and received_at <= latest_recorded_at:
+        return False
+    if latest_recorded_at and not received_at:
+        return False
+    return True
+
+
+def attach_source_received_at(result_text, source_received_at):
+    if not source_received_at or "sourceReceivedAt=" in result_text:
+        return result_text
+    marker = "[/HEALTH_EXERCISE_RESULT]"
+    if marker not in result_text:
+        return result_text
+    return result_text.replace(marker, f"sourceReceivedAt={source_received_at}\n{marker}", 1)
 
 
 def fetch_csv_rows(csv_url):
@@ -215,13 +267,14 @@ def main():
     rows = fetch_rows(config, csv_url=csv_url, web_app_url=args.web_app_url)
     review_state_changed = import_review_state(rows)
 
-    existing = load_existing_keys()
+    imported_rows, latest_by_quiz = load_existing_import_state()
     imported_dates = set()
     for row in rows:
         result_text = row_result_text(row)
         key = parse_key(result_text)
-        if not all(key) or key in existing:
+        if not all(key) or not should_import_row(key, row, imported_rows, latest_by_quiz):
             continue
+        result_text = attach_source_received_at(result_text, str(row.get("receivedAt") or ""))
         with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False) as temp:
             temp.write(result_text)
             temp_path = Path(temp.name)
@@ -229,7 +282,9 @@ def main():
             run([sys.executable, "scripts/record_attempt.py", str(temp_path)])
         finally:
             temp_path.unlink(missing_ok=True)
-        existing.add(key)
+        if row.get("receivedAt"):
+            imported_rows.add((*key, str(row.get("receivedAt"))))
+        latest_by_quiz[key] = datetime.now(timezone.utc)
         imported_dates.add(key[0])
 
     for quiz_date in sorted(imported_dates):

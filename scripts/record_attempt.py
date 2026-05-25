@@ -23,7 +23,7 @@ def parse_result(text):
         raise ValueError("결과 블록을 찾지 못했습니다.")
 
     body = text.split(start, 1)[1].split(end, 1)[0].strip()
-    attempt = {"wrong": [], "review": [], "unanswered": [], "answerLog": []}
+    attempt = {"wrong": [], "review": [], "unanswered": [], "objections": [], "answerLog": []}
     for raw_line in body.splitlines():
         line = raw_line.strip()
         if not line:
@@ -60,6 +60,17 @@ def parse_result(text):
                 key, value = part.split("=", 1)
                 review_item[key] = value
             attempt["review"].append(review_item)
+            continue
+        if line.startswith("objection="):
+            payload = line.removeprefix("objection=")
+            parts = payload.split("|")
+            objection_item = {"questionId": parts[0]}
+            for part in parts[1:]:
+                if "=" not in part:
+                    continue
+                key, value = part.split("=", 1)
+                objection_item[key] = value
+            attempt["objections"].append(objection_item)
             continue
         if line.startswith("unanswered="):
             payload = line.removeprefix("unanswered=")
@@ -148,13 +159,24 @@ def canonicalize_attempt_answers(attempt):
     score = 0
     wrong = []
 
+    def answer_values(question):
+        raw = (
+            question.get("answerIndexes")
+            or question.get("officialAnswerIndexes")
+            or (question.get("answerEvidence") or {}).get("officialAnswerIndexes")
+            or [question.get("answerIndex")]
+        )
+        values = raw if isinstance(raw, list) else [raw]
+        return [str(int(value) + 1) for value in values if value is not None]
+
     for item in attempt.get("answerLog", []):
         question = question_map.get(item.get("questionId"))
         if not question:
             continue
-        answer = str(int(question["answerIndex"]) + 1)
+        answers = answer_values(question)
+        answer = ",".join(answers)
         selected = item.get("selected", "none")
-        correct = "yes" if selected != "none" and selected == answer else "no"
+        correct = "yes" if selected != "none" and selected in answers else "no"
         item["answer"] = answer
         item["correct"] = correct
         if correct == "yes":
@@ -179,11 +201,26 @@ def canonicalize_attempt_answers(attempt):
         unanswered.append({
             "questionId": question["id"],
             "topic": question.get("topic", ""),
-            "answer": str(int(question["answerIndex"]) + 1),
+            "answer": ",".join(answer_values(question)),
         })
 
     attempt["wrong"] = wrong
     attempt["unanswered"] = unanswered
+    existing_objections = {item.get("questionId"): item for item in attempt.get("objections", [])}
+    for item in attempt.get("answerLog", []):
+        if item.get("objection") != "yes":
+            continue
+        question_id = item.get("questionId")
+        if not question_id or question_id in existing_objections:
+            continue
+        existing_objections[question_id] = {
+            "questionId": question_id,
+            "topic": item.get("topic", ""),
+            "selected": item.get("selected", "none"),
+            "answer": item.get("answer", ""),
+            "reason": "user_flagged",
+        }
+    attempt["objections"] = list(existing_objections.values())
     attempt["score"] = score
     attempt["total"] = len(quiz.get("questions", [])) or attempt.get("total", 0)
     attempt["answered"] = len(attempt.get("answerLog", []))
@@ -204,6 +241,7 @@ def render_wrong_note(attempts):
     reason_counter = Counter()
     review_counter = Counter()
     unanswered_counter = Counter()
+    objection_counter = Counter()
     total_score = 0
     total_questions = 0
 
@@ -226,6 +264,9 @@ def render_wrong_note(attempts):
             topic = review.get("topic", "미분류")
             review_counter[topic] += 1
             recent_review.append((attempt.get("date", ""), subject, topic, review))
+        for objection in attempt.get("objections", []):
+            topic = objection.get("topic", "미분류")
+            objection_counter[topic] += 1
         for unanswered in attempt.get("unanswered", []):
             topic = unanswered.get("topic", "미분류")
             unanswered_counter[topic] += 1
@@ -279,6 +320,13 @@ def render_wrong_note(attempts):
             lines.append(f"- {date} | {subject} | {topic} | {review.get('questionId')}")
     else:
         lines.append("- 아직 표시된 다시 볼 문제가 없습니다.")
+
+    lines += ["", "## 이의제기 문제", ""]
+    if objection_counter:
+        for topic, count in objection_counter.most_common(20):
+            lines.append(f"- {topic}: {count}회")
+    else:
+        lines.append("- 아직 이의제기 문제가 없습니다.")
 
     lines += ["", "## 미응답 주의 영역", ""]
     if unanswered_counter:

@@ -542,6 +542,19 @@ def render_index(files):
       line-height: 1.35;
       font-size: 12px;
     }}
+    .trust-note {{
+      width: calc(100% - 10px);
+      margin: 12px auto 0;
+      padding: 10px 12px;
+      border: 1px solid rgba(102, 115, 93, .20);
+      border-radius: 10px;
+      background: rgba(255,255,255,.66);
+      color: var(--accent-dark);
+      font-size: 12.5px;
+      line-height: 1.45;
+      font-weight: 850;
+    }}
+    .trust-note strong {{ font-weight: 950; }}
     .daily-word {{
       width: calc(100% - 10px);
       margin: 16px auto 0;
@@ -709,6 +722,7 @@ def render_index(files):
         <a href="{html.escape(latest_href, quote=True)}"><strong>오늘 문제 풀기</strong><small>{html.escape(latest_status)}</small></a>
         <a href="wrong-note.html"><strong>오답노트 보기</strong><small>틀린 문제·다시 볼 문제</small></a>
       </section>
+      <div class="trust-note"><strong>검수 기준</strong> 공식 최종정답·문항 원문·해설 교차검수를 통과한 문제만 출제합니다.</div>
     </section>
     <section class="daily-word" aria-label="오늘의 한 문장">
       <div class="daily-word-head">

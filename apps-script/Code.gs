@@ -24,10 +24,11 @@ function setup() {
 function doGet(e) {
   setup();
   const action = getAction_(e);
+  const callback = e && e.parameter ? String(e.parameter.callback || '') : '';
   if (action === 'rows') {
-    return json_({ ok: true, rows: readRows_() });
+    return json_({ ok: true, rows: readRows_() }, callback);
   }
-  return json_({ ok: true, service: 'so0258house-sync' });
+  return json_({ ok: true, service: 'so0258house-sync' }, callback);
 }
 
 function doPost(e) {
@@ -93,7 +94,7 @@ function parseResultText_(text) {
   const result = {};
   String(text || '').split('\\n').forEach((line) => {
     const index = line.indexOf('=');
-    if (index === -1 || line.startsWith('wrong=') || line.startsWith('review=') || line.startsWith('answerLog=') || line.startsWith('unanswered=')) {
+    if (index === -1 || line.startsWith('wrong=') || line.startsWith('review=') || line.startsWith('answerLog=') || line.startsWith('unanswered=') || line.startsWith('objection=')) {
       return;
     }
     result[line.slice(0, index)] = line.slice(index + 1);
@@ -101,7 +102,12 @@ function parseResultText_(text) {
   return result;
 }
 
-function json_(payload) {
+function json_(payload, callback) {
+  if (callback) {
+    return ContentService
+      .createTextOutput(callback + '(' + JSON.stringify(payload) + ');')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
   return ContentService
     .createTextOutput(JSON.stringify(payload))
     .setMimeType(ContentService.MimeType.JSON);

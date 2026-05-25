@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-23T13:14:02",
+  "generatedAt": "2026-05-25T13:03:22",
   "stats": {
     "attemptCount": 7,
     "totalScore": 58,
@@ -8,6 +8,7 @@
     "wrongCount": 12,
     "wrongQuestionCount": 12,
     "reviewCount": 4,
+    "objectionCount": 0,
     "masteredCount": 0
   },
   "mastered": [],
@@ -145,8 +146,8 @@
         "㉢ ㉡",
         "㉣ ㉢"
       ],
-      "answerIndex": 1,
-      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
       "trap": "엘리엇과 맥그리거가 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": [],
       "reviewRound": 1
@@ -195,8 +196,8 @@
         "정서의 원형 모형(circumplex model of affect)",
         "적정기능역 모형(zone of optimal functioning model)"
       ],
-      "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
       "trap": "설명하 모형은 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": [],
       "reviewRound": 1
@@ -220,8 +221,8 @@
         "㉠, ㉢, ㉣",
         "㉡, ㉢, ㉣"
       ],
-      "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "answerIndex": 2,
+      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
       "trap": "손상 설명이다 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": [],
       "reviewRound": 1
@@ -245,8 +246,8 @@
         "㉡, ㉢",
         "㉢, ㉣"
       ],
-      "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "answerIndex": 1,
+      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
       "trap": "만성폐쇄성폐질환자 대상 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": [],
       "reviewRound": 1
@@ -270,8 +271,8 @@
         "㉡, ㉢",
         "㉡, ㉣"
       ],
-      "answerIndex": 1,
-      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "answerIndex": 0,
+      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
       "trap": "노뼈와 자뼈 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": [],
       "reviewRound": 1
@@ -320,8 +321,8 @@
         "㉠, ㉢, ㉣",
         "㉡, ㉢, ㉣"
       ],
-      "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "answerIndex": 3,
+      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
       "trap": "바이러스 설명 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": [],
       "reviewRound": 1
@@ -404,5 +405,6 @@
       "trap": "넙다리 삼각 관련 조건과 보기 표현을 섞어 판단하는 문항",
       "choiceExplanations": []
     }
-  ]
+  ],
+  "objections": []
 }
