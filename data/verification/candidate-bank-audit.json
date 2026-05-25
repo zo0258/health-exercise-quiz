@@ -16,12 +16,12 @@
     "total": 1280,
     "statusCounts": {
       "missing_from_auto_bank": 165,
-      "manual_review": 1044,
-      "auto_reject": 71
+      "manual_review": 989,
+      "auto_reject": 126
     },
     "topErrors": {
       "candidate_missing": 165,
-      "page_footer_or_copyright_contamination": 69,
+      "page_footer_or_copyright_contamination": 130,
       "choice_count_not_4": 2
     },
     "topManualChecks": {
@@ -39,41 +39,43 @@
     "bySubject": {
       "건강·체력평가": {
         "missing_from_auto_bank": 20,
-        "manual_review": 138,
-        "auto_reject": 2
+        "manual_review": 136,
+        "auto_reject": 4
       },
       "기능해부학": {
         "missing_from_auto_bank": 22,
-        "manual_review": 106,
-        "auto_reject": 32
+        "auto_reject": 63,
+        "manual_review": 75
       },
       "병태생리학": {
+        "missing_from_auto_bank": 20,
+        "manual_review": 133,
+        "auto_reject": 7
+      },
+      "스포츠심리학": {
         "missing_from_auto_bank": 20,
         "manual_review": 137,
         "auto_reject": 3
       },
-      "스포츠심리학": {
+      "운동부하검사": {
+        "missing_from_auto_bank": 21,
+        "manual_review": 136,
+        "auto_reject": 3
+      },
+      "운동상해": {
+        "missing_from_auto_bank": 22,
+        "manual_review": 94,
+        "auto_reject": 44
+      },
+      "운동생리학": {
         "missing_from_auto_bank": 20,
         "manual_review": 139,
         "auto_reject": 1
       },
-      "운동부하검사": {
-        "missing_from_auto_bank": 21,
-        "manual_review": 137,
-        "auto_reject": 2
-      },
-      "운동상해": {
-        "missing_from_auto_bank": 22,
-        "manual_review": 107,
-        "auto_reject": 31
-      },
-      "운동생리학": {
-        "missing_from_auto_bank": 20,
-        "manual_review": 140
-      },
       "운동처방론": {
         "missing_from_auto_bank": 20,
-        "manual_review": 140
+        "manual_review": 139,
+        "auto_reject": 1
       }
     }
   },
@@ -2700,8 +2702,10 @@
       "subject": "운동상해",
       "topic": "제시한허리뼈의추간판탈출증과 관련된",
       "priority": 1,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "figure_or_table_needs_manual_check",
         "placeholder_explanation",
@@ -2719,8 +2723,10 @@
       "subject": "기능해부학",
       "topic": "척추뼈 특징",
       "priority": 1,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "multi_answer_needs_manual_review",
         "source_stem_needs_manual_review",
@@ -3237,6 +3243,7 @@
       "priority": 1,
       "status": "auto_reject",
       "errors": [
+        "page_footer_or_copyright_contamination",
         "page_footer_or_copyright_contamination"
       ],
       "manualChecks": [
@@ -6208,8 +6215,10 @@
       "subject": "병태생리학",
       "topic": "신경손상 마비",
       "priority": 2,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -6565,8 +6574,10 @@
       "subject": "운동처방론",
       "topic": "ACSM이 권고하",
       "priority": 2,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "choice_text_needs_manual_review",
         "placeholder_explanation",
@@ -7234,8 +7245,10 @@
       "subject": "건강·체력평가",
       "topic": "ACSM이 제시한",
       "priority": 2,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -9483,8 +9496,10 @@
       "subject": "운동부하검사",
       "topic": "미국심폐재활협회 위험분류",
       "priority": 2,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -9878,8 +9893,10 @@
       "subject": "운동생리학",
       "topic": "신경전달물질과 시냅스",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -10106,8 +10123,10 @@
       "subject": "운동상해",
       "topic": "안쪽 정강뼈",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -10181,8 +10200,10 @@
       "subject": "기능해부학",
       "topic": "넙다리 삼각",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -10543,8 +10564,10 @@
       "subject": "기능해부학",
       "topic": "노뼈와 자뼈",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -10562,8 +10585,10 @@
       "subject": "기능해부학",
       "topic": "무릎관절 나사",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -10581,8 +10606,10 @@
       "subject": "기능해부학",
       "topic": "각과 관련된",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -10827,8 +10854,10 @@
       "subject": "운동상해",
       "topic": "봉우리빗장관절 손상",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "multi_answer_needs_manual_review",
         "source_stem_needs_manual_review",
@@ -10884,8 +10913,10 @@
       "subject": "기능해부학",
       "topic": "오목위팔관절 능동",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "choice_text_needs_manual_review",
         "placeholder_explanation",
@@ -11183,8 +11214,10 @@
       "subject": "운동상해",
       "topic": "특수검사 설명",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_text_not_matched",
         "placeholder_explanation",
@@ -11220,8 +11253,10 @@
       "subject": "운동상해",
       "topic": "반달연골 설명",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -11407,8 +11442,10 @@
       "subject": "건강·체력평가",
       "topic": "국민체력100 노인",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -11501,8 +11538,10 @@
       "subject": "운동상해",
       "topic": "몰턴신경종 검사",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -12180,8 +12219,10 @@
       "subject": "기능해부학",
       "topic": "발목관절 발바닥",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -12198,8 +12239,10 @@
       "subject": "기능해부학",
       "topic": "움직임과 짝힘",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -12254,8 +12297,10 @@
       "subject": "병태생리학",
       "topic": "허리뼈 추간판탈출증에",
       "priority": 3,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -12959,8 +13004,10 @@
       "subject": "운동상해",
       "topic": "안쪽정강이피로증후군 설명",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -12977,8 +13024,10 @@
       "subject": "운동상해",
       "topic": "안쪽곁인대 손상",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -13204,8 +13253,10 @@
       "subject": "운동상해",
       "topic": "설명하고 가슴",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_text_not_matched",
         "placeholder_explanation",
@@ -13314,8 +13365,10 @@
       "subject": "기능해부학",
       "topic": "태클에 의해서",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "figure_or_table_needs_manual_check",
         "placeholder_explanation",
@@ -13431,8 +13484,10 @@
       "subject": "기능해부학",
       "topic": "어깨관절 움직임과",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -13490,8 +13545,10 @@
       "subject": "기능해부학",
       "topic": "양쪽골반 전방경사",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_text_not_matched",
         "placeholder_explanation",
@@ -13571,8 +13628,10 @@
       "subject": "기능해부학",
       "topic": "체중지지 무릎",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "multi_answer_needs_manual_review",
         "source_stem_needs_manual_review",
@@ -13836,8 +13895,10 @@
       "subject": "병태생리학",
       "topic": "평소 간헐적",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -14903,8 +14964,10 @@
       "subject": "운동상해",
       "topic": "축구 경기",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_text_not_matched",
         "placeholder_explanation",
@@ -15154,6 +15217,7 @@
       "priority": 4,
       "status": "auto_reject",
       "errors": [
+        "page_footer_or_copyright_contamination",
         "page_footer_or_copyright_contamination"
       ],
       "manualChecks": [
@@ -15172,8 +15236,10 @@
       "subject": "기능해부학",
       "topic": "설명하 손목",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -15210,8 +15276,10 @@
       "subject": "기능해부학",
       "topic": "왼쪽 손에",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -16571,8 +16639,10 @@
       "subject": "운동상해",
       "topic": "스포츠 뇌진탕",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -16592,6 +16662,7 @@
       "priority": 4,
       "status": "auto_reject",
       "errors": [
+        "page_footer_or_copyright_contamination",
         "page_footer_or_copyright_contamination"
       ],
       "manualChecks": [
@@ -16822,8 +16893,10 @@
       "subject": "기능해부학",
       "topic": "공개 서탄",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -16901,8 +16974,10 @@
       "subject": "기능해부학",
       "topic": "해부학적 자세",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -18137,8 +18212,10 @@
       "subject": "운동상해",
       "topic": "설명하 손상은",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -18296,6 +18373,7 @@
       "priority": 4,
       "status": "auto_reject",
       "errors": [
+        "page_footer_or_copyright_contamination",
         "page_footer_or_copyright_contamination"
       ],
       "manualChecks": [
@@ -18333,8 +18411,10 @@
       "subject": "기능해부학",
       "topic": "축구공 동작",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "figure_or_table_needs_manual_check",
@@ -18392,8 +18472,10 @@
       "subject": "기능해부학",
       "topic": "관절 움직임",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -18467,8 +18549,10 @@
       "subject": "기능해부학",
       "topic": "보행 입각기",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "multi_answer_needs_manual_review",
         "source_stem_needs_manual_review",
@@ -18506,8 +18590,10 @@
       "subject": "기능해부학",
       "topic": "아래다리 뒤쪽구획에",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -18985,8 +19071,10 @@
       "subject": "스포츠심리학",
       "topic": "구조들 통해",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -19599,6 +19687,7 @@
       "priority": 4,
       "status": "auto_reject",
       "errors": [
+        "page_footer_or_copyright_contamination",
         "page_footer_or_copyright_contamination"
       ],
       "manualChecks": [
@@ -19887,8 +19976,10 @@
       "subject": "기능해부학",
       "topic": "오른쪽 다리",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "figure_or_table_needs_manual_check",
         "placeholder_explanation",
@@ -19998,8 +20089,10 @@
       "subject": "기능해부학",
       "topic": "설명하 특성",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -20097,8 +20190,10 @@
       "subject": "기능해부학",
       "topic": "시계방향 나사",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "multi_answer_needs_manual_review",
         "source_stem_needs_manual_review",
@@ -21196,6 +21291,7 @@
       "priority": 4,
       "status": "auto_reject",
       "errors": [
+        "page_footer_or_copyright_contamination",
         "page_footer_or_copyright_contamination"
       ],
       "manualChecks": [
@@ -21327,8 +21423,10 @@
       "subject": "기능해부학",
       "topic": "가장 가쪽에",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -21404,8 +21502,10 @@
       "subject": "기능해부학",
       "topic": "손과 손목",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -21440,8 +21540,10 @@
       "subject": "기능해부학",
       "topic": "오목위팔 관절",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -21496,8 +21598,10 @@
       "subject": "기능해부학",
       "topic": "해부학적 자세",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -21534,8 +21638,10 @@
       "subject": "기능해부학",
       "topic": "아래다리 앞쪽구획에",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -21646,8 +21752,10 @@
       "subject": "병태생리학",
       "topic": "증상이 나타나",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -22333,8 +22441,10 @@
       "subject": "운동상해",
       "topic": "운동 손상",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -22581,8 +22691,10 @@
       "subject": "기능해부학",
       "topic": "축돌림 단축성",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -22617,8 +22729,10 @@
       "subject": "기능해부학",
       "topic": "설명하 근육",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "source_stem_needs_manual_review",
         "placeholder_explanation",
@@ -22636,8 +22750,10 @@
       "subject": "기능해부학",
       "topic": "근육이 얕은쪽",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "choice_text_needs_manual_review",
         "placeholder_explanation",
@@ -23106,8 +23222,10 @@
       "subject": "스포츠심리학",
       "topic": "합리적 행동이론",
       "priority": 4,
-      "status": "manual_review",
-      "errors": [],
+      "status": "auto_reject",
+      "errors": [
+        "page_footer_or_copyright_contamination"
+      ],
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",

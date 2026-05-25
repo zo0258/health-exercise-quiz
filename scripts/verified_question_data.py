@@ -15,6 +15,8 @@ FOOTER_CONTAMINATION_TERMS = (
     "건강운동관리사 자격검정",
     "본 문제는 저작권법에",
     "한국스포츠정책과학원",
+    "본 제작물에는",
+    "대한인쇄문화협회",
     "페이지",
     "쪽",
 )
@@ -139,6 +141,8 @@ def validate_verified_question(question, path=None):
         errors.append(f"{prefix}: 빈 선택지 포함")
     if len(set(normalized_choices)) != len(normalized_choices):
         errors.append(f"{prefix}: 중복 선택지 포함")
+    if any(term in str(question.get("question") or "") for term in FOOTER_CONTAMINATION_TERMS):
+        errors.append(f"{prefix}: 페이지/저작권 문구가 문제 본문에 섞임")
     if any(any(term in str(choice) for term in FOOTER_CONTAMINATION_TERMS) for choice in choices):
         errors.append(f"{prefix}: 페이지/저작권 문구가 선택지에 섞임")
     if answer_index < 0 or answer_index >= len(choices):

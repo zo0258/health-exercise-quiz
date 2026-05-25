@@ -20,6 +20,8 @@ FOOTER_CONTAMINATION_TERMS = (
     "건강운동관리사 자격검정",
     "본 문제는 저작권법에",
     "한국스포츠정책과학원",
+    "본 제작물에는",
+    "대한인쇄문화협회",
     "페이지",
     "쪽",
 )
@@ -186,6 +188,8 @@ def classify_candidate(question, by_id, by_source):
         errors.append("empty_choice")
     if len(set(normalized_choices)) != len(normalized_choices):
         errors.append("duplicate_choice")
+    if any(term in str(question.get("question") or "") for term in FOOTER_CONTAMINATION_TERMS):
+        errors.append("page_footer_or_copyright_contamination")
     if any(any(term in str(choice) for term in FOOTER_CONTAMINATION_TERMS) for choice in choices):
         errors.append("page_footer_or_copyright_contamination")
     try:

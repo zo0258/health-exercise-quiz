@@ -5,21 +5,21 @@
     "selectionStandard": [
       "공식 정답표와 candidate answerIndex 일치",
       "문제 원문/보기 자동 대조에서 하드 오류 없음",
-      "그림·표·OCR 불일치·원문 불일치·선택지 오염 후보 제외",
+      "그림·표·OCR 불일치·원문 불일치·본문/선택지 오염 후보 제외",
       "출제 승격 전 해설 출처 2개 이상, 선택지별 해설, 수동 승인 필드 필수"
     ],
     "totalAuditItems": 1280,
-    "needsExplanationReviewCandidates": 320,
+    "needsExplanationReviewCandidates": 308,
     "selectedForFirstPromotionPass": 80,
     "bySubjectEligible": {
       "운동생리학": 46,
       "건강·체력평가": 42,
       "운동처방론": 30,
       "운동부하검사": 37,
-      "병태생리학": 44,
-      "스포츠심리학": 55,
-      "운동상해": 32,
-      "기능해부학": 34
+      "병태생리학": 43,
+      "스포츠심리학": 54,
+      "운동상해": 28,
+      "기능해부학": 28
     },
     "bySubjectSelected": {
       "운동생리학": 10,
@@ -33,8 +33,8 @@
     },
     "auditStatusCounts": {
       "missing_from_auto_bank": 165,
-      "manual_review": 1044,
-      "auto_reject": 71
+      "manual_review": 991,
+      "auto_reject": 124
     }
   },
   "items": [
@@ -1465,37 +1465,6 @@
       "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
     },
     {
-      "id": "2023-2A-74-04",
-      "year": 2023,
-      "session": 2,
-      "form": "A",
-      "subject": "운동상해",
-      "subjectCode": 74,
-      "questionNo": 4,
-      "topic": "몰턴신경종 검사",
-      "type": "보기조합",
-      "difficulty": 5,
-      "answerIndex": 3,
-      "answerSymbol": "④",
-      "question": "<보기>에서 몰턴신경종(Morton’s neuroma) 검사에 대한 설명으로 옳은\n것으로만 모두 고른 것은?\n<보기>.\n㉠ 뒤정강신경(posterior tibial nerve)을 두드리면 그 부위부터\n원위부로 저림 증세가 나타난다.\n㉡ 발을 잡고 발허리뼈(metatarsals)의 머리 부분에 가로쪽 압력\n(squeezing)을 가한다.\n㉢ 양성 반응은 발목굴증후군(tarsal tunnel syndrome)의 지표가 된다.\n㉣ 양성 반응은 발허리통증(metatarsalgia)의 지표가 된다.",
-      "choices": [
-        "㉠, ㉢",
-        "㉠, ㉣",
-        "㉡, ㉢",
-        "㉡, ㉣"
-      ],
-      "sourceFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
-      "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
-      "manualChecks": [
-        "placeholder_explanation",
-        "external_sources_missing",
-        "choice_explanations_missing",
-        "manual_approval_missing"
-      ],
-      "promotionStatus": "needs_explanation_and_manual_approval_review",
-      "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
-    },
-    {
       "id": "2023-2A-74-05",
       "year": 2023,
       "session": 2,
@@ -1589,27 +1558,27 @@
       "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
     },
     {
-      "id": "2024-2A-75-07",
-      "year": 2024,
+      "id": "2022-2A-74-12",
+      "year": 2022,
       "session": 2,
       "form": "A",
-      "subject": "기능해부학",
-      "subjectCode": 75,
-      "questionNo": 7,
-      "topic": "발목관절 발바닥",
-      "type": "보기조합",
-      "difficulty": 5,
-      "answerIndex": 0,
-      "answerSymbol": "①",
-      "question": "<보기>에서 발목관절(족관절, ankle joint)의 발바닥 굽힘(저측굴곡, plantar\nflexion)에 작용하는 근육을 모두 고른 것은?\n<보기>.\nㄱ. 뒤정강근(후경골근, tibialis posterior)\nㄴ. 짧은종아리근(단비골근, peroneus brevis)\nㄷ. 짧은발가락굽힘근(단지굴근, flexor digitorum brevis)\nㄹ. 발바닥쪽뼈사이근(저측 골간근, plantar interossei)\nㅁ. 긴발가락굽힘근(장지굴근, flexor digitorum longus)",
+      "subject": "운동상해",
+      "subjectCode": 74,
+      "questionNo": 12,
+      "topic": "투구 가속단계에",
+      "type": "개념구분",
+      "difficulty": 4,
+      "answerIndex": 2,
+      "answerSymbol": "③",
+      "question": "<보기>는 투구 시 가속단계(accelerationphase)에 동원되는 주동근(agonist)과\n이와 관련된 신경지배(innervation)에 관한 설명이다. ㉠, ㉡에 해당하는\n용어를 바르게 나열한 것은?\n<보기>.\n∙ ( ㉠ ) 통증으로 인해 가속단계에서 어깨 관절 동작이 완벽히\n이루어지지 않는다.\n∙ ( ㉠ ) 근육과 관련된 신경지배는 ( ㉡ )이다.\n㉠ ㉡",
       "choices": [
-        "ㄱ, ㄴ, ㅁ",
-        "ㄱ, ㄷ, ㅁ",
-        "ㄴ, ㄷ, ㄹ",
-        "ㄴ, ㄹ, ㅁ"
+        "가시위근(supraspinatus) 어깨위신경(suprascapular nerve)",
+        "큰원근(teres major) 겨드랑신경(axillary nerve)",
+        "어깨밑근(subscapularis) 어깨밑신경(subscapular nerve)",
+        "가시아래근(infraspinatus) 어깨위신경"
       ],
-      "sourceFile": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 2교시 A형.pdf",
-      "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
+      "sourceFile": "materials/raw/kspo/2022/questions/2022 건강운동관리사 필기시험 2교시 A형(게시).pdf",
+      "answerFile": "materials/raw/kspo/2022/final_answer/2022 건강운동관리사 필기시험 최종정답(게시).pdf",
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -1775,68 +1744,6 @@
       "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
     },
     {
-      "id": "2024-2A-75-03",
-      "year": 2024,
-      "session": 2,
-      "form": "A",
-      "subject": "기능해부학",
-      "subjectCode": 75,
-      "questionNo": 3,
-      "topic": "축돌림 단축성",
-      "type": "개념구분",
-      "difficulty": 3,
-      "answerIndex": 2,
-      "answerSymbol": "③",
-      "question": "목의 축돌림(rotation)에서 단축성 수축으로 반대쪽(contralateral) 돌림에\n작용하는 근육은?",
-      "choices": [
-        "목널판근(경판상근, splenius cervicis)",
-        "머리널판근(두판상근, splenius capitis)",
-        "목빗근(흉쇄유돌근, sternocleidomastoid)",
-        "아랫머리빗근(하두사근, oblique capitis inferior)"
-      ],
-      "sourceFile": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 2교시 A형.pdf",
-      "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
-      "manualChecks": [
-        "placeholder_explanation",
-        "external_sources_missing",
-        "choice_explanations_missing",
-        "manual_approval_missing"
-      ],
-      "promotionStatus": "needs_explanation_and_manual_approval_review",
-      "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
-    },
-    {
-      "id": "2023-2A-75-20",
-      "year": 2023,
-      "session": 2,
-      "form": "A",
-      "subject": "기능해부학",
-      "subjectCode": 75,
-      "questionNo": 20,
-      "topic": "아래다리 앞쪽구획에",
-      "type": "부정형",
-      "difficulty": 3,
-      "answerIndex": 2,
-      "answerSymbol": "③",
-      "question": "아래다리(lower leg)의 앞쪽구획(anterior compartment)에 해당하는\n근육이 아닌 것은?",
-      "choices": [
-        "앞정강근(tibialis anterior)",
-        "긴엄지폄근(extensor hallucis longus)",
-        "긴발가락굽힘근(flexor digitorum longus)",
-        "긴발가락폄근(extensor digitorum longus) A형 건강운동관리사 필기시험 2교시 6면"
-      ],
-      "sourceFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
-      "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
-      "manualChecks": [
-        "placeholder_explanation",
-        "external_sources_missing",
-        "choice_explanations_missing",
-        "manual_approval_missing"
-      ],
-      "promotionStatus": "needs_explanation_and_manual_approval_review",
-      "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
-    },
-    {
       "id": "2023-2A-75-17",
       "year": 2023,
       "session": 2,
@@ -1899,27 +1806,89 @@
       "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
     },
     {
-      "id": "2024-2A-76-10",
-      "year": 2024,
+      "id": "2023-2A-75-09",
+      "year": 2023,
       "session": 2,
       "form": "A",
-      "subject": "병태생리학",
-      "subjectCode": 76,
-      "questionNo": 10,
-      "topic": "허리뼈 추간판탈출증에",
-      "type": "보기조합",
-      "difficulty": 5,
+      "subject": "기능해부학",
+      "subjectCode": 75,
+      "questionNo": 9,
+      "topic": "상지 근육과",
+      "type": "개념구분",
+      "difficulty": 3,
       "answerIndex": 2,
       "answerSymbol": "③",
-      "question": "<보기>에서 허리뼈 추간판탈출증(lumbar herniated intervertebral disc)에\n관한 설명으로 옳은 것만을 모두 고른 것은?\n<보기>.\nㄱ. L4-L5와 L5-S1에서 주로 나타난다.\nㄴ. 주된 원인은 외상이나 충격에 의한 섬유륜(annulus fibrosus)의 파열,\n디스크내압 상승, 허리근력 약화 등이다.\nㄷ. 똑바로 서 있는 자세가 의자에 구부리고 앉아 있는 자세 보다\n허리뼈 추간판에 가해지는 압력이 높다.\nㄹ. 장시간 동안 움직이지 않으면 디스크로 가는 혈액공급이 제한되어\n디스크의 변성을 촉진시킬 수 있다.\nㅁ. 섬유륜에 금이 가거나 층판이 파열되면 속질핵(nucleus pulposus)이\n섬유륜의 뒤쪽으로 빠져나가고, 신경을 압박하는 증상을 유발한다.",
+      "question": "상지 근육과 신경지배(innervation)가 바르게 연결된 것은?",
       "choices": [
-        "ㄱ, ㄷ",
-        "ㄴ, ㄹ, ㅁ",
-        "ㄱ, ㄴ, ㄹ, ㅁ",
-        "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"
+        "큰마름근(rhomboid major) - 가슴등신경(thoracodorsal nerve)",
+        "앞톱니근(serratus anterior) - 어깨밑신경(subscapular nerve)",
+        "가시아래근(infraspinatus) - 어깨위신경(suprascapular nerve)",
+        "팔꿈치근(anconeus) - 자신경(ulnar nerve)"
       ],
-      "sourceFile": "materials/raw/kspo/2024/questions/2024 건강운동관리사 필기시험 2교시 A형.pdf",
-      "answerFile": "materials/raw/kspo/2024/final_answer/붙임1. 2024 건강운동관리사 필기시험 최종 정답.pdf",
+      "sourceFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+      "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+      "manualChecks": [
+        "placeholder_explanation",
+        "external_sources_missing",
+        "choice_explanations_missing",
+        "manual_approval_missing"
+      ],
+      "promotionStatus": "needs_explanation_and_manual_approval_review",
+      "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
+    },
+    {
+      "id": "2023-2A-75-04",
+      "year": 2023,
+      "session": 2,
+      "form": "A",
+      "subject": "기능해부학",
+      "subjectCode": 75,
+      "questionNo": 4,
+      "topic": "운동역학적 변인에",
+      "type": "개념구분",
+      "difficulty": 3,
+      "answerIndex": 0,
+      "answerSymbol": "①",
+      "question": "운동역학적(kinetics) 변인(variable)에 해당하는 것은?",
+      "choices": [
+        "충격량(impulse)",
+        "각속도(angular velocity)",
+        "관절가동범위(joint range of motion)",
+        "한걸음 길이(stride length)"
+      ],
+      "sourceFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+      "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+      "manualChecks": [
+        "placeholder_explanation",
+        "external_sources_missing",
+        "choice_explanations_missing",
+        "manual_approval_missing"
+      ],
+      "promotionStatus": "needs_explanation_and_manual_approval_review",
+      "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
+    },
+    {
+      "id": "2023-2A-75-03",
+      "year": 2023,
+      "session": 2,
+      "form": "A",
+      "subject": "기능해부학",
+      "subjectCode": 75,
+      "questionNo": 3,
+      "topic": "운동면이 다른",
+      "type": "개념구분",
+      "difficulty": 3,
+      "answerIndex": 3,
+      "answerSymbol": "④",
+      "question": "운동면(plane of motion)이 다른 것은?",
+      "choices": [
+        "스쿼트(squat) 동작 시 무릎 관절(knee joint) 움직임",
+        "바벨 컬(barbell curl) 동작 시 팔꿈치 관절(elbow joint) 움직임",
+        "데드리프트(deadlift) 동작 시 엉덩 관절(hip joint) 움직임",
+        "레터럴 레이즈(lateral raise) 동작 시 어깨 관절(shoulder joint) 움직임"
+      ],
+      "sourceFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+      "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
       "manualChecks": [
         "placeholder_explanation",
         "external_sources_missing",
@@ -2196,6 +2165,37 @@
         "색전증으로 인한 뇌경색은 심방세동으로 유발될 수 있다.",
         "뇌동맥류의 증상은 갑작스런 극심한 두통이며 치료법으로는 클립결찰술(clipping)이나 코일색전술(coil embolization)이 있다.",
         "일과성허혈발작(transient ischemic attack)은 급성기에 영구적 뇌손상이 특징이다."
+      ],
+      "sourceFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+      "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+      "manualChecks": [
+        "placeholder_explanation",
+        "external_sources_missing",
+        "choice_explanations_missing",
+        "manual_approval_missing"
+      ],
+      "promotionStatus": "needs_explanation_and_manual_approval_review",
+      "nextAction": "원문/보기 하드 오류 없는 후보. 최종 승격 전 해설 출처 2개 이상, 선택지별 해설, reviewer/reviewedAt/manualApproved/sourceEvidence 수동 승인 필요"
+    },
+    {
+      "id": "2023-2A-76-17",
+      "year": 2023,
+      "session": 2,
+      "form": "A",
+      "subject": "병태생리학",
+      "subjectCode": 76,
+      "questionNo": 17,
+      "topic": "콜레스테롤과 혈중지질",
+      "type": "부정형",
+      "difficulty": 3,
+      "answerIndex": 2,
+      "answerSymbol": "③",
+      "question": "콜레스테롤과 혈중지질에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        "세포막 구성성분의 일부는 콜레스테롤로 구성되어 있다.",
+        "혈중지질개선을 위한 약물치료가 식이요법 보다 더 효과적이다.",
+        "중성지방을 제외한 저밀도지단백 콜레스테롤(LDL-C)은 에너지원으로 사용될 수 있다.",
+        "스타틴은 간에서 HMG-CoA 환원효소를 억제하여 콜레스테롤을 개선시키고, 드물게 근육통의 부작용이 나타날 수 있다."
       ],
       "sourceFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
       "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",

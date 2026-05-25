@@ -10,29 +10,29 @@
 
 | status | count |
 |---|---:|
-| manual_review | 1044 |
+| manual_review | 989 |
 | missing_from_auto_bank | 165 |
-| auto_reject | 71 |
+| auto_reject | 126 |
 
 ## 과목별
 
 | 과목 | auto_reject | manual_review | verified_candidate | missing_from_auto_bank |
 |---|---:|---:|---:|---:|
-| 건강·체력평가 | 2 | 138 | 0 | 20 |
-| 기능해부학 | 32 | 106 | 0 | 22 |
-| 병태생리학 | 3 | 137 | 0 | 20 |
-| 스포츠심리학 | 1 | 139 | 0 | 20 |
-| 운동부하검사 | 2 | 137 | 0 | 21 |
-| 운동상해 | 31 | 107 | 0 | 22 |
-| 운동생리학 | 0 | 140 | 0 | 20 |
-| 운동처방론 | 0 | 140 | 0 | 20 |
+| 건강·체력평가 | 4 | 136 | 0 | 20 |
+| 기능해부학 | 63 | 75 | 0 | 22 |
+| 병태생리학 | 7 | 133 | 0 | 20 |
+| 스포츠심리학 | 3 | 137 | 0 | 20 |
+| 운동부하검사 | 3 | 136 | 0 | 21 |
+| 운동상해 | 44 | 94 | 0 | 22 |
+| 운동생리학 | 1 | 139 | 0 | 20 |
+| 운동처방론 | 1 | 139 | 0 | 20 |
 
 ## 주요 자동 탈락 사유
 
 | reason | count |
 |---|---:|
 | candidate_missing | 165 |
-| page_footer_or_copyright_contamination | 69 |
+| page_footer_or_copyright_contamination | 130 |
 | choice_count_not_4 | 2 |
 
 ## 주요 수동검수 사유
