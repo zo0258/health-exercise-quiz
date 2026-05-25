@@ -80,6 +80,17 @@ def held_quizzes():
     return held
 
 
+def quiz_status_for_slug(slug):
+    quiz_json = ROOT / "data" / "quizzes" / f"{slug}-daily.json"
+    if not quiz_json.exists():
+        return "ok"
+    try:
+        quiz = json.loads(quiz_json.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return "invalid"
+    return quiz.get("publishStatus", "ok")
+
+
 def render_hold_page(quiz):
     title = html.escape(quiz.get("title") or "건강운동관리사 데일리 퀴즈")
     date_label = html.escape(quiz.get("displayDate") or quiz.get("date") or "")
@@ -226,6 +237,11 @@ def load_sync_config():
 
 
 def status_badges(date_text, quiz_id, attempts, review_dates):
+    slug = date_text
+    match = re.search(r"-daily-(\d+)-", str(quiz_id or ""))
+    if match:
+        slug = f"{date_text}-{match.group(1)}"
+    is_held = quiz_status_for_slug(slug) == "hold"
     attempt = attempts.get(quiz_id)
     if not re.search(r"-daily-\d+-", str(quiz_id or "")):
         attempt = attempt or attempts.get(date_text)
@@ -236,7 +252,11 @@ def status_badges(date_text, quiz_id, attempts, review_dates):
         badges = [f'<span class="badge done">풀이완료 {html.escape(score_text)}</span>']
         if date_text in review_dates:
             badges.append('<span class="badge review">오답노트 반영</span>')
+        if is_held:
+            badges.append('<span class="badge hold">검수보류</span>')
         return "".join(badges)
+    if is_held:
+        return '<span class="badge hold">검수보류</span>'
     return '<span class="badge pending">미완료</span>'
 
 
@@ -668,6 +688,7 @@ def render_index(files):
     }}
     .done {{ color: #2f583a; background: #e1eddf; }}
     .review {{ color: #6b5425; background: #f0e4ca; }}
+    .hold {{ color: #7d5113; background: #fff3dc; }}
     .pending {{ color: #5f6661; background: #ecefed; }}
     @media (max-width: 430px) {{
       main {{ padding: 18px 12px 24px; }}
@@ -887,9 +908,11 @@ def main():
         target = quiz_dir / f"quiz-{slug}.html"
         shutil.copy2(path, target)
         copied.append(target)
+    held_targets = []
     for slug, quiz in held:
         target = quiz_dir / f"quiz-{slug}.html"
         target.write_text(render_hold_page(quiz), encoding="utf-8")
+        held_targets.append(target)
     wrong_note = ROOT / "wrong-note.html"
     if wrong_note.exists():
         wrong_note_target = site_dir / "wrong-note.html"
@@ -909,10 +932,11 @@ def main():
             if target_assets_dir.exists():
                 shutil.rmtree(target_assets_dir)
             shutil.copytree(assets_dir, target_assets_dir)
-    (site_dir / "index.html").write_text(render_index(copied), encoding="utf-8")
+    index_files = sorted(copied + held_targets, key=quiz_sort_key, reverse=True)
+    (site_dir / "index.html").write_text(render_index(index_files), encoding="utf-8")
 
     print(site_dir)
-    print(f"quizzes={len(copied)}")
+    print(f"quizzes={len(copied)} held={len(held_targets)}")
 
 
 if __name__ == "__main__":
