@@ -1187,6 +1187,13 @@
           "verdict": "incorrect",
           "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉢, ㉣, ㉤'는 문항의 핵심 조건과 일치하지 않는다."
         }
+      ],
+      "images": [
+        {
+          "src": "assets/question-images/2020-2A-75-04.png",
+          "alt": "2020-2A-75-04 원본 그림 문항",
+          "sourcePage": 5
+        }
       ]
     }
   ],

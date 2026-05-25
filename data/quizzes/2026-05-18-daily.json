@@ -25,7 +25,7 @@
         "갑상선 자극호르몬(TSH) 분비 증가"
       ],
       "answerIndex": 1,
-      "explanation": "고온에서는 열 생산을 늘리는 방향보다 열 방출을 돕는 방향의 반응이 중요하다. 대사율과 갑상선계 호르몬 증가는 열 생산 쪽이라 문맥에 맞지 않는다.",
+      "explanation": "공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '부교감신경 활성 증가'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -36,7 +36,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         1
       ],
@@ -64,8 +64,8 @@
             "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
           },
           {
-            "title": "OpenStax Anatomy and Physiology",
-            "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
+            "title": "Merck Manual Professional - Exercise and Fitness",
+            "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
           }
         ]
       },
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "correctRationale": "고온에서는 열 생산을 늘리는 방향보다 열 방출을 돕는 방향의 반응이 중요하다. 대사율과 갑상선계 호르몬 증가는 열 생산 쪽이라 문맥에 맞지 않는다.",
+      "correctRationale": "공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '부교감신경 활성 증가'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "reviewPoint": "체온 조절의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
       "explanationSources": [
         {
@@ -97,8 +97,8 @@
           "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
         },
         {
-          "title": "OpenStax Anatomy and Physiology",
-          "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
+          "title": "Merck Manual Professional - Exercise and Fitness",
+          "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -111,7 +111,7 @@
         {
           "choiceIndex": 1,
           "verdict": "correct",
-          "reason": "공식 정답이다. 고온에서는 열 생산을 늘리는 방향보다 열 방출을 돕는 방향의 반응이 중요하다. 대사율과 갑상선계 호르몬 증가는 열 생산 쪽이라 문맥에 맞지 않는다."
+          "reason": "공식 정답이다. 공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '부교감신경 활성 증가'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
         },
         {
           "choiceIndex": 2,
@@ -152,7 +152,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         1
       ],
@@ -180,8 +180,8 @@
             "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
           },
           {
-            "title": "AHA Exercise Standards for Testing and Training",
-            "url": "https://www.ahajournals.org/"
+            "title": "AHA Scientific Statements",
+            "url": "https://professional.heart.org/en/guidelines-and-statements"
           }
         ]
       },
@@ -213,8 +213,8 @@
           "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
         },
         {
-          "title": "AHA Exercise Standards for Testing and Training",
-          "url": "https://www.ahajournals.org/"
+          "title": "AHA Scientific Statements",
+          "url": "https://professional.heart.org/en/guidelines-and-statements"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -249,7 +249,7 @@
       "type": "부정형",
       "difficulty": 3,
       "trap": "ACSM 권고하 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "ACSM(11판)에서 권고하는 신장질환자를 위한 운동처방 시 고려사항\n으로 옳지 않은 것은?",
+      "question": "ACSM(11판)에서 권고하는 신장질환자를 위한 운동처방 시 고려사항 으로 옳지 않은 것은?",
       "choices": [
         "신장이식을 받은 사람은 거부반응 기간에는 운동을 금지해야 한다.",
         "일반적으로 혈액투석 종료 2시간 후에 운동을 권고한다.",
@@ -268,7 +268,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         0
       ],
@@ -296,8 +296,8 @@
             "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
           },
           {
-            "title": "ACSM Exercise is Medicine",
-            "url": "https://www.exerciseismedicine.org/"
+            "title": "WHO - Physical activity",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
           }
         ]
       },
@@ -329,8 +329,8 @@
           "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
         },
         {
-          "title": "ACSM Exercise is Medicine",
-          "url": "https://www.exerciseismedicine.org/"
+          "title": "WHO - Physical activity",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -365,7 +365,7 @@
       "type": "개념구분",
       "difficulty": 3,
       "trap": "종아리세갈래근 구성하 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "종아리세갈래근 군(triceps surae group)을 구성하는 근육으로 바르게\n연결된 것은?",
+      "question": "종아리세갈래근 군(triceps surae group)을 구성하는 근육으로 바르게 연결된 것은?",
       "choices": [
         "장딴지근(gastrocnemius) - 앞정강근(tibialis anterior)",
         "장딴지근 - 가자미근(soleus)",
@@ -384,7 +384,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         1
       ],
@@ -412,8 +412,8 @@
             "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
           },
           {
-            "title": "Kenhub Anatomy Library",
-            "url": "https://www.kenhub.com/en/library/anatomy"
+            "title": "NCBI Bookshelf - Anatomy",
+            "url": "https://www.ncbi.nlm.nih.gov/books/"
           }
         ]
       },
@@ -445,8 +445,8 @@
           "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
         },
         {
-          "title": "Kenhub Anatomy Library",
-          "url": "https://www.kenhub.com/en/library/anatomy"
+          "title": "NCBI Bookshelf - Anatomy",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -481,7 +481,7 @@
       "type": "개념구분",
       "difficulty": 3,
       "trap": "발목관절 가동화 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "발목관절(talocruraljoint) 가동화(mobilization) 기법과 기대되는 효과가\n바르게 연결된 것은?",
+      "question": "발목관절(talocruraljoint) 가동화(mobilization) 기법과 기대되는 효과가 바르게 연결된 것은?",
       "choices": [
         "목말뼈(talus)를 기준으로 정강뼈(tibia)의 뒤쪽(posterior) 활주(glide) - 발바닥 굽힘(plantar flexion) 증가",
         "목말뼈를 기준으로 정강뼈의 앞쪽(anterior) 활주 - 발바닥 굽힘 증가",
@@ -500,7 +500,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         0
       ],
@@ -597,7 +597,7 @@
       "type": "개념구분",
       "difficulty": 3,
       "trap": "설명하 용어는 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<보기>가 설명하는 용어는?\n<보기>.\n∙ 심박수와 수축기 혈압을 곱한 값이다.\n∙ 관상동맥 혈류 공급과 수요의 문제로 발생되는 심근허혈 증상과\n관련이 있다.",
+      "question": "<보기>가 설명하는 용어는? <보기>. ∙ 심박수와 수축기 혈압을 곱한 값이다. ∙ 관상동맥 혈류 공급과 수요의 문제로 발생되는 심근허혈 증상과 관련이 있다.",
       "choices": [
         "최대산소섭취량(V̇O2max)",
         "심박출량(cardiac output)",
@@ -616,7 +616,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         2
       ],
@@ -644,8 +644,8 @@
             "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
           },
           {
-            "title": "국민체력100 체력측정 항목",
-            "url": "https://nfa.kspo.or.kr/front/measure/measurePhysical.do"
+            "title": "CDC - Physical Activity Basics",
+            "url": "https://www.cdc.gov/physical-activity-basics/"
           }
         ]
       },
@@ -677,8 +677,8 @@
           "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
         },
         {
-          "title": "국민체력100 체력측정 항목",
-          "url": "https://nfa.kspo.or.kr/front/measure/measurePhysical.do"
+          "title": "CDC - Physical Activity Basics",
+          "url": "https://www.cdc.gov/physical-activity-basics/"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -713,7 +713,7 @@
       "type": "개념구분",
       "difficulty": 3,
       "trap": "신체측정법 비만 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<표>에서 ‘A 신체측정법’에 대한 비만 평가 해석으로 옳은 것은?\n구분\nA 신체측정법\n합계\n양성 음성\n비만 15명 10명 25명\n정상 10명 40명 50명\n합계 25명 50명 75명",
+      "question": "<표>에서 ‘A 신체측정법’에 대한 비만 평가 해석으로 옳은 것은? 구분 A 신체측정법 합계 양성 음성 비만 15명 10명 25명 정상 10명 40명 50명 합계 25명 50명 75명",
       "choices": [
         "민감도는 비만이 아닌 사람을 정확하게 식별하는 음성검사 백분율 이다.",
         "특이도는 비만을 정확하게 식별하는 양성검사 백분율이다.",
@@ -732,7 +732,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         3
       ],
@@ -760,8 +760,8 @@
             "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
           },
           {
-            "title": "국민체력100 체력측정 항목",
-            "url": "https://nfa.kspo.or.kr/front/measure/measurePhysical.do"
+            "title": "CDC - Physical Activity Basics",
+            "url": "https://www.cdc.gov/physical-activity-basics/"
           }
         ]
       },
@@ -793,8 +793,8 @@
           "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
         },
         {
-          "title": "국민체력100 체력측정 항목",
-          "url": "https://nfa.kspo.or.kr/front/measure/measurePhysical.do"
+          "title": "CDC - Physical Activity Basics",
+          "url": "https://www.cdc.gov/physical-activity-basics/"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -819,6 +819,13 @@
           "verdict": "correct",
           "reason": "공식 정답이다. 공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 'A 신체측정법의 특이도는 80 %이다.'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
         }
+      ],
+      "images": [
+        {
+          "src": "assets/question-images/2023-1A-71-17.png",
+          "alt": "2023-1A-71-17 원본 그림 문항",
+          "sourcePage": 7
+        }
       ]
     },
     {
@@ -829,7 +836,7 @@
       "type": "빈칸",
       "difficulty": 4,
       "trap": "괄호 안에 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<보기>의 괄호 안에 들어갈 용어는?\n<보기>.\n근육 경련(muscle cramps)과 사후 강직(rigor mortis)은 파워\n스트로크(power stroke) 후 새로운 ( )가 마이오신 머리에 붙지\n않고 액틴과 마이오신의 결합상태가 유지되기 때문에 나타나는\n일시적인 불수의적 수축유지 현상이다.",
+      "question": "<보기>의 괄호 안에 들어갈 용어는? <보기>. 근육 경련(muscle cramps)과 사후 강직(rigor mortis)은 파워 스트로크(power stroke) 후 새로운 ( )가 마이오신 머리에 붙지 않고 액틴과 마이오신의 결합상태가 유지되기 때문에 나타나는 일시적인 불수의적 수축유지 현상이다.",
       "choices": [
         "Pi",
         "AMP",
@@ -848,7 +855,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         3
       ],
@@ -876,8 +883,8 @@
             "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
           },
           {
-            "title": "OpenStax Anatomy and Physiology",
-            "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
+            "title": "Merck Manual Professional - Exercise and Fitness",
+            "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
           }
         ]
       },
@@ -909,8 +916,8 @@
           "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
         },
         {
-          "title": "OpenStax Anatomy and Physiology",
-          "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
+          "title": "Merck Manual Professional - Exercise and Fitness",
+          "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -945,7 +952,7 @@
       "type": "부정형",
       "difficulty": 4,
       "trap": "대사증후군 진단항목 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<보기>에서 대사증후군 진단항목 중 성인치료패널 III(ATPIII, adult\ntreatment panel III)의 기준으로 옳지 않은 것으로만 고른 것은?\n<보기>.\n㉠ 허리둘레: 남성＞110 cm, 여성＞85 cm\n㉡ 공복혈당: ≥100 mg･dL-1\n또는 경구혈당강하제 복용자\n㉢ 고밀도지단백 콜레스테롤(HDL-C): 남성＜35 mg･dL-1\n, 여성\n＜40 mg･dL-1\n또는 고밀도지단백 콜레스테롤 개선제 복용자\n㉣ 중성지방(TG): ≥150 mg･dL-1\n또는 고중성지방강하제 복용자\n㉤ 안정시 수축기혈압/이완기혈압: ≥140/85 mmHg 또는 항고혈압\n약제 복용자",
+      "question": "<보기>에서 대사증후군 진단항목 중 성인치료패널 III(ATPIII, adult treatment panel III)의 기준으로 옳지 않은 것으로만 고른 것은? <보기>. ㉠ 허리둘레: 남성＞110 cm, 여성＞85 cm ㉡ 공복혈당: ≥100 mg･dL-1 또는 경구혈당강하제 복용자 ㉢ 고밀도지단백 콜레스테롤(HDL-C): 남성＜35 mg･dL-1 , 여성 ＜40 mg･dL-1 또는 고밀도지단백 콜레스테롤 개선제 복용자 ㉣ 중성지방(TG): ≥150 mg･dL-1 또는 고중성지방강하제 복용자 ㉤ 안정시 수축기혈압/이완기혈압: ≥140/85 mmHg 또는 항고혈압 약제 복용자",
       "choices": [
         "㉠, ㉡, ㉢",
         "㉠, ㉢, ㉣",
@@ -964,7 +971,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         2
       ],
@@ -988,7 +995,7 @@
       "externalReview": {
         "sources": [
           {
-            "title": "Merck Manual Professional Edition",
+            "title": "Merck Manual Professional",
             "url": "https://www.merckmanuals.com/professional"
           },
           {
@@ -1021,7 +1028,7 @@
       "reviewPoint": "대사증후군 진단항목의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
       "explanationSources": [
         {
-          "title": "Merck Manual Professional Edition",
+          "title": "Merck Manual Professional",
           "url": "https://www.merckmanuals.com/professional"
         },
         {
@@ -1061,7 +1068,7 @@
       "type": "보기조합",
       "difficulty": 4,
       "trap": "숙련자 특성 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<보기>에서 숙련자의 특성으로 옳은 것으로만 모두 고른 것은?\n<보기>.\n㉠ 환경 정보를 빨리 탐색할 수 있다.\n㉡ 새로운 상황에 쉽게 적응할 수 있다.\n㉢ 짧은 시간에 의미 있는 정보를 선택할 수 있다.",
+      "question": "<보기>에서 숙련자의 특성으로 옳은 것으로만 모두 고른 것은? <보기>. ㉠ 환경 정보를 빨리 탐색할 수 있다. ㉡ 새로운 상황에 쉽게 적응할 수 있다. ㉢ 짧은 시간에 의미 있는 정보를 선택할 수 있다.",
       "choices": [
         "㉠, ㉡",
         "㉠, ㉢",
@@ -1080,7 +1087,7 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "공식 KSPO 원문 자동 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
       "answerIndexes": [
         3
       ],
@@ -1108,8 +1115,8 @@
             "url": "https://dictionary.apa.org/"
           },
           {
-            "title": "NCBI PMC Sports Psychology",
-            "url": "https://www.ncbi.nlm.nih.gov/pmc/"
+            "title": "Association for Applied Sport Psychology",
+            "url": "https://appliedsportpsych.org/"
           }
         ]
       },
@@ -1141,8 +1148,8 @@
           "url": "https://dictionary.apa.org/"
         },
         {
-          "title": "NCBI PMC Sports Psychology",
-          "url": "https://www.ncbi.nlm.nih.gov/pmc/"
+          "title": "Association for Applied Sport Psychology",
+          "url": "https://appliedsportpsych.org/"
         }
       ],
       "choiceExplanationsVerified": true,
@@ -1170,5 +1177,6 @@
       ]
     }
   ],
-  "displayStatus": "검수 보류"
+  "displayStatus": "검수 보류",
+  "revalidatedHistorical": true
 }

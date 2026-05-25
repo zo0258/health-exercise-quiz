@@ -126,6 +126,13 @@
           "verdict": "incorrect",
           "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '24명을 대상으로 자료를 수집한 것이다.'는 문항의 핵심 조건과 일치하지 않는다."
         }
+      ],
+      "images": [
+        {
+          "src": "assets/question-images/2016-1A-71-19.png",
+          "alt": "2016-1A-71-19 원본 그림 문항",
+          "sourcePage": 7
+        }
       ]
     },
     {
