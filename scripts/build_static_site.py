@@ -56,6 +56,9 @@ def find_quiz_files(source_dir):
 
 def is_publishable_quiz_html(path):
     _, _, slug, _ = quiz_identity(path)
+    match = re.search(r"\d{4}-\d{2}-\d{2}-(\d+)", slug)
+    if match and int(match.group(1)) > 2:
+        return False
     quiz_json = ROOT / "data" / "quizzes" / f"{slug}-daily.json"
     if not quiz_json.exists():
         return True

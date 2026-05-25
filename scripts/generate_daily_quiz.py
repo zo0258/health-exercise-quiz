@@ -144,7 +144,18 @@ def append_delivery_history(path, quiz):
         file.write(encoded + "\n")
 
 
-def recent_history(delivered, target_date, policy):
+def quiz_sequence(quiz):
+    sequence = quiz.get("sequence")
+    if isinstance(sequence, int):
+        return sequence
+    quiz_id = quiz.get("quizId", "")
+    match = re.search(r"-daily-(\d+)-", quiz_id)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def recent_history(delivered, target_date, policy, target_sequence=None):
     dedupe = policy["deduplication"]
     topic_cutoff = target_date - timedelta(days=dedupe["sameTopicCooldownDays"])
     recent_ids = set()
@@ -153,6 +164,14 @@ def recent_history(delivered, target_date, policy):
 
     for quiz_date, quiz in delivered:
         if quiz_date > target_date:
+            continue
+        sequence = quiz_sequence(quiz)
+        if (
+            target_sequence is not None
+            and quiz_date == target_date
+            and sequence is not None
+            and sequence >= target_sequence
+        ):
             continue
         for question in quiz.get("questions", []):
             recent_ids.add(question["id"])
@@ -249,10 +268,10 @@ def can_add(question, selected, policy, allow_partial):
     return True
 
 
-def select_questions(bank, policy, attempts, delivered, mastered_ids, target_date, count, allow_partial):
+def select_questions(bank, policy, attempts, delivered, mastered_ids, target_date, count, allow_partial, target_sequence=None):
     rng = random.Random(target_date.isoformat())
     subject_targets = dict(policy["defaultSubjectAllocation"])
-    recent_ids, recent_topics, recent_stems = recent_history(delivered, target_date, policy)
+    recent_ids, recent_topics, recent_stems = recent_history(delivered, target_date, policy, target_sequence)
     topic_counter, subject_counter, review_topics = weak_signals(attempts, target_date, policy)
 
     strict_pool = [
@@ -387,7 +406,7 @@ def main():
     parser.add_argument("--attempts", type=Path, default=ATTEMPTS_PATH)
     parser.add_argument("--mastered", type=Path, default=MASTERED_PATH)
     parser.add_argument("--output", type=Path, help="Output quiz JSON path.")
-    parser.add_argument("--sequence", type=int, choices=range(1, 10), metavar="N", help="Daily sequence: 1=오전, 2=저녁.")
+    parser.add_argument("--sequence", type=int, choices=(1, 2), metavar="N", help="Daily sequence: 1=오전, 2=저녁.")
     parser.add_argument("--html", action="store_true", help="Also generate the mobile HTML delivery file.")
     parser.add_argument("--allow-partial", action="store_true", help="검증 로우데이터 안에서만 부분 생성합니다. 미검증 문항은 어떤 경우에도 포함하지 않습니다.")
     parser.add_argument("--skip-validation", action="store_true", help="Skip policy validation after generation.")
@@ -418,7 +437,7 @@ def main():
     mastered_ids = load_mastered(mastered_path)
     delivered = load_delivered_quizzes(QUIZ_DIR, DELIVERY_HISTORY_PATH, bank)
     try:
-        questions, missing_subjects = select_questions(bank, policy, attempts, delivered, mastered_ids, target_date, count, args.allow_partial)
+        questions, missing_subjects = select_questions(bank, policy, attempts, delivered, mastered_ids, target_date, count, args.allow_partial, args.sequence)
     except RuntimeError as error:
         raise SystemExit(f"생성 중단: {error}") from error
     quiz = build_quiz(questions, target_date, args.allow_partial, missing_subjects, args.sequence)

@@ -1,8 +1,8 @@
 {
   "quizId": "2026-05-25-daily-4-all-subjects",
   "date": "2026-05-25",
-  "displayDate": "2026-05-25 (4회)",
-  "slug": "2026-05-25-4",
+  "displayDate": "2026-05-25 (오전)",
+  "slug": "2026-05-25-1",
   "sequence": 4,
   "title": "건강운동관리사 데일리 퀴즈",
   "subject": "전과목",
@@ -1172,5 +1172,7 @@
         }
       ]
     }
-  ]
+  ],
+  "sessionLabel": "오전",
+  "normalizedFrom": "2026-05-25-4"
 }
