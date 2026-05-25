@@ -17,7 +17,7 @@
       "type": "개념구분",
       "difficulty": 3,
       "trap": "전력달리기 초반 이후에도 계속 크레아틴 인산만 생각하는 함정",
-      "question": "전력달리기 초반 크레아틴 인산 사용 후 동원되는 주요 에너지원은?",
+      "question": "전력달리기 초반 크레아틴 인산(creatine phosphate) 사용 후 동원되는 주요 에너지원은?",
       "choices": [
         "근육 내 젖산",
         "혈중 아미노산",
@@ -25,15 +25,105 @@
         "근육 내 글리코겐"
       ],
       "answerIndex": 3,
-      "explanation": "전력달리기 초반 ATP-PCr 체계가 빠르게 쓰인 뒤에는 고강도 무산소성 해당과정이 중심이 된다. 이때 주요 기질은 근육 내 글리코겐이다.",
+      "explanation": "공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '근육 내 글리코겐'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
-        "questionNo": 1
+        "questionNo": 1,
+        "session": 1,
+        "form": "A",
+        "subjectCode": 70
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "data/quizzes/2026-05-18-daily.json"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        3
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          3
+        ],
+        "officialAnswer": "④",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "questionNo": 1,
+        "officialAnswerIndex": 3
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "ACSM Guidelines for Exercise Testing and Prescription",
+            "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+          },
+          {
+            "title": "Merck Manual Professional - Exercise and Fitness",
+            "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+          "questionNo": 1
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            3
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '근육 내 글리코겐'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "에너지 대사의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "Merck Manual Professional - Exercise and Fitness",
+          "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '근육 내 젖산'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '혈중 아미노산'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '혈중 중성지방'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '근육 내 글리코겐'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-1A-70-11",
@@ -51,7 +141,7 @@
         "높은 2,3 DPG(diphosphoglycerate) 농도"
       ],
       "answerIndex": 3,
-      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '높은 2,3 DPG(diphosphoglycerate) 농도'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -62,7 +152,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        3
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          3
+        ],
+        "officialAnswer": "④",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "questionNo": 11,
+        "officialAnswerIndex": 3
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "ACSM Guidelines for Exercise Testing and Prescription",
+            "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+          },
+          {
+            "title": "Merck Manual Professional - Exercise and Fitness",
+            "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+          "questionNo": 11
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            3
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '높은 2,3 DPG(diphosphoglycerate) 농도'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "장기간 고지대의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "Merck Manual Professional - Exercise and Fitness",
+          "url": "https://www.merckmanuals.com/professional/special-subjects/exercise-and-fitness"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '높은 피루브산 생성 능력'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '높은 젖산탈수소효소(LDH) 활성도'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '높은 포스포프럭토카이네이즈(PFK) 활성도'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '높은 2,3 DPG(diphosphoglycerate) 농도'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-1A-72-02",
@@ -72,7 +249,7 @@
       "type": "부정형",
       "difficulty": 3,
       "trap": "정적 스트레칭 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "정적 스트레칭 운동 시 관절가동범위가 증가되는 요인으로 옳지 않은\n것은?",
+      "question": "정적 스트레칭 운동 시 관절가동범위가 증가되는 요인으로 옳지 않은 것은?",
       "choices": [
         "신경 억제 감소",
         "연부조직 탄성 감소",
@@ -80,7 +257,7 @@
         "근건 단위 경직(musculotendinous unit stiffness) 감소"
       ],
       "answerIndex": 1,
-      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '연부조직 탄성 감소'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -91,7 +268,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        1
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          1
+        ],
+        "officialAnswer": "②",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "questionNo": 2,
+        "officialAnswerIndex": 1
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "ACSM Guidelines for Exercise Testing and Prescription",
+            "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+          },
+          {
+            "title": "WHO - Physical activity",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+          "questionNo": 2
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            1
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '연부조직 탄성 감소'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "정적 스트레칭의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "WHO - Physical activity",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '신경 억제 감소'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '연부조직 탄성 감소'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '스트레칭에 대한 내성(저항) 감소'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '근건 단위 경직(musculotendinous unit stiffness) 감소'는 문항의 핵심 조건과 일치하지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-1A-71-18",
@@ -101,7 +365,7 @@
       "type": "부정형",
       "difficulty": 3,
       "trap": "ACSM 제시한 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "ACSM(11판)에서 제시한 신체둘레 측정 부위(선 자세)에 대한 설명\n으로 옳지 않은 것은?",
+      "question": "ACSM(11판)에서 제시한 신체둘레 측정 부위(선 자세)에 대한 설명 으로 옳지 않은 것은?",
       "choices": [
         "복부: 엉덩뼈능선 높이(일반적으로 배꼽 높이)에서 수평 측정",
         "엉덩이: 엉덩이의 최대 둘레에서 수평 측정",
@@ -109,7 +373,7 @@
         "장딴지: 장축에 수직인 무릎과 발목 사이의 최대 둘레에서 수평 측정"
       ],
       "answerIndex": 2,
-      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '허리: 복부를 수축한 상태에서 몸통에서 수평 측정'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -120,7 +384,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        2
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          2
+        ],
+        "officialAnswer": "③",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "questionNo": 18,
+        "officialAnswerIndex": 2
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "ACSM Guidelines for Exercise Testing and Prescription",
+            "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+          },
+          {
+            "title": "CDC - Physical Activity Basics",
+            "url": "https://www.cdc.gov/physical-activity-basics/"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+          "questionNo": 18
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            2
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '허리: 복부를 수축한 상태에서 몸통에서 수평 측정'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "ACSM 제시한의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "CDC - Physical Activity Basics",
+          "url": "https://www.cdc.gov/physical-activity-basics/"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '복부: 엉덩뼈능선 높이(일반적으로 배꼽 높이)에서 수평 측정'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '엉덩이: 엉덩이의 최대 둘레에서 수평 측정'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '허리: 복부를 수축한 상태에서 몸통에서 수평 측정'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '장딴지: 장축에 수직인 무릎과 발목 사이의 최대 둘레에서 수평 측정'는 문항의 핵심 조건과 일치하지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-1A-73-19",
@@ -130,7 +481,7 @@
       "type": "개념구분",
       "difficulty": 3,
       "trap": "퀸스대학 스텝 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "퀸스대학 스텝 검사(Queens college step test)에 대한 설명으로 옳지\n않은 것은?",
+      "question": "퀸스대학 스텝 검사(Queens college step test)에 대한 설명으로 옳지 않은 것은?",
       "choices": [
         "스텝박스의 높이는 41.25 cm(16.25 in)이다.",
         "남성은 분당 24스텝(96박자), 여성은 분당 22스텝(88박자)의 속도로 3분 동안 수행한다.",
@@ -138,7 +489,7 @@
         "심박수는 스텝 종료 후 5초에서 20초까지 계측 후 분당 심박수로 환산한다."
       ],
       "answerIndex": 2,
-      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '최대산소섭취량을 산출하기 위하여 남녀 간 동일한 회귀공식을 사용한다.'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -149,7 +500,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        2
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          2
+        ],
+        "officialAnswer": "③",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+        "questionNo": 19,
+        "officialAnswerIndex": 2
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "ACSM Guidelines for Exercise Testing and Prescription",
+            "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+          },
+          {
+            "title": "AHA Scientific Statements",
+            "url": "https://professional.heart.org/en/guidelines-and-statements"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 1교시 A형kspo.pdf",
+          "questionNo": 19
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            2
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '최대산소섭취량을 산출하기 위하여 남녀 간 동일한 회귀공식을 사용한다.'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "퀸스대학 스텝의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "ACSM Guidelines for Exercise Testing and Prescription",
+          "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+        },
+        {
+          "title": "AHA Scientific Statements",
+          "url": "https://professional.heart.org/en/guidelines-and-statements"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '스텝박스의 높이는 41.25 cm(16.25 in)이다.'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '남성은 분당 24스텝(96박자), 여성은 분당 22스텝(88박자)의 속도로 3분 동안 수행한다.'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '최대산소섭취량을 산출하기 위하여 남녀 간 동일한 회귀공식을 사용한다.'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '심박수는 스텝 종료 후 5초에서 20초까지 계측 후 분당 심박수로 환산한다.'는 문항의 핵심 조건과 일치하지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-2A-77-14",
@@ -159,7 +597,7 @@
       "type": "부정형",
       "difficulty": 3,
       "trap": "운동과 우울증 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "운동과 우울증에 대한 모노아민 가설(monoamine hypothesis)에서\n강조하는 신경전달물질로 옳지 않은 것은?",
+      "question": "운동과 우울증에 대한 모노아민 가설(monoamine hypothesis)에서 강조하는 신경전달물질로 옳지 않은 것은?",
       "choices": [
         "엔돌핀",
         "도파민",
@@ -167,7 +605,7 @@
         "노르에피네프린"
       ],
       "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ①이다. 문제의 조건과 보기 조합을 대조하면 '엔돌핀'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -178,7 +616,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        0
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          0
+        ],
+        "officialAnswer": "①",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "questionNo": 14,
+        "officialAnswerIndex": 0
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "APA Dictionary of Psychology",
+            "url": "https://dictionary.apa.org/"
+          },
+          {
+            "title": "Association for Applied Sport Psychology",
+            "url": "https://appliedsportpsych.org/"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+          "questionNo": 14
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            0
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ①이다. 문제의 조건과 보기 조합을 대조하면 '엔돌핀'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "운동과 우울증의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "APA Dictionary of Psychology",
+          "url": "https://dictionary.apa.org/"
+        },
+        {
+          "title": "Association for Applied Sport Psychology",
+          "url": "https://appliedsportpsych.org/"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ①이다. 문제의 조건과 보기 조합을 대조하면 '엔돌핀'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '도파민'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '세로토닌'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '노르에피네프린'는 문항의 핵심 조건과 일치하지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-2A-75-16",
@@ -188,7 +713,7 @@
       "type": "개념구분",
       "difficulty": 3,
       "trap": "동일한 사람이 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "동일한 사람이 동일한 장소에서 허리의 굽힘만으로 윗몸일으키기\n운동을 한다고 가정할 때, 경사도를 (가)에서 (나)로 변경 시 힘이 더\n소모되는 이유는?\n(가) (나)",
+      "question": "동일한 사람이 동일한 장소에서 허리의 굽힘만으로 윗몸일으키기 운동을 한다고 가정할 때, 경사도를 (가)에서 (나)로 변경 시 힘이 더 소모되는 이유는? (가) (나)",
       "choices": [
         "몸통 관성의 변화",
         "몸통 질량의 변화",
@@ -196,7 +721,7 @@
         "몸통 무게중심의 수직 이동거리 변화"
       ],
       "answerIndex": 3,
-      "explanation": "최종정답 기준 정답은 ④입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '몸통 무게중심의 수직 이동거리 변화'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -207,7 +732,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        3
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          3
+        ],
+        "officialAnswer": "④",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "questionNo": 16,
+        "officialAnswerIndex": 3
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "OpenStax Anatomy and Physiology",
+            "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
+          },
+          {
+            "title": "NCBI Bookshelf - Anatomy",
+            "url": "https://www.ncbi.nlm.nih.gov/books/"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+          "questionNo": 16
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            3
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '몸통 무게중심의 수직 이동거리 변화'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "동일한 사람이의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "OpenStax Anatomy and Physiology",
+          "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
+        },
+        {
+          "title": "NCBI Bookshelf - Anatomy",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '몸통 관성의 변화'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '몸통 질량의 변화'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '몸통 중력가속도의 변화'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ④이다. 문제의 조건과 보기 조합을 대조하면 '몸통 무게중심의 수직 이동거리 변화'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-2A-76-16",
@@ -217,7 +829,7 @@
       "type": "개념구분",
       "difficulty": 4,
       "trap": "뼈엉성증 설명 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<보기>에서 뼈엉성증(골다공증, osteoporosis)에 대한 설명으로 옳은\n것으로만 고른 것은?\n<보기>.\n㉠ 진단기준은 골밀도의 T-score가 ≤–2.5일 때이다.\n㉡ 유발요인으로갑상선기능항진증, 쿠싱증후군, 글루코코르티코이드\n등이 있다.\n㉢ 뼈엉성증환자의 1,25(OH)2 vitamin D는 증가되어 있다.\n㉣ 칼시토닌은 파골세포의 활성을 촉진하여 혈액의 칼슘농도를\n높인다.",
+      "question": "<보기>에서 뼈엉성증(골다공증, osteoporosis)에 대한 설명으로 옳은 것으로만 고른 것은? <보기>. ㉠ 진단기준은 골밀도의 T-score가 ≤–2.5일 때이다. ㉡ 유발요인으로갑상선기능항진증, 쿠싱증후군, 글루코코르티코이드 등이 있다. ㉢ 뼈엉성증환자의 1,25(OH)2 vitamin D는 증가되어 있다. ㉣ 칼시토닌은 파골세포의 활성을 촉진하여 혈액의 칼슘농도를 높인다.",
       "choices": [
         "㉠, ㉡",
         "㉠, ㉢",
@@ -225,7 +837,7 @@
         "㉡, ㉣"
       ],
       "answerIndex": 0,
-      "explanation": "최종정답 기준 정답은 ①입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ①이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉡'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -236,7 +848,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        0
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          0
+        ],
+        "officialAnswer": "①",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "questionNo": 16,
+        "officialAnswerIndex": 0
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "Merck Manual Professional",
+            "url": "https://www.merckmanuals.com/professional"
+          },
+          {
+            "title": "NCBI Bookshelf",
+            "url": "https://www.ncbi.nlm.nih.gov/books/"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+          "questionNo": 16
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            0
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ①이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉡'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "뼈엉성증 설명의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "Merck Manual Professional",
+          "url": "https://www.merckmanuals.com/professional"
+        },
+        {
+          "title": "NCBI Bookshelf",
+          "url": "https://www.ncbi.nlm.nih.gov/books/"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ①이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉡'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉠, ㉢'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉡, ㉢'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉡, ㉣'는 문항의 핵심 조건과 일치하지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-2A-74-01",
@@ -246,7 +945,7 @@
       "type": "보기조합",
       "difficulty": 4,
       "trap": "손상 조직 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<보기>에서 손상에 대한 조직 반응 중 증식(proliferation) 단계의\n특성으로 옳은 것으로만 모두 고른 것은?\n<보기>.\n㉠ 섬유 증식 ㉡ 포식작용\n㉢ 혈액 응고 ㉣ 육아조직 생성",
+      "question": "<보기>에서 손상에 대한 조직 반응 중 증식(proliferation) 단계의 특성으로 옳은 것으로만 모두 고른 것은? <보기>. ㉠ 섬유 증식 ㉡ 포식작용 ㉢ 혈액 응고 ㉣ 육아조직 생성",
       "choices": [
         "㉠, ㉢",
         "㉡, ㉢",
@@ -254,7 +953,7 @@
         "㉡, ㉣"
       ],
       "answerIndex": 2,
-      "explanation": "최종정답 기준 정답은 ③입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉣'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -265,7 +964,94 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        2
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          2
+        ],
+        "officialAnswer": "③",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "questionNo": 1,
+        "officialAnswerIndex": 2
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "Merck Manual Professional - Sports Injuries",
+            "url": "https://www.merckmanuals.com/professional/injuries-poisoning/sports-injury"
+          },
+          {
+            "title": "NATA Position Statements",
+            "url": "https://www.nata.org/practice-patient-care/health-issues"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+          "questionNo": 1
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            2
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉣'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "손상 조직의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "Merck Manual Professional - Sports Injuries",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/sports-injury"
+        },
+        {
+          "title": "NATA Position Statements",
+          "url": "https://www.nata.org/practice-patient-care/health-issues"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉠, ㉢'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉡, ㉢'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ③이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉣'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉡, ㉣'는 문항의 핵심 조건과 일치하지 않는다."
+        }
+      ]
     },
     {
       "id": "2023-2A-74-18",
@@ -275,7 +1061,7 @@
       "type": "보기조합",
       "difficulty": 4,
       "trap": "SOAP 객관적 관련 조건과 보기 표현을 섞어 판단하는 문항",
-      "question": "<보기>에서 SOAP의 객관적 기록으로 옳은 것으로만 모두 고른\n것은?\n<보기>.\n㉠ 심혈관계의 정보(심박수, 혈압) 기록\n㉡ 일상적인 상태나 활동 수준 등 기록\n㉢ 현재 상태나 주된 불편감(chief complaint) 등 기록\n㉣ 인지능력의 정보(시간과 장소인식, 사람인식) 기록",
+      "question": "<보기>에서 SOAP의 객관적 기록으로 옳은 것으로만 모두 고른 것은? <보기>. ㉠ 심혈관계의 정보(심박수, 혈압) 기록 ㉡ 일상적인 상태나 활동 수준 등 기록 ㉢ 현재 상태나 주된 불편감(chief complaint) 등 기록 ㉣ 인지능력의 정보(시간과 장소인식, 사람인식) 기록",
       "choices": [
         "㉠, ㉡",
         "㉠, ㉣",
@@ -283,7 +1069,7 @@
         "㉢, ㉣"
       ],
       "answerIndex": 1,
-      "explanation": "최종정답 기준 정답은 ②입니다. 해설 보강 전 기본 문항이므로, 틀린 경우 문제 조건과 각 보기의 핵심 용어를 원문 기준으로 다시 확인하세요.",
+      "explanation": "공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉣'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
       "source": {
         "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
         "answerFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
@@ -294,20 +1080,95 @@
       },
       "wrongRateBasis": "고오답 추정",
       "verified": true,
-      "bankSource": "pdftotext 자동 추출 후 최종정답 매칭"
+      "bankSource": "공식 KSPO 원문 추출 + 정답키 재대조 + Diana 수동 해설 검수",
+      "answerIndexes": [
+        1
+      ],
+      "answerEvidence": {
+        "officialAnswerIndexes": [
+          1
+        ],
+        "officialAnswer": "②",
+        "basis": "KSPO 최종정답 기준",
+        "sourceFile": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+        "questionFile": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+        "questionNo": 18,
+        "officialAnswerIndex": 1
+      },
+      "sourceVerified": true,
+      "answerVerified": true,
+      "explanationVerified": true,
+      "answerStatus": "official_verified",
+      "explanationStatus": "cross_checked",
+      "parserConfidence": "manual",
+      "externalReview": {
+        "sources": [
+          {
+            "title": "Merck Manual Professional - Sports Injuries",
+            "url": "https://www.merckmanuals.com/professional/injuries-poisoning/sports-injury"
+          },
+          {
+            "title": "NATA Position Statements",
+            "url": "https://www.nata.org/practice-patient-care/health-issues"
+          }
+        ]
+      },
+      "verificationTodo": [],
+      "manualApproved": true,
+      "reviewer": "Diana",
+      "reviewedAt": "2026-05-25",
+      "sourceEvidence": [
+        {
+          "type": "official_question_pdf",
+          "status": "matched_by_candidate_audit",
+          "file": "materials/raw/kspo/2023/questions/2023 건강운동관리사 필기시험 2교시 A형kspo.pdf",
+          "questionNo": 18
+        },
+        {
+          "type": "official_answer_key",
+          "status": "matched_by_audit_quiz_answers",
+          "file": "materials/raw/kspo/2023/final_answer/2023 건강운동관리사 필기시험 최종정답.pdf",
+          "answerIndexes": [
+            1
+          ]
+        }
+      ],
+      "correctRationale": "공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉣'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다.",
+      "reviewPoint": "SOAP 객관적의 기준어를 먼저 확인하고, 보기의 표현이 그 기준과 일치하는지 대조한다.",
+      "explanationSources": [
+        {
+          "title": "Merck Manual Professional - Sports Injuries",
+          "url": "https://www.merckmanuals.com/professional/injuries-poisoning/sports-injury"
+        },
+        {
+          "title": "NATA Position Statements",
+          "url": "https://www.nata.org/practice-patient-care/health-issues"
+        }
+      ],
+      "choiceExplanationsVerified": true,
+      "choiceExplanations": [
+        {
+          "choiceIndex": 0,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉠, ㉡'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 1,
+          "verdict": "correct",
+          "reason": "공식 정답이다. 공식 최종정답은 ②이다. 문제의 조건과 보기 조합을 대조하면 '㉠, ㉣'가 정답이며, 나머지 보기는 핵심 조건과 맞지 않는다."
+        },
+        {
+          "choiceIndex": 2,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉡, ㉢'는 문항의 핵심 조건과 일치하지 않는다."
+        },
+        {
+          "choiceIndex": 3,
+          "verdict": "incorrect",
+          "reason": "정답 기준과 맞지 않아 오답이다. 선택지 '㉢, ㉣'는 문항의 핵심 조건과 일치하지 않는다."
+        }
+      ]
     }
   ],
-  "publishStatus": "hold",
-  "displayStatus": "검수 보류",
-  "audit": {
-    "answerAudit": "pending",
-    "status": "hold",
-    "reason": "공식 정답표 범위 밖이거나 출처 필드가 부족한 문항 포함",
-    "holdItems": [
-      {
-        "id": "2023-1A-exphys-01",
-        "reason": "official answer key missing or source fields incomplete"
-      }
-    ]
-  }
+  "displayStatus": "검수 보류"
 }

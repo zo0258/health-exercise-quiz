@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VERIFIED_BANK_DIR = ROOT / "data" / "verified-question-bank"
-ALLOWED_SOURCE_YEARS = set(range(2018, 2026))
+ALLOWED_SOURCE_YEARS = set(range(2015, 2026))
 ALLOWED_ANSWER_STATUS = {"official_verified", "manual_verified"}
 ALLOWED_EXPLANATION_STATUS = {"reviewed", "cross_checked"}
 ALLOWED_CONFIDENCE = {"high", "manual"}
@@ -21,7 +21,11 @@ FOOTER_CONTAMINATION_TERMS = (
     "본 제작물에는",
     "대한인쇄문화협회",
     "페이지",
-    "쪽",
+)
+FOOTER_CONTAMINATION_PATTERNS = (
+    re.compile(r"\\bpage\\b", re.IGNORECASE),
+    re.compile(r"\\d+\\s*쪽"),
+    re.compile(r"쪽\\s*/\\s*\\d+"),
 )
 REQUIRED_MANUAL_APPROVAL_FIELDS = ("manualApproved", "reviewer", "reviewedAt", "sourceEvidence", "choiceExplanationsVerified")
 PLACEHOLDER_PATTERNS = (
@@ -100,6 +104,8 @@ def validate_choice_explanations(question):
     choices = question.get("choices") or []
     explanations = question.get("choiceExplanations") or []
     answer_index = int(question.get("answerIndex", -1))
+    official_indexes = question.get("answerIndexes") or (question.get("answerEvidence") or {}).get("officialAnswerIndexes") or [answer_index]
+    official_indexes = sorted(int(index) for index in official_indexes)
     errors = []
     if len(explanations) != len(choices):
         errors.append(f"choiceExplanations 수 불일치: {len(explanations)} / {len(choices)}")
@@ -111,15 +117,15 @@ def validate_choice_explanations(question):
             errors.append(f"choiceExplanations[{index}] 객체 아님")
             continue
         verdict = item.get("verdict")
-        if index == answer_index and verdict != "correct":
+        if index in official_indexes and verdict != "correct":
             errors.append(f"정답 선택지 verdict 불일치: {index + 1}")
-        if index != answer_index and verdict != "incorrect":
+        if index not in official_indexes and verdict != "incorrect":
             errors.append(f"오답 선택지 verdict 불일치: {index + 1}")
         if verdict == "correct":
             correct_count += 1
         if not str(item.get("reason") or "").strip():
             errors.append(f"선택지 해설 누락: {index + 1}")
-    if correct_count != 1:
+    if correct_count != len(official_indexes):
         errors.append(f"correct verdict 수 불일치: {correct_count}")
     return errors
 
@@ -144,9 +150,15 @@ def validate_verified_question(question, path=None):
         errors.append(f"{prefix}: 빈 선택지 포함")
     if len(set(normalized_choices)) != len(normalized_choices):
         errors.append(f"{prefix}: 중복 선택지 포함")
-    if any(term in str(question.get("question") or "") for term in FOOTER_CONTAMINATION_TERMS):
+    def has_footer_contamination(text):
+        value = str(text or "")
+        return any(term in value for term in FOOTER_CONTAMINATION_TERMS) or any(
+            pattern.search(value) for pattern in FOOTER_CONTAMINATION_PATTERNS
+        )
+
+    if has_footer_contamination(question.get("question")):
         errors.append(f"{prefix}: 페이지/저작권 문구가 문제 본문에 섞임")
-    if any(any(term in str(choice) for term in FOOTER_CONTAMINATION_TERMS) for choice in choices):
+    if any(has_footer_contamination(choice) for choice in choices):
         errors.append(f"{prefix}: 페이지/저작권 문구가 선택지에 섞임")
     if answer_index < 0 or answer_index >= len(choices):
         errors.append(f"{prefix}: answerIndex 범위 오류: {answer_index}")

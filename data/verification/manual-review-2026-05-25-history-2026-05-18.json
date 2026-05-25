@@ -1,0 +1,65 @@
+{
+  "quiz": "2026-05-18-daily.json",
+  "items": [
+    {
+      "id": "2023-1A-exphys-03",
+      "answerIndex": 1,
+      "subject": "운동생리학",
+      "topic": "체온 조절"
+    },
+    {
+      "id": "2023-1A-73-02",
+      "answerIndex": 1,
+      "subject": "운동부하검사",
+      "topic": "운동부하검사 필요한"
+    },
+    {
+      "id": "2023-1A-72-12",
+      "answerIndex": 0,
+      "subject": "운동처방론",
+      "topic": "ACSM 권고하"
+    },
+    {
+      "id": "2023-2A-75-01",
+      "answerIndex": 1,
+      "subject": "기능해부학",
+      "topic": "종아리세갈래근 구성하"
+    },
+    {
+      "id": "2023-2A-74-11",
+      "answerIndex": 0,
+      "subject": "운동상해",
+      "topic": "발목관절 가동화"
+    },
+    {
+      "id": "2023-1A-71-08",
+      "answerIndex": 2,
+      "subject": "건강·체력평가",
+      "topic": "설명하 용어는"
+    },
+    {
+      "id": "2023-1A-71-17",
+      "answerIndex": 3,
+      "subject": "건강·체력평가",
+      "topic": "신체측정법 비만"
+    },
+    {
+      "id": "2023-1A-70-12",
+      "answerIndex": 3,
+      "subject": "운동생리학",
+      "topic": "괄호 안에"
+    },
+    {
+      "id": "2023-2A-76-18",
+      "answerIndex": 2,
+      "subject": "병태생리학",
+      "topic": "대사증후군 진단항목"
+    },
+    {
+      "id": "2023-2A-77-11",
+      "answerIndex": 3,
+      "subject": "스포츠심리학",
+      "topic": "숙련자 특성"
+    }
+  ]
+}

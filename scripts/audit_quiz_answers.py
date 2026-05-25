@@ -3,6 +3,8 @@ import argparse
 import json
 from pathlib import Path
 
+from extract_kspo_question_bank import SESSION_SUBJECTS, parse_answer_rows
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ANSWER_KEY_PATH = ROOT / "data/verification/answer-key-2018-2025.json"
@@ -71,11 +73,33 @@ def evidence_indexes(question):
     return []
 
 
+def official_from_source_file(question, cache):
+    source = question.get("source") or {}
+    answer_file = source.get("answerFile")
+    if not answer_file:
+        return None
+    answer_path = ROOT / answer_file
+    rows = cache.get(answer_path)
+    if rows is None:
+        rows = parse_answer_rows(answer_path)
+        cache[answer_path] = rows
+
+    session = int(source.get("session"))
+    form = normalize_form(source.get("form"))
+    question_no = int(source.get("questionNo"))
+    subject = question.get("subject")
+    subjects = [name for name, _code in SESSION_SUBJECTS[session]]
+    subject_index = subjects.index(subject)
+    value = rows[(session, form)][subject_index][question_no - 1]
+    return value if isinstance(value, list) else [value]
+
+
 def audit(quiz, answer_key):
     records = answer_key.get("records") or []
     by_id, by_source = answer_key_indexes(records)
     errors = []
     checked = 0
+    source_answer_cache = {}
 
     for position, question in enumerate(quiz.get("questions") or [], start=1):
         question_id = question.get("id") or f"Q{position}"
@@ -97,8 +121,11 @@ def audit(quiz, answer_key):
             )
 
         if official is None:
-            errors.append(f"{question_id}: 공식 정답표에서 문항을 찾지 못함")
-            continue
+            try:
+                official = official_from_source_file(question, source_answer_cache)
+            except Exception as error:
+                errors.append(f"{question_id}: 공식 정답표에서 문항을 찾지 못함 ({error})")
+                continue
 
         checked += 1
         if answer_index not in official:

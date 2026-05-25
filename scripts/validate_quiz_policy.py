@@ -7,13 +7,18 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from extract_kspo_question_bank import parse_answer_rows
+from verified_question_data import (
+    VERIFIED_BANK_DIR,
+    official_answer_index as verified_official_answer_index,
+    validate_verified_question,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "config" / "daily-selection-policy.json"
 ATTEMPTS_PATH = ROOT / "results" / "attempts.jsonl"
 DELIVERY_HISTORY_PATH = ROOT / "data" / "delivery-history.jsonl"
-QUESTION_BANK_DIR = ROOT / "data" / "question-bank"
+QUESTION_BANK_DIR = VERIFIED_BANK_DIR
 HTML_QUIZ_DIR = ROOT / "quizzes"
 
 
@@ -84,6 +89,7 @@ def load_history(path):
 def load_question_bank(bank_dir):
     bank = {}
     duplicates = []
+    validation_errors = []
     for path in sorted(bank_dir.glob("*.jsonl")):
         with path.open("r", encoding="utf-8") as file:
             for line_no, line in enumerate(file, start=1):
@@ -96,6 +102,9 @@ def load_question_bank(bank_dir):
                 if question_id in bank:
                     duplicates.append(question_id)
                     continue
+                validation_errors.extend(
+                    validate_verified_question(question, f"{path.relative_to(ROOT)}:{line_no}")
+                )
                 bank[question_id] = {
                     "question": question,
                     "path": path,
@@ -104,6 +113,10 @@ def load_question_bank(bank_dir):
     if duplicates:
         duplicated = ", ".join(sorted(set(duplicates))[:20])
         raise ValueError(f"문제은행 questionId 중복: {duplicated}")
+    if validation_errors:
+        preview = "\n".join(validation_errors[:80])
+        extra = f"\n...외 {len(validation_errors) - 80}건" if len(validation_errors) > 80 else ""
+        raise ValueError(f"검증 로우데이터 오류:\n{preview}{extra}")
     return bank
 
 
@@ -119,6 +132,10 @@ def infer_session(question):
 
 
 def official_answer_index(question, answer_cache):
+    evidence = question.get("answerEvidence") or {}
+    if evidence:
+        return verified_official_answer_index(question)
+
     source = question.get("source") or {}
     answer_file = source.get("answerFile")
     question_no = source.get("questionNo")
@@ -160,6 +177,8 @@ def validate_answers(questions, bank):
     for question in questions:
         question_id = question.get("id", "id없음")
         answer_index = int(question.get("answerIndex", -1))
+        verified_errors = validate_verified_question(question)
+        errors.extend(f"검증 로우데이터 조건 불충족: {error}" for error in verified_errors)
 
         bank_record = bank.get(question_id)
         if not bank_record:
@@ -178,11 +197,12 @@ def validate_answers(questions, bank):
             errors.append(f"공식 정답 대조 실패: {question_id} ({error})")
             continue
 
-        if answer_index != official_answer:
+        official_answers = official_answer if isinstance(official_answer, list) else [official_answer]
+        if answer_index not in official_answers:
             source = question.get("source") or {}
             errors.append(
                 f"공식 최종정답과 불일치: {question_id} "
-                f"Q{source.get('questionNo', '?')} quiz={answer_index + 1} official={official_answer + 1}"
+                f"Q{source.get('questionNo', '?')} quiz={answer_index + 1} official={','.join(str(value + 1) for value in official_answers)}"
             )
 
     return errors, warnings
@@ -193,16 +213,18 @@ def validate_bank_answers(bank):
     answer_cache = {}
     for question_id, record in sorted(bank.items()):
         question = record["question"]
+        errors.extend(validate_verified_question(question, record["path"].relative_to(ROOT)))
         try:
             official_answer = official_answer_index(question, answer_cache)
         except Exception as error:
             errors.append(f"문제은행 공식 정답 대조 실패: {question_id} ({error})")
             continue
         answer_index = int(question.get("answerIndex", -1))
-        if answer_index != official_answer:
+        official_answers = official_answer if isinstance(official_answer, list) else [official_answer]
+        if answer_index not in official_answers:
             errors.append(
                 f"문제은행 공식 최종정답과 불일치: {question_id} "
-                f"bank={answer_index + 1} official={official_answer + 1}"
+                f"bank={answer_index + 1} official={','.join(str(value + 1) for value in official_answers)}"
             )
     return errors
 
@@ -212,6 +234,7 @@ def validate(quiz, policy, attempts, history, bank):
     warnings = []
     questions = quiz.get("questions", [])
     quiz_date = parse_date(quiz["date"])
+    is_revalidated_historical = bool(quiz.get("revalidatedHistorical"))
     dedupe = policy["deduplication"]
     guards = policy["qualityGuards"]
 
@@ -249,7 +272,11 @@ def validate(quiz, policy, attempts, history, bank):
 
     for answer, count in answers.items():
         if count > guards["answerBalance"]["maxSameAnswerCount"]:
-            errors.append(f"정답 번호 편향 초과: {answer}번 {count}문항")
+            message = f"정답 번호 편향 초과: {answer}번 {count}문항"
+            if is_revalidated_historical:
+                warnings.append(message)
+            else:
+                errors.append(message)
 
     for stem, count in stems.items():
         if count > 1:
@@ -371,7 +398,7 @@ def main():
     parser.add_argument("--policy", type=Path, default=POLICY_PATH)
     parser.add_argument("--attempts", type=Path, default=ATTEMPTS_PATH)
     parser.add_argument("--history", type=Path, default=DELIVERY_HISTORY_PATH)
-    parser.add_argument("--bank-dir", type=Path, default=QUESTION_BANK_DIR)
+    parser.add_argument("--bank-dir", type=Path, default=QUESTION_BANK_DIR, help="검증 완료 로우데이터 JSONL 디렉터리")
     args = parser.parse_args()
 
     if not args.all and not args.quiz_json:
@@ -385,7 +412,10 @@ def main():
     policy = load_json(policy_path)
     attempts = load_attempts(attempts_path)
     history = load_history(history_path)
-    bank = load_question_bank(bank_dir)
+    try:
+        bank = load_question_bank(bank_dir)
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
 
     quiz_paths = []
     if args.all:

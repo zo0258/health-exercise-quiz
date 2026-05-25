@@ -1,0 +1,45 @@
+{
+  "quizFile": "data/quizzes/2026-05-19-daily.json",
+  "promoted": [
+    {
+      "quizId": "2023-1A-exphys-05",
+      "sourceId": "2023-1A-70-05"
+    },
+    {
+      "quizId": "2023-1A-73-17",
+      "sourceId": "2023-1A-73-17"
+    },
+    {
+      "quizId": "2023-2A-74-13",
+      "sourceId": "2023-2A-74-13"
+    },
+    {
+      "quizId": "2023-1A-72-07",
+      "sourceId": "2023-1A-72-07"
+    },
+    {
+      "quizId": "2023-1A-71-20",
+      "sourceId": "2023-1A-71-20"
+    },
+    {
+      "quizId": "2023-1A-70-06",
+      "sourceId": "2023-1A-70-06"
+    },
+    {
+      "quizId": "2023-1A-71-06",
+      "sourceId": "2023-1A-71-06"
+    },
+    {
+      "quizId": "2023-2A-75-15",
+      "sourceId": "2023-2A-75-15"
+    },
+    {
+      "quizId": "2023-2A-77-12",
+      "sourceId": "2023-2A-77-12"
+    },
+    {
+      "quizId": "2023-2A-76-05",
+      "sourceId": "2023-2A-76-05"
+    }
+  ]
+}
