@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Zo0258 Personal DashBoard</title>
+  <style>
+    :root {
+      --bg: #f8f4f1;
+      --surface: #fffefa;
+      --ink: #242522;
+      --muted: #6c746d;
+      --line: #ddd7ca;
+      --sage: #66735d;
+      --sage-dark: #2f3d32;
+      --soft: #e9eee4;
+      --gold: #b89b62;
+      --blue: #536f8a;
+    }
+    * { box-sizing: border-box; min-width: 0; }
+    body {
+      margin: 0;
+      min-height: 100svh;
+      background:
+        radial-gradient(circle at 52% -18%, rgba(102, 115, 93, .15), transparent 19rem),
+        linear-gradient(180deg, #f8f4f1 0%, #f2ede6 100%);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      padding: 24px 18px 36px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .brand img {
+      display: block;
+      width: auto;
+      height: 50px;
+      mix-blend-mode: multiply;
+    }
+    h1 {
+      margin: 0;
+      color: var(--sage-dark);
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border: 1px solid rgba(102, 115, 93, .22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      color: var(--sage-dark);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .hero {
+      padding: 18px;
+      border: 1px solid rgba(102, 115, 93, .20);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255,255,255,.78), rgba(248,244,241,.94));
+      box-shadow: 0 14px 34px rgba(36, 37, 34, .06);
+    }
+    .hero h2 {
+      margin: 0 0 8px;
+      color: var(--sage-dark);
+      font-size: 27px;
+      line-height: 1.16;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 760;
+    }
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-top: 14px;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .action {
+      display: flex;
+      min-height: 78px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 12px;
+      border: 1px solid rgba(102, 115, 93, .22);
+      border-radius: 10px;
+      background: rgba(255,255,255,.86);
+    }
+    .action.primary {
+      color: #fff;
+      border-color: var(--sage-dark);
+      background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+    }
+    .action strong {
+      font-size: 17px;
+      line-height: 1.15;
+      font-weight: 950;
+    }
+    .action small {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .action.primary small { color: rgba(255,255,255,.82); }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .panel {
+      padding: 14px;
+      border: 1px solid rgba(102, 115, 93, .18);
+      border-radius: 12px;
+      background: rgba(255,255,255,.78);
+    }
+    .panel h2 {
+      margin: 0 0 10px;
+      color: var(--sage-dark);
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 950;
+    }
+    ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(102, 115, 93, .12);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+    }
+    li:last-child { border-bottom: 0; }
+    li strong {
+      color: var(--sage-dark);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .notice {
+      margin-top: 12px;
+      padding: 11px 12px;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      background: rgba(255,253,248,.82);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    @media (max-width: 720px) {
+      main { padding: 18px 12px 30px; }
+      header { align-items: flex-start; flex-direction: column; gap: 9px; }
+      .brand img { height: 46px; }
+      h1 { font-size: 27px; }
+      .hero { padding: 15px; }
+      .hero h2 { font-size: 23px; }
+      .quick, .grid { grid-template-columns: 1fr; }
+      .action { min-height: 68px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">
+        <img src="../assets/soo2-logo.png" alt="So02 House">
+        <h1>Personal DashBoard</h1>
+      </div>
+      <span class="chip">Public</span>
+    </header>
+
+    <section class="hero" aria-label="Personal dashboard">
+      <h2>개인 학습과 루틴을 한 곳에서 보기</h2>
+      <p>공개 페이지에는 사적인 Obsidian 메모와 복습 큐를 싣지 않고, 외부에 열어도 되는 학습 진입점만 모았습니다.</p>
+      <div class="quick">
+        <a class="action primary" href="../"><strong>건강운동관리사</strong><small>오늘 문제와 학습 기록</small></a>
+        <a class="action" href="../wrong-note.html"><strong>오답노트</strong><small>틀린 문제·다시 볼 문제</small></a>
+        <a class="action" href="../quizzes/quiz-2026-05-27-1.html"><strong>최근 퀴즈</strong><small>2026-05-27 오전</small></a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Dashboard status">
+      <div class="panel">
+        <h2>운영 모듈</h2>
+        <ul>
+          <li><span>건강운동관리사 퀴즈</span><strong>운영 중</strong></li>
+          <li><span>오답노트</span><strong>운영 중</strong></li>
+          <li><span>개인 지식 대시보드</span><strong>비공개</strong></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>공개 범위</h2>
+        <ul>
+          <li><span>메모 제목·경로</span><strong>제외</strong></li>
+          <li><span>복습 큐 원본</span><strong>제외</strong></li>
+          <li><span>학습 링크</span><strong>공개</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="notice">로컬 개인 대시보드는 영희님 Mac에서만 열리는 <strong>http://127.0.0.1:8787/</strong> 버전으로 유지됩니다.</p>
+  </main>
+</body>
+</html>
